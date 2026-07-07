@@ -1,0 +1,897 @@
+:root{
+  --green-dark:#113d27;
+  --green-main:#1f6b3d;
+  --green:#2f8f4e;
+  --green-soft:#e9f8ee;
+  --green-pale:#f4fff6;
+  --gold:#f4d35e;
+  --gold-soft:#fff7cc;
+  --white:#ffffff;
+  --ink:#173424;
+  --muted:#496b55;
+  --line:#c8edd2;
+  --shadow:0 18px 48px rgba(20,83,45,.13);
+  --shadow-strong:0 28px 76px rgba(20,83,45,.24);
+  --radius-lg:34px;
+  --radius-md:26px;
+  --radius-sm:18px;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0 !important;
+  font-family:
+    "Hiragino Sans",
+    "Yu Gothic",
+    "Meiryo",
+    sans-serif !important;
+  color:var(--ink) !important;
+  background:
+    radial-gradient(circle at 8% 0%,rgba(196,255,209,.65),transparent 26%),
+    radial-gradient(circle at 92% 4%,rgba(255,235,140,.38),transparent 24%),
+    linear-gradient(180deg,#f4fff6 0%,#ffffff 46%,#e8f7ed 100%) !important;
+  line-height:1.72 !important;
+  -webkit-text-size-adjust:100%;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+img{
+  max-width:100%;
+}
+
+button,
+input,
+textarea,
+select{
+  font-family:inherit;
+}
+
+/* =====================
+   共通レイアウト
+===================== */
+
+.wrap{
+  width:min(1080px,94%) !important;
+  margin:auto !important;
+  padding:12px 0 96px !important;
+}
+
+.header{
+  position:sticky !important;
+  top:0 !important;
+  z-index:80 !important;
+  display:flex !important;
+  align-items:center !important;
+  justify-content:space-between !important;
+  gap:12px !important;
+  padding:10px 0 !important;
+  background:rgba(244,255,246,.92) !important;
+  backdrop-filter:blur(16px) !important;
+}
+
+.brand{
+  display:flex !important;
+  align-items:center !important;
+  gap:10px !important;
+  color:var(--green-dark) !important;
+  font-weight:900 !important;
+  letter-spacing:.02em !important;
+}
+
+.brand img{
+  width:42px !important;
+  height:42px !important;
+  border-radius:15px !important;
+  object-fit:cover !important;
+  box-shadow:0 8px 22px rgba(20,83,45,.22) !important;
+}
+
+.brand span{
+  font-size:17px !important;
+  line-height:1.25 !important;
+}
+
+.headerNav{
+  display:flex !important;
+  flex-wrap:wrap !important;
+  gap:7px !important;
+}
+
+.headerNav a{
+  padding:8px 12px !important;
+  border-radius:999px !important;
+  background:#fff !important;
+  border:1px solid rgba(34,132,74,.18) !important;
+  color:#166534 !important;
+  font-size:12px !important;
+  font-weight:900 !important;
+  box-shadow:0 6px 18px rgba(20,83,45,.06) !important;
+}
+
+.headerNav a.active{
+  background:var(--green-dark) !important;
+  color:#fff !important;
+  border-color:var(--green-dark) !important;
+}
+
+/* =====================
+   トップ
+===================== */
+
+.hero{
+  display:grid !important;
+  grid-template-columns:1fr !important;
+  gap:18px !important;
+  align-items:stretch !important;
+}
+
+.heroMain{
+  position:relative !important;
+  overflow:hidden !important;
+  min-height:500px !important;
+  border-radius:var(--radius-lg) !important;
+  background:#0f3f2a !important;
+  box-shadow:var(--shadow-strong) !important;
+}
+
+.heroMain::before{
+  content:"" !important;
+  position:absolute !important;
+  inset:0 !important;
+  background:
+    linear-gradient(180deg,rgba(5,46,22,.05) 0%,rgba(5,46,22,.44) 45%,rgba(5,46,22,.9) 100%),
+    url("images/activity/hero-video.jpg") center/cover no-repeat !important;
+}
+
+.heroText{
+  position:absolute !important;
+  left:0 !important;
+  right:0 !important;
+  bottom:0 !important;
+  padding:26px !important;
+  color:#fff !important;
+}
+
+.kicker,
+.heroBadge{
+  display:inline-flex !important;
+  width:max-content !important;
+  align-items:center !important;
+  gap:8px !important;
+  padding:8px 13px !important;
+  border-radius:999px !important;
+  background:rgba(255,255,255,.16) !important;
+  border:1px solid rgba(255,255,255,.28) !important;
+  color:var(--gold-soft) !important;
+  font-size:13px !important;
+  font-weight:900 !important;
+}
+
+.heroText h1,
+.hero h1{
+  margin:14px 0 0 !important;
+  font-size:clamp(38px,10vw,76px) !important;
+  line-height:1.04 !important;
+  font-weight:900 !important;
+  letter-spacing:.02em !important;
+  color:#fff !important;
+  text-shadow:0 8px 26px rgba(0,0,0,.36) !important;
+}
+
+.heroText h1 span,
+.hero h1 span{
+  display:block !important;
+  color:#fef08a !important;
+}
+
+.heroLead,
+.hero p{
+  max-width:740px !important;
+  margin:14px 0 0 !important;
+  color:#ecfdf5 !important;
+  font-size:clamp(16px,4vw,22px) !important;
+  font-weight:850 !important;
+}
+
+/* =====================
+   入口カード
+===================== */
+
+.introCard,
+.card{
+  background:rgba(255,255,255,.96) !important;
+  border:1px solid rgba(34,132,74,.14) !important;
+  border-radius:30px !important;
+  padding:20px !important;
+  box-shadow:var(--shadow) !important;
+}
+
+.introCard{
+  background:
+    radial-gradient(circle at 100% 0%,rgba(254,240,138,.3),transparent 32%),
+    linear-gradient(135deg,#ffffff,#ecfdf5) !important;
+}
+
+.profileBox{
+  display:flex !important;
+  gap:14px !important;
+  align-items:center !important;
+}
+
+.profileIcon{
+  width:82px !important;
+  height:82px !important;
+  border-radius:26px !important;
+  object-fit:cover !important;
+  background:#dcfce7 !important;
+  flex:0 0 auto !important;
+  box-shadow:0 12px 28px rgba(20,83,45,.18) !important;
+}
+
+.introCard h2,
+.sectionTitle{
+  margin:0 !important;
+  color:var(--green-dark) !important;
+  font-size:clamp(25px,6vw,40px) !important;
+  line-height:1.25 !important;
+  font-weight:900 !important;
+}
+
+.introCard p,
+.sectionLead,
+.text{
+  margin:8px 0 0 !important;
+  color:var(--muted) !important;
+  font-weight:800 !important;
+}
+
+.pointList{
+  display:grid !important;
+  grid-template-columns:1fr !important;
+  gap:10px !important;
+  margin-top:16px !important;
+}
+
+.point{
+  border-radius:20px !important;
+  background:#fff !important;
+  border:1px solid var(--line) !important;
+  padding:13px 14px !important;
+}
+
+.point b{
+  display:block !important;
+  color:var(--green-dark) !important;
+  font-size:16px !important;
+  margin-bottom:3px !important;
+}
+
+.point span{
+  display:block !important;
+  color:var(--muted) !important;
+  font-weight:750 !important;
+  font-size:14px !important;
+}
+
+/* =====================
+   メニュー
+===================== */
+
+.section{
+  margin-top:24px !important;
+}
+
+.sectionHead{
+  margin-bottom:14px !important;
+}
+
+.sectionHead h2{
+  margin:0 !important;
+  color:var(--green-dark) !important;
+  font-size:clamp(27px,6vw,42px) !important;
+  line-height:1.22 !important;
+  font-weight:900 !important;
+}
+
+.sectionHead p{
+  margin:8px 0 0 !important;
+  color:var(--muted) !important;
+  font-weight:800 !important;
+}
+
+.menuGrid{
+  display:grid !important;
+  grid-template-columns:1fr !important;
+  gap:14px !important;
+}
+
+.menuCard{
+  position:relative !important;
+  overflow:hidden !important;
+  display:flex !important;
+  gap:15px !important;
+  align-items:center !important;
+  min-height:122px !important;
+  border-radius:28px !important;
+  padding:17px !important;
+  background:#fff !important;
+  border:1px solid rgba(34,132,74,.15) !important;
+  box-shadow:0 16px 42px rgba(20,83,45,.1) !important;
+}
+
+.menuCard::after{
+  content:"" !important;
+  position:absolute !important;
+  right:-46px !important;
+  bottom:-54px !important;
+  width:150px !important;
+  height:150px !important;
+  border-radius:999px !important;
+  background:rgba(34,197,94,.1) !important;
+}
+
+.menuCard.primary{
+  background:
+    radial-gradient(circle at 100% 0%,rgba(254,240,138,.42),transparent 34%),
+    linear-gradient(135deg,#14532d,#22c55e) !important;
+  color:#fff !important;
+}
+
+.menuIcon{
+  position:relative !important;
+  z-index:1 !important;
+  width:64px !important;
+  height:64px !important;
+  border-radius:23px !important;
+  display:grid !important;
+  place-items:center !important;
+  flex:0 0 auto !important;
+  font-size:32px !important;
+  background:linear-gradient(135deg,#dcfce7,#86efac) !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.75) !important;
+}
+
+.menuCard.primary .menuIcon{
+  background:#fef08a !important;
+}
+
+.menuText{
+  position:relative !important;
+  z-index:1 !important;
+}
+
+.menuText h3{
+  margin:0 !important;
+  color:var(--green-dark) !important;
+  font-size:21px !important;
+  line-height:1.3 !important;
+  font-weight:900 !important;
+}
+
+.menuText p{
+  margin:6px 0 0 !important;
+  color:var(--muted) !important;
+  font-weight:780 !important;
+  font-size:14px !important;
+}
+
+.menuCard.primary .menuText h3,
+.menuCard.primary .menuText p{
+  color:#fff !important;
+}
+
+/* =====================
+   下部ナビ
+===================== */
+
+.bottomNav{
+  position:fixed !important;
+  left:0 !important;
+  right:0 !important;
+  bottom:0 !important;
+  z-index:100 !important;
+  display:grid !important;
+  grid-template-columns:repeat(5,1fr) !important;
+  background:rgba(255,255,255,.96) !important;
+  border-top:1px solid rgba(34,132,74,.18) !important;
+  box-shadow:0 -12px 30px rgba(20,83,45,.12) !important;
+  backdrop-filter:blur(14px) !important;
+}
+
+.bottomNav a{
+  text-align:center !important;
+  color:#166534 !important;
+  padding:8px 4px 7px !important;
+  font-size:11px !important;
+  font-weight:900 !important;
+}
+
+.bottomNav a span{
+  display:block !important;
+  font-size:20px !important;
+  line-height:1.1 !important;
+}
+
+.bottomNav a.active{
+  background:#dcfce7 !important;
+}
+
+/* =====================
+   一覧カード
+===================== */
+
+.activityGrid,
+.videoGrid,
+.itemGrid,
+.profileGrid,
+.categoryGrid,
+.stepGrid{
+  display:grid !important;
+  grid-template-columns:1fr !important;
+  gap:16px !important;
+}
+
+.activityCard,
+.videoCard,
+.profileItem,
+.categoryCard,
+.step,
+.messageCard{
+  overflow:hidden !important;
+  border-radius:28px !important;
+  background:#fff !important;
+  border:1px solid #bbf7d0 !important;
+  box-shadow:0 16px 42px rgba(20,83,45,.11) !important;
+}
+
+.imageScroller{
+  display:flex !important;
+  overflow-x:auto !important;
+  gap:8px !important;
+  padding:10px !important;
+  scroll-snap-type:x mandatory !important;
+  background:#ecfdf5 !important;
+}
+
+.imageScroller img{
+  flex:0 0 88% !important;
+  max-width:88% !important;
+  aspect-ratio:16/10 !important;
+  object-fit:cover !important;
+  border-radius:20px !important;
+  scroll-snap-align:start !important;
+  background:#d1fae5 !important;
+}
+
+.cardBody,
+.profileItemBody,
+.messageBody{
+  padding:18px !important;
+}
+
+.metaRow{
+  display:flex !important;
+  flex-wrap:wrap !important;
+  gap:7px !important;
+  margin-bottom:10px !important;
+}
+
+.badge{
+  display:inline-flex !important;
+  align-items:center !important;
+  gap:5px !important;
+  padding:5px 10px !important;
+  border-radius:999px !important;
+  background:#dcfce7 !important;
+  color:#166534 !important;
+  border:1px solid #bbf7d0 !important;
+  font-size:12px !important;
+  font-weight:900 !important;
+}
+
+.badge.gold{
+  background:#fef9c3 !important;
+  color:#713f12 !important;
+  border-color:#fde68a !important;
+}
+
+.activityTitle,
+.videoTitle,
+.profileItem h3{
+  margin:0 !important;
+  color:var(--green-dark) !important;
+  font-size:22px !important;
+  line-height:1.35 !important;
+  font-weight:900 !important;
+}
+
+.activityText,
+.videoText,
+.profileItem p{
+  margin:10px 0 0 !important;
+  color:var(--muted) !important;
+  font-weight:760 !important;
+  white-space:pre-wrap !important;
+}
+
+/* =====================
+   ボタン
+===================== */
+
+.shareActions,
+.linkActions,
+.buttonRow{
+  display:flex !important;
+  flex-wrap:wrap !important;
+  gap:8px !important;
+  margin-top:14px !important;
+}
+
+.shareActions{
+  display:grid !important;
+  grid-template-columns:repeat(2,1fr) !important;
+}
+
+.smallBtn,
+.btn,
+button{
+  border:0;
+  border-radius:999px !important;
+  padding:11px 12px !important;
+  font-size:14px !important;
+  font-weight:900 !important;
+  cursor:pointer !important;
+  display:inline-block !important;
+  text-align:center !important;
+  background:#ecfdf5 !important;
+  color:#166534 !important;
+  text-decoration:none !important;
+}
+
+.btnLine{
+  background:#06c755 !important;
+  color:#fff !important;
+}
+
+.btnX{
+  background:#111827 !important;
+  color:#fff !important;
+}
+
+.btnFb{
+  background:#1877f2 !important;
+  color:#fff !important;
+}
+
+.btnCopy,
+.btnLight{
+  background:#ecfdf5 !important;
+  color:#14532d !important;
+}
+
+.btnGreen{
+  background:#16a34a !important;
+  color:#fff !important;
+}
+
+.btnDark{
+  background:#14532d !important;
+  color:#fff !important;
+}
+
+.btnYellow{
+  background:#fef08a !important;
+  color:#14532d !important;
+}
+
+.btnYoutube{
+  background:#ff0033 !important;
+  color:#fff !important;
+}
+
+/* =====================
+   ページヒーロー
+===================== */
+
+.pageHero{
+  position:relative !important;
+  overflow:hidden !important;
+  border-radius:34px !important;
+  min-height:400px !important;
+  box-shadow:var(--shadow-strong) !important;
+}
+
+.pageHeroInner{
+  position:absolute !important;
+  left:0 !important;
+  right:0 !important;
+  bottom:0 !important;
+  padding:26px !important;
+  color:#fff !important;
+}
+
+.pageHero h1{
+  margin:14px 0 0 !important;
+  font-size:clamp(36px,10vw,70px) !important;
+  line-height:1.05 !important;
+  font-weight:900 !important;
+  color:#fff !important;
+  text-shadow:0 8px 26px rgba(0,0,0,.36) !important;
+}
+
+.pageHero h1 span{
+  display:block !important;
+  color:#fef08a !important;
+}
+
+.pageHero p{
+  max-width:760px !important;
+  margin:14px 0 0 !important;
+  color:#ecfdf5 !important;
+  font-size:clamp(16px,4vw,22px) !important;
+  font-weight:850 !important;
+}
+
+/* =====================
+   フォーム / 管理画面
+===================== */
+
+.formGrid{
+  display:grid !important;
+  grid-template-columns:1fr !important;
+  gap:14px !important;
+}
+
+.field{
+  margin:0 !important;
+}
+
+label{
+  display:block !important;
+  margin-bottom:6px !important;
+  color:#14532d !important;
+  font-weight:900 !important;
+}
+
+input,
+textarea,
+select{
+  width:100% !important;
+  border:1px solid #a7f3d0 !important;
+  border-radius:16px !important;
+  padding:13px 14px !important;
+  font-size:16px !important;
+  background:#fff !important;
+  color:#173424 !important;
+  outline:none !important;
+}
+
+textarea{
+  min-height:120px !important;
+  resize:vertical !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+  border-color:#16a34a !important;
+  box-shadow:0 0 0 4px rgba(34,197,94,.18) !important;
+}
+
+.help{
+  display:block !important;
+  margin-top:5px !important;
+  color:#55705e !important;
+  font-size:12px !important;
+  font-weight:800 !important;
+}
+
+.status{
+  display:none;
+  margin-top:16px !important;
+  padding:14px !important;
+  border-radius:18px !important;
+  font-weight:900 !important;
+  background:#dcfce7 !important;
+  color:#14532d !important;
+  border:1px solid #86efac !important;
+}
+
+.status.show{
+  display:block !important;
+}
+
+.status.error{
+  background:#fee2e2 !important;
+  color:#991b1b !important;
+  border-color:#fecaca !important;
+}
+
+.preview{
+  white-space:pre-wrap !important;
+  word-break:break-word !important;
+  background:#052e1c !important;
+  color:#ecfdf5 !important;
+  border-radius:18px !important;
+  padding:16px !important;
+  font-size:14px !important;
+  line-height:1.75 !important;
+}
+
+.noteBox,
+.notice{
+  margin-top:16px !important;
+  border-radius:20px !important;
+  background:#fef9c3 !important;
+  border:1px solid #fde68a !important;
+  color:#713f12 !important;
+  padding:14px !important;
+  font-weight:850 !important;
+}
+
+/* =====================
+   その他
+===================== */
+
+.emptyBox{
+  border-radius:24px !important;
+  background:#fff !important;
+  border:1px dashed #86efac !important;
+  color:#365c46 !important;
+  padding:18px !important;
+  font-weight:800 !important;
+}
+
+.footer{
+  margin-top:34px !important;
+  text-align:center !important;
+  color:#365c46 !important;
+  font-size:13px !important;
+  font-weight:800 !important;
+}
+
+/* =====================
+   PC
+===================== */
+
+@media (min-width:820px){
+
+  .hero{
+    grid-template-columns:1.08fr .92fr !important;
+  }
+
+  .heroMain{
+    min-height:620px !important;
+  }
+
+  .introCard{
+    display:flex !important;
+    flex-direction:column !important;
+    justify-content:center !important;
+  }
+
+  .menuGrid{
+    grid-template-columns:repeat(2,1fr) !important;
+  }
+
+  .activityGrid,
+  .videoGrid,
+  .itemGrid{
+    grid-template-columns:repeat(2,1fr) !important;
+  }
+
+  .categoryGrid{
+    grid-template-columns:repeat(3,1fr) !important;
+  }
+
+  .stepGrid{
+    grid-template-columns:repeat(4,1fr) !important;
+  }
+
+  .formGrid{
+    grid-template-columns:1fr 1fr !important;
+  }
+
+  .wide{
+    grid-column:1 / -1 !important;
+  }
+
+  .imageScroller img{
+    flex-basis:72% !important;
+    max-width:72% !important;
+  }
+
+}
+
+/* =====================
+   SP
+===================== */
+
+@media (max-width:560px){
+
+  .wrap{
+    width:94% !important;
+    padding-bottom:96px !important;
+  }
+
+  .headerNav{
+    display:none !important;
+  }
+
+  .brand span{
+    font-size:16px !important;
+  }
+
+  .heroMain{
+    min-height:500px !important;
+    border-radius:30px !important;
+  }
+
+  .heroText{
+    padding:22px !important;
+  }
+
+  .introCard,
+  .card{
+    border-radius:26px !important;
+    padding:18px !important;
+  }
+
+  .profileIcon{
+    width:74px !important;
+    height:74px !important;
+    border-radius:24px !important;
+  }
+
+  .introCard h2{
+    font-size:24px !important;
+  }
+
+  .menuCard{
+    min-height:116px !important;
+    border-radius:26px !important;
+    padding:16px !important;
+  }
+
+  .menuIcon{
+    width:60px !important;
+    height:60px !important;
+    border-radius:22px !important;
+    font-size:30px !important;
+  }
+
+  .menuText h3{
+    font-size:20px !important;
+  }
+
+  .pageHero{
+    min-height:390px !important;
+    border-radius:30px !important;
+  }
+
+  .pageHeroInner{
+    padding:22px !important;
+  }
+
+  button,
+  .btn{
+    width:100%;
+  }
+
+  .smallBtn{
+    width:auto;
+    padding:10px 8px !important;
+  }
+
+}
