@@ -471,7 +471,7 @@ img{
       <span>活動</span>
     </h1>
     <p>
-      YouTubeに掲載した活動動画やメッセージをまとめて見ることができます。
+      活動動画やメッセージ動画をまとめて見ることができます。
     </p>
   </div>
 </section>
@@ -479,7 +479,7 @@ img{
 <section class="section card">
   <h2 class="sectionTitle">動画一覧</h2>
   <p class="sectionLead">
-    activity_list の「YouTube URL」に入力された動画だけを表示します。
+    動画情報は今後、専用の動画リストとして整理していきます。
   </p>
 </section>
 
@@ -509,7 +509,7 @@ const SITE_URL =
 "https://ichirohns-jpg.github.io/iwashita-ryu-activity/videos.html";
 
 const GAS_URL =
-"https://script.google.com/macros/s/AKfycbzfLtQCO96cvV5bOVnu2L79xPOM6yaoTWKpvAuiN9Ru3NrQurh0PNKnUK86qmvMCkkIyw/exec";
+"https://script.google.com/macros/s/AKfycbyZxby2jvasBuYwoOptGppPTe4rcrdBRxArS4qUoEpCgPtxE_Ss9r9exb-A2r66XXagGw/exec";
 
 let videos = [];
 
@@ -620,7 +620,6 @@ function mapActivity(record,index){
       clean(record["画像URL5"])
     ].filter(Boolean),
     youtubeUrl:clean(record["YouTube URL"]),
-    relatedUrl:clean(record["関連リンクURL"]),
     snsText:clean(record["SNS投稿文"]),
     order:toNumber(record["表示順"],index + 1),
     note:clean(record["備考"])
@@ -777,7 +776,7 @@ function renderVideos(){
     box.innerHTML = `
       <div class="emptyBox">
         動画は準備中です。<br>
-        activity_list の「YouTube URL」に動画URLを入れると、ここに表示されます。
+        動画を掲載する段階で、動画専用リストを作ってここに表示します。
       </div>
     `;
 
@@ -827,8 +826,7 @@ function renderVideos(){
             <p class="videoText">${escapeHTML(item.summary)}</p>
 
             <div class="linkActions">
-              <a class="smallBtn btnYoutube" href="${escapeHTML(item.youtubeUrl)}" target="_blank" rel="noopener">YouTubeで開く</a>
-              ${item.relatedUrl ? `<a class="smallBtn btnGreen" href="${escapeHTML(item.relatedUrl)}" target="_blank" rel="noopener">関連リンク</a>` : ""}
+              ${item.youtubeUrl ? `<a class="smallBtn btnYoutube" href="${escapeHTML(item.youtubeUrl)}" target="_blank" rel="noopener">YouTubeで開く</a>` : ""}
             </div>
 
             <div class="shareActions">
