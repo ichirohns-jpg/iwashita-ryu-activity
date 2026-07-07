@@ -33,25 +33,206 @@
 <meta name="twitter:image" content="https://ichirohns-jpg.github.io/iwashita-ryu-activity/images/activity/hero-main.jpg">
 
 <style>
+.topHero{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:16px;
+}
+
+.topPhoto{
+  position:relative;
+  overflow:hidden;
+  min-height:360px;
+  border-radius:34px;
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.05) 0%,rgba(26,94,47,.14) 45%,rgba(26,94,47,.38) 100%),
+    url("images/activity/hero-main.jpg") center/cover no-repeat;
+  box-shadow:0 18px 42px rgba(70,130,80,.13);
+}
+
+.topPhotoText{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  padding:22px;
+  color:#fff;
+  background:linear-gradient(180deg,rgba(255,255,255,0) 0%,rgba(34,100,55,.18) 50%,rgba(34,100,55,.34) 100%);
+}
+
+.topPhotoText .kicker{
+  margin-bottom:10px;
+}
+
+.topPhotoText h1{
+  margin:0;
+  font-size:clamp(34px,9vw,64px);
+  line-height:1.05;
+  font-weight:900;
+  color:#fff;
+  text-shadow:0 4px 16px rgba(0,0,0,.24);
+}
+
+.topPhotoText h1 span{
+  display:block;
+  color:#fef08a;
+}
+
+.topPhotoText p{
+  margin:12px 0 0;
+  font-size:clamp(17px,4.5vw,24px);
+  line-height:1.45;
+  font-weight:900;
+  color:#fff;
+  text-shadow:0 3px 12px rgba(0,0,0,.22);
+}
+
+.firstActionCard{
+  border-radius:34px;
+  background:
+    radial-gradient(circle at 100% 0%,rgba(254,240,138,.35),transparent 34%),
+    linear-gradient(135deg,#ffffff,#f1fff3);
+  border:1px solid #b7ebc0;
+  box-shadow:0 16px 42px rgba(71,130,82,.12);
+  padding:20px;
+}
+
+.firstActionCard h2{
+  margin:0;
+  color:#1f5f35;
+  font-size:clamp(26px,6vw,38px);
+  line-height:1.25;
+  font-weight:900;
+}
+
+.firstActionCard p{
+  margin:10px 0 0;
+  color:#4d6b55;
+  font-size:17px;
+  font-weight:850;
+}
+
+.bigButtonGrid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:12px;
+  margin-top:18px;
+}
+
+.bigButton{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  min-height:82px;
+  border-radius:26px;
+  padding:16px;
+  background:#fff;
+  border:2px solid #b7ebc0;
+  box-shadow:0 12px 30px rgba(71,130,82,.10);
+}
+
+.bigButton.primary{
+  background:linear-gradient(135deg,#4caf63 0%,#74c96f 100%);
+  border-color:#74c96f;
+  color:#fff;
+}
+
+.bigIcon{
+  width:58px;
+  height:58px;
+  border-radius:22px;
+  display:grid;
+  place-items:center;
+  flex:0 0 auto;
+  font-size:31px;
+  background:linear-gradient(135deg,#e6ffe9 0%,#bdf5bf 100%);
+  color:#1f6b3d;
+}
+
+.bigButton.primary .bigIcon{
+  background:#fff6b8;
+  color:#1f6b3d;
+}
+
+.bigButton strong{
+  display:block;
+  font-size:22px;
+  line-height:1.25;
+  font-weight:900;
+  color:#1f5f35;
+}
+
+.bigButton.primary strong{
+  color:#fff;
+}
+
+.bigButton span{
+  display:block;
+  margin-top:4px;
+  font-size:15px;
+  line-height:1.45;
+  color:#4d6b55;
+  font-weight:800;
+}
+
+.bigButton.primary span{
+  color:#fff;
+}
+
+.simpleIntro{
+  margin-top:22px;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:14px;
+}
+
+.simpleCard{
+  border-radius:28px;
+  background:#fff;
+  border:1px solid #b7ebc0;
+  box-shadow:0 12px 30px rgba(71,130,82,.10);
+  padding:18px;
+}
+
+.simpleCard h2{
+  margin:0;
+  color:#1f5f35;
+  font-size:24px;
+  line-height:1.3;
+  font-weight:900;
+}
+
+.simpleCard p{
+  margin:8px 0 0;
+  color:#4d6b55;
+  font-size:16px;
+  font-weight:800;
+}
+
 .messageSection{
   display:grid;
   grid-template-columns:1fr;
   gap:16px;
 }
 
+.messageCard img{
+  display:block;
+  width:100%;
+}
+
 .voiceMini{
   position:relative;
   overflow:hidden;
-  min-height:300px;
+  min-height:280px;
   border-radius:32px;
   background:
-    linear-gradient(180deg,rgba(5,46,22,.08),rgba(5,46,22,.82)),
+    linear-gradient(180deg,rgba(255,255,255,.03),rgba(34,100,55,.64)),
     url("images/activity/voice-report.jpg") center/cover no-repeat;
   color:#fff;
   display:flex;
   align-items:flex-end;
   padding:22px;
-  box-shadow:0 18px 48px rgba(20,83,45,.16);
+  box-shadow:0 18px 48px rgba(20,83,45,.14);
 }
 
 .voiceMini h2{
@@ -63,18 +244,65 @@
 
 .voiceMini p{
   margin:9px 0 0;
-  color:#ecfdf5;
+  color:#fff;
   font-weight:850;
-}
-
-.messageCard img{
-  display:block;
-  width:100%;
+  text-shadow:0 3px 12px rgba(0,0,0,.22);
 }
 
 @media (min-width:820px){
+  .topHero{
+    grid-template-columns:1fr 1fr;
+    align-items:stretch;
+  }
+
+  .topPhoto{
+    min-height:560px;
+  }
+
+  .firstActionCard{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+  }
+
+  .bigButtonGrid{
+    grid-template-columns:1fr;
+  }
+
+  .simpleIntro{
+    grid-template-columns:repeat(3,1fr);
+  }
+
   .messageSection{
     grid-template-columns:1fr 1fr;
+  }
+}
+
+@media (max-width:560px){
+  .topPhoto{
+    min-height:330px;
+    border-radius:30px;
+  }
+
+  .topPhotoText{
+    padding:20px;
+  }
+
+  .firstActionCard{
+    border-radius:28px;
+    padding:18px;
+  }
+
+  .bigButton{
+    min-height:86px;
+  }
+
+  .bigButton strong{
+    font-size:21px;
+  }
+
+  .bigButton span{
+    font-size:15px;
   }
 }
 </style>
@@ -102,111 +330,90 @@
 
 <main>
 
-<section class="hero">
+<section class="topHero">
 
-  <div class="heroMain">
-    <div class="heroText">
+  <div class="topPhoto">
+    <div class="topPhotoText">
       <div class="kicker">河童のまち・志木から</div>
       <h1>
         岩下りゅう
         <span>活動報告</span>
       </h1>
-      <p class="heroLead">
-        地域での活動を、写真と動画でわかりやすくお届けします。
+      <p>
+        地域での活動を<br>
+        写真と動画でお届けします。
       </p>
     </div>
   </div>
 
-  <aside class="introCard">
-    <div class="profileBox">
-      <img class="profileIcon" src="apple-touch-icon.png" alt="岩下りゅう">
-      <div>
-        <h2>志木の声を聞き、活動を見える形に。</h2>
-        <p>
-          岩下りゅうの地域活動、まちづくりへの想い、写真・動画で見る活動報告をまとめています。
-        </p>
-      </div>
-    </div>
+  <aside class="firstActionCard">
+    <h2>見たい内容を選んでください</h2>
+    <p>
+      大きなボタンから、見たいページへ進めます。
+    </p>
 
-    <div class="pointList">
-      <div class="point">
-        <b>活動報告</b>
-        <span>イベント、商店会、文化・歴史、まちづくりの活動を記録します。</span>
-      </div>
+    <div class="bigButtonGrid">
 
-      <div class="point">
-        <b>写真と動画</b>
-        <span>活動の様子を、見やすく、伝わりやすく整理します。</span>
-      </div>
+      <a class="bigButton primary" href="activity.html">
+        <div class="bigIcon">📸</div>
+        <div>
+          <strong>活動を見る</strong>
+          <span>写真つきの活動報告を見ます。</span>
+        </div>
+      </a>
 
-      <div class="point">
-        <b>地域の困りごと</b>
-        <span>道路の穴、街灯切れ、不法投棄、動物の死骸なども写真と文章で知らせられる形にしていきます。</span>
-      </div>
+      <a class="bigButton" href="videos.html">
+        <div class="bigIcon">🎥</div>
+        <div>
+          <strong>動画を見る</strong>
+          <span>活動動画やメッセージを見ます。</span>
+        </div>
+      </a>
+
+      <a class="bigButton" href="voice.html">
+        <div class="bigIcon">📍</div>
+        <div>
+          <strong>地域の困りごとを知らせる</strong>
+          <span>道路の穴、街灯切れ、不法投棄などを知らせます。</span>
+        </div>
+      </a>
+
+      <a class="bigButton" href="profile.html">
+        <div class="bigIcon">👤</div>
+        <div>
+          <strong>岩下りゅうとは</strong>
+          <span>経歴や活動への想いを見ます。</span>
+        </div>
+      </a>
+
     </div>
   </aside>
 
 </section>
 
-<section class="section">
-  <div class="sectionHead">
-    <h2>見たい内容を選んでください</h2>
+<section class="simpleIntro">
+
+  <article class="simpleCard">
+    <h2>活動報告</h2>
     <p>
-      活動報告、動画、地域の困りごと、プロフィールを分けて見やすくします。
+      地域活動、商店会、文化・歴史、まちづくりの活動を記録します。
     </p>
-  </div>
+  </article>
 
-  <div class="menuGrid">
+  <article class="simpleCard">
+    <h2>写真と動画</h2>
+    <p>
+      活動の様子を、見やすく、わかりやすく整理します。
+    </p>
+  </article>
 
-    <a class="menuCard primary" href="activity.html">
-      <div class="menuIcon">📸</div>
-      <div class="menuText">
-        <h3>最新活動を見る</h3>
-        <p>日付・テーマ・概要・写真つきで活動報告を見られます。各記事にSNS共有ボタンを付けます。</p>
-      </div>
-    </a>
+  <article class="simpleCard">
+    <h2>地域の困りごと</h2>
+    <p>
+      道路の穴、街灯切れ、不法投棄、動物の死骸なども知らせられる形にしていきます。
+    </p>
+  </article>
 
-    <a class="menuCard" href="videos.html">
-      <div class="menuIcon">🎥</div>
-      <div class="menuText">
-        <h3>動画で見る活動</h3>
-        <p>活動動画やメッセージ動画をまとめて見られます。</p>
-      </div>
-    </a>
-
-    <a class="menuCard" href="voice.html">
-      <div class="menuIcon">📍</div>
-      <div class="menuText">
-        <h3>地域の困りごとを知らせる</h3>
-        <p>道路の穴、街灯切れ、危険箇所、ごみ、不法投棄、動物の死骸などを写真・場所・文章で知らせられます。</p>
-      </div>
-    </a>
-
-    <a class="menuCard" href="profile.html">
-      <div class="menuIcon">👤</div>
-      <div class="menuText">
-        <h3>岩下りゅうとは</h3>
-        <p>経歴、活動への想い、地域との関わりを紹介します。</p>
-      </div>
-    </a>
-
-    <a class="menuCard" href="activity.html#themes">
-      <div class="menuIcon">🌿</div>
-      <div class="menuText">
-        <h3>テーマ別に見る</h3>
-        <p>田子山富士、商店会、河童、地域活動などテーマ別に整理します。</p>
-      </div>
-    </a>
-
-    <a class="menuCard" href="https://iwashita-ryu.club/" target="_blank" rel="noopener">
-      <div class="menuIcon">🌐</div>
-      <div class="menuText">
-        <h3>公式サイトを見る</h3>
-        <p>基本情報、プロフィール、これまでの資料はこちらから確認できます。</p>
-      </div>
-    </a>
-
-  </div>
 </section>
 
 <section class="section messageSection">
