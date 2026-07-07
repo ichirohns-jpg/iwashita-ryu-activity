@@ -6,7 +6,7 @@
 
 <title>岩下りゅう 活動報告</title>
 
-<meta name="description" content="岩下りゅうの活動報告。地域での活動、写真、動画、地域の困りごと、プロフィールをわかりやすくお届けします。">
+<meta name="description" content="岩下りゅうの活動報告。地域での活動、写真、動画、応援メッセージ、地域の困りごと、プロフィールをわかりやすくお届けします。">
 <meta name="theme-color" content="#6fbd69">
 
 <link rel="icon" type="image/png" href="https://ichirohns-jpg.github.io/iwashita-ryu-activity/apple-touch-icon.png">
@@ -314,6 +314,11 @@ img{
   color:#fff;
 }
 
+.bigButton.support{
+  background:linear-gradient(135deg,#fff7c2 0%,#facc15 100%);
+  border-color:#facc15;
+}
+
 .bigIcon{
   width:62px;
   height:62px;
@@ -331,6 +336,11 @@ img{
   color:#1f6b3d;
 }
 
+.bigButton.support .bigIcon{
+  background:#ffffff;
+  color:#92400e;
+}
+
 .bigButton strong{
   display:block;
   font-size:23px;
@@ -341,6 +351,10 @@ img{
 
 .bigButton.primary strong{
   color:#fff;
+}
+
+.bigButton.support strong{
+  color:#5c3b00;
 }
 
 .bigButton span{
@@ -354,6 +368,10 @@ img{
 
 .bigButton.primary span{
   color:#fff;
+}
+
+.bigButton.support span{
+  color:#5c3b00;
 }
 
 /* 補足カード */
@@ -428,34 +446,34 @@ img{
   font-weight:800;
 }
 
-.voiceMini{
+.supportMini{
   position:relative;
   overflow:hidden;
   min-height:280px;
   border-radius:30px;
   background:
-    linear-gradient(180deg,rgba(255,255,255,.05),rgba(34,100,55,.54)),
-    url("images/activity/voice-report.jpg") center/cover no-repeat;
-  color:#fff;
+    radial-gradient(circle at 100% 0%,rgba(255,255,255,.52),transparent 30%),
+    linear-gradient(135deg,#fff7c2 0%,#facc15 100%);
+  color:#5c3b00;
   display:flex;
   align-items:flex-end;
   padding:22px;
   box-shadow:0 12px 30px rgba(71,130,82,.10);
+  border:1px solid #facc15;
 }
 
-.voiceMini h2{
+.supportMini h2{
   margin:0;
   font-size:30px;
   line-height:1.2;
-  color:#fff;
+  color:#5c3b00;
 }
 
-.voiceMini p{
+.supportMini p{
   margin:9px 0 0;
-  color:#fff;
+  color:#5c3b00;
   font-size:16px;
-  font-weight:850;
-  text-shadow:0 3px 12px rgba(0,0,0,.22);
+  font-weight:900;
 }
 
 /* 下メニュー */
@@ -605,6 +623,7 @@ img{
   <nav class="headerNav">
     <a href="activity.html">活動</a>
     <a href="videos.html">動画</a>
+    <a href="support.html">応援</a>
     <a href="voice.html">困りごと</a>
     <a href="profile.html">プロフィール</a>
   </nav>
@@ -682,6 +701,14 @@ img{
       </div>
     </a>
 
+    <a class="bigButton support" href="support.html">
+      <div class="bigIcon">💬</div>
+      <div>
+        <strong>応援メッセージを書く</strong>
+        <span>応援、感想、期待することを送れます。</span>
+      </div>
+    </a>
+
     <a class="bigButton" href="videos.html">
       <div class="bigIcon">🎥</div>
       <div>
@@ -720,9 +747,9 @@ img{
   </article>
 
   <article class="simpleCard">
-    <h2>写真と動画</h2>
+    <h2>応援メッセージ</h2>
     <p>
-      活動の様子を、見やすく、わかりやすく整理します。
+      サイトを訪れた方が、応援や感想を送れる場所を作りました。
     </p>
   </article>
 
@@ -747,11 +774,11 @@ img{
     </div>
   </article>
 
-  <a class="voiceMini" href="voice.html">
+  <a class="supportMini" href="support.html">
     <div>
-      <h2>地域の困りごとを知らせる</h2>
+      <h2>応援メッセージを書く</h2>
       <p>
-        道路の穴、街灯切れ、不法投棄、動物の死骸、危険箇所などを写真・場所・文章で知らせるページを作ります。
+        岩下りゅうへの応援、活動への感想、期待することなどをお寄せください。ニックネームでも大丈夫です。
       </p>
     </div>
   </a>
@@ -771,7 +798,7 @@ img{
   <a class="active" href="index.html"><span>🏠</span>トップ</a>
   <a href="activity.html"><span>📸</span>活動</a>
   <a href="videos.html"><span>🎥</span>動画</a>
-  <a href="voice.html"><span>📍</span>困りごと</a>
+  <a href="support.html"><span>💬</span>応援</a>
   <a href="profile.html"><span>👤</span>人物</a>
 </nav>
 
