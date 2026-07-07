@@ -10,6 +10,7 @@
 <meta name="robots" content="noindex,nofollow">
 
 <link rel="icon" type="image/png" href="https://ichirohns-jpg.github.io/iwashita-ryu-activity/apple-touch-icon.png">
+<link rel="shortcut icon" type="image/png" href="https://ichirohns-jpg.github.io/iwashita-ryu-activity/apple-touch-icon.png">
 <link rel="apple-touch-icon" href="https://ichirohns-jpg.github.io/iwashita-ryu-activity/apple-touch-icon.png">
 <link rel="apple-touch-icon" sizes="180x180" href="https://ichirohns-jpg.github.io/iwashita-ryu-activity/apple-touch-icon.png">
 
@@ -43,7 +44,7 @@ body{
 .wrap{
   width:min(920px,94%);
   margin:auto;
-  padding:14px 0 40px;
+  padding:14px 0 44px;
 }
 
 .header{
@@ -401,7 +402,7 @@ button,
 
 <script>
 const GAS_URL =
-"https://script.google.com/macros/s/AKfycbzfLtQCO96cvV5bOVnu2L79xPOM6yaoTWKpvAuiN9Ru3NrQurh0PNKnUK86qmvMCkkIyw/exec";
+"https://script.google.com/macros/s/AKfycbyZxby2jvasBuYwoOptGppPTe4rcrdBRxArS4qUoEpCgPtxE_Ss9r9exb-A2r66XXagGw/exec";
 
 const SITE_URL =
 "https://ichirohns-jpg.github.io/iwashita-ryu-activity/activity.html";
@@ -535,7 +536,61 @@ function showStatus(message,isError){
 
 }
 
-function buildSaveUrl(){
+function jsonpRequest(paramsObj){
+
+  return new Promise(function(resolve,reject){
+
+    const callbackName =
+      "saveActivityCallback_" +
+      Date.now() +
+      "_" +
+      Math.random().toString(36).slice(2,8);
+
+    const params =
+      new URLSearchParams();
+
+    Object.keys(paramsObj).forEach(function(key){
+      params.set(key,paramsObj[key]);
+    });
+
+    params.set("callback",callbackName);
+    params.set("v",String(Date.now()));
+
+    const script =
+      document.createElement("script");
+
+    window[callbackName] = function(data){
+      resolve(data);
+      cleanup();
+    };
+
+    function cleanup(){
+      try{
+        delete window[callbackName];
+      }catch(e){
+        window[callbackName] = undefined;
+      }
+
+      if(script.parentNode){
+        script.parentNode.removeChild(script);
+      }
+    }
+
+    script.onerror = function(){
+      cleanup();
+      reject(new Error("通信に失敗しました"));
+    };
+
+    script.src =
+      GAS_URL + "?" + params.toString();
+
+    document.body.appendChild(script);
+
+  });
+
+}
+
+function buildParams(){
 
   const title =
     val("title");
@@ -545,12 +600,12 @@ function buildSaveUrl(){
 
   if(!title){
     alert("タイトルを入れてください。");
-    return "";
+    return null;
   }
 
   if(!summary){
     alert("概要を入れてください。");
-    return "";
+    return null;
   }
 
   let snsText =
@@ -561,34 +616,31 @@ function buildSaveUrl(){
       makeSnsText();
   }
 
-  const params =
-    new URLSearchParams();
-
-  params.set("mode","saveActivity");
-  params.set("date",dateForText(val("date")));
-  params.set("theme",val("theme"));
-  params.set("title",title);
-  params.set("summary",summary);
-  params.set("imageUrl1",val("imageUrl1"));
-  params.set("imageUrl2",val("imageUrl2"));
-  params.set("imageUrl3",val("imageUrl3"));
-  params.set("imageUrl4",val("imageUrl4"));
-  params.set("imageUrl5",val("imageUrl5"));
-  params.set("snsText",snsText);
-  params.set("publicStatus",val("publicStatus"));
-  params.set("order",val("order"));
-  params.set("note",val("note"));
-
-  return GAS_URL + "?" + params.toString();
+  return {
+    mode:"saveActivity",
+    date:dateForText(val("date")),
+    theme:val("theme"),
+    title:title,
+    summary:summary,
+    imageUrl1:val("imageUrl1"),
+    imageUrl2:val("imageUrl2"),
+    imageUrl3:val("imageUrl3"),
+    imageUrl4:val("imageUrl4"),
+    imageUrl5:val("imageUrl5"),
+    snsText:snsText,
+    publicStatus:val("publicStatus"),
+    order:val("order"),
+    note:val("note")
+  };
 
 }
 
 async function saveActivity(){
 
-  const url =
-    buildSaveUrl();
+  const params =
+    buildParams();
 
-  if(!url){
+  if(!params){
     return;
   }
 
@@ -596,21 +648,29 @@ async function saveActivity(){
 
   try{
 
-    await fetch(url,{
-      method:"GET",
-      mode:"no-cors",
-      cache:"no-store"
-    });
+    const data =
+      await jsonpRequest(params);
+
+    if(data && data.ok){
+
+      showStatus(
+        "保存しました。公開状態が「公開」なら活動ページに表示されます。ID：" + data.id,
+        false
+      );
+
+      return;
+
+    }
 
     showStatus(
-      "保存しました。公開状態が「公開」なら活動ページに表示されます。",
-      false
+      "保存に失敗しました。" + (data && data.error ? " " + data.error : ""),
+      true
     );
 
   }catch(e){
 
     showStatus(
-      "保存できませんでした。通信状況かGASの公開設定を確認してください。",
+      "保存できませんでした。GAS URL、デプロイ、公開設定を確認してください。",
       true
     );
 
