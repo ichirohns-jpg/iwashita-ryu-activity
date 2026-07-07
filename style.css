@@ -151,7 +151,7 @@ select{
   inset:0 !important;
   background:
     linear-gradient(180deg,rgba(5,46,22,.05) 0%,rgba(5,46,22,.44) 45%,rgba(5,46,22,.9) 100%),
-    url("images/activity/hero-video.jpg") center/cover no-repeat !important;
+    url("images/activity/hero-main.jpg") center/cover no-repeat !important;
 }
 
 .heroText{
