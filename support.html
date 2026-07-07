@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>応援メッセージを書く｜岩下りゅう 活動報告</title>
+
+<meta name="description" content="岩下りゅうへの応援メッセージ、活動への感想、期待することをお寄せください。">
+<meta name="theme-color" content="#6fbd69">
+
+<link rel="icon" type="image/png" href="apple-touch-icon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+<style>
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family:"Hiragino Sans","Yu Gothic","Meiryo",sans-serif;
+  color:#213627;
+  background:
+    radial-gradient(circle at 10% 0%,rgba(219,255,211,.9),transparent 28%),
+    radial-gradient(circle at 90% 4%,rgba(255,246,176,.6),transparent 26%),
+    linear-gradient(180deg,#f8fff5 0%,#ffffff 48%,#edfbea 100%);
+  line-height:1.75;
+  -webkit-text-size-adjust:100%;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+.wrap{
+  width:min(980px,94%);
+  margin:auto;
+  padding:12px 0 96px;
+}
+
+.header{
+  position:sticky;
+  top:0;
+  z-index:80;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:10px 0;
+  background:rgba(248,255,245,.94);
+  backdrop-filter:blur(16px);
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:#1f5f35;
+  font-weight:900;
+}
+
+.brand img{
+  width:44px;
+  height:44px;
+  border-radius:16px;
+  object-fit:cover;
+  box-shadow:0 8px 22px rgba(70,130,82,.18);
+}
+
+.brand span{
+  font-size:18px;
+  line-height:1.25;
+}
+
+.headerNav{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+}
+
+.headerNav a{
+  padding:9px 13px;
+  border-radius:999px;
+  background:#fff;
+  border:1px solid #b7ebc0;
+  color:#1f6b3d;
+  font-size:13px;
+  font-weight:900;
+  box-shadow:0 6px 16px rgba(70,130,82,.07);
+}
+
+.hero{
+  margin-top:8px;
+  border-radius:34px;
+  background:
+    radial-gradient(circle at 100% 0%,rgba(255,246,176,.55),transparent 35%),
+    linear-gradient(135deg,#ffffff 0%,#f4fff1 100%);
+  border:1px solid #b7ebc0;
+  box-shadow:0 18px 44px rgba(70,130,82,.12);
+  padding:22px;
+}
+
+.kicker{
+  display:inline-flex;
+  padding:8px 13px;
+  border-radius:999px;
+  background:#e6ffe9;
+  border:1px solid #b7ebc0;
+  color:#1f6b3d;
+  font-size:14px;
+  font-weight:900;
+}
+
+.hero h1{
+  margin:14px 0 0;
+  color:#1f5f35;
+  font-size:clamp(34px,9vw,60px);
+  line-height:1.08;
+  font-weight:900;
+}
+
+.hero p{
+  margin:12px 0 0;
+  color:#344c39;
+  font-size:18px;
+  font-weight:850;
+}
+
+.formCard{
+  margin-top:18px;
+  border-radius:34px;
+  background:#fff;
+  border:1px solid #b7ebc0;
+  box-shadow:0 18px 44px rgba(70,130,82,.12);
+  padding:22px;
+}
+
+.formCard h2{
+  margin:0;
+  color:#1f5f35;
+  font-size:30px;
+  line-height:1.25;
+  font-weight:900;
+}
+
+.formNote{
+  margin:8px 0 18px;
+  color:#4d6b55;
+  font-size:16px;
+  font-weight:850;
+}
+
+label{
+  display:block;
+  margin-top:18px;
+  color:#1f5f35;
+  font-size:20px;
+  line-height:1.35;
+  font-weight:900;
+}
+
+.help{
+  display:block;
+  margin-top:4px;
+  color:#6b7f70;
+  font-size:14px;
+  font-weight:800;
+}
+
+input,
+select,
+textarea{
+  width:100%;
+  margin-top:8px;
+  border:2px solid #b7ebc0;
+  border-radius:22px;
+  background:#fffdf0;
+  color:#213627;
+  font-family:inherit;
+  font-size:20px;
+  font-weight:850;
+  outline:none;
+  box-shadow:inset 0 2px 0 rgba(255,255,255,.8);
+}
+
+input,
+select{
+  min-height:64px;
+  padding:0 18px;
+}
+
+textarea{
+  min-height:180px;
+  padding:18px;
+  resize:vertical;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+  border-color:#4caf63;
+  background:#ffffff;
+  box-shadow:0 0 0 4px rgba(76,175,99,.15);
+}
+
+.radioBox{
+  margin-top:10px;
+  display:grid;
+  gap:10px;
+}
+
+.radioItem{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  min-height:62px;
+  padding:14px;
+  border-radius:22px;
+  background:#f7fff5;
+  border:2px solid #c8f0ce;
+  color:#213627;
+  font-size:18px;
+  font-weight:900;
+}
+
+.radioItem input{
+  width:24px;
+  height:24px;
+  min-height:auto;
+  margin:0;
+  flex:0 0 auto;
+}
+
+.submitBtn{
+  width:100%;
+  margin-top:24px;
+  min-height:76px;
+  border:0;
+  border-radius:26px;
+  background:linear-gradient(135deg,#4caf63 0%,#78c96f 100%);
+  color:#fff;
+  font-family:inherit;
+  font-size:25px;
+  font-weight:900;
+  box-shadow:0 14px 30px rgba(76,175,99,.26);
+}
+
+.submitBtn:disabled{
+  opacity:.55;
+}
+
+.resultBox{
+  margin-top:16px;
+  padding:18px;
+  border-radius:24px;
+  background:#fff7c2;
+  border:2px solid #facc15;
+  color:#4d3a00;
+  font-size:18px;
+  font-weight:900;
+  display:none;
+}
+
+.linkButtons{
+  margin-top:18px;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:12px;
+}
+
+.bigLink{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:68px;
+  border-radius:24px;
+  background:#fff;
+  border:2px solid #b7ebc0;
+  color:#1f5f35;
+  font-size:21px;
+  font-weight:900;
+  box-shadow:0 12px 30px rgba(71,130,82,.10);
+}
+
+.messages{
+  margin-top:22px;
+}
+
+.messages h2{
+  margin:0 0 12px;
+  color:#1f5f35;
+  font-size:30px;
+  font-weight:900;
+}
+
+.messageList{
+  display:grid;
+  gap:14px;
+}
+
+.messageItem{
+  border-radius:28px;
+  background:#fff;
+  border:1px solid #b7ebc0;
+  box-shadow:0 12px 30px rgba(71,130,82,.10);
+  padding:18px;
+}
+
+.messageName{
+  color:#1f5f35;
+  font-size:24px;
+  line-height:1.3;
+  font-weight:900;
+}
+
+.messageMeta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:8px;
+}
+
+.badge{
+  display:inline-flex;
+  padding:6px 11px;
+  border-radius:999px;
+  background:#e6ffe9;
+  border:1px solid #b7ebc0;
+  color:#1f6b3d;
+  font-size:13px;
+  font-weight:900;
+}
+
+.messageText{
+  margin-top:12px;
+  padding:15px;
+  border-radius:20px;
+  background:#fffdf0;
+  border:1px solid #eadf9d;
+  color:#2f3f33;
+  font-size:18px;
+  font-weight:850;
+  white-space:pre-wrap;
+}
+
+.empty{
+  border-radius:24px;
+  background:#fff;
+  border:1px solid #b7ebc0;
+  padding:18px;
+  color:#4d6b55;
+  font-size:17px;
+  font-weight:850;
+}
+
+.bottomNav{
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:100;
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  background:rgba(255,255,255,.98);
+  border-top:1px solid #b7ebc0;
+  box-shadow:0 -12px 30px rgba(71,130,82,.12);
+  backdrop-filter:blur(14px);
+}
+
+.bottomNav a{
+  text-align:center;
+  color:#1f6b3d;
+  padding:8px 4px 7px;
+  font-size:12px;
+  font-weight:900;
+}
+
+.bottomNav a span{
+  display:block;
+  font-size:22px;
+  line-height:1.1;
+}
+
+.bottomNav a.active{
+  background:#e2f8e5;
+  color:#14532d;
+}
+
+.footer{
+  margin-top:34px;
+  text-align:center;
+  color:#4d6b55;
+  font-size:13px;
+  font-weight:800;
+}
+
+.hiddenFrame{
+  display:none;
+}
+
+@media (min-width:820px){
+  .linkButtons{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .radioBox{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media (max-width:560px){
+  .headerNav{
+    display:none;
+  }
+
+  .brand span{
+    font-size:16px;
+  }
+
+  .hero,
+  .formCard{
+    border-radius:28px;
+    padding:18px;
+  }
+
+  input,
+  select,
+  textarea{
+    font-size:19px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrap">
+
+<header class="header">
+  <a class="brand" href="index.html">
+    <img src="apple-touch-icon.png" alt="岩下りゅう">
+    <span>岩下りゅう 活動報告</span>
+  </a>
+
+  <nav class="headerNav">
+    <a href="index.html">トップ</a>
+    <a href="activity.html">活動</a>
+    <a href="videos.html">動画</a>
+    <a href="voice.html">困りごと</a>
+    <a href="profile.html">人物</a>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="kicker">サイトに訪れた方へ</div>
+  <h1>応援メッセージを書く</h1>
+  <p>
+    岩下りゅうへの応援、活動への感想、期待することなどをお寄せください。<br>
+    お名前はニックネームでも大丈夫です。
+  </p>
+</section>
+
+<section class="formCard">
+  <h2>メッセージ入力</h2>
+  <p class="formNote">
+    入力された内容は確認後、公開してよいものだけページに掲載します。
+  </p>
+
+  <form id="supportForm" method="GET" target="sendFrame">
+    <input type="hidden" name="mode" value="saveSupportMessage">
+
+    <label for="name">
+      お名前・ニックネーム
+      <span class="help">匿名でも大丈夫です</span>
+    </label>
+    <input id="name" name="name" type="text" placeholder="例：山田、ヒロ、匿名">
+
+    <label for="area">
+      お住まい
+      <span class="help">近いものを選んでください</span>
+    </label>
+    <select id="area" name="area" required>
+      <option value="">選んでください</option>
+      <option value="本町">本町</option>
+      <option value="柏町">柏町</option>
+      <option value="幸町">幸町</option>
+      <option value="館">館</option>
+      <option value="上宗岡">上宗岡</option>
+      <option value="中宗岡">中宗岡</option>
+      <option value="下宗岡">下宗岡</option>
+      <option value="その他">その他</option>
+    </select>
+
+    <label for="message">
+      応援メッセージ
+      <span class="help">応援、感想、期待することなど</span>
+    </label>
+    <textarea id="message" name="message" required placeholder="例：地域活動を応援しています。これからも頑張ってください。"></textarea>
+
+    <label>
+      公開について
+      <span class="help">ページに掲載してよいか選んでください</span>
+    </label>
+    <div class="radioBox">
+      <label class="radioItem">
+        <input type="radio" name="publicChoice" value="公開してよい" checked>
+        公開してよい
+      </label>
+      <label class="radioItem">
+        <input type="radio" name="publicChoice" value="公開しない">
+        公開しない
+      </label>
+    </div>
+
+    <button class="submitBtn" id="submitBtn" type="submit">
+      応援メッセージを送る
+    </button>
+
+    <div class="resultBox" id="resultBox">
+      応援メッセージを受け付けました。ありがとうございます。
+    </div>
+  </form>
+
+  <iframe class="hiddenFrame" name="sendFrame" title="sendFrame"></iframe>
+
+  <div class="linkButtons">
+    <a class="bigLink" href="#messages">応援メッセージを見る</a>
+    <a class="bigLink" href="index.html">トップへ戻る</a>
+  </div>
+</section>
+
+<section class="messages" id="messages">
+  <h2>応援メッセージ</h2>
+  <div id="messageList" class="messageList">
+    <div class="empty">公開中の応援メッセージを読み込み中です。</div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  岩下りゅう 活動報告<br>
+  地域での活動を、写真と動画でわかりやすく。
+</footer>
+
+</div>
+
+<nav class="bottomNav">
+  <a href="index.html"><span>🏠</span>トップ</a>
+  <a href="activity.html"><span>📸</span>活動</a>
+  <a href="videos.html"><span>🎥</span>動画</a>
+  <a href="support.html" class="active"><span>💬</span>応援</a>
+  <a href="profile.html"><span>👤</span>人物</a>
+</nav>
+
+<script>
+const GAS_URL =
+"https://script.google.com/macros/s/AKfycbw7UIvT3i-IWQ6ybtNQVBODE3-qMgDOO_paONklbwo0KI7rfyNayFF69pWsEdOamF4X_Q/exec";
+
+const form =
+document.getElementById("supportForm");
+
+const submitBtn =
+document.getElementById("submitBtn");
+
+const resultBox =
+document.getElementById("resultBox");
+
+const messageList =
+document.getElementById("messageList");
+
+form.action =
+GAS_URL;
+
+form.addEventListener("submit",function(e){
+
+  const message =
+  document.getElementById("message").value.trim();
+
+  const area =
+  document.getElementById("area").value.trim();
+
+  if(!area){
+    e.preventDefault();
+    alert("お住まいを選んでください。");
+    return;
+  }
+
+  if(!message){
+    e.preventDefault();
+    alert("応援メッセージを入力してください。");
+    return;
+  }
+
+  submitBtn.disabled = true;
+  submitBtn.textContent = "送信中です";
+
+  setTimeout(function(){
+
+    resultBox.style.display = "block";
+    submitBtn.disabled = false;
+    submitBtn.textContent = "応援メッセージを送る";
+    form.reset();
+
+    document
+    .getElementById("area")
+    .value = "";
+
+    const radios =
+    document.querySelectorAll("input[name='publicChoice']");
+
+    radios.forEach(function(r){
+      r.checked = r.value === "公開してよい";
+    });
+
+  },1200);
+
+});
+
+function esc(v){
+  return String(v || "")
+  .replace(/&/g,"&amp;")
+  .replace(/</g,"&lt;")
+  .replace(/>/g,"&gt;")
+  .replace(/"/g,"&quot;")
+  .replace(/'/g,"&#39;");
+}
+
+function loadMessages(){
+
+  const url =
+  GAS_URL +
+  "?mode=getSupportMessages&t=" +
+  Date.now();
+
+  fetch(url)
+  .then(function(res){
+    return res.json();
+  })
+  .then(function(data){
+
+    const records =
+    data && data.records
+    ? data.records
+    : [];
+
+    if(!records.length){
+      messageList.innerHTML =
+      '<div class="empty">現在、公開中の応援メッセージはありません。</div>';
+      return;
+    }
+
+    messageList.innerHTML =
+    records.map(function(r){
+
+      const name =
+      r["お名前・ニックネーム"] ||
+      r["お名前"] ||
+      "匿名";
+
+      const area =
+      r["お住まい"] ||
+      "その他";
+
+      const date =
+      r["日時"] ||
+      "";
+
+      const message =
+      r["メッセージ"] ||
+      "";
+
+      return ''
+      + '<article class="messageItem">'
+      + '<div class="messageName">' + esc(name) + '</div>'
+      + '<div class="messageMeta">'
+      + '<span class="badge">' + esc(area) + '</span>'
+      + '<span class="badge">' + esc(date) + '</span>'
+      + '</div>'
+      + '<div class="messageText">' + esc(message) + '</div>'
+      + '</article>';
+
+    }).join("");
+
+  })
+  .catch(function(){
+
+    messageList.innerHTML =
+    '<div class="empty">応援メッセージを読み込めませんでした。</div>';
+
+  });
+
+}
+
+loadMessages();
+</script>
+
+</body>
+</html>
