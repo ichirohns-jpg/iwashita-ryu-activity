@@ -328,11 +328,6 @@ img{
   color:#fff;
 }
 
-.btnDark{
-  background:#14532d;
-  color:#fff;
-}
-
 .btnLine{
   background:#06c755;
   color:#fff;
@@ -461,9 +456,8 @@ img{
   <nav class="headerNav">
     <a href="activity.html">活動</a>
     <a class="active" href="videos.html">動画</a>
-    <a href="voices.html">改善報告</a>
+    <a href="voice.html">声を送る</a>
     <a href="profile.html">プロフィール</a>
-    <a href="sns.html">SNS</a>
   </nav>
 </header>
 
@@ -506,8 +500,8 @@ img{
   <a href="index.html"><span>🏠</span>トップ</a>
   <a href="activity.html"><span>📸</span>活動</a>
   <a class="active" href="videos.html"><span>🎥</span>動画</a>
-  <a href="voices.html"><span>✅</span>成果</a>
-  <a href="sns.html"><span>📱</span>SNS</a>
+  <a href="voice.html"><span>📮</span>声</a>
+  <a href="profile.html"><span>👤</span>人物</a>
 </nav>
 
 <script>
@@ -533,14 +527,6 @@ function escapeHTML(text){
     .replace(/>/g,"&gt;")
     .replace(/"/g,"&quot;")
     .replace(/'/g,"&#39;");
-}
-
-function enc(value){
-  return encodeURIComponent(clean(value));
-}
-
-function dec(value){
-  return decodeURIComponent(clean(value));
 }
 
 function toNumber(value,defaultValue){
