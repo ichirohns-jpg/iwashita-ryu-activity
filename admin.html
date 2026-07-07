@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>活動登録・管理｜岩下りゅう</title>
+
+<meta name="theme-color" content="#2f6b3b">
+<meta name="robots" content="noindex,nofollow">
+
+<link rel="icon" type="image/png" href="https://ichirohns-jpg.github.io/iwashita-ryu-activity/apple-touch-icon.png">
+<link rel="apple-touch-icon" href="https://ichirohns-jpg.github.io/iwashita-ryu-activity/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://ichirohns-jpg.github.io/iwashita-ryu-activity/apple-touch-icon.png">
+
+<meta name="apple-mobile-web-app-title" content="活動登録">
+<meta name="application-name" content="活動登録">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<style>
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family:
+    "Hiragino Sans",
+    "Yu Gothic",
+    "Meiryo",
+    sans-serif;
+  color:#173424;
+  background:
+    radial-gradient(circle at 10% 0%,rgba(191,255,204,.72),transparent 26%),
+    radial-gradient(circle at 90% 4%,rgba(255,239,151,.42),transparent 24%),
+    linear-gradient(180deg,#f2fff5 0%,#ffffff 45%,#e7f8ec 100%);
+  line-height:1.7;
+  -webkit-text-size-adjust:100%;
+}
+
+.wrap{
+  width:min(920px,94%);
+  margin:auto;
+  padding:14px 0 40px;
+}
+
+.header{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 0 16px;
+}
+
+.header img{
+  width:42px;
+  height:42px;
+  border-radius:15px;
+  box-shadow:0 8px 22px rgba(20,83,45,.2);
+}
+
+.header strong{
+  color:#14532d;
+  font-size:18px;
+}
+
+.hero{
+  border-radius:30px;
+  padding:24px;
+  background:
+    radial-gradient(circle at 100% 0%,rgba(254,240,138,.28),transparent 34%),
+    linear-gradient(135deg,#14532d,#22c55e);
+  color:#fff;
+  box-shadow:0 24px 70px rgba(20,83,45,.22);
+}
+
+.hero h1{
+  margin:0;
+  font-size:clamp(31px,8vw,54px);
+  line-height:1.12;
+}
+
+.hero p{
+  margin:10px 0 0;
+  color:#ecfdf5;
+  font-weight:850;
+}
+
+.card{
+  margin-top:18px;
+  background:rgba(255,255,255,.96);
+  border:1px solid rgba(34,132,74,.15);
+  border-radius:28px;
+  padding:20px;
+  box-shadow:0 18px 52px rgba(20,83,45,.12);
+}
+
+.formGrid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:14px;
+}
+
+.field{
+  margin:0;
+}
+
+label{
+  display:block;
+  margin-bottom:6px;
+  color:#14532d;
+  font-weight:900;
+}
+
+input,
+textarea,
+select{
+  width:100%;
+  border:1px solid #a7f3d0;
+  border-radius:16px;
+  padding:13px 14px;
+  font-size:16px;
+  background:#fff;
+  color:#173424;
+  outline:none;
+}
+
+textarea{
+  min-height:120px;
+  resize:vertical;
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+  border-color:#16a34a;
+  box-shadow:0 0 0 4px rgba(34,197,94,.18);
+}
+
+.help{
+  display:block;
+  margin-top:5px;
+  color:#55705e;
+  font-size:12px;
+  font-weight:800;
+}
+
+.sectionTitle{
+  margin:0 0 14px;
+  color:#14532d;
+  font-size:24px;
+  line-height:1.3;
+}
+
+.buttonRow{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:18px;
+}
+
+button,
+.btn{
+  border:0;
+  border-radius:999px;
+  padding:13px 18px;
+  font-size:16px;
+  font-weight:900;
+  cursor:pointer;
+  display:inline-block;
+  text-align:center;
+  text-decoration:none;
+}
+
+.btnGreen{
+  background:#16a34a;
+  color:#fff;
+}
+
+.btnDark{
+  background:#14532d;
+  color:#fff;
+}
+
+.btnLight{
+  background:#ecfdf5;
+  color:#14532d;
+}
+
+.btnYellow{
+  background:#fef08a;
+  color:#14532d;
+}
+
+.status{
+  display:none;
+  margin-top:16px;
+  padding:14px;
+  border-radius:18px;
+  font-weight:900;
+  background:#dcfce7;
+  color:#14532d;
+  border:1px solid #86efac;
+}
+
+.status.show{
+  display:block;
+}
+
+.status.error{
+  background:#fee2e2;
+  color:#991b1b;
+  border-color:#fecaca;
+}
+
+.preview{
+  white-space:pre-wrap;
+  word-break:break-word;
+  background:#052e1c;
+  color:#ecfdf5;
+  border-radius:18px;
+  padding:16px;
+  font-size:14px;
+  line-height:1.75;
+}
+
+.noteBox{
+  margin-top:16px;
+  border-radius:20px;
+  background:#fef9c3;
+  border:1px solid #fde68a;
+  color:#713f12;
+  padding:14px;
+  font-weight:850;
+}
+
+@media (min-width:760px){
+  .formGrid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .wide{
+    grid-column:1 / -1;
+  }
+}
+
+@media (max-width:560px){
+  button,
+  .btn{
+    width:100%;
+  }
+
+  .card{
+    padding:18px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrap">
+
+<header class="header">
+  <img src="apple-touch-icon.png" alt="岩下りゅう">
+  <strong>活動登録・管理</strong>
+</header>
+
+<section class="hero">
+  <h1>活動報告を登録する</h1>
+  <p>
+    日付、テーマ、タイトル、概要、写真URLを入れると、活動報告ページに表示できます。
+  </p>
+</section>
+
+<section class="card">
+  <h2 class="sectionTitle">活動内容</h2>
+
+  <div class="formGrid">
+
+    <div class="field">
+      <label for="date">日付</label>
+      <input id="date" type="date">
+    </div>
+
+    <div class="field">
+      <label for="theme">テーマ</label>
+      <select id="theme">
+        <option value="">選んでください</option>
+        <option value="地域活動">地域活動</option>
+        <option value="田子山富士">田子山富士</option>
+        <option value="商店会">商店会</option>
+        <option value="カッパのまち">カッパのまち</option>
+        <option value="イベント">イベント</option>
+        <option value="防災">防災</option>
+        <option value="福祉">福祉</option>
+        <option value="子育て">子育て</option>
+        <option value="まちづくり">まちづくり</option>
+        <option value="その他">その他</option>
+      </select>
+    </div>
+
+    <div class="field wide">
+      <label for="title">タイトル</label>
+      <input id="title" type="text" placeholder="例：田子山富士で登頂QRコード案内の確認を行いました">
+    </div>
+
+    <div class="field wide">
+      <label for="summary">概要</label>
+      <textarea id="summary" placeholder="活動内容をわかりやすく書いてください。"></textarea>
+      <span class="help">市民が読む文章です。短くても大丈夫です。</span>
+    </div>
+
+  </div>
+</section>
+
+<section class="card">
+  <h2 class="sectionTitle">写真URL 最大5枚</h2>
+
+  <div class="formGrid">
+    <div class="field">
+      <label for="imageUrl1">画像URL1</label>
+      <input id="imageUrl1" type="text" placeholder="images/activity/activity-001-1.jpg">
+    </div>
+
+    <div class="field">
+      <label for="imageUrl2">画像URL2</label>
+      <input id="imageUrl2" type="text" placeholder="images/activity/activity-001-2.jpg">
+    </div>
+
+    <div class="field">
+      <label for="imageUrl3">画像URL3</label>
+      <input id="imageUrl3" type="text" placeholder="images/activity/activity-001-3.jpg">
+    </div>
+
+    <div class="field">
+      <label for="imageUrl4">画像URL4</label>
+      <input id="imageUrl4" type="text">
+    </div>
+
+    <div class="field">
+      <label for="imageUrl5">画像URL5</label>
+      <input id="imageUrl5" type="text">
+    </div>
+  </div>
+
+  <div class="noteBox">
+    写真は GitHub の images/activity に入れて、そのパスをここに貼ります。
+  </div>
+</section>
+
+<section class="card">
+  <h2 class="sectionTitle">SNS・公開設定</h2>
+
+  <div class="formGrid">
+
+    <div class="field wide">
+      <label for="snsText">SNS投稿文</label>
+      <textarea id="snsText" placeholder="空欄なら自動で作れます。"></textarea>
+    </div>
+
+    <div class="field">
+      <label for="publicStatus">公開状態</label>
+      <select id="publicStatus">
+        <option value="下書き">下書き</option>
+        <option value="確認中">確認中</option>
+        <option value="公開">公開</option>
+        <option value="非公開">非公開</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="order">表示順</label>
+      <input id="order" type="number" placeholder="1">
+    </div>
+
+    <div class="field wide">
+      <label for="note">備考</label>
+      <input id="note" type="text" placeholder="管理用メモ">
+    </div>
+
+  </div>
+
+  <div class="buttonRow">
+    <button class="btnYellow" type="button" onclick="makeSnsText()">SNS文を作る</button>
+    <button class="btnGreen" type="button" onclick="saveActivity()">活動を保存する</button>
+    <button class="btnLight" type="button" onclick="clearForm()">クリア</button>
+    <a class="btn btnDark" href="activity.html" target="_blank">活動ページを見る</a>
+  </div>
+
+  <div id="status" class="status"></div>
+</section>
+
+<section class="card">
+  <h2 class="sectionTitle">SNS投稿文プレビュー</h2>
+  <div id="preview" class="preview">まだ作成されていません。</div>
+</section>
+
+</div>
+
+<script>
+const GAS_URL =
+"https://script.google.com/macros/s/AKfycbzfLtQCO96cvV5bOVnu2L79xPOM6yaoTWKpvAuiN9Ru3NrQurh0PNKnUK86qmvMCkkIyw/exec";
+
+const SITE_URL =
+"https://ichirohns-jpg.github.io/iwashita-ryu-activity/activity.html";
+
+function clean(value){
+  if(value === null || value === undefined){
+    return "";
+  }
+  return String(value).trim();
+}
+
+function val(id){
+  const el =
+    document.getElementById(id);
+
+  return el ? clean(el.value) : "";
+}
+
+function setVal(id,value){
+  const el =
+    document.getElementById(id);
+
+  if(el){
+    el.value = value;
+  }
+}
+
+function todayForInput(){
+  const d =
+    new Date();
+
+  const y =
+    d.getFullYear();
+
+  const m =
+    String(d.getMonth() + 1).padStart(2,"0");
+
+  const day =
+    String(d.getDate()).padStart(2,"0");
+
+  return y + "-" + m + "-" + day;
+}
+
+function dateForText(inputDate){
+  if(!inputDate){
+    return "";
+  }
+
+  return inputDate.replaceAll("-","/");
+}
+
+function makeSnsText(){
+
+  const date =
+    dateForText(val("date"));
+
+  const theme =
+    val("theme");
+
+  const title =
+    val("title");
+
+  const summary =
+    val("summary");
+
+  if(!title){
+    alert("タイトルを入れてください。");
+    return "";
+  }
+
+  const lines = [];
+
+  lines.push("岩下りゅう 活動報告");
+  lines.push("");
+
+  if(date){
+    lines.push(date);
+  }
+
+  if(theme){
+    lines.push("テーマ：" + theme);
+  }
+
+  lines.push("");
+  lines.push(title);
+  lines.push("");
+
+  if(summary){
+    lines.push(summary);
+    lines.push("");
+  }
+
+  lines.push("#岩下りゅう");
+  lines.push("#志木市");
+  lines.push("#地域活動");
+
+  if(theme){
+    lines.push("#" + theme.replace(/\s+/g,""));
+  }
+
+  lines.push("");
+  lines.push(SITE_URL);
+
+  const text =
+    lines.join("\n");
+
+  setVal("snsText",text);
+
+  document.getElementById("preview").textContent =
+    text;
+
+  return text;
+
+}
+
+function showStatus(message,isError){
+
+  const el =
+    document.getElementById("status");
+
+  el.textContent =
+    message;
+
+  el.classList.add("show");
+
+  if(isError){
+    el.classList.add("error");
+  }else{
+    el.classList.remove("error");
+  }
+
+}
+
+function buildSaveUrl(){
+
+  const title =
+    val("title");
+
+  const summary =
+    val("summary");
+
+  if(!title){
+    alert("タイトルを入れてください。");
+    return "";
+  }
+
+  if(!summary){
+    alert("概要を入れてください。");
+    return "";
+  }
+
+  let snsText =
+    val("snsText");
+
+  if(!snsText){
+    snsText =
+      makeSnsText();
+  }
+
+  const params =
+    new URLSearchParams();
+
+  params.set("mode","saveActivity");
+  params.set("date",dateForText(val("date")));
+  params.set("theme",val("theme"));
+  params.set("title",title);
+  params.set("summary",summary);
+  params.set("imageUrl1",val("imageUrl1"));
+  params.set("imageUrl2",val("imageUrl2"));
+  params.set("imageUrl3",val("imageUrl3"));
+  params.set("imageUrl4",val("imageUrl4"));
+  params.set("imageUrl5",val("imageUrl5"));
+  params.set("snsText",snsText);
+  params.set("publicStatus",val("publicStatus"));
+  params.set("order",val("order"));
+  params.set("note",val("note"));
+
+  return GAS_URL + "?" + params.toString();
+
+}
+
+async function saveActivity(){
+
+  const url =
+    buildSaveUrl();
+
+  if(!url){
+    return;
+  }
+
+  showStatus("保存しています。",false);
+
+  try{
+
+    await fetch(url,{
+      method:"GET",
+      mode:"no-cors",
+      cache:"no-store"
+    });
+
+    showStatus(
+      "保存しました。公開状態が「公開」なら活動ページに表示されます。",
+      false
+    );
+
+  }catch(e){
+
+    showStatus(
+      "保存できませんでした。通信状況かGASの公開設定を確認してください。",
+      true
+    );
+
+  }
+
+}
+
+function clearForm(){
+
+  [
+    "theme",
+    "title",
+    "summary",
+    "imageUrl1",
+    "imageUrl2",
+    "imageUrl3",
+    "imageUrl4",
+    "imageUrl5",
+    "snsText",
+    "order",
+    "note"
+  ].forEach(function(id){
+    setVal(id,"");
+  });
+
+  setVal("date",todayForInput());
+  setVal("publicStatus","下書き");
+
+  document.getElementById("preview").textContent =
+    "まだ作成されていません。";
+
+  const status =
+    document.getElementById("status");
+
+  status.classList.remove("show");
+  status.classList.remove("error");
+  status.textContent = "";
+
+}
+
+setVal("date",todayForInput());
+</script>
+
+</body>
+</html>
