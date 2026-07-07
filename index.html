@@ -6,7 +6,7 @@
 
 <title>岩下りゅう 活動報告</title>
 
-<meta name="description" content="岩下りゅうの活動報告。地域での活動、写真、動画、SNS、志木のまちづくりへの想いをわかりやすくお届けします。">
+<meta name="description" content="岩下りゅうの活動報告。地域での活動、写真、動画、市民の声、プロフィールをわかりやすくお届けします。">
 <meta name="theme-color" content="#2f6b3b">
 
 <link rel="icon" type="image/png" href="https://ichirohns-jpg.github.io/iwashita-ryu-activity/apple-touch-icon.png">
@@ -50,9 +50,9 @@ body{
     sans-serif;
   color:#153324;
   background:
-    radial-gradient(circle at 10% 0%,rgba(190,255,203,.7),transparent 26%),
-    radial-gradient(circle at 90% 5%,rgba(255,232,130,.45),transparent 25%),
-    linear-gradient(180deg,#f3fff5 0%,#ffffff 46%,#e7f8ec 100%);
+    radial-gradient(circle at 10% 0%,rgba(190,255,203,.72),transparent 26%),
+    radial-gradient(circle at 90% 5%,rgba(255,232,130,.42),transparent 25%),
+    linear-gradient(180deg,#f3fff5 0%,#ffffff 48%,#e7f8ec 100%);
   line-height:1.75;
   -webkit-text-size-adjust:100%;
 }
@@ -142,7 +142,7 @@ img{
   position:absolute;
   inset:0;
   background:
-    linear-gradient(180deg,rgba(5,46,22,.08) 0%,rgba(5,46,22,.45) 45%,rgba(5,46,22,.88) 100%),
+    linear-gradient(180deg,rgba(5,46,22,.08) 0%,rgba(5,46,22,.42) 45%,rgba(5,46,22,.88) 100%),
     url("images/activity/hero-video.jpg") center/cover no-repeat;
 }
 
@@ -424,49 +424,6 @@ img{
   font-weight:850;
 }
 
-.snsStrip{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:10px;
-}
-
-.snsButton{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  border-radius:22px;
-  padding:15px;
-  background:#fff;
-  border:1px solid #bbf7d0;
-  box-shadow:0 12px 32px rgba(20,83,45,.09);
-}
-
-.snsMark{
-  width:48px;
-  height:48px;
-  border-radius:18px;
-  display:grid;
-  place-items:center;
-  background:#dcfce7;
-  color:#14532d;
-  font-size:24px;
-  font-weight:900;
-  flex:0 0 auto;
-}
-
-.snsButton b{
-  display:block;
-  color:#14532d;
-  font-size:17px;
-}
-
-.snsButton span{
-  display:block;
-  color:#365c46;
-  font-weight:750;
-  font-size:13px;
-}
-
 .footer{
   margin-top:34px;
   text-align:center;
@@ -503,6 +460,10 @@ img{
   line-height:1.1;
 }
 
+.bottomNav a.active{
+  background:#dcfce7;
+}
+
 @media (min-width:820px){
 
   .hero{
@@ -525,10 +486,6 @@ img{
 
   .messageSection{
     grid-template-columns:1fr 1fr;
-  }
-
-  .snsStrip{
-    grid-template-columns:repeat(4,1fr);
   }
 
 }
@@ -601,9 +558,8 @@ img{
   <nav class="headerNav">
     <a href="activity.html">活動</a>
     <a href="videos.html">動画</a>
-    <a href="voices.html">改善報告</a>
+    <a href="voice.html">声を送る</a>
     <a href="profile.html">プロフィール</a>
-    <a href="sns.html">SNS</a>
   </nav>
 </header>
 
@@ -637,7 +593,7 @@ img{
 
     <div class="pointList">
       <div class="point">
-        <b>地域活動</b>
+        <b>活動報告</b>
         <span>イベント、商店会、文化・歴史、まちづくりの活動を記録します。</span>
       </div>
 
@@ -648,7 +604,7 @@ img{
 
       <div class="point">
         <b>市民の声</b>
-        <span>困りごとや改善されたことも、活動の一部として報告します。</span>
+        <span>道路の穴、街灯切れ、不法投棄、動物の死骸なども投稿できる形にしていきます。</span>
       </div>
     </div>
   </aside>
@@ -659,7 +615,7 @@ img{
   <div class="sectionHead">
     <h2>見たい内容を選んでください</h2>
     <p>
-      トップページは入口です。活動、動画、改善報告、プロフィール、SNSを分けて見やすくします。
+      トップページは入口です。活動、動画、市民の声、プロフィールを分けて見やすくします。
     </p>
   </div>
 
@@ -669,7 +625,7 @@ img{
       <div class="menuIcon">📸</div>
       <div class="menuText">
         <h3>最新活動を見る</h3>
-        <p>日付・テーマ・概要・写真つきで活動報告を見られます。</p>
+        <p>日付・テーマ・概要・写真つきで活動報告を見られます。各記事にSNS共有ボタンを付けます。</p>
       </div>
     </a>
 
@@ -681,11 +637,11 @@ img{
       </div>
     </a>
 
-    <a class="menuCard" href="voices.html">
-      <div class="menuIcon">✅</div>
+    <a class="menuCard" href="voice.html">
+      <div class="menuIcon">📮</div>
       <div class="menuText">
-        <h3>市民の声・改善報告</h3>
-        <p>寄せられた声、現場確認、改善されたことを報告します。</p>
+        <h3>市民の声を送る</h3>
+        <p>道路の穴、街灯切れ、危険箇所、ごみ、不法投棄、動物の死骸などを写真と文章で送れます。</p>
       </div>
     </a>
 
@@ -697,19 +653,19 @@ img{
       </div>
     </a>
 
-    <a class="menuCard" href="sns.html">
-      <div class="menuIcon">📱</div>
-      <div class="menuText">
-        <h3>SNS・公式リンク</h3>
-        <p>Instagram、Facebook、X、YouTube、公式サイトへ。</p>
-      </div>
-    </a>
-
     <a class="menuCard" href="activity.html#themes">
       <div class="menuIcon">🌿</div>
       <div class="menuText">
         <h3>テーマ別に見る</h3>
         <p>田子山富士、商店会、河童、地域活動などテーマ別に整理します。</p>
+      </div>
+    </a>
+
+    <a class="menuCard" href="https://iwashita-ryu.club/" target="_blank" rel="noopener">
+      <div class="menuIcon">🌐</div>
+      <div class="menuText">
+        <h3>公式サイトを見る</h3>
+        <p>基本情報、プロフィール、これまでの資料はこちらから確認できます。</p>
       </div>
     </a>
 
@@ -728,60 +684,15 @@ img{
     </div>
   </article>
 
-  <a class="voiceMini" href="voices.html">
+  <a class="voiceMini" href="voice.html">
     <div>
-      <h2>市民の声・改善報告</h2>
+      <h2>市民の声を送る</h2>
       <p>
-        まちの困りごと、現場確認、改善されたことを活動の一部として見える化します。
+        道路の穴、街灯切れ、不法投棄、動物の死骸、危険箇所などを写真と文章で知らせるページを作ります。
       </p>
     </div>
   </a>
 
-</section>
-
-<section class="section">
-  <div class="sectionHead">
-    <h2>SNSでも活動を発信</h2>
-    <p>
-      活動報告は、SNSや公式サイトともつながります。
-    </p>
-  </div>
-
-  <div class="snsStrip">
-
-    <a class="snsButton" href="sns.html">
-      <div class="snsMark">📱</div>
-      <div>
-        <b>SNS一覧</b>
-        <span>公式リンクをまとめて確認</span>
-      </div>
-    </a>
-
-    <a class="snsButton" href="https://iwashita-ryu.club/" target="_blank" rel="noopener">
-      <div class="snsMark">🌐</div>
-      <div>
-        <b>公式サイト</b>
-        <span>プロフィール・基本情報</span>
-      </div>
-    </a>
-
-    <a class="snsButton" href="activity.html">
-      <div class="snsMark">📸</div>
-      <div>
-        <b>活動報告</b>
-        <span>写真つきで確認</span>
-      </div>
-    </a>
-
-    <a class="snsButton" href="videos.html">
-      <div class="snsMark">▶</div>
-      <div>
-        <b>動画</b>
-        <span>動画で活動を見る</span>
-      </div>
-    </a>
-
-  </div>
 </section>
 
 </main>
@@ -794,11 +705,11 @@ img{
 </div>
 
 <nav class="bottomNav">
-  <a href="index.html"><span>🏠</span>トップ</a>
+  <a class="active" href="index.html"><span>🏠</span>トップ</a>
   <a href="activity.html"><span>📸</span>活動</a>
   <a href="videos.html"><span>🎥</span>動画</a>
-  <a href="voices.html"><span>✅</span>成果</a>
-  <a href="sns.html"><span>📱</span>SNS</a>
+  <a href="voice.html"><span>📮</span>声</a>
+  <a href="profile.html"><span>👤</span>人物</a>
 </nav>
 
 </body>
