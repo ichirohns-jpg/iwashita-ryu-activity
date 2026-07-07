@@ -7,7 +7,7 @@
 <title>岩下りゅう 活動報告</title>
 
 <meta name="description" content="岩下りゅうの活動報告。地域での活動、写真、動画、地域の困りごと、プロフィールをわかりやすくお届けします。">
-<meta name="theme-color" content="#2f6b3b">
+<meta name="theme-color" content="#6fbd69">
 
 <link rel="icon" type="image/png" href="https://ichirohns-jpg.github.io/iwashita-ryu-activity/apple-touch-icon.png">
 <link rel="shortcut icon" type="image/png" href="https://ichirohns-jpg.github.io/iwashita-ryu-activity/apple-touch-icon.png">
@@ -33,80 +33,258 @@
 <meta name="twitter:image" content="https://ichirohns-jpg.github.io/iwashita-ryu-activity/images/activity/hero-main.jpg">
 
 <style>
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  font-family:
+    "Hiragino Sans",
+    "Yu Gothic",
+    "Meiryo",
+    sans-serif;
+  color:#203326;
+  background:
+    radial-gradient(circle at 10% 0%,rgba(218,255,209,.9),transparent 28%),
+    radial-gradient(circle at 90% 5%,rgba(255,246,176,.55),transparent 25%),
+    linear-gradient(180deg,#f8fff5 0%,#ffffff 48%,#edfbea 100%);
+  line-height:1.75;
+  -webkit-text-size-adjust:100%;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+img{
+  max-width:100%;
+}
+
+.wrap{
+  width:min(1080px,94%);
+  margin:auto;
+  padding:12px 0 96px;
+}
+
+/* ヘッダー */
+
+.header{
+  position:sticky;
+  top:0;
+  z-index:80;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:10px 0;
+  background:rgba(248,255,245,.94);
+  backdrop-filter:blur(16px);
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:#1f5f35;
+  font-weight:900;
+}
+
+.brand img{
+  width:44px;
+  height:44px;
+  border-radius:16px;
+  object-fit:cover;
+  box-shadow:0 8px 22px rgba(70,130,82,.18);
+}
+
+.brand span{
+  font-size:18px;
+  line-height:1.25;
+}
+
+.headerNav{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+}
+
+.headerNav a{
+  padding:9px 13px;
+  border-radius:999px;
+  background:#fff;
+  border:1px solid #b7ebc0;
+  color:#1f6b3d;
+  font-size:13px;
+  font-weight:900;
+  box-shadow:0 6px 16px rgba(70,130,82,.07);
+}
+
+/* トップ */
+
 .topHero{
   display:grid;
   grid-template-columns:1fr;
   gap:16px;
 }
 
-.topPhoto{
-  position:relative;
+.heroPhoto{
   overflow:hidden;
-  min-height:360px;
   border-radius:34px;
-  background:
-    linear-gradient(180deg,rgba(255,255,255,.05) 0%,rgba(26,94,47,.14) 45%,rgba(26,94,47,.38) 100%),
-    url("images/activity/hero-main.jpg") center/cover no-repeat;
-  box-shadow:0 18px 42px rgba(70,130,80,.13);
+  background:#fff;
+  border:1px solid #d6f3d8;
+  box-shadow:0 18px 44px rgba(70,130,82,.13);
 }
 
-.topPhotoText{
-  position:absolute;
-  left:0;
-  right:0;
-  bottom:0;
-  padding:22px;
-  color:#fff;
-  background:linear-gradient(180deg,rgba(255,255,255,0) 0%,rgba(34,100,55,.18) 50%,rgba(34,100,55,.34) 100%);
-}
-
-.topPhotoText .kicker{
-  margin-bottom:10px;
-}
-
-.topPhotoText h1{
-  margin:0;
-  font-size:clamp(34px,9vw,64px);
-  line-height:1.05;
-  font-weight:900;
-  color:#fff;
-  text-shadow:0 4px 16px rgba(0,0,0,.24);
-}
-
-.topPhotoText h1 span{
+.heroPhoto img{
   display:block;
-  color:#fef08a;
+  width:100%;
+  aspect-ratio:16/9;
+  object-fit:cover;
 }
 
-.topPhotoText p{
-  margin:12px 0 0;
-  font-size:clamp(17px,4.5vw,24px);
-  line-height:1.45;
-  font-weight:900;
-  color:#fff;
-  text-shadow:0 3px 12px rgba(0,0,0,.22);
-}
-
-.firstActionCard{
-  border-radius:34px;
-  background:
-    radial-gradient(circle at 100% 0%,rgba(254,240,138,.35),transparent 34%),
-    linear-gradient(135deg,#ffffff,#f1fff3);
+.heroTitleCard{
+  margin-top:12px;
+  border-radius:30px;
+  background:#ffffff;
   border:1px solid #b7ebc0;
-  box-shadow:0 16px 42px rgba(71,130,82,.12);
+  box-shadow:0 16px 40px rgba(70,130,82,.10);
   padding:20px;
 }
 
-.firstActionCard h2{
+.kicker{
+  display:inline-flex;
+  width:max-content;
+  align-items:center;
+  gap:8px;
+  padding:8px 13px;
+  border-radius:999px;
+  background:#e6ffe9;
+  border:1px solid #b7ebc0;
+  color:#1f6b3d;
+  font-size:14px;
+  font-weight:900;
+}
+
+.heroTitleCard h1{
+  margin:14px 0 0;
+  color:#1f5f35;
+  font-size:clamp(36px,9vw,66px);
+  line-height:1.05;
+  font-weight:900;
+  letter-spacing:.02em;
+}
+
+.heroTitleCard h1 span{
+  display:block;
+  color:#4caf63;
+}
+
+.heroTitleCard p{
+  margin:12px 0 0;
+  color:#314d38;
+  font-size:clamp(18px,4.6vw,25px);
+  line-height:1.5;
+  font-weight:900;
+}
+
+/* 紹介 */
+
+.profileLead{
+  margin-top:18px;
+  border-radius:34px;
+  background:
+    radial-gradient(circle at 100% 0%,rgba(255,246,176,.42),transparent 36%),
+    linear-gradient(135deg,#ffffff 0%,#f7fff5 100%);
+  border:1px solid #b7ebc0;
+  box-shadow:0 18px 44px rgba(70,130,82,.11);
+  padding:22px;
+}
+
+.profileRow{
+  display:flex;
+  gap:16px;
+  align-items:center;
+}
+
+.profileIcon{
+  width:92px;
+  height:92px;
+  border-radius:28px;
+  object-fit:cover;
+  flex:0 0 auto;
+  box-shadow:0 12px 28px rgba(70,130,82,.18);
+  background:#e6ffe9;
+}
+
+.profileLead h2{
   margin:0;
   color:#1f5f35;
-  font-size:clamp(26px,6vw,38px);
+  font-size:clamp(28px,6vw,42px);
   line-height:1.25;
   font-weight:900;
 }
 
-.firstActionCard p{
-  margin:10px 0 0;
+.profileLead p{
+  margin:12px 0 0;
+  color:#3c5943;
+  font-size:18px;
+  font-weight:850;
+}
+
+.profileMini{
+  margin-top:16px;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:12px;
+}
+
+.profileMiniItem{
+  background:#fff;
+  border:1px solid #c8f0ce;
+  border-radius:22px;
+  padding:15px;
+}
+
+.profileMiniItem b{
+  display:block;
+  color:#1f5f35;
+  font-size:18px;
+  margin-bottom:4px;
+}
+
+.profileMiniItem span{
+  display:block;
+  color:#45634d;
+  font-size:16px;
+  font-weight:800;
+}
+
+/* 大きいボタン */
+
+.actionSection{
+  margin-top:20px;
+}
+
+.actionHead{
+  margin-bottom:14px;
+}
+
+.actionHead h2{
+  margin:0;
+  color:#1f5f35;
+  font-size:clamp(28px,6vw,42px);
+  line-height:1.25;
+  font-weight:900;
+}
+
+.actionHead p{
+  margin:8px 0 0;
   color:#4d6b55;
   font-size:17px;
   font-weight:850;
@@ -116,35 +294,34 @@
   display:grid;
   grid-template-columns:1fr;
   gap:12px;
-  margin-top:18px;
 }
 
 .bigButton{
   display:flex;
   align-items:center;
   gap:14px;
-  min-height:82px;
-  border-radius:26px;
-  padding:16px;
+  min-height:88px;
+  border-radius:28px;
+  padding:17px;
   background:#fff;
   border:2px solid #b7ebc0;
   box-shadow:0 12px 30px rgba(71,130,82,.10);
 }
 
 .bigButton.primary{
-  background:linear-gradient(135deg,#4caf63 0%,#74c96f 100%);
-  border-color:#74c96f;
+  background:linear-gradient(135deg,#4caf63 0%,#78c96f 100%);
+  border-color:#78c96f;
   color:#fff;
 }
 
 .bigIcon{
-  width:58px;
-  height:58px;
-  border-radius:22px;
+  width:62px;
+  height:62px;
+  border-radius:23px;
   display:grid;
   place-items:center;
   flex:0 0 auto;
-  font-size:31px;
+  font-size:32px;
   background:linear-gradient(135deg,#e6ffe9 0%,#bdf5bf 100%);
   color:#1f6b3d;
 }
@@ -156,7 +333,7 @@
 
 .bigButton strong{
   display:block;
-  font-size:22px;
+  font-size:23px;
   line-height:1.25;
   font-weight:900;
   color:#1f5f35;
@@ -169,15 +346,17 @@
 .bigButton span{
   display:block;
   margin-top:4px;
-  font-size:15px;
-  line-height:1.45;
   color:#4d6b55;
-  font-weight:800;
+  font-size:16px;
+  line-height:1.45;
+  font-weight:850;
 }
 
 .bigButton.primary span{
   color:#fff;
 }
+
+/* 補足カード */
 
 .simpleIntro{
   margin-top:22px;
@@ -209,10 +388,21 @@
   font-weight:800;
 }
 
+/* メッセージ */
+
 .messageSection{
+  margin-top:22px;
   display:grid;
   grid-template-columns:1fr;
   gap:16px;
+}
+
+.messageCard{
+  overflow:hidden;
+  border-radius:30px;
+  background:#fff;
+  border:1px solid #b7ebc0;
+  box-shadow:0 12px 30px rgba(71,130,82,.10);
 }
 
 .messageCard img{
@@ -220,19 +410,37 @@
   width:100%;
 }
 
+.messageBody{
+  padding:18px;
+}
+
+.messageBody h2{
+  margin:0;
+  color:#1f5f35;
+  font-size:26px;
+  line-height:1.25;
+}
+
+.messageBody p{
+  margin:9px 0 0;
+  color:#4d6b55;
+  font-size:16px;
+  font-weight:800;
+}
+
 .voiceMini{
   position:relative;
   overflow:hidden;
   min-height:280px;
-  border-radius:32px;
+  border-radius:30px;
   background:
-    linear-gradient(180deg,rgba(255,255,255,.03),rgba(34,100,55,.64)),
+    linear-gradient(180deg,rgba(255,255,255,.05),rgba(34,100,55,.54)),
     url("images/activity/voice-report.jpg") center/cover no-repeat;
   color:#fff;
   display:flex;
   align-items:flex-end;
   padding:22px;
-  box-shadow:0 18px 48px rgba(20,83,45,.14);
+  box-shadow:0 12px 30px rgba(71,130,82,.10);
 }
 
 .voiceMini h2{
@@ -245,28 +453,78 @@
 .voiceMini p{
   margin:9px 0 0;
   color:#fff;
+  font-size:16px;
   font-weight:850;
   text-shadow:0 3px 12px rgba(0,0,0,.22);
 }
 
+/* 下メニュー */
+
+.bottomNav{
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:100;
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  background:rgba(255,255,255,.98);
+  border-top:1px solid #b7ebc0;
+  box-shadow:0 -12px 30px rgba(71,130,82,.12);
+  backdrop-filter:blur(14px);
+}
+
+.bottomNav a{
+  text-align:center;
+  color:#1f6b3d;
+  padding:8px 4px 7px;
+  font-size:12px;
+  font-weight:900;
+}
+
+.bottomNav a span{
+  display:block;
+  font-size:22px;
+  line-height:1.1;
+}
+
+.bottomNav a.active{
+  background:#e2f8e5;
+  color:#14532d;
+}
+
+/* フッター */
+
+.footer{
+  margin-top:34px;
+  text-align:center;
+  color:#4d6b55;
+  font-size:13px;
+  font-weight:800;
+}
+
+/* PC */
+
 @media (min-width:820px){
   .topHero{
     grid-template-columns:1fr 1fr;
-    align-items:stretch;
+    align-items:start;
   }
 
-  .topPhoto{
-    min-height:560px;
-  }
-
-  .firstActionCard{
+  .heroTitleCard{
+    margin-top:0;
+    min-height:100%;
     display:flex;
     flex-direction:column;
     justify-content:center;
   }
 
+  .profileMini{
+    grid-template-columns:repeat(3,1fr);
+  }
+
   .bigButtonGrid{
-    grid-template-columns:1fr;
+    grid-template-columns:repeat(2,1fr);
   }
 
   .simpleIntro{
@@ -278,27 +536,52 @@
   }
 }
 
+/* スマホ */
+
 @media (max-width:560px){
-  .topPhoto{
-    min-height:330px;
+  .wrap{
+    width:94%;
+    padding-bottom:96px;
+  }
+
+  .headerNav{
+    display:none;
+  }
+
+  .brand span{
+    font-size:16px;
+  }
+
+  .heroPhoto{
     border-radius:30px;
   }
 
-  .topPhotoText{
-    padding:20px;
+  .heroTitleCard{
+    padding:18px;
+    border-radius:28px;
   }
 
-  .firstActionCard{
-    border-radius:28px;
+  .profileLead{
     padding:18px;
+    border-radius:28px;
+  }
+
+  .profileRow{
+    align-items:flex-start;
+  }
+
+  .profileIcon{
+    width:78px;
+    height:78px;
+    border-radius:24px;
   }
 
   .bigButton{
-    min-height:86px;
+    min-height:90px;
   }
 
   .bigButton strong{
-    font-size:21px;
+    font-size:22px;
   }
 
   .bigButton span{
@@ -307,7 +590,6 @@
 }
 </style>
 
-<link rel="stylesheet" href="style.css?v=common-1">
 </head>
 
 <body>
@@ -332,62 +614,99 @@
 
 <section class="topHero">
 
-  <div class="topPhoto">
-    <div class="topPhotoText">
-      <div class="kicker">河童のまち・志木から</div>
-      <h1>
-        岩下りゅう
-        <span>活動報告</span>
-      </h1>
+  <div class="heroPhoto">
+    <img src="images/activity/hero-main.jpg" alt="岩下りゅう 活動報告">
+  </div>
+
+  <div class="heroTitleCard">
+    <div class="kicker">河童のまち・志木から</div>
+    <h1>
+      岩下りゅう
+      <span>活動報告</span>
+    </h1>
+    <p>
+      地域での活動を<br>
+      写真と動画でお届けします。
+    </p>
+  </div>
+
+</section>
+
+<section class="profileLead">
+
+  <div class="profileRow">
+    <img class="profileIcon" src="apple-touch-icon.png" alt="岩下りゅう">
+    <div>
+      <h2>岩下りゅうとは</h2>
       <p>
-        地域での活動を<br>
-        写真と動画でお届けします。
+        志木市で育ち、商店会活動、地域イベント、田子山富士、カッパのまちづくりなど、地域に根ざした活動を続けています。
       </p>
     </div>
   </div>
 
-  <aside class="firstActionCard">
+  <div class="profileMini">
+    <div class="profileMiniItem">
+      <b>地域に根ざす</b>
+      <span>志木のまち、商店会、地域活動に関わってきました。</span>
+    </div>
+
+    <div class="profileMiniItem">
+      <b>声を聞く</b>
+      <span>市民の声を聞き、現場を見ることを大切にします。</span>
+    </div>
+
+    <div class="profileMiniItem">
+      <b>想いをカタチに</b>
+      <span>できることを一つずつ、見える形にしていきます。</span>
+    </div>
+  </div>
+
+</section>
+
+<section class="actionSection">
+
+  <div class="actionHead">
     <h2>見たい内容を選んでください</h2>
     <p>
       大きなボタンから、見たいページへ進めます。
     </p>
+  </div>
 
-    <div class="bigButtonGrid">
+  <div class="bigButtonGrid">
 
-      <a class="bigButton primary" href="activity.html">
-        <div class="bigIcon">📸</div>
-        <div>
-          <strong>活動を見る</strong>
-          <span>写真つきの活動報告を見ます。</span>
-        </div>
-      </a>
+    <a class="bigButton primary" href="activity.html">
+      <div class="bigIcon">📸</div>
+      <div>
+        <strong>活動を見る</strong>
+        <span>写真つきの活動報告を見ます。</span>
+      </div>
+    </a>
 
-      <a class="bigButton" href="videos.html">
-        <div class="bigIcon">🎥</div>
-        <div>
-          <strong>動画を見る</strong>
-          <span>活動動画やメッセージを見ます。</span>
-        </div>
-      </a>
+    <a class="bigButton" href="videos.html">
+      <div class="bigIcon">🎥</div>
+      <div>
+        <strong>動画を見る</strong>
+        <span>活動動画やメッセージを見ます。</span>
+      </div>
+    </a>
 
-      <a class="bigButton" href="voice.html">
-        <div class="bigIcon">📍</div>
-        <div>
-          <strong>地域の困りごとを知らせる</strong>
-          <span>道路の穴、街灯切れ、不法投棄などを知らせます。</span>
-        </div>
-      </a>
+    <a class="bigButton" href="voice.html">
+      <div class="bigIcon">📍</div>
+      <div>
+        <strong>地域の困りごとを知らせる</strong>
+        <span>道路の穴、街灯切れ、不法投棄などを知らせます。</span>
+      </div>
+    </a>
 
-      <a class="bigButton" href="profile.html">
-        <div class="bigIcon">👤</div>
-        <div>
-          <strong>岩下りゅうとは</strong>
-          <span>経歴や活動への想いを見ます。</span>
-        </div>
-      </a>
+    <a class="bigButton" href="profile.html">
+      <div class="bigIcon">👤</div>
+      <div>
+        <strong>詳しいプロフィール</strong>
+        <span>経歴や活動への想いを見ます。</span>
+      </div>
+    </a>
 
-    </div>
-  </aside>
+  </div>
 
 </section>
 
@@ -416,7 +735,7 @@
 
 </section>
 
-<section class="section messageSection">
+<section class="messageSection">
 
   <article class="messageCard">
     <img src="images/activity/policy-message.png" alt="想いをカタチに">
