@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>動画で見る活動｜岩下りゅう</title>
+
+<meta name="description" content="岩下りゅうの活動を動画で見るページです。YouTube動画、活動写真、SNS共有に対応しています。">
+<meta name="theme-color" content="#2f6b3b">
+
+<link rel="icon" type="image/png" href="https://ichirohns-jpg.github.io/iwashita-ryu-activity/apple-touch-icon.png">
+<link rel="shortcut icon" type="image/png" href="https://ichirohns-jpg.github.io/iwashita-ryu-activity/apple-touch-icon.png">
+<link rel="apple-touch-icon" href="https://ichirohns-jpg.github.io/iwashita-ryu-activity/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://ichirohns-jpg.github.io/iwashita-ryu-activity/apple-touch-icon.png">
+
+<meta name="apple-mobile-web-app-title" content="岩下りゅう">
+<meta name="application-name" content="岩下りゅう">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<meta property="og:site_name" content="岩下りゅう 活動報告">
+<meta property="og:title" content="動画で見る活動｜岩下りゅう">
+<meta property="og:description" content="地域での活動を、動画でわかりやすくお届けします。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ichirohns-jpg.github.io/iwashita-ryu-activity/videos.html">
+<meta property="og:image" content="https://ichirohns-jpg.github.io/iwashita-ryu-activity/images/activity/hero-video.jpg">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="動画で見る活動｜岩下りゅう">
+<meta name="twitter:description" content="地域での活動を、動画でわかりやすくお届けします。">
+<meta name="twitter:image" content="https://ichirohns-jpg.github.io/iwashita-ryu-activity/images/activity/hero-video.jpg">
+
+<style>
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  font-family:
+    "Hiragino Sans",
+    "Yu Gothic",
+    "Meiryo",
+    sans-serif;
+  color:#173424;
+  background:
+    radial-gradient(circle at 10% 0%,rgba(191,255,204,.72),transparent 26%),
+    radial-gradient(circle at 90% 4%,rgba(255,239,151,.42),transparent 24%),
+    linear-gradient(180deg,#f2fff5 0%,#ffffff 45%,#e7f8ec 100%);
+  line-height:1.75;
+  -webkit-text-size-adjust:100%;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+button{
+  font-family:inherit;
+}
+
+img{
+  max-width:100%;
+}
+
+.wrap{
+  width:min(1120px,94%);
+  margin:auto;
+  padding:12px 0 94px;
+}
+
+.header{
+  position:sticky;
+  top:0;
+  z-index:50;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:10px 0;
+  background:rgba(242,255,245,.9);
+  backdrop-filter:blur(16px);
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:900;
+  color:#14532d;
+}
+
+.brand img{
+  width:40px;
+  height:40px;
+  border-radius:14px;
+  box-shadow:0 8px 22px rgba(20,83,45,.2);
+}
+
+.brand span{
+  font-size:17px;
+  letter-spacing:.03em;
+}
+
+.headerNav{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+}
+
+.headerNav a{
+  padding:8px 12px;
+  border-radius:999px;
+  background:#fff;
+  border:1px solid rgba(34,132,74,.18);
+  color:#166534;
+  font-size:12px;
+  font-weight:900;
+}
+
+.headerNav a.active{
+  background:#14532d;
+  color:#fff;
+}
+
+.pageHero{
+  position:relative;
+  overflow:hidden;
+  border-radius:34px;
+  min-height:430px;
+  background:
+    linear-gradient(180deg,rgba(5,46,22,.08),rgba(5,46,22,.88)),
+    url("images/activity/hero-video.jpg") center/cover no-repeat;
+  box-shadow:0 28px 76px rgba(20,83,45,.23);
+}
+
+.pageHeroInner{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  padding:26px;
+  color:#fff;
+}
+
+.kicker{
+  display:inline-flex;
+  width:max-content;
+  padding:8px 13px;
+  border-radius:999px;
+  background:rgba(255,255,255,.16);
+  border:1px solid rgba(255,255,255,.28);
+  color:#fef9c3;
+  font-size:13px;
+  font-weight:900;
+}
+
+.pageHero h1{
+  margin:14px 0 0;
+  font-size:clamp(38px,10vw,72px);
+  line-height:1.04;
+  font-weight:900;
+  text-shadow:0 8px 26px rgba(0,0,0,.36);
+}
+
+.pageHero h1 span{
+  display:block;
+  color:#fef08a;
+}
+
+.pageHero p{
+  max-width:760px;
+  margin:14px 0 0;
+  color:#ecfdf5;
+  font-size:clamp(16px,4vw,22px);
+  font-weight:850;
+}
+
+.section{
+  margin-top:24px;
+}
+
+.card{
+  background:rgba(255,255,255,.96);
+  border:1px solid rgba(34,132,74,.15);
+  border-radius:30px;
+  padding:20px;
+  box-shadow:0 18px 52px rgba(20,83,45,.12);
+}
+
+.sectionTitle{
+  margin:0;
+  color:#14532d;
+  font-size:clamp(26px,6vw,42px);
+  line-height:1.25;
+  font-weight:900;
+}
+
+.sectionLead{
+  margin:8px 0 0;
+  color:#365c46;
+  font-weight:800;
+}
+
+.videoGrid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:18px;
+}
+
+.videoCard{
+  overflow:hidden;
+  border-radius:30px;
+  background:#fff;
+  border:1px solid #bbf7d0;
+  box-shadow:0 18px 52px rgba(20,83,45,.12);
+}
+
+.videoFrame{
+  position:relative;
+  width:100%;
+  aspect-ratio:16/9;
+  background:#052e1c;
+}
+
+.videoFrame iframe{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  border:0;
+}
+
+.imageScroller{
+  display:flex;
+  overflow-x:auto;
+  gap:8px;
+  padding:10px;
+  scroll-snap-type:x mandatory;
+  background:#ecfdf5;
+}
+
+.imageScroller img{
+  flex:0 0 88%;
+  max-width:88%;
+  aspect-ratio:16/10;
+  object-fit:cover;
+  border-radius:20px;
+  scroll-snap-align:start;
+  background:#d1fae5;
+}
+
+.cardBody{
+  padding:18px;
+}
+
+.metaRow{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+  margin-bottom:10px;
+}
+
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  padding:5px 10px;
+  border-radius:999px;
+  background:#dcfce7;
+  color:#166534;
+  border:1px solid #bbf7d0;
+  font-size:12px;
+  font-weight:900;
+}
+
+.badge.gold{
+  background:#fef9c3;
+  color:#713f12;
+  border-color:#fde68a;
+}
+
+.videoTitle{
+  margin:0;
+  color:#14532d;
+  font-size:23px;
+  line-height:1.35;
+  font-weight:900;
+}
+
+.videoText{
+  margin:10px 0 0;
+  color:#365c46;
+  font-weight:760;
+  white-space:pre-wrap;
+}
+
+.linkActions,
+.shareActions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:14px;
+}
+
+.smallBtn{
+  border:0;
+  border-radius:999px;
+  padding:10px 13px;
+  font-size:14px;
+  font-weight:900;
+  cursor:pointer;
+  display:inline-block;
+  text-align:center;
+  background:#ecfdf5;
+  color:#166534;
+}
+
+.btnGreen{
+  background:#16a34a;
+  color:#fff;
+}
+
+.btnDark{
+  background:#14532d;
+  color:#fff;
+}
+
+.btnLine{
+  background:#06c755;
+  color:#fff;
+}
+
+.btnX{
+  background:#111827;
+  color:#fff;
+}
+
+.btnFb{
+  background:#1877f2;
+  color:#fff;
+}
+
+.btnYoutube{
+  background:#ff0033;
+  color:#fff;
+}
+
+.emptyBox{
+  border-radius:24px;
+  background:#fff;
+  border:1px dashed #86efac;
+  color:#365c46;
+  padding:18px;
+  font-weight:800;
+}
+
+.footer{
+  margin-top:34px;
+  text-align:center;
+  color:#365c46;
+  font-size:13px;
+  font-weight:800;
+}
+
+.bottomNav{
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:70;
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  background:rgba(255,255,255,.96);
+  border-top:1px solid rgba(34,132,74,.18);
+  box-shadow:0 -12px 30px rgba(20,83,45,.12);
+  backdrop-filter:blur(14px);
+}
+
+.bottomNav a{
+  text-align:center;
+  color:#166534;
+  padding:8px 4px 7px;
+  font-size:11px;
+  font-weight:900;
+}
+
+.bottomNav a span{
+  display:block;
+  font-size:20px;
+  line-height:1.1;
+}
+
+.bottomNav a.active{
+  background:#dcfce7;
+}
+
+@media (min-width:820px){
+
+  .videoGrid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .imageScroller img{
+    flex-basis:72%;
+    max-width:72%;
+  }
+
+}
+
+@media (max-width:560px){
+
+  .headerNav{
+    display:none;
+  }
+
+  .brand span{
+    font-size:16px;
+  }
+
+  .pageHero{
+    min-height:390px;
+    border-radius:30px;
+  }
+
+  .pageHeroInner{
+    padding:22px;
+  }
+
+  .card{
+    border-radius:26px;
+    padding:18px;
+  }
+
+  .smallBtn{
+    flex:1 1 44%;
+    padding:10px 8px;
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrap">
+
+<header class="header">
+  <a class="brand" href="index.html">
+    <img src="apple-touch-icon.png" alt="岩下りゅう">
+    <span>岩下りゅう 活動報告</span>
+  </a>
+
+  <nav class="headerNav">
+    <a href="activity.html">活動</a>
+    <a class="active" href="videos.html">動画</a>
+    <a href="voices.html">改善報告</a>
+    <a href="profile.html">プロフィール</a>
+    <a href="sns.html">SNS</a>
+  </nav>
+</header>
+
+<main>
+
+<section class="pageHero">
+  <div class="pageHeroInner">
+    <div class="kicker">動画で伝える活動</div>
+    <h1>
+      動画で見る
+      <span>活動</span>
+    </h1>
+    <p>
+      YouTubeに掲載した活動動画やメッセージをまとめて見ることができます。
+    </p>
+  </div>
+</section>
+
+<section class="section card">
+  <h2 class="sectionTitle">動画一覧</h2>
+  <p class="sectionLead">
+    activity_list の「YouTube URL」に入力された動画だけを表示します。
+  </p>
+</section>
+
+<section class="section">
+  <div id="videoGrid" class="videoGrid"></div>
+</section>
+
+</main>
+
+<footer class="footer">
+  岩下りゅう 活動報告<br>
+  地域での活動を、写真と動画でわかりやすく。
+</footer>
+
+</div>
+
+<nav class="bottomNav">
+  <a href="index.html"><span>🏠</span>トップ</a>
+  <a href="activity.html"><span>📸</span>活動</a>
+  <a class="active" href="videos.html"><span>🎥</span>動画</a>
+  <a href="voices.html"><span>✅</span>成果</a>
+  <a href="sns.html"><span>📱</span>SNS</a>
+</nav>
+
+<script>
+const SITE_URL =
+"https://ichirohns-jpg.github.io/iwashita-ryu-activity/videos.html";
+
+const GAS_URL =
+"https://script.google.com/macros/s/AKfycbzfLtQCO96cvV5bOVnu2L79xPOM6yaoTWKpvAuiN9Ru3NrQurh0PNKnUK86qmvMCkkIyw/exec";
+
+let videos = [];
+
+function clean(value){
+  if(value === null || value === undefined){
+    return "";
+  }
+  return String(value).trim();
+}
+
+function escapeHTML(text){
+  return clean(text)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#39;");
+}
+
+function enc(value){
+  return encodeURIComponent(clean(value));
+}
+
+function dec(value){
+  return decodeURIComponent(clean(value));
+}
+
+function toNumber(value,defaultValue){
+  const n =
+    Number(value);
+
+  if(isNaN(n)){
+    return defaultValue;
+  }
+
+  return n;
+}
+
+function shorten(text,count){
+  const t =
+    clean(text);
+
+  if(t.length <= count){
+    return t;
+  }
+
+  return t.slice(0,count) + "…";
+}
+
+function sortByOrder(a,b){
+  return toNumber(a.order,9999) - toNumber(b.order,9999);
+}
+
+function loadJsonp(mode,callbackPrefix){
+  return new Promise(function(resolve,reject){
+
+    const callbackName =
+      callbackPrefix +
+      "_" +
+      Date.now() +
+      "_" +
+      Math.random().toString(36).slice(2,8);
+
+    const script =
+      document.createElement("script");
+
+    const params =
+      new URLSearchParams();
+
+    params.set("mode",mode);
+    params.set("callback",callbackName);
+    params.set("v",String(Date.now()));
+
+    window[callbackName] = function(data){
+      resolve(data);
+      cleanup();
+    };
+
+    function cleanup(){
+      try{
+        delete window[callbackName];
+      }catch(e){
+        window[callbackName] = undefined;
+      }
+
+      if(script.parentNode){
+        script.parentNode.removeChild(script);
+      }
+    }
+
+    script.onerror = function(){
+      cleanup();
+      reject(new Error("読み込みに失敗しました"));
+    };
+
+    script.src =
+      GAS_URL + "?" + params.toString();
+
+    document.body.appendChild(script);
+
+  });
+}
+
+function mapActivity(record,index){
+  return {
+    id:clean(record["ID"]) || "video-" + index,
+    date:clean(record["日付"]),
+    theme:clean(record["テーマ"]),
+    title:clean(record["タイトル"]),
+    summary:clean(record["概要"]),
+    images:[
+      clean(record["画像URL1"]),
+      clean(record["画像URL2"]),
+      clean(record["画像URL3"]),
+      clean(record["画像URL4"]),
+      clean(record["画像URL5"])
+    ].filter(Boolean),
+    youtubeUrl:clean(record["YouTube URL"]),
+    relatedUrl:clean(record["関連リンクURL"]),
+    snsText:clean(record["SNS投稿文"]),
+    order:toNumber(record["表示順"],index + 1),
+    note:clean(record["備考"])
+  };
+}
+
+function getYouTubeId(url){
+  const u =
+    clean(url);
+
+  if(!u){
+    return "";
+  }
+
+  let match =
+    u.match(/youtu\.be\/([^?&/]+)/);
+
+  if(match && match[1]){
+    return match[1];
+  }
+
+  match =
+    u.match(/[?&]v=([^?&/]+)/);
+
+  if(match && match[1]){
+    return match[1];
+  }
+
+  match =
+    u.match(/youtube\.com\/embed\/([^?&/]+)/);
+
+  if(match && match[1]){
+    return match[1];
+  }
+
+  match =
+    u.match(/youtube\.com\/shorts\/([^?&/]+)/);
+
+  if(match && match[1]){
+    return match[1];
+  }
+
+  return "";
+}
+
+function videoUrl(id){
+  const url =
+    new URL(SITE_URL);
+
+  url.searchParams.set("video",id);
+
+  return url.toString();
+}
+
+function videoShareText(item){
+  if(item.snsText){
+    return item.snsText + "\n" + videoUrl(item.id);
+  }
+
+  return [
+    "岩下りゅう 活動報告",
+    "",
+    item.title,
+    "",
+    shorten(item.summary,100),
+    "",
+    "#岩下りゅう",
+    "#志木市",
+    "#地域活動",
+    "",
+    videoUrl(item.id)
+  ].join("\n");
+}
+
+function imageStripHTML(images,title){
+  if(!images || images.length === 0){
+    return "";
+  }
+
+  return `
+    <div class="imageScroller">
+      ${images.map(function(src,index){
+        return `<img src="${escapeHTML(src)}" alt="${escapeHTML(title)} 写真${index + 1}">`;
+      }).join("")}
+    </div>
+  `;
+}
+
+function shareLine(text,url){
+  window.open(
+    "https://social-plugins.line.me/lineit/share?url=" +
+    encodeURIComponent(url) +
+    "&text=" +
+    encodeURIComponent(text),
+    "_blank"
+  );
+}
+
+function shareX(text){
+  window.open(
+    "https://twitter.com/intent/tweet?text=" +
+    encodeURIComponent(text),
+    "_blank"
+  );
+}
+
+function shareFacebook(url){
+  window.open(
+    "https://www.facebook.com/sharer/sharer.php?u=" +
+    encodeURIComponent(url),
+    "_blank"
+  );
+}
+
+function copyText(text){
+  if(navigator.clipboard && window.isSecureContext){
+    navigator.clipboard.writeText(text).then(function(){
+      alert("コピーしました。");
+    }).catch(function(){
+      fallbackCopy(text);
+    });
+  }else{
+    fallbackCopy(text);
+  }
+}
+
+function fallbackCopy(text){
+  const area =
+    document.createElement("textarea");
+
+  area.value = text;
+  area.setAttribute("readonly","");
+  area.style.position = "fixed";
+  area.style.left = "-9999px";
+  document.body.appendChild(area);
+  area.select();
+
+  try{
+    document.execCommand("copy");
+    alert("コピーしました。");
+  }catch(e){
+    alert("コピーできませんでした。");
+  }
+
+  document.body.removeChild(area);
+}
+
+function renderVideos(){
+  const box =
+    document.getElementById("videoGrid");
+
+  if(videos.length === 0){
+
+    box.innerHTML = `
+      <div class="emptyBox">
+        動画は準備中です。<br>
+        activity_list の「YouTube URL」に動画URLを入れると、ここに表示されます。
+      </div>
+    `;
+
+    return;
+  }
+
+  box.innerHTML =
+    videos.map(function(item){
+
+      const youtubeId =
+        getYouTubeId(item.youtubeUrl);
+
+      const shareText =
+        videoShareText(item);
+
+      const shareUrl =
+        videoUrl(item.id);
+
+      const frame =
+        youtubeId
+        ? `
+          <div class="videoFrame">
+            <iframe
+              src="https://www.youtube.com/embed/${escapeHTML(youtubeId)}"
+              title="${escapeHTML(item.title)}"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+        `
+        : imageStripHTML(item.images,item.title);
+
+      return `
+        <article class="videoCard" id="video-${escapeHTML(item.id)}">
+
+          ${frame}
+
+          <div class="cardBody">
+
+            <div class="metaRow">
+              ${item.date ? `<span class="badge">${escapeHTML(item.date)}</span>` : ""}
+              ${item.theme ? `<span class="badge gold">${escapeHTML(item.theme)}</span>` : ""}
+            </div>
+
+            <h3 class="videoTitle">${escapeHTML(item.title || "動画で見る活動")}</h3>
+
+            <p class="videoText">${escapeHTML(item.summary)}</p>
+
+            <div class="linkActions">
+              <a class="smallBtn btnYoutube" href="${escapeHTML(item.youtubeUrl)}" target="_blank" rel="noopener">YouTubeで開く</a>
+              ${item.relatedUrl ? `<a class="smallBtn btnGreen" href="${escapeHTML(item.relatedUrl)}" target="_blank" rel="noopener">関連リンク</a>` : ""}
+            </div>
+
+            <div class="shareActions">
+              <button class="smallBtn btnLine" type="button" onclick="shareLine(${JSON.stringify(shareText)},'${escapeHTML(shareUrl)}')">LINE</button>
+              <button class="smallBtn btnX" type="button" onclick="shareX(${JSON.stringify(shareText)})">X投稿</button>
+              <button class="smallBtn btnFb" type="button" onclick="shareFacebook('${escapeHTML(shareUrl)}')">Facebook</button>
+              <button class="smallBtn" type="button" onclick="copyText(${JSON.stringify(shareText)})">コピー</button>
+            </div>
+
+          </div>
+        </article>
+      `;
+    }).join("");
+
+}
+
+function handleInitialJump(){
+  const params =
+    new URLSearchParams(location.search);
+
+  const videoId =
+    params.get("video");
+
+  if(videoId){
+    setTimeout(function(){
+      const el =
+        document.getElementById("video-" + videoId);
+
+      if(el){
+        el.scrollIntoView({
+          behavior:"smooth",
+          block:"center"
+        });
+      }
+    },500);
+  }
+}
+
+async function loadVideos(){
+
+  try{
+
+    const data =
+      await loadJsonp("getActivities","videoCallback");
+
+    if(data && data.ok && Array.isArray(data.records)){
+
+      videos =
+        data.records
+        .map(mapActivity)
+        .filter(function(item){
+          return item.youtubeUrl;
+        })
+        .sort(sortByOrder);
+
+    }
+
+  }catch(e){
+
+    videos = [];
+
+  }
+
+  renderVideos();
+  handleInitialJump();
+
+}
+
+loadVideos();
+</script>
+
+</body>
+</html>
