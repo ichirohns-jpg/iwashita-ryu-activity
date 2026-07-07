@@ -6,7 +6,7 @@
 
 <title>活動報告｜岩下りゅう</title>
 
-<meta name="description" content="岩下りゅうの活動報告一覧。日付、テーマ、写真、動画、関連リンクつきで地域での活動をお届けします。">
+<meta name="description" content="岩下りゅうの活動報告一覧。日付、テーマ、写真、概要をわかりやすく掲載します。各活動記事はLINE、X、Facebookで共有できます。">
 <meta name="theme-color" content="#2f6b3b">
 
 <link rel="icon" type="image/png" href="https://ichirohns-jpg.github.io/iwashita-ryu-activity/apple-touch-icon.png">
@@ -22,14 +22,14 @@
 
 <meta property="og:site_name" content="岩下りゅう 活動報告">
 <meta property="og:title" content="活動報告｜岩下りゅう">
-<meta property="og:description" content="地域での活動を、写真と動画でわかりやすくお届けします。">
+<meta property="og:description" content="地域での活動を、写真と文章でわかりやすくお届けします。">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://ichirohns-jpg.github.io/iwashita-ryu-activity/activity.html">
 <meta property="og:image" content="https://ichirohns-jpg.github.io/iwashita-ryu-activity/images/activity/hero-video.jpg">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="活動報告｜岩下りゅう">
-<meta name="twitter:description" content="地域での活動を、写真と動画でわかりやすくお届けします。">
+<meta name="twitter:description" content="地域での活動を、写真と文章でわかりやすくお届けします。">
 <meta name="twitter:image" content="https://ichirohns-jpg.github.io/iwashita-ryu-activity/images/activity/hero-video.jpg">
 
 <style>
@@ -310,18 +310,17 @@ img{
   white-space:pre-wrap;
 }
 
-.linkActions,
 .shareActions{
-  display:flex;
-  flex-wrap:wrap;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
   gap:8px;
-  margin-top:14px;
+  margin-top:16px;
 }
 
 .smallBtn{
   border:0;
   border-radius:999px;
-  padding:10px 13px;
+  padding:11px 12px;
   font-size:14px;
   font-weight:900;
   cursor:pointer;
@@ -329,21 +328,6 @@ img{
   text-align:center;
   background:#ecfdf5;
   color:#166534;
-}
-
-.btnMain{
-  background:#fef08a;
-  color:#14532d;
-}
-
-.btnGreen{
-  background:#16a34a;
-  color:#fff;
-}
-
-.btnDark{
-  background:#14532d;
-  color:#fff;
 }
 
 .btnLine{
@@ -361,9 +345,9 @@ img{
   color:#fff;
 }
 
-.btnYoutube{
-  background:#ff0033;
-  color:#fff;
+.btnCopy{
+  background:#ecfdf5;
+  color:#14532d;
 }
 
 .emptyBox{
@@ -452,8 +436,11 @@ img{
     padding:18px;
   }
 
+  .shareActions{
+    grid-template-columns:1fr 1fr;
+  }
+
   .smallBtn{
-    flex:1 1 44%;
     padding:10px 8px;
   }
 
@@ -474,9 +461,8 @@ img{
   <nav class="headerNav">
     <a class="active" href="activity.html">活動</a>
     <a href="videos.html">動画</a>
-    <a href="voices.html">改善報告</a>
+    <a href="voice.html">声を送る</a>
     <a href="profile.html">プロフィール</a>
-    <a href="sns.html">SNS</a>
   </nav>
 </header>
 
@@ -490,7 +476,7 @@ img{
       <span>活動報告</span>
     </h1>
     <p>
-      日付、テーマ、概要、写真、動画、関連リンクをまとめて掲載します。
+      日付、テーマ、概要、写真で活動をわかりやすくお届けします。
     </p>
   </div>
 </section>
@@ -511,7 +497,7 @@ img{
 
 <footer class="footer">
   岩下りゅう 活動報告<br>
-  地域での活動を、写真と動画でわかりやすく。
+  地域での活動を、写真と文章でわかりやすく。
 </footer>
 
 </div>
@@ -520,8 +506,8 @@ img{
   <a href="index.html"><span>🏠</span>トップ</a>
   <a class="active" href="activity.html"><span>📸</span>活動</a>
   <a href="videos.html"><span>🎥</span>動画</a>
-  <a href="voices.html"><span>✅</span>成果</a>
-  <a href="sns.html"><span>📱</span>SNS</a>
+  <a href="voice.html"><span>📮</span>声</a>
+  <a href="profile.html"><span>👤</span>人物</a>
 </nav>
 
 <script>
@@ -648,8 +634,6 @@ function mapActivity(record,index){
       clean(record["画像URL4"]),
       clean(record["画像URL5"])
     ].filter(Boolean),
-    youtubeUrl:clean(record["YouTube URL"]),
-    relatedUrl:clean(record["関連リンクURL"]),
     snsText:clean(record["SNS投稿文"]),
     order:toNumber(record["表示順"],index + 1),
     note:clean(record["備考"])
@@ -849,16 +833,11 @@ function renderActivities(){
 
             <p class="activityText">${escapeHTML(item.summary)}</p>
 
-            <div class="linkActions">
-              ${item.youtubeUrl ? `<a class="smallBtn btnYoutube" href="${escapeHTML(item.youtubeUrl)}" target="_blank" rel="noopener">YouTube</a>` : ""}
-              ${item.relatedUrl ? `<a class="smallBtn btnGreen" href="${escapeHTML(item.relatedUrl)}" target="_blank" rel="noopener">関連リンク</a>` : ""}
-            </div>
-
             <div class="shareActions">
               <button class="smallBtn btnLine" type="button" onclick="shareLine(${JSON.stringify(shareText)},'${escapeHTML(shareUrl)}')">LINE</button>
               <button class="smallBtn btnX" type="button" onclick="shareX(${JSON.stringify(shareText)})">X投稿</button>
               <button class="smallBtn btnFb" type="button" onclick="shareFacebook('${escapeHTML(shareUrl)}')">Facebook</button>
-              <button class="smallBtn" type="button" onclick="copyText(${JSON.stringify(shareText)})">コピー</button>
+              <button class="smallBtn btnCopy" type="button" onclick="copyText(${JSON.stringify(shareText)})">コピー</button>
             </div>
 
           </div>
