@@ -4,151 +4,441 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>市民の声を送る｜岩下りゅう 活動報告</title>
+<title>地域の困りごとを知らせる｜岩下りゅう 活動報告</title>
 
-<meta name="description" content="道路の穴、街灯切れ、危険箇所、不法投棄、動物の死骸など、地域で気づいたことを写真と文章で知らせるページです。">
-<meta name="theme-color" content="#2f6b3b">
+<meta name="description" content="道路の穴、街灯切れ、不法投棄、危険箇所など、地域の困りごとを行政へつなげるページです。">
+<meta name="theme-color" content="#6fbd69">
 
-<link rel="icon" type="image/png" href="https://ichirohns-jpg.github.io/iwashita-ryu-activity/apple-touch-icon.png">
-<link rel="shortcut icon" type="image/png" href="https://ichirohns-jpg.github.io/iwashita-ryu-activity/apple-touch-icon.png">
-<link rel="apple-touch-icon" href="https://ichirohns-jpg.github.io/iwashita-ryu-activity/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="180x180" href="https://ichirohns-jpg.github.io/iwashita-ryu-activity/apple-touch-icon.png">
-
-<meta name="apple-mobile-web-app-title" content="岩下りゅう">
-<meta name="application-name" content="岩下りゅう">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
-<meta property="og:site_name" content="岩下りゅう 活動報告">
-<meta property="og:title" content="市民の声を送る｜岩下りゅう">
-<meta property="og:description" content="道路の穴、街灯切れ、不法投棄、動物の死骸などを写真と文章で知らせるページです。">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://ichirohns-jpg.github.io/iwashita-ryu-activity/voice.html">
-<meta property="og:image" content="https://ichirohns-jpg.github.io/iwashita-ryu-activity/images/activity/voice-report.jpg">
-
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="市民の声を送る｜岩下りゅう">
-<meta name="twitter:description" content="道路の穴、街灯切れ、不法投棄、動物の死骸などを写真と文章で知らせるページです。">
-<meta name="twitter:image" content="https://ichirohns-jpg.github.io/iwashita-ryu-activity/images/activity/voice-report.jpg">
+<link rel="icon" type="image/png" href="apple-touch-icon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 
 <style>
-.pageHero{
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  font-family:"Hiragino Sans","Yu Gothic","Meiryo",sans-serif;
+  color:#203326;
   background:
-    linear-gradient(180deg,rgba(5,46,22,.1),rgba(5,46,22,.88)),
-    url("images/activity/voice-report.jpg") center/cover no-repeat;
+    radial-gradient(circle at 10% 0%,rgba(218,255,209,.9),transparent 28%),
+    radial-gradient(circle at 90% 5%,rgba(255,246,176,.55),transparent 25%),
+    linear-gradient(180deg,#f8fff5 0%,#ffffff 48%,#edfbea 100%);
+  line-height:1.75;
+  -webkit-text-size-adjust:100%;
 }
 
-.categoryIcon{
-  width:52px;
-  height:52px;
-  border-radius:20px;
-  background:linear-gradient(135deg,#dcfce7,#86efac);
-  display:grid;
-  place-items:center;
-  font-size:28px;
-  margin-bottom:10px;
+a{
+  color:inherit;
+  text-decoration:none;
 }
 
-.categoryCard b{
-  display:block;
-  color:#113d27;
-  font-size:18px;
-  line-height:1.35;
+img{
+  max-width:100%;
 }
 
-.categoryCard span{
-  display:block;
-  margin-top:5px;
-  color:#496b55;
-  font-weight:760;
+.wrap{
+  width:min(980px,94%);
+  margin:auto;
+  padding:12px 0 96px;
 }
 
-.stepNo{
-  width:42px;
-  height:42px;
-  border-radius:15px;
-  display:grid;
-  place-items:center;
-  background:#dcfce7;
-  color:#113d27;
+/* ヘッダー */
+
+.header{
+  position:sticky;
+  top:0;
+  z-index:80;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:10px 0;
+  background:rgba(248,255,245,.94);
+  backdrop-filter:blur(16px);
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:#1f5f35;
   font-weight:900;
-  margin-bottom:10px;
 }
 
-.step b{
-  display:block;
-  color:#113d27;
-  font-size:17px;
+.brand img{
+  width:44px;
+  height:44px;
+  border-radius:16px;
+  object-fit:cover;
+  box-shadow:0 8px 22px rgba(70,130,82,.18);
 }
 
-.step span{
-  display:block;
-  margin-top:5px;
-  color:#496b55;
-  font-weight:750;
+.brand span{
+  font-size:18px;
+  line-height:1.25;
 }
 
-.voiceNotice{
-  margin-top:16px;
-  border-radius:22px;
-  background:#fef9c3;
-  border:1px solid #fde68a;
-  color:#713f12;
-  padding:16px;
+.headerNav{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+}
+
+.headerNav a{
+  padding:9px 13px;
+  border-radius:999px;
+  background:#fff;
+  border:1px solid #b7ebc0;
+  color:#1f6b3d;
+  font-size:13px;
+  font-weight:900;
+  box-shadow:0 6px 16px rgba(70,130,82,.07);
+}
+
+/* 上部 */
+
+.hero{
+  margin-top:8px;
+  border-radius:32px;
+  background:
+    radial-gradient(circle at 100% 0%,rgba(255,246,176,.48),transparent 34%),
+    linear-gradient(135deg,#ffffff 0%,#f4fff1 100%);
+  border:1px solid #b7ebc0;
+  box-shadow:0 16px 40px rgba(70,130,82,.11);
+  padding:22px;
+}
+
+.kicker{
+  display:inline-flex;
+  padding:8px 13px;
+  border-radius:999px;
+  background:#e6ffe9;
+  border:1px solid #b7ebc0;
+  color:#1f6b3d;
+  font-size:14px;
+  font-weight:900;
+}
+
+.hero h1{
+  margin:14px 0 0;
+  color:#1f5f35;
+  font-size:clamp(34px,9vw,58px);
+  line-height:1.08;
+  font-weight:900;
+}
+
+.hero p{
+  margin:12px 0 0;
+  color:#344c39;
+  font-size:18px;
   font-weight:850;
 }
 
-.voiceNotice b{
-  display:block;
-  margin-bottom:4px;
+/* 写真つき大見出し */
+
+.visualHero{
+  margin-top:18px;
+  position:relative;
+  overflow:hidden;
+  min-height:430px;
+  border-radius:34px;
+  background:
+    linear-gradient(180deg,rgba(18,83,45,.08) 0%,rgba(18,83,45,.28) 45%,rgba(18,83,45,.66) 100%),
+    url("images/activity/voice-report.jpg") center/cover no-repeat;
+  border:1px solid #b7ebc0;
+  box-shadow:0 18px 44px rgba(70,130,82,.14);
 }
 
-.sampleBox{
-  margin-top:16px;
+.visualInner{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  padding:24px;
+  color:#fff;
+}
+
+.visualLabel{
+  display:inline-flex;
+  padding:8px 14px;
+  border-radius:999px;
+  background:rgba(255,255,255,.22);
+  border:1px solid rgba(255,255,255,.42);
+  color:#fff;
+  font-size:15px;
+  font-weight:900;
+  backdrop-filter:blur(8px);
+}
+
+.visualInner h2{
+  margin:16px 0 0;
+  color:#fff;
+  font-size:clamp(42px,11vw,70px);
+  line-height:1.08;
+  font-weight:900;
+  text-shadow:0 4px 18px rgba(0,0,0,.30);
+}
+
+.visualInner h2 span{
+  display:block;
+  color:#fef08a;
+}
+
+.visualInner p{
+  margin:16px 0 0;
+  color:#fff;
+  font-size:clamp(18px,4.8vw,26px);
+  line-height:1.6;
+  font-weight:900;
+  text-shadow:0 3px 14px rgba(0,0,0,.28);
+}
+
+/* 説明カード */
+
+.mainCard{
+  margin-top:18px;
+  border-radius:32px;
+  background:#fff;
+  border:1px solid #b7ebc0;
+  box-shadow:0 16px 40px rgba(70,130,82,.11);
+  padding:22px;
+}
+
+.mainCard h2{
+  margin:0;
+  color:#1f5f35;
+  font-size:clamp(30px,7vw,46px);
+  line-height:1.25;
+  font-weight:900;
+}
+
+.mainCard p{
+  margin:12px 0 0;
+  color:#3c5943;
+  font-size:18px;
+  line-height:1.8;
+  font-weight:850;
+}
+
+/* 内容 */
+
+.cardGrid{
+  margin-top:18px;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:14px;
+}
+
+.infoCard{
+  border-radius:30px;
+  background:#fff;
+  border:1px solid #b7ebc0;
+  box-shadow:0 12px 30px rgba(71,130,82,.10);
+  padding:20px;
+}
+
+.iconCircle{
+  width:64px;
+  height:64px;
+  border-radius:24px;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(135deg,#e6ffe9 0%,#bdf5bf 100%);
+  font-size:34px;
+  margin-bottom:12px;
+}
+
+.infoCard h2{
+  margin:0;
+  color:#1f5f35;
+  font-size:28px;
+  line-height:1.25;
+  font-weight:900;
+}
+
+.infoCard p{
+  margin:9px 0 0;
+  color:#3c5943;
+  font-size:17px;
+  line-height:1.75;
+  font-weight:850;
+}
+
+/* 準備中 */
+
+.prepareCard{
+  margin-top:20px;
+  border-radius:30px;
+  background:
+    radial-gradient(circle at 100% 0%,rgba(255,246,176,.42),transparent 36%),
+    linear-gradient(135deg,#ffffff 0%,#f7fff5 100%);
+  border:1px solid #b7ebc0;
+  box-shadow:0 12px 30px rgba(71,130,82,.10);
+  padding:20px;
+}
+
+.prepareCard h2{
+  margin:0;
+  color:#1f5f35;
+  font-size:30px;
+  line-height:1.25;
+  font-weight:900;
+}
+
+.prepareCard p{
+  margin:10px 0 0;
+  color:#3c5943;
+  font-size:18px;
+  line-height:1.75;
+  font-weight:850;
+}
+
+.notice{
+  margin-top:14px;
+  border-radius:22px;
+  background:#fff7c2;
+  border:2px solid #facc15;
+  color:#5c3b00;
+  padding:16px;
+  font-size:16px;
+  line-height:1.7;
+  font-weight:900;
+}
+
+/* ボタン */
+
+.buttonGrid{
+  margin-top:18px;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:10px;
+}
+
+.bigButton{
+  min-height:66px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   border-radius:24px;
   background:#fff;
-  border:1px solid #bbf7d0;
-  padding:18px;
-  box-shadow:0 16px 42px rgba(20,83,45,.1);
+  border:2px solid #b7ebc0;
+  color:#1f5f35;
+  font-size:20px;
+  font-weight:900;
 }
 
-.sampleBox h3{
-  margin:0;
-  color:#113d27;
+.bigButton.primary{
+  background:linear-gradient(135deg,#4caf63 0%,#78c96f 100%);
+  border-color:#78c96f;
+  color:#fff;
+}
+
+.bigButton.support{
+  background:linear-gradient(135deg,#fff7c2 0%,#facc15 100%);
+  border-color:#facc15;
+  color:#5c3b00;
+}
+
+/* 下メニュー */
+
+.bottomNav{
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:100;
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  background:rgba(255,255,255,.98);
+  border-top:1px solid #b7ebc0;
+  box-shadow:0 -12px 30px rgba(71,130,82,.12);
+  backdrop-filter:blur(14px);
+}
+
+.bottomNav a{
+  text-align:center;
+  color:#1f6b3d;
+  padding:8px 4px 7px;
+  font-size:12px;
+  font-weight:900;
+}
+
+.bottomNav a span{
+  display:block;
   font-size:22px;
-  line-height:1.35;
+  line-height:1.1;
 }
 
-.sampleBox p{
-  margin:8px 0 0;
-  color:#496b55;
+.bottomNav a.active{
+  background:#e2f8e5;
+  color:#14532d;
+}
+
+.footer{
+  margin-top:30px;
+  text-align:center;
+  color:#4d6b55;
+  font-size:13px;
   font-weight:800;
 }
 
-.sampleText{
-  margin-top:12px;
-  background:#052e1c;
-  color:#ecfdf5;
-  border-radius:18px;
-  padding:16px;
-  white-space:pre-wrap;
-  font-size:14px;
-  line-height:1.75;
-}
-
 @media (min-width:820px){
-  .categoryGrid{
-    grid-template-columns:repeat(3,1fr) !important;
+  .cardGrid{
+    grid-template-columns:repeat(2,1fr);
   }
 
-  .stepGrid{
-    grid-template-columns:repeat(4,1fr) !important;
+  .buttonGrid{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .visualHero{
+    min-height:560px;
+  }
+}
+
+@media (max-width:560px){
+  .wrap{
+    width:94%;
+  }
+
+  .headerNav{
+    display:none;
+  }
+
+  .brand span{
+    font-size:16px;
+  }
+
+  .hero,
+  .visualHero,
+  .mainCard,
+  .infoCard,
+  .prepareCard{
+    border-radius:28px;
+  }
+
+  .hero,
+  .mainCard,
+  .infoCard,
+  .prepareCard{
+    padding:18px;
+  }
+
+  .visualHero{
+    min-height:410px;
+  }
+
+  .visualInner{
+    padding:20px;
   }
 }
 </style>
-
-<link rel="stylesheet" href="style.css?v=common-1">
 </head>
 
 <body>
@@ -162,137 +452,94 @@
   </a>
 
   <nav class="headerNav">
+    <a href="index.html">トップ</a>
     <a href="activity.html">活動</a>
     <a href="videos.html">動画</a>
-    <a class="active" href="voice.html">声を送る</a>
-    <a href="profile.html">プロフィール</a>
+    <a href="support.html">応援</a>
+    <a href="profile.html">人物</a>
   </nav>
 </header>
 
 <main>
 
-<section class="pageHero">
-  <div class="pageHeroInner">
-    <div class="kicker">写真と文章で知らせる</div>
-    <h1>
-      市民の声を
-      <span>送る</span>
-    </h1>
+<section class="hero">
+  <div class="kicker">地域で気づいたこと</div>
+  <h1>地域の困りごとを知らせる</h1>
+  <p>
+    道路の穴、街灯切れ、不法投棄、危険箇所など、地域で気づいたことを知らせるためのページです。
+  </p>
+</section>
+
+<section class="visualHero">
+  <div class="visualInner">
+    <div class="visualLabel">写真と文章で知らせる</div>
+    <h2>
+      まちの困りごとを
+      <span>行政へつなげます</span>
+    </h2>
     <p>
-      道路の穴、街灯切れ、不法投棄、動物の死骸、危険箇所など、地域で気づいたことを写真と文章で知らせるページです。
+      道路の穴、街灯切れ、不法投棄、危険箇所など、地域の声を見える形にします。
     </p>
   </div>
 </section>
 
-<section class="section card">
-  <h2 class="sectionTitle">知らせられる内容</h2>
-  <p class="sectionLead">
-    写真だけでなく、場所や状況を文章で詳しく書ける形にします。
+<section class="mainCard">
+  <h2>小さな気づきを、地域の改善へ</h2>
+  <p>
+    写真だけでなく、場所や状況を文章で伝えられる形にしていきます。地域の小さな困りごとを見える化し、必要に応じて行政や関係機関へつなげる入口です。
   </p>
-
-  <div class="categoryGrid section">
-
-    <div class="categoryCard">
-      <div class="categoryIcon">🕳️</div>
-      <b>道路の穴・段差</b>
-      <span>歩道や道路の穴、段差、陥没など。</span>
-    </div>
-
-    <div class="categoryCard">
-      <div class="categoryIcon">💡</div>
-      <b>街灯切れ</b>
-      <span>夜道が暗い、街灯が消えている場所。</span>
-    </div>
-
-    <div class="categoryCard">
-      <div class="categoryIcon">⚠️</div>
-      <b>危険箇所</b>
-      <span>転倒しそう、見通しが悪い、危ない場所。</span>
-    </div>
-
-    <div class="categoryCard">
-      <div class="categoryIcon">🗑️</div>
-      <b>ごみ・不法投棄</b>
-      <span>放置ごみ、不法投棄、散乱している場所。</span>
-    </div>
-
-    <div class="categoryCard">
-      <div class="categoryIcon">🐾</div>
-      <b>動物の死骸</b>
-      <span>道路や歩道にある動物の死骸など。</span>
-    </div>
-
-    <div class="categoryCard">
-      <div class="categoryIcon">✍️</div>
-      <b>その他の困りごと</b>
-      <span>地域で気づいたことを文章で送れます。</span>
-    </div>
-
-  </div>
 </section>
 
-<section class="section card">
-  <h2 class="sectionTitle">送る内容</h2>
-  <p class="sectionLead">
-    実際の投稿フォームでは、以下を入力できるようにします。
-  </p>
+<section class="cardGrid">
 
-  <div class="stepGrid section">
-
-    <div class="step">
-      <div class="stepNo">1</div>
-      <b>カテゴリ</b>
-      <span>道路、街灯、ごみ、不法投棄など。</span>
-    </div>
-
-    <div class="step">
-      <div class="stepNo">2</div>
-      <b>場所</b>
-      <span>住所、目印、近くのお店や交差点など。</span>
-    </div>
-
-    <div class="step">
-      <div class="stepNo">3</div>
-      <b>写真</b>
-      <span>状況がわかる写真を添付。</span>
-    </div>
-
-    <div class="step">
-      <div class="stepNo">4</div>
-      <b>文章</b>
-      <span>状況、危険度、気づいたことを自由に記入。</span>
-    </div>
-
-  </div>
-
-  <div class="voiceNotice">
-    <b>次の段階で投稿フォームを作ります</b>
-    市民投稿機能は、活動報告とは別のスプレッドシートで作ります。
-    ここではまず、入口ページとして内容を整理しています。
-  </div>
-</section>
-
-<section class="section card">
-  <h2 class="sectionTitle">文章で詳しく書けます</h2>
-  <p class="sectionLead">
-    写真だけでは伝わりにくい状況も、文章で補足できるようにします。
-  </p>
-
-  <div class="sampleBox">
-    <h3>投稿文の例</h3>
+  <article class="infoCard">
+    <div class="iconCircle">🕳️</div>
+    <h2>道路の穴・段差</h2>
     <p>
-      場所、状況、危険度、目印などを書けるようにします。
+      道路の穴、歩道の段差、危ない場所など、歩く人や自転車が困る場所を知らせます。
     </p>
+  </article>
 
-    <div class="sampleText">〇〇通りの歩道に大きな穴があります。
-夜間は見えにくく、自転車や高齢者が転倒しそうで危険です。
-近くの目印は〇〇店の前です。
-早めに確認していただけると助かります。</div>
+  <article class="infoCard">
+    <div class="iconCircle">💡</div>
+    <h2>街灯切れ</h2>
+    <p>
+      夜道が暗い、街灯が切れている、防犯上心配な場所などを知らせます。
+    </p>
+  </article>
+
+  <article class="infoCard">
+    <div class="iconCircle">🗑️</div>
+    <h2>ごみ・不法投棄</h2>
+    <p>
+      ごみの放置、不法投棄、地域の景観を損なう場所などを知らせます。
+    </p>
+  </article>
+
+  <article class="infoCard">
+    <div class="iconCircle">⚠️</div>
+    <h2>危険箇所など</h2>
+    <p>
+      動物の死骸、壊れた設備、危険を感じる場所など、地域で気づいたことを知らせます。
+    </p>
+  </article>
+
+</section>
+
+<section class="prepareCard">
+  <h2>投稿フォームを準備中です</h2>
+  <p>
+    今後、写真・場所・内容を入力して送れる形に整えていきます。
+  </p>
+
+  <div class="notice">
+    緊急の場合や、すぐ対応が必要な場合は、市役所・警察・消防など、関係機関へ直接連絡してください。
   </div>
 
-  <div class="buttonRow">
-    <a class="btn btnGreen" href="index.html">トップへ戻る</a>
-    <a class="btn btnDark" href="activity.html">活動報告を見る</a>
+  <div class="buttonGrid">
+    <a class="bigButton primary" href="activity.html">活動を見る</a>
+    <a class="bigButton support" href="support.html">応援を書く</a>
+    <a class="bigButton" href="index.html">トップへ戻る</a>
   </div>
 </section>
 
@@ -300,7 +547,7 @@
 
 <footer class="footer">
   岩下りゅう 活動報告<br>
-  市民の声を、写真と文章でわかりやすく。
+  地域での活動を、写真と動画でわかりやすく。
 </footer>
 
 </div>
@@ -309,7 +556,7 @@
   <a href="index.html"><span>🏠</span>トップ</a>
   <a href="activity.html"><span>📸</span>活動</a>
   <a href="videos.html"><span>🎥</span>動画</a>
-  <a class="active" href="voice.html"><span>📮</span>声</a>
+  <a href="support.html"><span>💬</span>応援</a>
   <a href="profile.html"><span>👤</span>人物</a>
 </nav>
 
