@@ -17,13 +17,17 @@
   box-sizing:border-box;
 }
 
+html{
+  scroll-behavior:smooth;
+}
+
 body{
   margin:0;
   font-family:"Hiragino Sans","Yu Gothic","Meiryo",sans-serif;
-  color:#213627;
+  color:#203326;
   background:
-    radial-gradient(circle at 10% 0%,rgba(219,255,211,.9),transparent 28%),
-    radial-gradient(circle at 90% 4%,rgba(255,246,176,.6),transparent 26%),
+    radial-gradient(circle at 10% 0%,rgba(218,255,209,.9),transparent 28%),
+    radial-gradient(circle at 90% 5%,rgba(255,246,176,.55),transparent 25%),
     linear-gradient(180deg,#f8fff5 0%,#ffffff 48%,#edfbea 100%);
   line-height:1.75;
   -webkit-text-size-adjust:100%;
@@ -39,6 +43,8 @@ a{
   margin:auto;
   padding:12px 0 96px;
 }
+
+/* ヘッダー */
 
 .header{
   position:sticky;
@@ -91,14 +97,16 @@ a{
   box-shadow:0 6px 16px rgba(70,130,82,.07);
 }
 
+/* ページ上部 */
+
 .hero{
   margin-top:8px;
-  border-radius:34px;
+  border-radius:32px;
   background:
-    radial-gradient(circle at 100% 0%,rgba(255,246,176,.55),transparent 35%),
+    radial-gradient(circle at 100% 0%,rgba(255,246,176,.48),transparent 34%),
     linear-gradient(135deg,#ffffff 0%,#f4fff1 100%);
   border:1px solid #b7ebc0;
-  box-shadow:0 18px 44px rgba(70,130,82,.12);
+  box-shadow:0 16px 40px rgba(70,130,82,.11);
   padding:22px;
 }
 
@@ -116,7 +124,7 @@ a{
 .hero h1{
   margin:14px 0 0;
   color:#1f5f35;
-  font-size:clamp(34px,9vw,60px);
+  font-size:clamp(34px,9vw,58px);
   line-height:1.08;
   font-weight:900;
 }
@@ -128,12 +136,34 @@ a{
   font-weight:850;
 }
 
+.pageLinks{
+  margin-top:14px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+
+.pageLinks a{
+  min-height:54px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:20px;
+  background:#fff;
+  border:2px solid #b7ebc0;
+  color:#1f5f35;
+  font-size:17px;
+  font-weight:900;
+}
+
+/* 入力フォーム */
+
 .formCard{
-  margin-top:18px;
-  border-radius:34px;
+  margin-top:16px;
+  border-radius:32px;
   background:#fff;
   border:1px solid #b7ebc0;
-  box-shadow:0 18px 44px rgba(70,130,82,.12);
+  box-shadow:0 16px 40px rgba(70,130,82,.11);
   padding:22px;
 }
 
@@ -192,7 +222,7 @@ select{
 }
 
 textarea{
-  min-height:180px;
+  min-height:170px;
   padding:18px;
   resize:vertical;
 }
@@ -263,36 +293,38 @@ textarea:focus{
   display:none;
 }
 
-.linkButtons{
-  margin-top:18px;
-  display:grid;
-  grid-template-columns:1fr;
-  gap:12px;
-}
-
-.bigLink{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  min-height:68px;
-  border-radius:24px;
-  background:#fff;
-  border:2px solid #b7ebc0;
-  color:#1f5f35;
-  font-size:21px;
-  font-weight:900;
-  box-shadow:0 12px 30px rgba(71,130,82,.10);
-}
+/* 一覧 */
 
 .messages{
-  margin-top:22px;
+  margin-top:24px;
+}
+
+.messagesHead{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:12px;
 }
 
 .messages h2{
-  margin:0 0 12px;
+  margin:0;
   color:#1f5f35;
-  font-size:30px;
+  font-size:34px;
+  line-height:1.2;
   font-weight:900;
+}
+
+.reloadBtn{
+  border:0;
+  border-radius:999px;
+  background:#fff;
+  border:2px solid #b7ebc0;
+  color:#1f5f35;
+  font-family:inherit;
+  font-size:15px;
+  font-weight:900;
+  padding:10px 14px;
 }
 
 .messageList{
@@ -355,6 +387,28 @@ textarea:focus{
   font-weight:850;
 }
 
+.backCard{
+  margin-top:18px;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:10px;
+}
+
+.backCard a{
+  min-height:64px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:24px;
+  background:#fff;
+  border:2px solid #b7ebc0;
+  color:#1f5f35;
+  font-size:20px;
+  font-weight:900;
+}
+
+/* 下メニュー */
+
 .bottomNav{
   position:fixed;
   left:0;
@@ -389,7 +443,7 @@ textarea:focus{
 }
 
 .footer{
-  margin-top:34px;
+  margin-top:30px;
   text-align:center;
   color:#4d6b55;
   font-size:13px;
@@ -401,16 +455,20 @@ textarea:focus{
 }
 
 @media (min-width:820px){
-  .linkButtons{
+  .radioBox{
     grid-template-columns:1fr 1fr;
   }
 
-  .radioBox{
+  .backCard{
     grid-template-columns:1fr 1fr;
   }
 }
 
 @media (max-width:560px){
+  .wrap{
+    width:94%;
+  }
+
   .headerNav{
     display:none;
   }
@@ -430,6 +488,15 @@ textarea:focus{
   textarea{
     font-size:19px;
   }
+
+  .pageLinks{
+    grid-template-columns:1fr;
+  }
+
+  .messagesHead{
+    align-items:flex-start;
+    flex-direction:column;
+  }
 }
 </style>
 </head>
@@ -448,7 +515,7 @@ textarea:focus{
     <a href="index.html">トップ</a>
     <a href="activity.html">活動</a>
     <a href="videos.html">動画</a>
-    <a href="voice.html">困りごと</a>
+    <a href="support.html">応援</a>
     <a href="profile.html">人物</a>
   </nav>
 </header>
@@ -459,15 +526,20 @@ textarea:focus{
   <div class="kicker">サイトに訪れた方へ</div>
   <h1>応援メッセージを書く</h1>
   <p>
-    岩下りゅうへの応援、活動への感想、期待することなどをお寄せください。<br>
+    応援、活動への感想、期待することなどをお寄せください。<br>
     お名前はニックネームでも大丈夫です。
   </p>
+
+  <div class="pageLinks">
+    <a href="#form">メッセージを書く</a>
+    <a href="#messages">メッセージを見る</a>
+  </div>
 </section>
 
-<section class="formCard">
-  <h2>メッセージ入力</h2>
+<section class="formCard" id="form">
+  <h2>入力する</h2>
   <p class="formNote">
-    入力された内容は確認後、公開してよいものだけページに掲載します。
+    「公開してよい」を選ぶと、送信後にページへ表示されます。
   </p>
 
   <form id="supportForm" method="GET" target="sendFrame">
@@ -526,17 +598,21 @@ textarea:focus{
   </form>
 
   <iframe class="hiddenFrame" name="sendFrame" title="sendFrame"></iframe>
-
-  <div class="linkButtons">
-    <a class="bigLink" href="#messages">応援メッセージを見る</a>
-    <a class="bigLink" href="index.html">トップへ戻る</a>
-  </div>
 </section>
 
 <section class="messages" id="messages">
-  <h2>応援メッセージ</h2>
+  <div class="messagesHead">
+    <h2>届いたメッセージ</h2>
+    <button class="reloadBtn" type="button" onclick="loadMessages()">更新</button>
+  </div>
+
   <div id="messageList" class="messageList">
     <div class="empty">公開中の応援メッセージを読み込み中です。</div>
+  </div>
+
+  <div class="backCard">
+    <a href="#form">メッセージを書く</a>
+    <a href="index.html">トップへ戻る</a>
   </div>
 </section>
 
@@ -559,7 +635,7 @@ textarea:focus{
 
 <script>
 const GAS_URL =
-"https://script.google.com/macros/s/AKfycbw7UIvT3i-IWQ6ybtNQVBODE3-qMgDOO_paONklbwo0KI7rfyNayFF69pWsEdOamF4X_Q/exec";
+"https://script.google.com/macros/s/AKfycbyv9uOF69WBCc5DKlCr0ZUbQqbWUu30qqA4fCl5EznNA3RfBxlKsDIvAMK4SldJvW4k9g/exec";
 
 const form =
 document.getElementById("supportForm");
@@ -604,6 +680,7 @@ form.addEventListener("submit",function(e){
     resultBox.style.display = "block";
     submitBtn.disabled = false;
     submitBtn.textContent = "応援メッセージを送る";
+
     form.reset();
 
     document
@@ -617,6 +694,11 @@ form.addEventListener("submit",function(e){
       r.checked = r.value === "公開してよい";
     });
 
+    setTimeout(function(){
+      loadMessages();
+      location.hash = "messages";
+    },700);
+
   },1200);
 
 });
@@ -628,6 +710,20 @@ function esc(v){
   .replace(/>/g,"&gt;")
   .replace(/"/g,"&quot;")
   .replace(/'/g,"&#39;");
+}
+
+function shortDate(v){
+
+  const s =
+  String(v || "");
+
+  if(!s){
+    return "";
+  }
+
+  return s
+  .replace(/:\d{2}$/,"")
+  .replace(/\s\d{2}:\d{2}.*/,"");
 }
 
 function loadMessages(){
@@ -667,8 +763,10 @@ function loadMessages(){
       "その他";
 
       const date =
-      r["日時"] ||
-      "";
+      shortDate(
+        r["日時"] ||
+        ""
+      );
 
       const message =
       r["メッセージ"] ||
@@ -679,7 +777,7 @@ function loadMessages(){
       + '<div class="messageName">' + esc(name) + '</div>'
       + '<div class="messageMeta">'
       + '<span class="badge">' + esc(area) + '</span>'
-      + '<span class="badge">' + esc(date) + '</span>'
+      + (date ? '<span class="badge">' + esc(date) + '</span>' : '')
       + '</div>'
       + '<div class="messageText">' + esc(message) + '</div>'
       + '</article>';
