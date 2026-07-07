@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>岩下りゅうとは｜岩下りゅう 活動報告</title>
+
+<meta name="description" content="岩下りゅうのプロフィール、経歴、活動への想い、地域との関わりを紹介します。">
+<meta name="theme-color" content="#2f6b3b">
+
+<link rel="icon" type="image/png" href="https://ichirohns-jpg.github.io/iwashita-ryu-activity/apple-touch-icon.png">
+<link rel="shortcut icon" type="image/png" href="https://ichirohns-jpg.github.io/iwashita-ryu-activity/apple-touch-icon.png">
+<link rel="apple-touch-icon" href="https://ichirohns-jpg.github.io/iwashita-ryu-activity/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://ichirohns-jpg.github.io/iwashita-ryu-activity/apple-touch-icon.png">
+
+<meta name="apple-mobile-web-app-title" content="岩下りゅう">
+<meta name="application-name" content="岩下りゅう">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<meta property="og:site_name" content="岩下りゅう 活動報告">
+<meta property="og:title" content="岩下りゅうとは">
+<meta property="og:description" content="プロフィール、経歴、活動への想い、地域との関わりを紹介します。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ichirohns-jpg.github.io/iwashita-ryu-activity/profile.html">
+<meta property="og:image" content="https://ichirohns-jpg.github.io/iwashita-ryu-activity/images/activity/profile-main.jpg">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="岩下りゅうとは">
+<meta name="twitter:description" content="プロフィール、経歴、活動への想い、地域との関わりを紹介します。">
+<meta name="twitter:image" content="https://ichirohns-jpg.github.io/iwashita-ryu-activity/images/activity/profile-main.jpg">
+
+<style>
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  font-family:
+    "Hiragino Sans",
+    "Yu Gothic",
+    "Meiryo",
+    sans-serif;
+  color:#173424;
+  background:
+    radial-gradient(circle at 10% 0%,rgba(191,255,204,.72),transparent 26%),
+    radial-gradient(circle at 90% 4%,rgba(255,239,151,.42),transparent 24%),
+    linear-gradient(180deg,#f2fff5 0%,#ffffff 45%,#e7f8ec 100%);
+  line-height:1.75;
+  -webkit-text-size-adjust:100%;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+button{
+  font-family:inherit;
+}
+
+img{
+  max-width:100%;
+}
+
+.wrap{
+  width:min(1120px,94%);
+  margin:auto;
+  padding:12px 0 94px;
+}
+
+.header{
+  position:sticky;
+  top:0;
+  z-index:50;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:10px 0;
+  background:rgba(242,255,245,.9);
+  backdrop-filter:blur(16px);
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:900;
+  color:#14532d;
+}
+
+.brand img{
+  width:40px;
+  height:40px;
+  border-radius:14px;
+  box-shadow:0 8px 22px rgba(20,83,45,.2);
+}
+
+.brand span{
+  font-size:17px;
+  letter-spacing:.03em;
+}
+
+.headerNav{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+}
+
+.headerNav a{
+  padding:8px 12px;
+  border-radius:999px;
+  background:#fff;
+  border:1px solid rgba(34,132,74,.18);
+  color:#166534;
+  font-size:12px;
+  font-weight:900;
+}
+
+.headerNav a.active{
+  background:#14532d;
+  color:#fff;
+}
+
+.pageHero{
+  position:relative;
+  overflow:hidden;
+  border-radius:34px;
+  min-height:430px;
+  background:
+    linear-gradient(180deg,rgba(5,46,22,.1),rgba(5,46,22,.88)),
+    url("images/activity/profile-main.jpg") center/cover no-repeat;
+  box-shadow:0 28px 76px rgba(20,83,45,.23);
+}
+
+.pageHeroInner{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  padding:26px;
+  color:#fff;
+}
+
+.kicker{
+  display:inline-flex;
+  width:max-content;
+  padding:8px 13px;
+  border-radius:999px;
+  background:rgba(255,255,255,.16);
+  border:1px solid rgba(255,255,255,.28);
+  color:#fef9c3;
+  font-size:13px;
+  font-weight:900;
+}
+
+.pageHero h1{
+  margin:14px 0 0;
+  font-size:clamp(38px,10vw,72px);
+  line-height:1.04;
+  font-weight:900;
+  text-shadow:0 8px 26px rgba(0,0,0,.36);
+}
+
+.pageHero h1 span{
+  display:block;
+  color:#fef08a;
+}
+
+.pageHero p{
+  max-width:760px;
+  margin:14px 0 0;
+  color:#ecfdf5;
+  font-size:clamp(16px,4vw,22px);
+  font-weight:850;
+}
+
+.section{
+  margin-top:24px;
+}
+
+.card{
+  background:rgba(255,255,255,.96);
+  border:1px solid rgba(34,132,74,.15);
+  border-radius:30px;
+  padding:20px;
+  box-shadow:0 18px 52px rgba(20,83,45,.12);
+}
+
+.greenCard{
+  background:
+    radial-gradient(circle at 100% 0%,rgba(254,240,138,.28),transparent 34%),
+    linear-gradient(135deg,#effff2,#e0f6e6);
+}
+
+.sectionTitle{
+  margin:0;
+  color:#14532d;
+  font-size:clamp(26px,6vw,42px);
+  line-height:1.25;
+  font-weight:900;
+}
+
+.sectionLead{
+  margin:8px 0 0;
+  color:#365c46;
+  font-weight:800;
+}
+
+.profileGrid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:18px;
+  align-items:center;
+}
+
+.profilePhoto{
+  overflow:hidden;
+  border-radius:28px;
+  background:#dcfce7;
+  box-shadow:0 16px 42px rgba(20,83,45,.14);
+}
+
+.profilePhoto img{
+  display:block;
+  width:100%;
+}
+
+.introText{
+  color:#365c46;
+  font-weight:800;
+  margin:12px 0 0;
+}
+
+.itemGrid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:14px;
+}
+
+.profileItem{
+  overflow:hidden;
+  border-radius:26px;
+  background:#fff;
+  border:1px solid #bbf7d0;
+  box-shadow:0 14px 36px rgba(20,83,45,.1);
+}
+
+.profileItemImage{
+  background:#ecfdf5;
+}
+
+.profileItemImage img{
+  display:block;
+  width:100%;
+}
+
+.profileItemBody{
+  padding:17px;
+}
+
+.itemMeta{
+  display:inline-flex;
+  padding:5px 10px;
+  border-radius:999px;
+  background:#dcfce7;
+  color:#166534;
+  border:1px solid #bbf7d0;
+  font-size:12px;
+  font-weight:900;
+  margin-bottom:8px;
+}
+
+.profileItem h3{
+  margin:0;
+  color:#14532d;
+  font-size:22px;
+  line-height:1.35;
+  font-weight:900;
+}
+
+.profileItem p{
+  margin:9px 0 0;
+  color:#365c46;
+  font-weight:760;
+  white-space:pre-wrap;
+}
+
+.linkActions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:14px;
+}
+
+.smallBtn{
+  border:0;
+  border-radius:999px;
+  padding:10px 13px;
+  font-size:14px;
+  font-weight:900;
+  cursor:pointer;
+  display:inline-block;
+  text-align:center;
+  background:#ecfdf5;
+  color:#166534;
+}
+
+.btnGreen{
+  background:#16a34a;
+  color:#fff;
+}
+
+.btnDark{
+  background:#14532d;
+  color:#fff;
+}
+
+.policyImage{
+  overflow:hidden;
+  border-radius:28px;
+  background:#fff;
+  border:1px solid #bbf7d0;
+  box-shadow:0 16px 42px rgba(20,83,45,.1);
+}
+
+.policyImage img{
+  display:block;
+  width:100%;
+}
+
+.emptyBox{
+  border-radius:24px;
+  background:#fff;
+  border:1px dashed #86efac;
+  color:#365c46;
+  padding:18px;
+  font-weight:800;
+}
+
+.footer{
+  margin-top:34px;
+  text-align:center;
+  color:#365c46;
+  font-size:13px;
+  font-weight:800;
+}
+
+.bottomNav{
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:70;
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  background:rgba(255,255,255,.96);
+  border-top:1px solid rgba(34,132,74,.18);
+  box-shadow:0 -12px 30px rgba(20,83,45,.12);
+  backdrop-filter:blur(14px);
+}
+
+.bottomNav a{
+  text-align:center;
+  color:#166534;
+  padding:8px 4px 7px;
+  font-size:11px;
+  font-weight:900;
+}
+
+.bottomNav a span{
+  display:block;
+  font-size:20px;
+  line-height:1.1;
+}
+
+.bottomNav a.active{
+  background:#dcfce7;
+}
+
+@media (min-width:820px){
+
+  .profileGrid{
+    grid-template-columns:.9fr 1.1fr;
+  }
+
+  .itemGrid{
+    grid-template-columns:1fr 1fr;
+  }
+
+}
+
+@media (max-width:560px){
+
+  .headerNav{
+    display:none;
+  }
+
+  .brand span{
+    font-size:16px;
+  }
+
+  .pageHero{
+    min-height:390px;
+    border-radius:30px;
+  }
+
+  .pageHeroInner{
+    padding:22px;
+  }
+
+  .card{
+    border-radius:26px;
+    padding:18px;
+  }
+
+  .smallBtn{
+    flex:1 1 44%;
+    padding:10px 8px;
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrap">
+
+<header class="header">
+  <a class="brand" href="index.html">
+    <img src="apple-touch-icon.png" alt="岩下りゅう">
+    <span>岩下りゅう 活動報告</span>
+  </a>
+
+  <nav class="headerNav">
+    <a href="activity.html">活動</a>
+    <a href="videos.html">動画</a>
+    <a href="voice.html">声を送る</a>
+    <a class="active" href="profile.html">プロフィール</a>
+  </nav>
+</header>
+
+<main>
+
+<section class="pageHero">
+  <div class="pageHeroInner">
+    <div class="kicker">地域で動く人を知る</div>
+    <h1>
+      岩下りゅう
+      <span>とは</span>
+    </h1>
+    <p>
+      経歴、活動への想い、地域との関わりを紹介します。
+    </p>
+  </div>
+</section>
+
+<section class="section card greenCard">
+  <div class="profileGrid">
+    <div class="profilePhoto">
+      <img src="images/activity/profile-main.jpg" alt="岩下りゅう プロフィール">
+    </div>
+
+    <div>
+      <h2 class="sectionTitle">志木の声を聞き、想いをカタチに。</h2>
+      <p class="introText">
+        地域の声を聞き、現場を見て、活動を写真・動画・記録として見える形に残していく。
+        このページでは、岩下りゅうの歩みと活動への想いを紹介します。
+      </p>
+
+      <div class="linkActions">
+        <a class="smallBtn btnGreen" href="activity.html">活動を見る</a>
+        <a class="smallBtn btnDark" href="https://iwashita-ryu.club/" target="_blank" rel="noopener">公式サイト</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section policyImage">
+  <img src="images/activity/policy-message.png" alt="想いをカタチに">
+</section>
+
+<section class="section card">
+  <h2 class="sectionTitle">プロフィール・経歴</h2>
+  <p class="sectionLead">
+    profile シートに「公開」で入力した内容がここに表示されます。
+  </p>
+</section>
+
+<section class="section">
+  <div id="profileGrid" class="itemGrid"></div>
+</section>
+
+</main>
+
+<footer class="footer">
+  岩下りゅう 活動報告<br>
+  地域での活動を、写真と動画でわかりやすく。
+</footer>
+
+</div>
+
+<nav class="bottomNav">
+  <a href="index.html"><span>🏠</span>トップ</a>
+  <a href="activity.html"><span>📸</span>活動</a>
+  <a href="videos.html"><span>🎥</span>動画</a>
+  <a href="voice.html"><span>📮</span>声</a>
+  <a class="active" href="profile.html"><span>👤</span>人物</a>
+</nav>
+
+<script>
+const GAS_URL =
+"https://script.google.com/macros/s/AKfycbzfLtQCO96cvV5bOVnu2L79xPOM6yaoTWKpvAuiN9Ru3NrQurh0PNKnUK86qmvMCkkIyw/exec";
+
+let profiles = [];
+
+const fallbackProfiles = [
+  {
+    id:"profile-001",
+    item:"紹介",
+    title:"岩下りゅうとは",
+    body:"志木市生まれ。地域活動、商店会活動、歴史・文化の魅力発信に取り組んでいます。",
+    url:"",
+    imageUrl:"",
+    order:1
+  },
+  {
+    id:"profile-002",
+    item:"歩み",
+    title:"これまでの歩み",
+    body:"広告代理店・出版社での経験を経て、志木市で事業を立ち上げ、地域に根ざした活動を続けています。",
+    url:"",
+    imageUrl:"",
+    order:2
+  },
+  {
+    id:"profile-003",
+    item:"想い",
+    title:"活動への想い",
+    body:"地域の声を聞き、現場を見て、できることを一つずつ形にしていくことを大切にしています。",
+    url:"",
+    imageUrl:"",
+    order:3
+  },
+  {
+    id:"profile-004",
+    item:"地域活動",
+    title:"地域との関わり",
+    body:"商店会、文化・歴史、まちづくり、地域イベントなど、志木の魅力を伝える活動に関わっています。",
+    url:"",
+    imageUrl:"",
+    order:4
+  }
+];
+
+function clean(value){
+  if(value === null || value === undefined){
+    return "";
+  }
+  return String(value).trim();
+}
+
+function escapeHTML(text){
+  return clean(text)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#39;");
+}
+
+function toNumber(value,defaultValue){
+  const n =
+    Number(value);
+
+  if(isNaN(n)){
+    return defaultValue;
+  }
+
+  return n;
+}
+
+function sortByOrder(a,b){
+  return toNumber(a.order,9999) - toNumber(b.order,9999);
+}
+
+function loadJsonp(mode,callbackPrefix){
+  return new Promise(function(resolve,reject){
+
+    const callbackName =
+      callbackPrefix +
+      "_" +
+      Date.now() +
+      "_" +
+      Math.random().toString(36).slice(2,8);
+
+    const script =
+      document.createElement("script");
+
+    const params =
+      new URLSearchParams();
+
+    params.set("mode",mode);
+    params.set("callback",callbackName);
+    params.set("v",String(Date.now()));
+
+    window[callbackName] = function(data){
+      resolve(data);
+      cleanup();
+    };
+
+    function cleanup(){
+      try{
+        delete window[callbackName];
+      }catch(e){
+        window[callbackName] = undefined;
+      }
+
+      if(script.parentNode){
+        script.parentNode.removeChild(script);
+      }
+    }
+
+    script.onerror = function(){
+      cleanup();
+      reject(new Error("読み込みに失敗しました"));
+    };
+
+    script.src =
+      GAS_URL + "?" + params.toString();
+
+    document.body.appendChild(script);
+
+  });
+}
+
+function mapProfile(record,index){
+  return {
+    id:clean(record["ID"]) || "profile-" + index,
+    item:clean(record["項目"]),
+    title:clean(record["タイトル"]),
+    body:clean(record["本文"]),
+    url:clean(record["URL"]),
+    imageUrl:clean(record["画像URL"]),
+    order:toNumber(record["表示順"],index + 1)
+  };
+}
+
+function renderProfiles(){
+  const box =
+    document.getElementById("profileGrid");
+
+  const list =
+    profiles.length > 0
+      ? profiles
+      : fallbackProfiles;
+
+  if(list.length === 0){
+    box.innerHTML = `
+      <div class="emptyBox">
+        プロフィール情報は準備中です。
+      </div>
+    `;
+    return;
+  }
+
+  box.innerHTML =
+    list.map(function(item){
+
+      const image =
+        item.imageUrl
+        ? `
+          <div class="profileItemImage">
+            <img src="${escapeHTML(item.imageUrl)}" alt="${escapeHTML(item.title)}">
+          </div>
+        `
+        : "";
+
+      const link =
+        item.url
+        ? `
+          <div class="linkActions">
+            <a class="smallBtn btnGreen" href="${escapeHTML(item.url)}" target="_blank" rel="noopener">詳しく見る</a>
+          </div>
+        `
+        : "";
+
+      return `
+        <article class="profileItem">
+          ${image}
+          <div class="profileItemBody">
+            ${item.item ? `<div class="itemMeta">${escapeHTML(item.item)}</div>` : ""}
+            <h3>${escapeHTML(item.title || "プロフィール")}</h3>
+            <p>${escapeHTML(item.body)}</p>
+            ${link}
+          </div>
+        </article>
+      `;
+    }).join("");
+}
+
+async function loadProfiles(){
+
+  try{
+
+    const data =
+      await loadJsonp("getProfile","profileCallback");
+
+    if(data && data.ok && Array.isArray(data.records)){
+
+      profiles =
+        data.records
+        .map(mapProfile)
+        .filter(function(item){
+          return item.title || item.body;
+        })
+        .sort(sortByOrder);
+
+    }
+
+  }catch(e){
+
+    profiles = [];
+
+  }
+
+  renderProfiles();
+
+}
+
+loadProfiles();
+</script>
+
+</body>
+</html>
