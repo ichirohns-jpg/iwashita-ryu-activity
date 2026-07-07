@@ -409,10 +409,10 @@ img{
 /* メッセージ */
 
 .messageSection{
-  margin-top:22px;
+  margin-top:18px;
   display:grid;
   grid-template-columns:1fr;
-  gap:16px;
+  gap:14px;
 }
 
 .messageCard{
@@ -447,17 +447,13 @@ img{
 }
 
 .supportMini{
-  position:relative;
-  overflow:hidden;
-  min-height:280px;
+  display:block;
   border-radius:30px;
   background:
-    radial-gradient(circle at 100% 0%,rgba(255,255,255,.52),transparent 30%),
+    radial-gradient(circle at 100% 0%,rgba(255,255,255,.48),transparent 32%),
     linear-gradient(135deg,#fff7c2 0%,#facc15 100%);
   color:#5c3b00;
-  display:flex;
-  align-items:flex-end;
-  padding:22px;
+  padding:28px 24px;
   box-shadow:0 12px 30px rgba(71,130,82,.10);
   border:1px solid #facc15;
 }
@@ -465,14 +461,15 @@ img{
 .supportMini h2{
   margin:0;
   font-size:30px;
-  line-height:1.2;
+  line-height:1.25;
   color:#5c3b00;
 }
 
 .supportMini p{
-  margin:9px 0 0;
+  margin:12px 0 0;
   color:#5c3b00;
-  font-size:16px;
+  font-size:17px;
+  line-height:1.65;
   font-weight:900;
 }
 
@@ -514,7 +511,7 @@ img{
 /* フッター */
 
 .footer{
-  margin-top:34px;
+  margin-top:28px;
   text-align:center;
   color:#4d6b55;
   font-size:13px;
@@ -604,6 +601,18 @@ img{
 
   .bigButton span{
     font-size:15px;
+  }
+
+  .supportMini{
+    padding:24px 20px;
+  }
+
+  .supportMini h2{
+    font-size:28px;
+  }
+
+  .supportMini p{
+    font-size:16px;
   }
 }
 </style>
