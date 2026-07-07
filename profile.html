@@ -6,91 +6,372 @@
 
 <title>岩下りゅうとは｜岩下りゅう 活動報告</title>
 
-<meta name="description" content="岩下りゅうのプロフィール、経歴、活動への想い、地域との関わりを紹介します。">
-<meta name="theme-color" content="#2f6b3b">
+<meta name="description" content="岩下りゅうのプロフィール、地域活動への想い、志木との関わりをわかりやすく紹介します。">
+<meta name="theme-color" content="#6fbd69">
 
-<link rel="icon" type="image/png" href="https://ichirohns-jpg.github.io/iwashita-ryu-activity/apple-touch-icon.png">
-<link rel="shortcut icon" type="image/png" href="https://ichirohns-jpg.github.io/iwashita-ryu-activity/apple-touch-icon.png">
-<link rel="apple-touch-icon" href="https://ichirohns-jpg.github.io/iwashita-ryu-activity/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="180x180" href="https://ichirohns-jpg.github.io/iwashita-ryu-activity/apple-touch-icon.png">
-
-<meta name="apple-mobile-web-app-title" content="岩下りゅう">
-<meta name="application-name" content="岩下りゅう">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
-<meta property="og:site_name" content="岩下りゅう 活動報告">
-<meta property="og:title" content="岩下りゅうとは">
-<meta property="og:description" content="プロフィール、経歴、活動への想い、地域との関わりを紹介します。">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://ichirohns-jpg.github.io/iwashita-ryu-activity/profile.html">
-<meta property="og:image" content="https://ichirohns-jpg.github.io/iwashita-ryu-activity/images/activity/profile-main.jpg">
-
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="岩下りゅうとは">
-<meta name="twitter:description" content="プロフィール、経歴、活動への想い、地域との関わりを紹介します。">
-<meta name="twitter:image" content="https://ichirohns-jpg.github.io/iwashita-ryu-activity/images/activity/profile-main.jpg">
+<link rel="icon" type="image/png" href="apple-touch-icon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 
 <style>
-.pageHero{
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  font-family:"Hiragino Sans","Yu Gothic","Meiryo",sans-serif;
+  color:#203326;
   background:
-    linear-gradient(180deg,rgba(5,46,22,.1),rgba(5,46,22,.88)),
-    url("images/activity/profile-main.jpg") center/cover no-repeat;
+    radial-gradient(circle at 10% 0%,rgba(218,255,209,.9),transparent 28%),
+    radial-gradient(circle at 90% 5%,rgba(255,246,176,.55),transparent 25%),
+    linear-gradient(180deg,#f8fff5 0%,#ffffff 48%,#edfbea 100%);
+  line-height:1.75;
+  -webkit-text-size-adjust:100%;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+img{
+  max-width:100%;
+}
+
+.wrap{
+  width:min(980px,94%);
+  margin:auto;
+  padding:12px 0 96px;
+}
+
+/* ヘッダー */
+
+.header{
+  position:sticky;
+  top:0;
+  z-index:80;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:10px 0;
+  background:rgba(248,255,245,.94);
+  backdrop-filter:blur(16px);
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:#1f5f35;
+  font-weight:900;
+}
+
+.brand img{
+  width:44px;
+  height:44px;
+  border-radius:16px;
+  object-fit:cover;
+  box-shadow:0 8px 22px rgba(70,130,82,.18);
+}
+
+.brand span{
+  font-size:18px;
+  line-height:1.25;
+}
+
+.headerNav{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+}
+
+.headerNav a{
+  padding:9px 13px;
+  border-radius:999px;
+  background:#fff;
+  border:1px solid #b7ebc0;
+  color:#1f6b3d;
+  font-size:13px;
+  font-weight:900;
+  box-shadow:0 6px 16px rgba(70,130,82,.07);
+}
+
+/* 上部 */
+
+.hero{
+  margin-top:8px;
+  border-radius:32px;
+  background:
+    radial-gradient(circle at 100% 0%,rgba(255,246,176,.48),transparent 34%),
+    linear-gradient(135deg,#ffffff 0%,#f4fff1 100%);
+  border:1px solid #b7ebc0;
+  box-shadow:0 16px 40px rgba(70,130,82,.11);
+  padding:22px;
+}
+
+.kicker{
+  display:inline-flex;
+  padding:8px 13px;
+  border-radius:999px;
+  background:#e6ffe9;
+  border:1px solid #b7ebc0;
+  color:#1f6b3d;
+  font-size:14px;
+  font-weight:900;
+}
+
+.hero h1{
+  margin:14px 0 0;
+  color:#1f5f35;
+  font-size:clamp(38px,10vw,64px);
+  line-height:1.08;
+  font-weight:900;
+}
+
+.hero p{
+  margin:12px 0 0;
+  color:#344c39;
+  font-size:18px;
+  font-weight:850;
+}
+
+/* プロフィール */
+
+.profileCard{
+  margin-top:18px;
+  border-radius:32px;
+  background:#fff;
+  border:1px solid #b7ebc0;
+  box-shadow:0 16px 40px rgba(70,130,82,.11);
+  padding:22px;
 }
 
 .profileTop{
-  display:grid;
-  grid-template-columns:1fr;
+  display:flex;
+  align-items:center;
   gap:16px;
 }
 
 .profilePhoto{
-  overflow:hidden;
-  border-radius:28px;
-  background:#dcfce7;
-  box-shadow:0 16px 42px rgba(20,83,45,.14);
+  width:96px;
+  height:96px;
+  border-radius:30px;
+  object-fit:cover;
+  flex:0 0 auto;
+  box-shadow:0 12px 28px rgba(70,130,82,.18);
+  background:#e6ffe9;
 }
 
-.profilePhoto img{
-  display:block;
-  width:100%;
+.profileTop h2{
+  margin:0;
+  color:#1f5f35;
+  font-size:clamp(30px,7vw,46px);
+  line-height:1.2;
+  font-weight:900;
 }
 
-.policyImage{
-  overflow:hidden;
-  border-radius:28px;
+.profileLead{
+  margin:16px 0 0;
+  color:#3c5943;
+  font-size:19px;
+  line-height:1.8;
+  font-weight:850;
+}
+
+/* 内容カード */
+
+.cardGrid{
+  margin-top:18px;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:14px;
+}
+
+.infoCard{
+  border-radius:30px;
   background:#fff;
-  border:1px solid #bbf7d0;
-  box-shadow:0 16px 42px rgba(20,83,45,.1);
+  border:1px solid #b7ebc0;
+  box-shadow:0 12px 30px rgba(71,130,82,.10);
+  padding:20px;
 }
 
-.policyImage img{
-  display:block;
-  width:100%;
-}
-
-.itemMeta{
+.infoLabel{
   display:inline-flex;
-  padding:5px 10px;
+  padding:7px 12px;
   border-radius:999px;
-  background:#dcfce7;
-  color:#166534;
-  border:1px solid #bbf7d0;
+  background:#e6ffe9;
+  border:1px solid #b7ebc0;
+  color:#1f6b3d;
+  font-size:14px;
+  font-weight:900;
+}
+
+.infoCard h2{
+  margin:14px 0 0;
+  color:#1f5f35;
+  font-size:clamp(28px,6vw,42px);
+  line-height:1.25;
+  font-weight:900;
+}
+
+.infoCard p{
+  margin:10px 0 0;
+  color:#3c5943;
+  font-size:18px;
+  line-height:1.8;
+  font-weight:850;
+}
+
+/* ボタン */
+
+.actionCard{
+  margin-top:20px;
+  border-radius:30px;
+  background:
+    radial-gradient(circle at 100% 0%,rgba(255,246,176,.42),transparent 36%),
+    linear-gradient(135deg,#ffffff 0%,#f7fff5 100%);
+  border:1px solid #b7ebc0;
+  box-shadow:0 12px 30px rgba(71,130,82,.10);
+  padding:20px;
+}
+
+.actionCard h2{
+  margin:0;
+  color:#1f5f35;
+  font-size:28px;
+  line-height:1.25;
+  font-weight:900;
+}
+
+.actionCard p{
+  margin:8px 0 0;
+  color:#4d6b55;
+  font-size:16px;
+  font-weight:850;
+}
+
+.buttonGrid{
+  margin-top:14px;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:10px;
+}
+
+.bigButton{
+  min-height:66px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:24px;
+  background:#fff;
+  border:2px solid #b7ebc0;
+  color:#1f5f35;
+  font-size:20px;
+  font-weight:900;
+}
+
+.bigButton.primary{
+  background:linear-gradient(135deg,#4caf63 0%,#78c96f 100%);
+  border-color:#78c96f;
+  color:#fff;
+}
+
+.bigButton.support{
+  background:linear-gradient(135deg,#fff7c2 0%,#facc15 100%);
+  border-color:#facc15;
+  color:#5c3b00;
+}
+
+/* 下メニュー */
+
+.bottomNav{
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:100;
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  background:rgba(255,255,255,.98);
+  border-top:1px solid #b7ebc0;
+  box-shadow:0 -12px 30px rgba(71,130,82,.12);
+  backdrop-filter:blur(14px);
+}
+
+.bottomNav a{
+  text-align:center;
+  color:#1f6b3d;
+  padding:8px 4px 7px;
   font-size:12px;
   font-weight:900;
-  margin-bottom:8px;
+}
+
+.bottomNav a span{
+  display:block;
+  font-size:22px;
+  line-height:1.1;
+}
+
+.bottomNav a.active{
+  background:#e2f8e5;
+  color:#14532d;
+}
+
+.footer{
+  margin-top:30px;
+  text-align:center;
+  color:#4d6b55;
+  font-size:13px;
+  font-weight:800;
 }
 
 @media (min-width:820px){
+  .cardGrid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .buttonGrid{
+    grid-template-columns:repeat(3,1fr);
+  }
+}
+
+@media (max-width:560px){
+  .wrap{
+    width:94%;
+  }
+
+  .headerNav{
+    display:none;
+  }
+
+  .brand span{
+    font-size:16px;
+  }
+
+  .hero,
+  .profileCard,
+  .infoCard,
+  .actionCard{
+    border-radius:28px;
+    padding:18px;
+  }
+
   .profileTop{
-    grid-template-columns:.9fr 1.1fr;
-    align-items:center;
+    align-items:flex-start;
+  }
+
+  .profilePhoto{
+    width:82px;
+    height:82px;
+    border-radius:26px;
   }
 }
 </style>
-
-<link rel="stylesheet" href="style.css?v=common-1">
 </head>
 
 <body>
@@ -104,64 +385,85 @@
   </a>
 
   <nav class="headerNav">
+    <a href="index.html">トップ</a>
     <a href="activity.html">活動</a>
     <a href="videos.html">動画</a>
-    <a href="voice.html">声を送る</a>
-    <a class="active" href="profile.html">プロフィール</a>
+    <a href="support.html">応援</a>
+    <a href="profile.html">人物</a>
   </nav>
 </header>
 
 <main>
 
-<section class="pageHero">
-  <div class="pageHeroInner">
-    <div class="kicker">地域で動く人を知る</div>
-    <h1>
-      岩下りゅう
-      <span>とは</span>
-    </h1>
-    <p>
-      経歴、活動への想い、地域との関わりを紹介します。
-    </p>
-  </div>
-</section>
-
-<section class="section card">
-  <div class="profileTop">
-
-    <div class="profilePhoto">
-      <img src="images/activity/profile-main.jpg" alt="岩下りゅう プロフィール">
-    </div>
-
-    <div>
-      <h2 class="sectionTitle">志木の声を聞き、想いをカタチに。</h2>
-      <p class="sectionLead">
-        地域の声を聞き、現場を見て、活動を写真・動画・記録として見える形に残していく。
-        このページでは、岩下りゅうの歩みと活動への想いを紹介します。
-      </p>
-
-      <div class="buttonRow">
-        <a class="btn btnGreen" href="activity.html">活動を見る</a>
-        <a class="btn btnDark" href="https://iwashita-ryu.club/" target="_blank" rel="noopener">公式サイト</a>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<section class="section policyImage">
-  <img src="images/activity/policy-message.png" alt="想いをカタチに">
-</section>
-
-<section class="section card">
-  <h2 class="sectionTitle">プロフィール・経歴</h2>
-  <p class="sectionLead">
-    志木での活動、地域との関わり、活動への想いを整理して掲載します。
+<section class="hero">
+  <div class="kicker">人物紹介</div>
+  <h1>岩下りゅうとは</h1>
+  <p>
+    志木のまちでの活動、地域との関わり、活動への想いを紹介します。
   </p>
 </section>
 
-<section class="section">
-  <div id="profileGrid" class="itemGrid"></div>
+<section class="profileCard">
+  <div class="profileTop">
+    <img class="profilePhoto" src="apple-touch-icon.png" alt="岩下りゅう">
+    <div>
+      <h2>地域に根ざして活動</h2>
+    </div>
+  </div>
+
+  <p class="profileLead">
+    志木市で育ち、商店会活動、地域イベント、田子山富士、カッパのまちづくりなど、地域に根ざした活動を続けています。<br>
+    地域の声を聞き、現場を見て、できることを一つずつ形にしていきます。
+  </p>
+</section>
+
+<section class="cardGrid">
+
+  <article class="infoCard">
+    <div class="infoLabel">地域との関わり</div>
+    <h2>志木のまちとともに</h2>
+    <p>
+      商店会、地域イベント、田子山富士、カッパのまちづくりなど、志木の魅力を広げる活動に関わっています。
+    </p>
+  </article>
+
+  <article class="infoCard">
+    <div class="infoLabel">活動への想い</div>
+    <h2>想いをカタチに</h2>
+    <p>
+      市民の声、地域の課題、まちの魅力を受け止め、写真・動画・活動記録としてわかりやすく届けていきます。
+    </p>
+  </article>
+
+  <article class="infoCard">
+    <div class="infoLabel">発信</div>
+    <h2>写真と動画で伝える</h2>
+    <p>
+      活動を文章だけでなく、写真や動画でも伝えることで、高齢者にも見やすい活動報告を目指します。
+    </p>
+  </article>
+
+  <article class="infoCard">
+    <div class="infoLabel">大切にすること</div>
+    <h2>現場を見て、声を聞く</h2>
+    <p>
+      地域で起きていることを、遠くからではなく現場で確認し、暮らしに近い目線で考えていきます。
+    </p>
+  </article>
+
+</section>
+
+<section class="actionCard">
+  <h2>次に見るページ</h2>
+  <p>
+    活動報告や応援メッセージもご覧いただけます。
+  </p>
+
+  <div class="buttonGrid">
+    <a class="bigButton primary" href="activity.html">活動を見る</a>
+    <a class="bigButton support" href="support.html">応援を書く</a>
+    <a class="bigButton" href="index.html">トップへ戻る</a>
+  </div>
 </section>
 
 </main>
@@ -177,232 +479,9 @@
   <a href="index.html"><span>🏠</span>トップ</a>
   <a href="activity.html"><span>📸</span>活動</a>
   <a href="videos.html"><span>🎥</span>動画</a>
-  <a href="voice.html"><span>📮</span>声</a>
-  <a class="active" href="profile.html"><span>👤</span>人物</a>
+  <a href="support.html"><span>💬</span>応援</a>
+  <a href="profile.html" class="active"><span>👤</span>人物</a>
 </nav>
-
-<script>
-const GAS_URL =
-"https://script.google.com/macros/s/AKfycbyZxby2jvasBuYwoOptGppPTe4rcrdBRxArS4qUoEpCgPtxE_Ss9r9exb-A2r66XXagGw/exec";
-
-let profiles = [];
-
-const fallbackProfiles = [
-  {
-    id:"profile-001",
-    item:"紹介",
-    title:"岩下りゅうとは",
-    body:"志木市生まれ。地域活動、商店会活動、歴史・文化の魅力発信に取り組んでいます。",
-    url:"",
-    imageUrl:"",
-    order:1
-  },
-  {
-    id:"profile-002",
-    item:"歩み",
-    title:"これまでの歩み",
-    body:"広告代理店・出版社での経験を経て、志木市で事業を立ち上げ、地域に根ざした活動を続けています。",
-    url:"",
-    imageUrl:"",
-    order:2
-  },
-  {
-    id:"profile-003",
-    item:"想い",
-    title:"活動への想い",
-    body:"地域の声を聞き、現場を見て、できることを一つずつ形にしていくことを大切にしています。",
-    url:"",
-    imageUrl:"",
-    order:3
-  },
-  {
-    id:"profile-004",
-    item:"地域活動",
-    title:"地域との関わり",
-    body:"商店会、文化・歴史、まちづくり、地域イベントなど、志木の魅力を伝える活動に関わっています。",
-    url:"",
-    imageUrl:"",
-    order:4
-  }
-];
-
-function clean(value){
-  if(value === null || value === undefined){
-    return "";
-  }
-  return String(value).trim();
-}
-
-function escapeHTML(text){
-  return clean(text)
-    .replace(/&/g,"&amp;")
-    .replace(/</g,"&lt;")
-    .replace(/>/g,"&gt;")
-    .replace(/"/g,"&quot;")
-    .replace(/'/g,"&#39;");
-}
-
-function toNumber(value,defaultValue){
-  const n =
-    Number(value);
-
-  if(isNaN(n)){
-    return defaultValue;
-  }
-
-  return n;
-}
-
-function sortByOrder(a,b){
-  return toNumber(a.order,9999) - toNumber(b.order,9999);
-}
-
-function loadJsonp(mode,callbackPrefix){
-  return new Promise(function(resolve,reject){
-
-    const callbackName =
-      callbackPrefix +
-      "_" +
-      Date.now() +
-      "_" +
-      Math.random().toString(36).slice(2,8);
-
-    const script =
-      document.createElement("script");
-
-    const params =
-      new URLSearchParams();
-
-    params.set("mode",mode);
-    params.set("callback",callbackName);
-    params.set("v",String(Date.now()));
-
-    window[callbackName] = function(data){
-      resolve(data);
-      cleanup();
-    };
-
-    function cleanup(){
-      try{
-        delete window[callbackName];
-      }catch(e){
-        window[callbackName] = undefined;
-      }
-
-      if(script.parentNode){
-        script.parentNode.removeChild(script);
-      }
-    }
-
-    script.onerror = function(){
-      cleanup();
-      reject(new Error("読み込みに失敗しました"));
-    };
-
-    script.src =
-      GAS_URL + "?" + params.toString();
-
-    document.body.appendChild(script);
-
-  });
-}
-
-function mapProfile(record,index){
-  return {
-    id:clean(record["ID"]) || "profile-" + index,
-    item:clean(record["項目"]),
-    title:clean(record["タイトル"]),
-    body:clean(record["本文"]),
-    url:clean(record["URL"]),
-    imageUrl:clean(record["画像URL"]),
-    order:toNumber(record["表示順"],index + 1)
-  };
-}
-
-function renderProfiles(){
-  const box =
-    document.getElementById("profileGrid");
-
-  const list =
-    profiles.length > 0
-      ? profiles
-      : fallbackProfiles;
-
-  if(list.length === 0){
-    box.innerHTML = `
-      <div class="emptyBox">
-        プロフィール情報は準備中です。
-      </div>
-    `;
-    return;
-  }
-
-  box.innerHTML =
-    list.map(function(item){
-
-      const image =
-        item.imageUrl
-        ? `
-          <div class="profileItemImage">
-            <img src="${escapeHTML(item.imageUrl)}" alt="${escapeHTML(item.title)}">
-          </div>
-        `
-        : "";
-
-      const link =
-        item.url
-        ? `
-          <div class="linkActions">
-            <a class="smallBtn btnGreen" href="${escapeHTML(item.url)}" target="_blank" rel="noopener">詳しく見る</a>
-          </div>
-        `
-        : "";
-
-      return `
-        <article class="profileItem">
-          ${image}
-          <div class="profileItemBody">
-            ${item.item ? `<div class="itemMeta">${escapeHTML(item.item)}</div>` : ""}
-            <h3>${escapeHTML(item.title || "プロフィール")}</h3>
-            <p>${escapeHTML(item.body)}</p>
-            ${link}
-          </div>
-        </article>
-      `;
-    }).join("");
-}
-
-async function loadProfiles(){
-
-  try{
-
-    const data =
-      await loadJsonp("getProfile","profileCallback");
-
-    if(data && data.ok && Array.isArray(data.records)){
-
-      profiles =
-        data.records
-        .map(mapProfile)
-        .filter(function(item){
-          return item.title || item.body;
-        })
-        .sort(sortByOrder);
-
-    }
-
-  }catch(e){
-
-    profiles = [];
-
-  }
-
-  renderProfiles();
-
-}
-
-loadProfiles();
-</script>
 
 </body>
 </html>
