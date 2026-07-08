@@ -306,6 +306,66 @@ textarea:focus{
   box-shadow:0 0 0 4px rgba(76,175,99,.15);
 }
 
+.fileBox{
+  margin-top:8px;
+  border:2px dashed #b7ebc0;
+  border-radius:24px;
+  background:#f7fff5;
+  padding:16px;
+}
+
+.realFileInput{
+  position:absolute;
+  width:1px;
+  height:1px;
+  opacity:0;
+  overflow:hidden;
+  pointer-events:none;
+}
+
+.photoSelectButton{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:72px;
+  border-radius:24px;
+  background:linear-gradient(135deg,#4caf63 0%,#78c96f 100%);
+  color:#fff;
+  font-size:24px;
+  font-weight:900;
+  box-shadow:0 14px 30px rgba(76,175,99,.24);
+  margin-top:0;
+}
+
+.photoSubText{
+  margin-top:12px;
+  border-radius:20px;
+  background:#fff;
+  border:1px solid #c8f0ce;
+  padding:14px;
+  color:#3c5943;
+  font-size:16px;
+  line-height:1.7;
+  font-weight:850;
+}
+
+.previewBox{
+  display:none;
+  margin-top:12px;
+  border-radius:22px;
+  overflow:hidden;
+  border:1px solid #b7ebc0;
+  background:#e6ffe9;
+}
+
+.previewBox img{
+  display:block;
+  width:100%;
+  max-height:320px;
+  object-fit:contain;
+  background:#eaffea;
+}
+
 .statusBox{
   margin-top:12px;
   border-radius:22px;
@@ -674,7 +734,8 @@ textarea:focus{
   font-weight:800;
 }
 
-.hiddenFrame{
+.hiddenFrame,
+.hiddenForm{
   display:none;
 }
 
@@ -792,7 +853,7 @@ textarea:focus{
 <section class="formCard" id="form">
   <h2>困りごとを投稿する</h2>
   <p class="formNote">
-    まずは、町名・内容・場所を確実に保存します。写真は「写真URL」がある場合だけ表示します。
+    まず内容を保存し、その後に写真だけ別で保存します。写真が失敗しても、投稿内容は残ります。
   </p>
 
   <form id="problemForm" method="GET" target="sendFrame">
@@ -861,11 +922,29 @@ textarea:focus{
       <option value="危険・注意">危険・注意</option>
     </select>
 
-    <label for="photoUrl">
-      写真URL
-      <span class="help">任意。画像URLがある場合だけ入力してください</span>
+    <label for="photoInput">
+      写真
+      <span class="help">任意。写真は投稿後に自動で保存します</span>
     </label>
-    <input id="photoUrl" name="photoUrl" type="url" placeholder="https://...">
+    <div class="fileBox">
+      <input id="photoInput" class="realFileInput" type="file" accept="image/*">
+
+      <label class="photoSelectButton" for="photoInput">
+        📷 写真を選ぶ・撮影する
+      </label>
+
+      <div class="photoSubText">
+        写真を選ぶと、投稿用に小さくしてから送信します。
+      </div>
+
+      <div class="statusBox" id="photoStatus">
+        写真なしでも投稿できます。
+      </div>
+
+      <div class="previewBox" id="previewBox">
+        <img id="previewImage" alt="選択した写真">
+      </div>
+    </div>
 
     <label>
       現在地・地図
@@ -904,6 +983,16 @@ textarea:focus{
   </form>
 
   <iframe class="hiddenFrame" name="sendFrame" id="sendFrame" title="sendFrame"></iframe>
+
+  <form id="photoUploadForm" class="hiddenForm" method="POST" target="photoFrame">
+    <input type="hidden" name="mode" value="uploadProblemPhoto">
+    <input type="hidden" id="uploadProblemId" name="id">
+    <input type="hidden" id="uploadPhotoBase64" name="photoBase64">
+    <input type="hidden" id="uploadPhotoName" name="photoName">
+    <input type="hidden" id="uploadPhotoType" name="photoType">
+  </form>
+
+  <iframe class="hiddenFrame" name="photoFrame" id="photoFrame" title="photoFrame"></iframe>
 </section>
 
 <section class="reports" id="reports">
@@ -939,13 +1028,19 @@ textarea:focus{
 
 <script>
 const GAS_URL =
-"https://script.google.com/macros/s/AKfycbxMWoYhEvMGTWrvYD01EEEOF2XILoOJJwrj01a0A7yZcQ-jnl-BRryhoeiAoKmVlO9WGA/exec";
+"https://script.google.com/macros/s/AKfycbxgS19migwSUx9LQnObPdImcCjhKanigKXLrARC0c_723bXeSIwdeTqTt0JsbOcKVQd5w/exec";
 
 const form =
 document.getElementById("problemForm");
 
 const sendFrame =
 document.getElementById("sendFrame");
+
+const photoFrame =
+document.getElementById("photoFrame");
+
+const photoUploadForm =
+document.getElementById("photoUploadForm");
 
 const submitBtn =
 document.getElementById("submitBtn");
@@ -956,17 +1051,70 @@ document.getElementById("resultBox");
 const reportList =
 document.getElementById("reportList");
 
+const photoInput =
+document.getElementById("photoInput");
+
+const photoStatus =
+document.getElementById("photoStatus");
+
+const previewBox =
+document.getElementById("previewBox");
+
+const previewImage =
+document.getElementById("previewImage");
+
 const problemIdInput =
 document.getElementById("problemId");
 
+const uploadProblemId =
+document.getElementById("uploadProblemId");
+
+const uploadPhotoBase64 =
+document.getElementById("uploadPhotoBase64");
+
+const uploadPhotoName =
+document.getElementById("uploadPhotoName");
+
+const uploadPhotoType =
+document.getElementById("uploadPhotoType");
+
 let submitted =
+false;
+
+let photoSubmitted =
 false;
 
 let currentProblemId =
 "";
 
+let selectedPhotoData =
+"";
+
+let selectedPhotoName =
+"";
+
+let selectedPhotoType =
+"";
+
 form.action =
 GAS_URL;
+
+photoUploadForm.action =
+GAS_URL;
+
+photoInput.addEventListener("change",function(){
+
+  const file =
+  photoInput.files && photoInput.files[0];
+
+  if(!file){
+    clearPhoto();
+    return;
+  }
+
+  prepareImage(file);
+
+});
 
 form.addEventListener("submit",function(e){
 
@@ -997,6 +1145,12 @@ form.addEventListener("submit",function(e){
     return;
   }
 
+  if(photoInput.files.length && !selectedPhotoData){
+    e.preventDefault();
+    alert("写真の準備中です。少し待ってから投稿してください。");
+    return;
+  }
+
   currentProblemId =
   createClientId();
 
@@ -1013,7 +1167,7 @@ form.addEventListener("submit",function(e){
   "投稿中です";
 
   showResult(
-    "投稿を送信しています。保存を確認しています。",
+    "投稿内容を保存しています。",
     false
   );
 
@@ -1026,6 +1180,19 @@ sendFrame.addEventListener("load",function(){
   }
 
   waitForSaved(
+    currentProblemId,
+    0
+  );
+
+});
+
+photoFrame.addEventListener("load",function(){
+
+  if(!photoSubmitted){
+    return;
+  }
+
+  waitForPhotoSaved(
     currentProblemId,
     0
   );
@@ -1076,25 +1243,20 @@ function waitForSaved(id,count){
       submitted =
       false;
 
-      showResult(
-        "困りごと投稿を受け付けました。ありがとうございます。",
-        false
+      if(selectedPhotoData){
+
+        uploadPhoto(
+          id
+        );
+
+        return;
+
+      }
+
+      finishSubmit(
+        records,
+        "困りごと投稿を受け付けました。ありがとうございます。"
       );
-
-      submitBtn.disabled =
-      false;
-
-      submitBtn.textContent =
-      "困りごとを投稿する";
-
-      form.reset();
-      clearLocation();
-
-      renderReports(records);
-
-      setTimeout(function(){
-        location.hash = "reports";
-      },400);
 
       return;
 
@@ -1125,9 +1287,136 @@ function waitForSaved(id,count){
 
 }
 
+function uploadPhoto(id){
+
+  showResult(
+    "投稿は保存できました。写真を保存しています。",
+    false
+  );
+
+  uploadProblemId.value =
+  id;
+
+  uploadPhotoBase64.value =
+  selectedPhotoData;
+
+  uploadPhotoName.value =
+  selectedPhotoName || "photo.jpg";
+
+  uploadPhotoType.value =
+  selectedPhotoType || "image/jpeg";
+
+  photoSubmitted =
+  true;
+
+  photoUploadForm.submit();
+
+}
+
+function waitForPhotoSaved(id,count){
+
+  fetchReports()
+  .then(function(records){
+
+    const found =
+    records.find(function(r){
+      return String(r["ID"] || "") === id;
+    });
+
+    if(found && found["写真URL"]){
+
+      photoSubmitted =
+      false;
+
+      finishSubmit(
+        records,
+        "困りごと投稿と写真を受け付けました。ありがとうございます。"
+      );
+
+      return;
+
+    }
+
+    if(count >= 12){
+
+      photoSubmitted =
+      false;
+
+      finishSubmit(
+        records,
+        "投稿は保存できました。写真の保存確認だけできませんでした。必要なら後で確認してください。"
+      );
+
+      return;
+
+    }
+
+    setTimeout(function(){
+      waitForPhotoSaved(id,count + 1);
+    },1500);
+
+  })
+  .catch(function(){
+
+    if(count >= 12){
+
+      photoSubmitted =
+      false;
+
+      fetchReports()
+      .then(function(records){
+        finishSubmit(
+          records,
+          "投稿は保存できました。写真の保存確認だけできませんでした。"
+        );
+      })
+      .catch(function(){
+        showSaveError();
+      });
+
+      return;
+
+    }
+
+    setTimeout(function(){
+      waitForPhotoSaved(id,count + 1);
+    },1500);
+
+  });
+
+}
+
+function finishSubmit(records,message){
+
+  showResult(
+    message,
+    false
+  );
+
+  submitBtn.disabled =
+  false;
+
+  submitBtn.textContent =
+  "困りごとを投稿する";
+
+  form.reset();
+  clearPhoto();
+  clearLocation();
+
+  renderReports(records);
+
+  setTimeout(function(){
+    location.hash = "reports";
+  },400);
+
+}
+
 function showSaveError(){
 
   submitted =
+  false;
+
+  photoSubmitted =
   false;
 
   submitBtn.disabled =
@@ -1140,6 +1429,151 @@ function showSaveError(){
     "保存を確認できませんでした。時間をおいてもう一度試してください。",
     true
   );
+
+}
+
+function clearPhoto(){
+
+  selectedPhotoData =
+  "";
+
+  selectedPhotoName =
+  "";
+
+  selectedPhotoType =
+  "";
+
+  uploadPhotoBase64.value =
+  "";
+
+  uploadPhotoName.value =
+  "";
+
+  uploadPhotoType.value =
+  "";
+
+  previewImage.removeAttribute(
+    "src"
+  );
+
+  previewBox.style.display =
+  "none";
+
+  photoStatus.textContent =
+  "写真なしでも投稿できます。";
+
+}
+
+function prepareImage(file){
+
+  photoStatus.textContent =
+  "写真を軽くしています。少しお待ちください。";
+
+  const reader =
+  new FileReader();
+
+  reader.onload = function(e){
+
+    const dataUrl =
+    e.target.result;
+
+    const img =
+    new Image();
+
+    img.onload = function(){
+
+      const maxSize =
+      600;
+
+      let width =
+      img.width;
+
+      let height =
+      img.height;
+
+      const scale =
+      Math.min(
+        1,
+        maxSize / width,
+        maxSize / height
+      );
+
+      width =
+      Math.round(width * scale);
+
+      height =
+      Math.round(height * scale);
+
+      const canvas =
+      document.createElement("canvas");
+
+      canvas.width =
+      width;
+
+      canvas.height =
+      height;
+
+      const ctx =
+      canvas.getContext("2d");
+
+      ctx.drawImage(
+        img,
+        0,
+        0,
+        width,
+        height
+      );
+
+      const compressed =
+      canvas.toDataURL(
+        "image/jpeg",
+        0.50
+      );
+
+      selectedPhotoData =
+      compressed;
+
+      selectedPhotoName =
+      file.name || "photo.jpg";
+
+      selectedPhotoType =
+      "image/jpeg";
+
+      previewImage.src =
+      compressed;
+
+      previewBox.style.display =
+      "block";
+
+      photoStatus.textContent =
+      "写真の準備ができました。投稿後に自動で保存します。";
+
+    };
+
+    img.onerror = function(){
+
+      photoStatus.textContent =
+      "この写真は読み込めませんでした。別の写真を選んでください。";
+
+      clearPhoto();
+
+    };
+
+    img.src =
+    dataUrl;
+
+  };
+
+  reader.onerror = function(){
+
+    photoStatus.textContent =
+    "写真を読み込めませんでした。別の写真を選んでください。";
+
+    clearPhoto();
+
+  };
+
+  reader.readAsDataURL(file);
 
 }
 
@@ -1381,6 +1815,10 @@ function reportCard(r,index){
   r["改善報告"] ||
   "";
 
+  const improvementPhoto =
+  r["改善写真URL"] ||
+  "";
+
   const shareUrl =
   reportShareUrl(id);
 
@@ -1419,7 +1857,7 @@ function reportCard(r,index){
   + '<h2 class="reportTitle">' + esc(category) + '</h2>'
   + (body ? '<div class="reportText">' + esc(body) + '</div>' : '')
   + (place ? '<div class="reportPlace"><b>場所：</b>' + esc(place) + '</div>' : '')
-  + (improvement ? '<div class="improvementBox">改善報告：<br>' + esc(improvement) + '</div>' : '')
+  + (improvement ? '<div class="improvementBox">改善報告：<br>' + esc(improvement) + (improvementPhoto ? '<div class="improvementPhotoBox"><img src="' + esc(improvementPhoto) + '" alt="改善写真"></div>' : '') + '</div>' : '')
   + '<div class="reportButtons">'
   + (mapUrl ? '<a href="' + esc(mapUrl) + '" target="_blank" rel="noopener">地図を見る</a>' : '<button type="button" disabled>地図なし</button>')
   + (naviUrl ? '<a class="navi" href="' + esc(naviUrl) + '" target="_blank" rel="noopener">現地へ向かう</a>' : '<button type="button" disabled>ナビなし</button>')
