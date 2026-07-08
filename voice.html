@@ -1190,25 +1190,25 @@ function waitForSaved(id,count){
 
     }
 
-    if(count >= 8){
+    if(count >= 15){
       showSaveError();
       return;
     }
 
     setTimeout(function(){
       waitForSaved(id,count + 1);
-    },1500);
+    },2000);
 
   })
   .catch(function(){
-    if(count >= 8){
+    if(count >= 15){
       showSaveError();
       return;
     }
 
     setTimeout(function(){
       waitForSaved(id,count + 1);
-    },1500);
+    },2000);
   });
 
 }
@@ -1257,7 +1257,7 @@ function clearPhoto(){
 function prepareImage(file){
 
   photoStatus.textContent =
-  "写真を準備しています。少しお待ちください。";
+  "写真を軽くしています。少しお待ちください。";
 
   const reader =
   new FileReader();
@@ -1273,7 +1273,7 @@ function prepareImage(file){
     img.onload = function(){
 
       const maxSize =
-      900;
+      600;
 
       let width =
       img.width;
@@ -1314,93 +1314,52 @@ function prepareImage(file){
         height
       );
 
-      if(canvas.toBlob){
-
-        canvas.toBlob(function(blob){
-
-          const r2 =
-          new FileReader();
-
-          r2.onload = function(ev){
-
-            photoBase64.value =
-            ev.target.result;
-
-            photoName.value =
-            file.name || "photo.jpg";
-
-            photoType.value =
-            "image/jpeg";
-
-            previewImage.src =
-            ev.target.result;
-
-            previewBox.style.display =
-            "block";
-
-            photoStatus.textContent =
-            "写真の準備ができました。";
-
-          };
-
-          r2.readAsDataURL(blob);
-
-        },"image/jpeg",0.72);
-
-      }else{
-
-        const compressed =
-        canvas.toDataURL(
-          "image/jpeg",
-          0.72
-        );
-
-        photoBase64.value =
-        compressed;
-
-        photoName.value =
-        file.name || "photo.jpg";
-
-        photoType.value =
-        "image/jpeg";
-
-        previewImage.src =
-        compressed;
-
-        previewBox.style.display =
-        "block";
-
-        photoStatus.textContent =
-        "写真の準備ができました。";
-
-      }
-
-    };
-
-    img.onerror = function(){
+      const compressed =
+      canvas.toDataURL(
+        "image/jpeg",
+        0.50
+      );
 
       photoBase64.value =
-      dataUrl;
+      compressed;
 
       photoName.value =
       file.name || "photo.jpg";
 
       photoType.value =
-      file.type || "image/jpeg";
+      "image/jpeg";
 
       previewImage.src =
-      dataUrl;
+      compressed;
 
       previewBox.style.display =
       "block";
 
       photoStatus.textContent =
-      "写真の準備ができました。";
+      "写真の準備ができました。軽くして送信します。";
+
+    };
+
+    img.onerror = function(){
+
+      photoStatus.textContent =
+      "この写真は読み込めませんでした。別の写真を選んでください。";
+
+      clearPhoto();
 
     };
 
     img.src =
     dataUrl;
+
+  };
+
+  reader.onerror = function(){
+
+    photoStatus.textContent =
+    "写真を読み込めませんでした。別の写真を選んでください。";
+
+    clearPhoto();
 
   };
 
