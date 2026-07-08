@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>まちの困りごとを行政へつなげます｜岩下りゅう 活動報告</title>
+<title>まちの困りごと｜岩下りゅう 活動報告</title>
 
-<meta name="description" content="道路の穴、街灯切れ、不法投棄、危険箇所など、地域の困りごとを写真・場所・文章で知らせるページです。">
+<meta name="description" content="道路の穴、街灯切れ、不法投棄、危険箇所など、地域の困りごとを写真・場所・文章で投稿できます。">
 <meta name="theme-color" content="#6fbd69">
 
 <link rel="icon" type="image/png" href="apple-touch-icon.png">
@@ -30,9 +30,9 @@ body{
     sans-serif;
   color:#203326;
   background:
-    radial-gradient(circle at 10% 0%,rgba(218,255,209,.95),transparent 28%),
-    radial-gradient(circle at 90% 5%,rgba(255,246,176,.55),transparent 25%),
-    linear-gradient(180deg,#f8fff5 0%,#ffffff 48%,#edfbea 100%);
+    radial-gradient(circle at 10% 0%,rgba(218,255,209,.95),transparent 30%),
+    radial-gradient(circle at 90% 5%,rgba(255,246,176,.55),transparent 26%),
+    linear-gradient(180deg,#f8fff5 0%,#ffffff 50%,#edfbea 100%);
   line-height:1.75;
   -webkit-text-size-adjust:100%;
 }
@@ -46,10 +46,6 @@ button{
   font-family:inherit;
 }
 
-img{
-  max-width:100%;
-}
-
 .wrap{
   width:min(980px,94%);
   margin:auto;
@@ -59,13 +55,13 @@ img{
 .header{
   position:sticky;
   top:0;
-  z-index:80;
+  z-index:90;
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:12px;
   padding:10px 0;
-  background:rgba(248,255,245,.94);
+  background:rgba(248,255,245,.96);
   backdrop-filter:blur(16px);
 }
 
@@ -150,151 +146,115 @@ img{
   font-weight:850;
 }
 
-.mainCta{
-  margin-top:18px;
-  display:grid;
-  grid-template-columns:1fr;
-  gap:12px;
-}
-
-.mainCta a{
-  min-height:78px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  border-radius:28px;
-  font-size:22px;
-  line-height:1.35;
-  font-weight:900;
-  box-shadow:0 14px 30px rgba(76,175,99,.22);
-}
-
-.mainCta a.primary{
-  background:linear-gradient(135deg,#4caf63 0%,#78c96f 100%);
-  color:#fff;
-  border:2px solid #78c96f;
-}
-
-.mainCta a.secondary{
-  background:#fff;
-  color:#1f5f35;
-  border:2px solid #b7ebc0;
-}
-
-.mainCta small{
-  display:block;
-  margin-top:4px;
-  font-size:13px;
-  line-height:1.4;
-  font-weight:850;
-  opacity:.92;
-}
-
-.visualHero{
-  margin-top:18px;
-  position:relative;
-  overflow:hidden;
-  min-height:390px;
-  border-radius:34px;
-  background:
-    linear-gradient(180deg,rgba(18,83,45,.08) 0%,rgba(18,83,45,.30) 45%,rgba(18,83,45,.68) 100%),
-    url("images/activity/voice-report.jpg") center/cover no-repeat;
-  border:1px solid #b7ebc0;
-  box-shadow:0 18px 44px rgba(70,130,82,.14);
-}
-
-.visualInner{
-  position:absolute;
-  left:0;
-  right:0;
-  bottom:0;
-  padding:24px;
-  color:#fff;
-}
-
-.visualLabel{
-  display:inline-flex;
-  padding:8px 14px;
-  border-radius:999px;
-  background:rgba(255,255,255,.22);
-  border:1px solid rgba(255,255,255,.42);
-  color:#fff;
-  font-size:15px;
-  font-weight:900;
-  backdrop-filter:blur(8px);
-}
-
-.visualInner h2{
-  margin:16px 0 0;
-  color:#fff;
-  font-size:clamp(40px,10vw,68px);
-  line-height:1.08;
-  font-weight:900;
-  text-shadow:0 4px 18px rgba(0,0,0,.30);
-}
-
-.visualInner h2 span{
-  display:block;
-  color:#fef08a;
-}
-
-.visualInner p{
-  margin:16px 0 0;
-  color:#fff;
-  font-size:clamp(18px,4.8vw,25px);
-  line-height:1.6;
-  font-weight:900;
-  text-shadow:0 3px 14px rgba(0,0,0,.28);
-}
-
-.infoGrid{
-  margin-top:18px;
+.flow{
   display:grid;
   grid-template-columns:1fr;
   gap:14px;
+  margin-top:18px;
 }
 
-.infoCard{
+.flowCard{
   border-radius:30px;
   background:#fff;
-  border:1px solid #b7ebc0;
+  border:2px solid #b7ebc0;
   box-shadow:0 14px 34px rgba(70,130,82,.10);
   padding:18px;
 }
 
-.infoCard h2{
+.flowHead{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.num{
+  width:52px;
+  height:52px;
+  border-radius:18px;
+  background:linear-gradient(135deg,#4caf63 0%,#78c96f 100%);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:28px;
+  font-weight:900;
+  flex:none;
+}
+
+.flowCard h2{
   margin:0;
   color:#1f5f35;
-  font-size:26px;
-  line-height:1.25;
+  font-size:clamp(26px,7vw,42px);
+  line-height:1.2;
   font-weight:900;
 }
 
-.infoCard p{
-  margin:10px 0 0;
+.flowCard p{
+  margin:12px 0 0;
   color:#3c5943;
   font-size:17px;
   line-height:1.7;
   font-weight:850;
 }
 
-.infoList{
-  margin:12px 0 0;
-  padding:0;
-  list-style:none;
-  display:grid;
+.bigButton{
+  margin-top:16px;
+  min-height:86px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  border-radius:30px;
+  background:linear-gradient(135deg,#4caf63 0%,#78c96f 100%);
+  color:#fff;
+  border:2px solid #78c96f;
+  box-shadow:0 16px 34px rgba(76,175,99,.25);
+  font-size:24px;
+  line-height:1.35;
+  font-weight:900;
+  padding:14px;
+}
+
+.bigButton small{
+  display:block;
+  margin-top:4px;
+  font-size:13px;
+  line-height:1.35;
+  font-weight:850;
+  opacity:.95;
+}
+
+.whiteButton{
+  margin-top:14px;
+  min-height:64px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  border-radius:24px;
+  background:#fff;
+  color:#1f5f35;
+  border:2px solid #b7ebc0;
+  font-size:18px;
+  font-weight:900;
+  padding:12px;
+}
+
+.chips{
+  margin-top:14px;
+  display:flex;
+  flex-wrap:wrap;
   gap:8px;
 }
 
-.infoList li{
-  border-radius:18px;
+.chip{
+  display:inline-flex;
+  padding:7px 11px;
+  border-radius:999px;
   background:#f7fff5;
   border:1px solid #c8f0ce;
-  padding:10px 12px;
-  color:#1f5f35;
-  font-size:16px;
-  line-height:1.45;
+  color:#1f6b3d;
+  font-size:14px;
   font-weight:900;
 }
 
@@ -310,19 +270,24 @@ img{
   font-weight:900;
 }
 
-.reports{
+.section{
   margin-top:28px;
 }
 
-.reportsHead{
+.sectionTitle{
   display:flex;
-  align-items:flex-end;
-  justify-content:space-between;
+  align-items:center;
   gap:12px;
   margin-bottom:14px;
 }
 
-.reports h2{
+.sectionTitle .num{
+  width:48px;
+  height:48px;
+  font-size:26px;
+}
+
+.sectionTitle h2{
   margin:0;
   color:#1f5f35;
   font-size:clamp(34px,8vw,54px);
@@ -330,8 +295,22 @@ img{
   font-weight:900;
 }
 
+.sectionSub{
+  margin:-6px 0 14px;
+  color:#4d6b55;
+  font-size:17px;
+  font-weight:850;
+}
+
+.sectionHead{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:14px;
+}
+
 .reloadBtn{
-  border:0;
   border-radius:999px;
   background:#fff;
   border:2px solid #b7ebc0;
@@ -351,42 +330,39 @@ img{
   overflow:hidden;
   border-radius:32px;
   background:#fff;
-  border:1px solid #b7ebc0;
+  border:2px solid #b7ebc0;
   box-shadow:0 16px 40px rgba(70,130,82,.11);
 }
 
-.reportImageBox{
-  width:100%;
-  aspect-ratio:4/3;
-  background:
-    radial-gradient(circle at 100% 0%,rgba(255,246,176,.35),transparent 35%),
-    linear-gradient(135deg,#f3fff0 0%,#e6ffe9 100%);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  overflow:hidden;
-  padding:10px;
+.reportTop{
+  padding:16px 18px;
+  background:#f7fff5;
   border-bottom:1px solid #d6f3d8;
 }
 
-.reportImage{
-  display:block;
-  width:100%;
-  height:100%;
-  object-fit:contain;
-  border-radius:18px;
-  background:#fff;
+.reportNo{
+  display:inline-flex;
+  padding:6px 12px;
+  border-radius:999px;
+  background:#4caf63;
+  color:#fff;
+  font-size:14px;
+  font-weight:900;
 }
 
-.reportBody{
-  padding:20px;
+.reportTitle{
+  margin:10px 0 0;
+  color:#1f5f35;
+  font-size:clamp(28px,7vw,44px);
+  line-height:1.2;
+  font-weight:900;
 }
 
 .metaRow{
   display:flex;
   flex-wrap:wrap;
   gap:8px;
-  margin-bottom:12px;
+  margin-top:12px;
 }
 
 .badge{
@@ -420,33 +396,59 @@ img{
   color:#7f1d1d;
 }
 
-.reportTitle{
-  margin:0;
-  color:#1f5f35;
-  font-size:clamp(27px,6vw,42px);
-  line-height:1.25;
-  font-weight:900;
+.reportImageBox{
+  width:100%;
+  aspect-ratio:4/3;
+  background:
+    radial-gradient(circle at 100% 0%,rgba(255,246,176,.35),transparent 35%),
+    linear-gradient(135deg,#f3fff0 0%,#e6ffe9 100%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  padding:10px;
+  border-bottom:1px solid #d6f3d8;
 }
 
-.reportText{
-  margin:12px 0 0;
-  color:#3c5943;
-  font-size:18px;
-  line-height:1.7;
-  font-weight:850;
-  white-space:pre-wrap;
+.reportImage{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  border-radius:18px;
+  background:#fff;
 }
 
-.reportPlace{
+.reportBody{
+  padding:18px;
+}
+
+.labelBlock{
   margin-top:12px;
   border-radius:20px;
   background:#f7fff5;
   border:1px solid #c8f0ce;
   padding:13px;
-  color:#3c5943;
-  font-size:16px;
+}
+
+.labelBlock:first-child{
+  margin-top:0;
+}
+
+.labelTitle{
+  color:#1f6b3d;
+  font-size:14px;
+  font-weight:900;
+}
+
+.labelText{
+  margin-top:4px;
+  color:#2f4c36;
+  font-size:18px;
   line-height:1.65;
   font-weight:850;
+  white-space:pre-wrap;
+  word-break:break-word;
 }
 
 .improvementBox{
@@ -456,9 +458,18 @@ img{
   border:2px solid #86efac;
   padding:14px;
   color:#166534;
+}
+
+.improvementTitle{
+  font-size:16px;
+  font-weight:900;
+}
+
+.improvementText{
+  margin-top:6px;
   font-size:17px;
   line-height:1.7;
-  font-weight:900;
+  font-weight:850;
   white-space:pre-wrap;
 }
 
@@ -487,7 +498,7 @@ img{
 
 .reportButtons a,
 .reportButtons button{
-  min-height:54px;
+  min-height:56px;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -543,7 +554,7 @@ img{
 .empty{
   border-radius:28px;
   background:#fff;
-  border:1px solid #b7ebc0;
+  border:2px solid #b7ebc0;
   box-shadow:0 12px 30px rgba(71,130,82,.10);
   padding:22px;
   color:#4d6b55;
@@ -564,24 +575,24 @@ img{
   font-weight:850;
 }
 
-.adminArea{
-  margin-top:22px;
-  border-radius:30px;
+.adminBox{
+  margin-top:28px;
+  border-radius:34px;
   background:#fff;
-  border:1px solid #b7ebc0;
-  box-shadow:0 14px 34px rgba(70,130,82,.10);
-  padding:18px;
+  border:2px solid #b7ebc0;
+  box-shadow:0 16px 40px rgba(70,130,82,.11);
+  padding:22px;
 }
 
-.adminArea h2{
+.adminBox h2{
   margin:0;
   color:#1f5f35;
-  font-size:26px;
-  line-height:1.25;
+  font-size:clamp(30px,8vw,48px);
+  line-height:1.2;
   font-weight:900;
 }
 
-.adminArea p{
+.adminBox p{
   margin:10px 0 0;
   color:#3c5943;
   font-size:17px;
@@ -589,18 +600,26 @@ img{
   font-weight:850;
 }
 
-.adminArea a{
-  margin-top:14px;
-  min-height:62px;
+.adminBox a{
+  margin-top:16px;
+  min-height:70px;
   display:flex;
   align-items:center;
   justify-content:center;
-  border-radius:24px;
+  border-radius:26px;
   background:#fff;
   border:2px solid #b7ebc0;
   color:#1f5f35;
-  font-size:18px;
+  font-size:20px;
   font-weight:900;
+}
+
+.footer{
+  margin-top:30px;
+  text-align:center;
+  color:#4d6b55;
+  font-size:13px;
+  font-weight:800;
 }
 
 .bottomNav{
@@ -631,21 +650,13 @@ img{
   line-height:1.1;
 }
 
-.footer{
-  margin-top:30px;
-  text-align:center;
-  color:#4d6b55;
-  font-size:13px;
-  font-weight:800;
-}
-
 @media (min-width:820px){
-  .mainCta{
-    grid-template-columns:1.3fr .7fr;
+  .flow{
+    grid-template-columns:1fr 1fr 1fr;
   }
 
-  .infoGrid{
-    grid-template-columns:repeat(3,1fr);
+  .flowCard:first-child{
+    grid-column:1 / -1;
   }
 
   .reportList{
@@ -671,28 +682,19 @@ img{
   }
 
   .hero,
-  .visualHero,
-  .infoCard,
+  .flowCard,
   .reportCard,
-  .adminArea{
+  .adminBox{
     border-radius:28px;
   }
 
   .hero,
-  .infoCard,
-  .adminArea{
+  .flowCard,
+  .adminBox{
     padding:18px;
   }
 
-  .visualHero{
-    min-height:390px;
-  }
-
-  .visualInner{
-    padding:20px;
-  }
-
-  .reportsHead{
+  .sectionHead{
     align-items:flex-start;
     flex-direction:column;
   }
@@ -700,6 +702,10 @@ img{
   .reportImageBox{
     aspect-ratio:1/1;
     padding:8px;
+  }
+
+  .shareButtons{
+    grid-template-columns:1fr;
   }
 }
 </style>
@@ -720,7 +726,6 @@ img{
     <a href="activity.html">活動</a>
     <a href="videos.html">動画</a>
     <a href="support.html">応援</a>
-    <a href="voice.html">困りごと</a>
     <a href="profile.html">人物</a>
   </nav>
 </header>
@@ -731,71 +736,87 @@ img{
   <div class="kicker">地域で気づいたこと</div>
   <h1>
     まちの困りごとを
-    <span>行政へつなげます</span>
+    <span>写真で知らせる</span>
   </h1>
   <p>
-    道路の穴、街灯切れ、不法投棄、危険箇所など、地域で気づいたことを写真・場所・文章で知らせるページです。
+    道路の穴、街灯切れ、不法投棄、危険箇所などを、写真・場所・文章で投稿できます。
   </p>
-
-  <div class="mainCta">
-    <a class="primary" id="formButton" href="#" target="_blank" rel="noopener">
-      📷 写真付きで困りごとを投稿する
-      <small>スマホのカメラロール・撮影写真が使えます</small>
-    </a>
-    <a class="secondary" href="#reports">
-      届いた困りごとを見る
-      <small>地図・ナビも確認できます</small>
-    </a>
-  </div>
 </section>
 
-<section class="visualHero">
-  <div class="visualInner">
-    <div class="visualLabel">写真と文章で知らせる</div>
-    <h2>
-      小さな気づきを
-      <span>地域の改善へ</span>
-    </h2>
-    <p>
-      投稿された場所は、地図とナビで確認できるようにします。
-    </p>
-  </div>
-</section>
+<section class="flow" id="top">
 
-<section class="infoGrid">
-  <div class="infoCard">
-    <h2>投稿できること</h2>
-    <ul class="infoList">
-      <li>道路の穴・段差</li>
-      <li>街灯切れ</li>
-      <li>ごみ・不法投棄</li>
-      <li>危険箇所</li>
-    </ul>
-  </div>
-
-  <div class="infoCard">
-    <h2>写真で伝える</h2>
+  <div class="flowCard">
+    <div class="flowHead">
+      <div class="num">1</div>
+      <h2>まず投稿する</h2>
+    </div>
     <p>
-      文字だけでは伝わりにくい状況も、写真があれば現地の様子が分かりやすくなります。
+      写真、町名、場所、困っている内容を入力します。スマホのカメラロールや撮影写真が使えます。
     </p>
+
+    <a class="bigButton" id="postButton" href="#" target="_blank" rel="noopener">
+      📷 写真付きで投稿する
+      <small>投稿フォームを開きます</small>
+    </a>
+
+    <div class="chips">
+      <span class="chip">道路の穴</span>
+      <span class="chip">街灯切れ</span>
+      <span class="chip">ごみ</span>
+      <span class="chip">危険箇所</span>
+      <span class="chip">公園・施設</span>
+    </div>
   </div>
 
-  <div class="infoCard">
-    <h2>現地へ向かえる</h2>
+  <div class="flowCard">
+    <div class="flowHead">
+      <div class="num">2</div>
+      <h2>投稿を見る</h2>
+    </div>
     <p>
-      位置情報があれば、地図を見る・現地へ向かうボタンで場所を確認できます。
+      投稿された困りごとは下に一覧で表示されます。写真、内容、場所、地図を確認できます。
     </p>
+
+    <a class="whiteButton" href="#reports">
+      投稿一覧を見る
+    </a>
   </div>
+
+  <div class="flowCard">
+    <div class="flowHead">
+      <div class="num">3</div>
+      <h2>管理する</h2>
+    </div>
+    <p>
+      管理者は、対応状態の変更、改善報告、改善後の写真登録ができます。
+    </p>
+
+    <a class="whiteButton" id="adminTopButton" href="#" target="_blank" rel="noopener">
+      管理者画面を開く
+    </a>
+  </div>
+
 </section>
 
 <div class="notice">
   緊急の場合や、すぐ対応が必要な場合は、市役所・警察・消防など、関係機関へ直接連絡してください。
 </div>
 
-<section class="reports" id="reports">
-  <div class="reportsHead">
-    <h2>届いた困りごと</h2>
-    <button class="reloadBtn" type="button" onclick="loadReports()">更新</button>
+<section class="section" id="reports">
+  <div class="sectionHead">
+    <div>
+      <div class="sectionTitle">
+        <div class="num">2</div>
+        <h2>投稿された困りごと</h2>
+      </div>
+      <div class="sectionSub">
+        写真・内容・場所・対応状態を確認できます。
+      </div>
+    </div>
+
+    <button class="reloadBtn" type="button" onclick="loadReports()">
+      更新
+    </button>
   </div>
 
   <div id="reportList" class="reportList">
@@ -806,11 +827,12 @@ img{
   </div>
 </section>
 
-<section class="adminArea">
-  <h2>管理者・確認担当の方へ</h2>
+<section class="adminBox" id="admin">
+  <h2>管理者用</h2>
   <p>
-    対応状態の変更、改善報告、改善写真の登録はこちらから行います。
+    対応状態、改善報告、改善写真の登録は管理者画面で行います。
   </p>
+
   <a id="adminButton" href="#" target="_blank" rel="noopener">
     管理者対応画面を開く
   </a>
@@ -846,10 +868,13 @@ GAS_URL + "?page=admin";
 const reportList =
 document.getElementById("reportList");
 
-document.getElementById("formButton").href =
+document.getElementById("postButton").href =
 FORM_URL;
 
 document.getElementById("adminButton").href =
+ADMIN_URL;
+
+document.getElementById("adminTopButton").href =
 ADMIN_URL;
 
 function esc(v){
@@ -876,6 +901,23 @@ function shortDate(v){
 
 }
 
+function statusClass(status){
+
+  const s =
+  String(status || "");
+
+  if(s.indexOf("改善") !== -1){
+    return "good";
+  }
+
+  if(s.indexOf("危険") !== -1){
+    return "warn";
+  }
+
+  return "status";
+
+}
+
 function reportShareUrl(id){
 
   const base =
@@ -895,7 +937,7 @@ function copyText(text){
   if(navigator.clipboard){
     navigator.clipboard.writeText(text)
     .then(function(){
-      alert("リンクをコピーしました。");
+      alert("コピーしました。");
     })
     .catch(function(){
       alert("コピーできませんでした。");
@@ -922,23 +964,6 @@ document.addEventListener("click",function(e){
   copyText(text);
 
 });
-
-function statusClass(status){
-
-  const s =
-  String(status || "");
-
-  if(s.indexOf("改善") !== -1){
-    return "good";
-  }
-
-  if(s.indexOf("危険") !== -1){
-    return "warn";
-  }
-
-  return "status";
-
-}
 
 function reportCard(r,index){
 
@@ -1022,23 +1047,30 @@ function reportCard(r,index){
 
   return ''
   + '<article class="reportCard" id="problem-' + esc(id) + '">'
-  + (photo ? '<div class="reportImageBox"><img class="reportImage" src="' + esc(photo) + '" alt="' + esc(category) + '"></div>' : '')
-  + '<div class="reportBody">'
+  + '<div class="reportTop">'
+  + '<span class="reportNo">投稿 ' + esc(index + 1) + '</span>'
+  + '<h3 class="reportTitle">' + esc(category) + '</h3>'
   + '<div class="metaRow">'
   + '<span class="badge">' + esc(area) + '</span>'
-  + '<span class="badge">' + esc(category) + '</span>'
   + '<span class="badge">' + esc(urgency) + '</span>'
   + '<span class="badge ' + esc(statusClass(status)) + '">' + esc(status) + '</span>'
   + (date ? '<span class="badge">' + esc(date) + '</span>' : '')
   + '</div>'
-  + '<h2 class="reportTitle">' + esc(category) + '</h2>'
-  + (body ? '<div class="reportText">' + esc(body) + '</div>' : '')
-  + (place ? '<div class="reportPlace"><b>場所：</b>' + esc(place) + '</div>' : '')
-  + (improvement ? '<div class="improvementBox">改善報告：<br>' + esc(improvement) + (improvementPhoto ? '<div class="improvementPhotoBox"><img src="' + esc(improvementPhoto) + '" alt="改善写真"></div>' : '') + '</div>' : '')
+  + '</div>'
+
+  + (photo ? '<div class="reportImageBox"><img class="reportImage" src="' + esc(photo) + '" alt="' + esc(category) + '"></div>' : '')
+
+  + '<div class="reportBody">'
+  + (body ? '<div class="labelBlock"><div class="labelTitle">困っている内容</div><div class="labelText">' + esc(body) + '</div></div>' : '')
+  + (place ? '<div class="labelBlock"><div class="labelTitle">場所の説明</div><div class="labelText">' + esc(place) + '</div></div>' : '')
+
+  + (improvement ? '<div class="improvementBox"><div class="improvementTitle">改善報告</div><div class="improvementText">' + esc(improvement) + '</div>' + (improvementPhoto ? '<div class="improvementPhotoBox"><img src="' + esc(improvementPhoto) + '" alt="改善写真"></div>' : '') + '</div>' : '')
+
   + '<div class="reportButtons">'
   + (mapUrl ? '<a href="' + esc(mapUrl) + '" target="_blank" rel="noopener">地図を見る</a>' : '<button type="button" disabled>地図なし</button>')
   + (naviUrl ? '<a class="navi" href="' + esc(naviUrl) + '" target="_blank" rel="noopener">現地へ向かう</a>' : '<button type="button" disabled>ナビなし</button>')
   + '</div>'
+
   + '<div class="shareBox">'
   + '<div class="shareTitle">この投稿を共有する</div>'
   + '<div class="shareButtons">'
@@ -1048,6 +1080,7 @@ function reportCard(r,index){
   + '<button class="copyBtn" type="button" data-text="' + esc(shareText + "\n" + shareUrl) + '">コピー</button>'
   + '</div>'
   + '</div>'
+
   + '</div>'
   + '</article>';
 
