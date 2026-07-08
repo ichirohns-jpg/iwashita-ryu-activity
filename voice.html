@@ -306,66 +306,6 @@ textarea:focus{
   box-shadow:0 0 0 4px rgba(76,175,99,.15);
 }
 
-.fileBox{
-  margin-top:8px;
-  border:2px dashed #b7ebc0;
-  border-radius:24px;
-  background:#f7fff5;
-  padding:16px;
-}
-
-.realFileInput{
-  position:absolute;
-  width:1px;
-  height:1px;
-  opacity:0;
-  overflow:hidden;
-  pointer-events:none;
-}
-
-.photoSelectButton{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  min-height:72px;
-  border-radius:24px;
-  background:linear-gradient(135deg,#4caf63 0%,#78c96f 100%);
-  color:#fff;
-  font-size:24px;
-  font-weight:900;
-  box-shadow:0 14px 30px rgba(76,175,99,.24);
-  margin-top:0;
-}
-
-.photoSubText{
-  margin-top:12px;
-  border-radius:20px;
-  background:#fff;
-  border:1px solid #c8f0ce;
-  padding:14px;
-  color:#3c5943;
-  font-size:16px;
-  line-height:1.7;
-  font-weight:850;
-}
-
-.previewBox{
-  display:none;
-  margin-top:12px;
-  border-radius:22px;
-  overflow:hidden;
-  border:1px solid #b7ebc0;
-  background:#e6ffe9;
-}
-
-.previewBox img{
-  display:block;
-  width:100%;
-  max-height:320px;
-  object-fit:contain;
-  background:#eaffea;
-}
-
 .statusBox{
   margin-top:12px;
   border-radius:22px;
@@ -610,39 +550,6 @@ textarea:focus{
   font-weight:850;
 }
 
-.improvementBox{
-  margin-top:14px;
-  border-radius:22px;
-  background:#fff7c2;
-  border:2px solid #facc15;
-  padding:14px;
-  color:#5c3b00;
-  font-size:16px;
-  line-height:1.7;
-  font-weight:900;
-}
-
-.improvementPhotoBox{
-  margin-top:12px;
-  width:100%;
-  aspect-ratio:4/3;
-  background:#fff;
-  border:1px solid #facc15;
-  border-radius:20px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  overflow:hidden;
-  padding:8px;
-}
-
-.improvementPhotoBox img{
-  width:100%;
-  height:100%;
-  object-fit:contain;
-  border-radius:14px;
-}
-
 .reportButtons{
   display:grid;
   grid-template-columns:repeat(2,1fr);
@@ -823,8 +730,7 @@ textarea:focus{
     flex-direction:column;
   }
 
-  .reportImageBox,
-  .improvementPhotoBox{
+  .reportImageBox{
     aspect-ratio:1/1;
     padding:8px;
   }
@@ -886,19 +792,17 @@ textarea:focus{
 <section class="formCard" id="form">
   <h2>困りごとを投稿する</h2>
   <p class="formNote">
-    写真、町名、場所、内容を入力してください。現在地を取得すると、管理者が現地へ向かいやすくなります。
+    まずは、町名・内容・場所を確実に保存します。写真は「写真URL」がある場合だけ表示します。
   </p>
 
-  <form id="problemForm" method="POST" target="sendFrame">
+  <form id="problemForm" method="GET" target="sendFrame">
     <input type="hidden" name="mode" value="saveProblemReport">
     <input type="hidden" id="problemId" name="id">
     <input type="hidden" id="lat" name="lat">
     <input type="hidden" id="lng" name="lng">
     <input type="hidden" id="mapUrl" name="mapUrl">
     <input type="hidden" id="naviUrl" name="naviUrl">
-    <input type="hidden" id="photoBase64" name="photoBase64">
-    <input type="hidden" id="photoName" name="photoName">
-    <input type="hidden" id="photoType" name="photoType">
+    <input type="hidden" name="publicStatus" value="公開">
 
     <label for="name">
       お名前・ニックネーム
@@ -957,29 +861,11 @@ textarea:focus{
       <option value="危険・注意">危険・注意</option>
     </select>
 
-    <label for="photoInput">
-      写真
-      <span class="help">写真を撮る、またはライブラリから選べます</span>
+    <label for="photoUrl">
+      写真URL
+      <span class="help">任意。画像URLがある場合だけ入力してください</span>
     </label>
-    <div class="fileBox">
-      <input id="photoInput" class="realFileInput" type="file" accept="image/*">
-
-      <label class="photoSelectButton" for="photoInput">
-        📷 写真を選ぶ・撮影する
-      </label>
-
-      <div class="photoSubText">
-        ボタンを押すと、スマホで「フォトライブラリ」「写真を撮る」「ファイルを選択」から選べます。
-      </div>
-
-      <div class="statusBox" id="photoStatus">
-        写真を選ぶと、投稿用に小さくして保存します。
-      </div>
-
-      <div class="previewBox" id="previewBox">
-        <img id="previewImage" alt="選択した写真">
-      </div>
-    </div>
+    <input id="photoUrl" name="photoUrl" type="url" placeholder="https://...">
 
     <label>
       現在地・地図
@@ -1070,27 +956,6 @@ document.getElementById("resultBox");
 const reportList =
 document.getElementById("reportList");
 
-const photoInput =
-document.getElementById("photoInput");
-
-const photoBase64 =
-document.getElementById("photoBase64");
-
-const photoName =
-document.getElementById("photoName");
-
-const photoType =
-document.getElementById("photoType");
-
-const photoStatus =
-document.getElementById("photoStatus");
-
-const previewBox =
-document.getElementById("previewBox");
-
-const previewImage =
-document.getElementById("previewImage");
-
 const problemIdInput =
 document.getElementById("problemId");
 
@@ -1102,20 +967,6 @@ let currentProblemId =
 
 form.action =
 GAS_URL;
-
-photoInput.addEventListener("change",function(){
-
-  const file =
-  photoInput.files && photoInput.files[0];
-
-  if(!file){
-    clearPhoto();
-    return;
-  }
-
-  prepareImage(file);
-
-});
 
 form.addEventListener("submit",function(e){
 
@@ -1143,12 +994,6 @@ form.addEventListener("submit",function(e){
   if(!body){
     e.preventDefault();
     alert("困っている内容を入力してください。");
-    return;
-  }
-
-  if(photoInput.files.length && !photoBase64.value){
-    e.preventDefault();
-    alert("写真の準備中です。少し待ってから投稿してください。");
     return;
   }
 
@@ -1243,7 +1088,6 @@ function waitForSaved(id,count){
       "困りごとを投稿する";
 
       form.reset();
-      clearPhoto();
       clearLocation();
 
       renderReports(records);
@@ -1256,25 +1100,27 @@ function waitForSaved(id,count){
 
     }
 
-    if(count >= 15){
+    if(count >= 10){
       showSaveError();
       return;
     }
 
     setTimeout(function(){
       waitForSaved(id,count + 1);
-    },2000);
+    },1500);
 
   })
   .catch(function(){
-    if(count >= 15){
+
+    if(count >= 10){
       showSaveError();
       return;
     }
 
     setTimeout(function(){
       waitForSaved(id,count + 1);
-    },2000);
+    },1500);
+
   });
 
 }
@@ -1291,145 +1137,9 @@ function showSaveError(){
   "困りごとを投稿する";
 
   showResult(
-    "保存を確認できませんでした。写真が大きすぎるか、通信が止まった可能性があります。スプレッドシートの problem_reports を確認してください。",
+    "保存を確認できませんでした。時間をおいてもう一度試してください。",
     true
   );
-
-}
-
-function clearPhoto(){
-
-  photoBase64.value =
-  "";
-
-  photoName.value =
-  "";
-
-  photoType.value =
-  "";
-
-  previewImage.removeAttribute(
-    "src"
-  );
-
-  previewBox.style.display =
-  "none";
-
-  photoStatus.textContent =
-  "写真を選ぶと、投稿用に小さくして保存します。";
-
-}
-
-function prepareImage(file){
-
-  photoStatus.textContent =
-  "写真を軽くしています。少しお待ちください。";
-
-  const reader =
-  new FileReader();
-
-  reader.onload = function(e){
-
-    const dataUrl =
-    e.target.result;
-
-    const img =
-    new Image();
-
-    img.onload = function(){
-
-      const maxSize =
-      600;
-
-      let width =
-      img.width;
-
-      let height =
-      img.height;
-
-      const scale =
-      Math.min(
-        1,
-        maxSize / width,
-        maxSize / height
-      );
-
-      width =
-      Math.round(width * scale);
-
-      height =
-      Math.round(height * scale);
-
-      const canvas =
-      document.createElement("canvas");
-
-      canvas.width =
-      width;
-
-      canvas.height =
-      height;
-
-      const ctx =
-      canvas.getContext("2d");
-
-      ctx.drawImage(
-        img,
-        0,
-        0,
-        width,
-        height
-      );
-
-      const compressed =
-      canvas.toDataURL(
-        "image/jpeg",
-        0.50
-      );
-
-      photoBase64.value =
-      compressed;
-
-      photoName.value =
-      file.name || "photo.jpg";
-
-      photoType.value =
-      "image/jpeg";
-
-      previewImage.src =
-      compressed;
-
-      previewBox.style.display =
-      "block";
-
-      photoStatus.textContent =
-      "写真の準備ができました。軽くして送信します。";
-
-    };
-
-    img.onerror = function(){
-
-      photoStatus.textContent =
-      "この写真は読み込めませんでした。別の写真を選んでください。";
-
-      clearPhoto();
-
-    };
-
-    img.src =
-    dataUrl;
-
-  };
-
-  reader.onerror = function(){
-
-    photoStatus.textContent =
-    "写真を読み込めませんでした。別の写真を選んでください。";
-
-    clearPhoto();
-
-  };
-
-  reader.readAsDataURL(file);
 
 }
 
@@ -1671,10 +1381,6 @@ function reportCard(r,index){
   r["改善報告"] ||
   "";
 
-  const improvementPhoto =
-  r["改善写真URL"] ||
-  "";
-
   const shareUrl =
   reportShareUrl(id);
 
@@ -1713,7 +1419,7 @@ function reportCard(r,index){
   + '<h2 class="reportTitle">' + esc(category) + '</h2>'
   + (body ? '<div class="reportText">' + esc(body) + '</div>' : '')
   + (place ? '<div class="reportPlace"><b>場所：</b>' + esc(place) + '</div>' : '')
-  + (improvement ? '<div class="improvementBox">改善報告：<br>' + esc(improvement) + (improvementPhoto ? '<div class="improvementPhotoBox"><img src="' + esc(improvementPhoto) + '" alt="改善写真"></div>' : '') + '</div>' : '')
+  + (improvement ? '<div class="improvementBox">改善報告：<br>' + esc(improvement) + '</div>' : '')
   + '<div class="reportButtons">'
   + (mapUrl ? '<a href="' + esc(mapUrl) + '" target="_blank" rel="noopener">地図を見る</a>' : '<button type="button" disabled>地図なし</button>')
   + (naviUrl ? '<a class="navi" href="' + esc(naviUrl) + '" target="_blank" rel="noopener">現地へ向かう</a>' : '<button type="button" disabled>ナビなし</button>')
