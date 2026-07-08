@@ -6,7 +6,7 @@
 
 <title>まちの困りごとを行政へつなげます｜岩下りゅう 活動報告</title>
 
-<meta name="description" content="道路の穴、街灯切れ、不法投棄、危険箇所など、地域の困りごとを写真・場所・文章で知らせるページです。">
+<meta name="description" content="道路の穴、街灯切れ、不法投棄、危険箇所など、地域の困りごとを写真・場所・文章で知らせ、行政へつなげる活動ページです。">
 <meta name="theme-color" content="#6fbd69">
 
 <link rel="icon" type="image/png" href="apple-touch-icon.png">
@@ -23,7 +23,11 @@ html{
 
 body{
   margin:0;
-  font-family:"Hiragino Sans","Yu Gothic","Meiryo",sans-serif;
+  font-family:
+    "Hiragino Sans",
+    "Yu Gothic",
+    "Meiryo",
+    sans-serif;
   color:#203326;
   background:
     radial-gradient(circle at 10% 0%,rgba(218,255,209,.9),transparent 28%),
@@ -47,6 +51,8 @@ img{
   margin:auto;
   padding:12px 0 96px;
 }
+
+/* ヘッダー */
 
 .header{
   position:sticky;
@@ -98,6 +104,8 @@ img{
   font-weight:900;
   box-shadow:0 6px 16px rgba(70,130,82,.07);
 }
+
+/* 上部 */
 
 .hero{
   margin-top:8px;
@@ -161,6 +169,14 @@ img{
   font-weight:900;
 }
 
+.pageLinks a.primary{
+  background:linear-gradient(135deg,#4caf63 0%,#78c96f 100%);
+  border-color:#78c96f;
+  color:#fff;
+}
+
+/* 写真つき見出し */
+
 .visualHero{
   margin-top:18px;
   position:relative;
@@ -218,7 +234,9 @@ img{
   text-shadow:0 3px 14px rgba(0,0,0,.28);
 }
 
-.formCard{
+/* 説明 */
+
+.infoCard{
   margin-top:18px;
   border-radius:32px;
   background:#fff;
@@ -227,7 +245,7 @@ img{
   padding:22px;
 }
 
-.formCard h2{
+.infoCard h2{
   margin:0;
   color:#1f5f35;
   font-size:clamp(30px,7vw,46px);
@@ -235,217 +253,12 @@ img{
   font-weight:900;
 }
 
-.formNote{
-  margin:10px 0 18px;
+.infoCard p{
+  margin:12px 0 0;
   color:#3c5943;
-  font-size:17px;
-  line-height:1.7;
-  font-weight:850;
-}
-
-label{
-  display:block;
-  margin-top:18px;
-  color:#1f5f35;
-  font-size:20px;
-  line-height:1.35;
-  font-weight:900;
-}
-
-.help{
-  display:block;
-  margin-top:4px;
-  color:#6b7f70;
-  font-size:14px;
-  font-weight:800;
-}
-
-input,
-select,
-textarea{
-  width:100%;
-  margin-top:8px;
-  border:2px solid #b7ebc0;
-  border-radius:22px;
-  background:#fffdf0;
-  color:#213627;
-  font-family:inherit;
-  font-size:20px;
-  font-weight:850;
-  outline:none;
-  box-shadow:inset 0 2px 0 rgba(255,255,255,.8);
-}
-
-input,
-select{
-  min-height:64px;
-  padding:0 18px;
-}
-
-textarea{
-  min-height:160px;
-  padding:18px;
-  resize:vertical;
-}
-
-input:focus,
-select:focus,
-textarea:focus{
-  border-color:#4caf63;
-  background:#ffffff;
-  box-shadow:0 0 0 4px rgba(76,175,99,.15);
-}
-
-.fileBox{
-  margin-top:8px;
-  border:2px dashed #b7ebc0;
-  border-radius:24px;
-  background:#f7fff5;
-  padding:16px;
-}
-
-.realFileInput{
-  position:absolute;
-  width:1px;
-  height:1px;
-  opacity:0;
-  overflow:hidden;
-  pointer-events:none;
-}
-
-.photoSelectButton{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  min-height:72px;
-  border-radius:24px;
-  background:linear-gradient(135deg,#4caf63 0%,#78c96f 100%);
-  color:#fff;
-  font-size:24px;
-  font-weight:900;
-  box-shadow:0 14px 30px rgba(76,175,99,.24);
-  margin-top:0;
-}
-
-.photoSubText{
-  margin-top:12px;
-  border-radius:20px;
-  background:#fff;
-  border:1px solid #c8f0ce;
-  padding:14px;
-  color:#3c5943;
-  font-size:16px;
-  line-height:1.7;
-  font-weight:850;
-}
-
-.previewBox{
-  display:none;
-  margin-top:12px;
-  border-radius:22px;
-  overflow:hidden;
-  border:1px solid #b7ebc0;
-  background:#e6ffe9;
-}
-
-.previewBox img{
-  display:block;
-  width:100%;
-  max-height:320px;
-  object-fit:contain;
-  background:#eaffea;
-}
-
-.statusBox{
-  margin-top:12px;
-  border-radius:22px;
-  background:#f7fff5;
-  border:1px solid #c8f0ce;
-  padding:14px;
-  color:#3c5943;
-  font-size:15px;
-  line-height:1.7;
-  font-weight:850;
-}
-
-.locationButtons{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:10px;
-  margin-top:10px;
-}
-
-.smallButton{
-  min-height:58px;
-  border-radius:22px;
-  border:2px solid #b7ebc0;
-  background:#fff;
-  color:#1f5f35;
-  font-family:inherit;
   font-size:18px;
-  font-weight:900;
-}
-
-.smallButton.primary{
-  background:linear-gradient(135deg,#4caf63 0%,#78c96f 100%);
-  border-color:#78c96f;
-  color:#fff;
-}
-
-.locationLinks{
-  display:none;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-  margin-top:10px;
-}
-
-.locationLinks a{
-  min-height:54px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:20px;
-  background:#fff;
-  border:2px solid #b7ebc0;
-  color:#1f5f35;
-  font-size:16px;
-  font-weight:900;
-}
-
-.submitBtn{
-  width:100%;
-  margin-top:24px;
-  min-height:78px;
-  border:0;
-  border-radius:28px;
-  background:linear-gradient(135deg,#4caf63 0%,#78c96f 100%);
-  color:#fff;
-  font-family:inherit;
-  font-size:25px;
-  font-weight:900;
-  box-shadow:0 14px 30px rgba(76,175,99,.26);
-}
-
-.submitBtn:disabled{
-  opacity:.55;
-}
-
-.resultBox{
-  margin-top:16px;
-  padding:18px;
-  border-radius:24px;
-  background:#fff7c2;
-  border:2px solid #facc15;
-  color:#4d3a00;
-  font-size:18px;
-  font-weight:900;
-  display:none;
-}
-
-.resultBox.error{
-  background:#fee2e2;
-  border-color:#ef4444;
-  color:#7f1d1d;
+  line-height:1.8;
+  font-weight:850;
 }
 
 .notice{
@@ -459,6 +272,8 @@ textarea:focus{
   line-height:1.7;
   font-weight:900;
 }
+
+/* 一覧 */
 
 .reports{
   margin-top:26px;
@@ -505,6 +320,8 @@ textarea:focus{
   border:1px solid #b7ebc0;
   box-shadow:0 16px 40px rgba(70,130,82,.11);
 }
+
+/* 写真固定枠 */
 
 .reportImageBox{
   width:100%;
@@ -559,6 +376,18 @@ textarea:focus{
   color:#5c3b00;
 }
 
+.badge.good{
+  background:#dcfce7;
+  border-color:#86efac;
+  color:#166534;
+}
+
+.badge.warn{
+  background:#fee2e2;
+  border-color:#fca5a5;
+  color:#7f1d1d;
+}
+
 .reportTitle{
   margin:0;
   color:#1f5f35;
@@ -598,6 +427,27 @@ textarea:focus{
   font-size:16px;
   line-height:1.7;
   font-weight:900;
+}
+
+.improvementPhotoBox{
+  margin-top:12px;
+  width:100%;
+  aspect-ratio:4/3;
+  background:#fff;
+  border:1px solid #facc15;
+  border-radius:20px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  padding:8px;
+}
+
+.improvementPhotoBox img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  border-radius:14px;
 }
 
 .reportButtons{
@@ -688,6 +538,8 @@ textarea:focus{
   font-weight:850;
 }
 
+/* 下メニュー */
+
 .bottomNav{
   position:fixed;
   left:0;
@@ -724,15 +576,7 @@ textarea:focus{
   font-weight:800;
 }
 
-.hiddenFrame{
-  display:none;
-}
-
 @media (min-width:820px){
-  .locationButtons{
-    grid-template-columns:1fr 1fr;
-  }
-
   .reportList{
     grid-template-columns:repeat(2,1fr);
   }
@@ -757,13 +601,13 @@ textarea:focus{
 
   .hero,
   .visualHero,
-  .formCard,
+  .infoCard,
   .reportCard{
     border-radius:28px;
   }
 
   .hero,
-  .formCard{
+  .infoCard{
     padding:18px;
   }
 
@@ -780,7 +624,8 @@ textarea:focus{
     flex-direction:column;
   }
 
-  .reportImageBox{
+  .reportImageBox,
+  .improvementPhotoBox{
     aspect-ratio:1/1;
     padding:8px;
   }
@@ -803,6 +648,7 @@ textarea:focus{
     <a href="activity.html">活動</a>
     <a href="videos.html">動画</a>
     <a href="support.html">応援</a>
+    <a href="voice.html">困りごと</a>
     <a href="profile.html">人物</a>
   </nav>
 </header>
@@ -820,7 +666,7 @@ textarea:focus{
   </p>
 
   <div class="pageLinks">
-    <a href="#form">投稿する</a>
+    <a class="primary" id="appSheetLinkTop" href="#appsheetNotice">投稿フォームを開く</a>
     <a href="#reports">投稿を見る</a>
   </div>
 </section>
@@ -838,141 +684,20 @@ textarea:focus{
   </div>
 </section>
 
-<section class="formCard" id="form">
-  <h2>困りごとを投稿する</h2>
-  <p class="formNote">
-    写真、町名、場所、内容を入力してください。現在地を取得すると、管理者が現地へ向かいやすくなります。
+<section class="infoCard" id="appsheetNotice">
+  <h2>投稿は専用フォームから</h2>
+  <p>
+    写真の撮影、現在地、町名、内容を入力して送れます。投稿された内容は、確認しやすい形でこのページに表示されます。
   </p>
 
-  <form id="problemForm" method="POST" target="sendFrame">
-    <input type="hidden" name="mode" value="saveProblemReport">
-    <input type="hidden" id="problemId" name="id">
-    <input type="hidden" id="lat" name="lat">
-    <input type="hidden" id="lng" name="lng">
-    <input type="hidden" id="mapUrl" name="mapUrl">
-    <input type="hidden" id="naviUrl" name="naviUrl">
-    <input type="hidden" id="photoBase64" name="photoBase64">
-    <input type="hidden" id="photoName" name="photoName">
-    <input type="hidden" id="photoType" name="photoType">
+  <div class="notice">
+    緊急の場合や、すぐ対応が必要な場合は、市役所・警察・消防など、関係機関へ直接連絡してください。
+  </div>
 
-    <label for="name">
-      お名前・ニックネーム
-      <span class="help">匿名でも大丈夫です</span>
-    </label>
-    <input id="name" name="name" type="text" placeholder="例：山田、匿名">
-
-    <label for="area">
-      町名
-      <span class="help">近いものを選んでください</span>
-    </label>
-    <select id="area" name="area" required>
-      <option value="">選んでください</option>
-      <option value="本町">本町</option>
-      <option value="柏町">柏町</option>
-      <option value="幸町">幸町</option>
-      <option value="館">館</option>
-      <option value="上宗岡">上宗岡</option>
-      <option value="中宗岡">中宗岡</option>
-      <option value="下宗岡">下宗岡</option>
-      <option value="その他">その他</option>
-    </select>
-
-    <label for="category">
-      内容の種類
-    </label>
-    <select id="category" name="category" required>
-      <option value="">選んでください</option>
-      <option value="道路の穴・段差">道路の穴・段差</option>
-      <option value="街灯切れ">街灯切れ</option>
-      <option value="ごみ・不法投棄">ごみ・不法投棄</option>
-      <option value="危険箇所">危険箇所</option>
-      <option value="動物の死骸">動物の死骸</option>
-      <option value="公園・施設">公園・施設</option>
-      <option value="その他">その他</option>
-    </select>
-
-    <label for="place">
-      場所の説明
-      <span class="help">例：〇〇公園の入口付近、〇〇交差点の近く</span>
-    </label>
-    <input id="place" name="place" type="text" placeholder="場所をわかる範囲で入力">
-
-    <label for="body">
-      困っている内容
-      <span class="help">状況を文章で入力してください</span>
-    </label>
-    <textarea id="body" name="body" required placeholder="例：歩道に大きな段差があり、高齢者がつまずきそうです。"></textarea>
-
-    <label for="urgency">
-      緊急度
-    </label>
-    <select id="urgency" name="urgency">
-      <option value="通常">通常</option>
-      <option value="早めに確認">早めに確認</option>
-      <option value="危険・注意">危険・注意</option>
-    </select>
-
-    <label for="photoInput">
-      写真
-      <span class="help">写真を撮る、またはライブラリから選べます</span>
-    </label>
-    <div class="fileBox">
-      <input id="photoInput" class="realFileInput" type="file" accept="image/*">
-
-      <label class="photoSelectButton" for="photoInput">
-        📷 写真を選ぶ・撮影する
-      </label>
-
-      <div class="photoSubText">
-        ボタンを押すと、スマホで「フォトライブラリ」「写真を撮る」「ファイルを選択」から選べます。
-      </div>
-
-      <div class="statusBox" id="photoStatus">
-        写真を選ぶと、投稿用に小さくして保存します。
-      </div>
-
-      <div class="previewBox" id="previewBox">
-        <img id="previewImage" alt="選択した写真">
-      </div>
-    </div>
-
-    <label>
-      現在地・地図
-      <span class="help">管理者が現地へ向かえるようにします</span>
-    </label>
-
-    <div class="locationButtons">
-      <button class="smallButton primary" type="button" onclick="getLocation()">
-        現在地を取得する
-      </button>
-      <button class="smallButton" type="button" onclick="clearLocation()">
-        位置情報を消す
-      </button>
-    </div>
-
-    <div class="statusBox" id="locationStatus">
-      現在地を取得すると、地図を見る・現地へ向かうボタンが作られます。
-    </div>
-
-    <div class="locationLinks" id="locationLinks">
-      <a id="mapPreviewLink" href="#" target="_blank" rel="noopener">地図を見る</a>
-      <a id="naviPreviewLink" href="#" target="_blank" rel="noopener">現地へ向かう</a>
-    </div>
-
-    <div class="notice">
-      緊急の場合や、すぐ対応が必要な場合は、市役所・警察・消防など、関係機関へ直接連絡してください。
-    </div>
-
-    <button class="submitBtn" id="submitBtn" type="submit">
-      困りごとを投稿する
-    </button>
-
-    <div class="resultBox" id="resultBox">
-      投稿を確認中です。
-    </div>
-  </form>
-
-  <iframe class="hiddenFrame" name="sendFrame" id="sendFrame" title="sendFrame"></iframe>
+  <div class="pageLinks">
+    <a class="primary" id="appSheetLinkCard" href="#appsheetNotice">投稿フォームを開く</a>
+    <a href="#reports">届いた困りごとを見る</a>
+  </div>
 </section>
 
 <section class="reports" id="reports">
@@ -1008,481 +733,63 @@ textarea:focus{
 
 <script>
 const GAS_URL =
-"https://script.google.com/macros/s/AKfycbyZnkBqswkTOn46XflzQKrXsGTUgaLxgNdy_0kMQiA5DO90H2WFJttqwEbaIa9xPef4ZA/exec";
+"https://script.google.com/macros/s/AKfycbxMWoYhEvMGTWrvYD01EEEOF2XILoOJJwrj01a0A7yZcQ-jnl-BRryhoeiAoKmVlO9WGA/exec";
 
-const form =
-document.getElementById("problemForm");
-
-const sendFrame =
-document.getElementById("sendFrame");
-
-const submitBtn =
-document.getElementById("submitBtn");
-
-const resultBox =
-document.getElementById("resultBox");
+const APPSHEET_URL =
+"";
 
 const reportList =
 document.getElementById("reportList");
 
-const photoInput =
-document.getElementById("photoInput");
+const appSheetLinkTop =
+document.getElementById("appSheetLinkTop");
 
-const photoBase64 =
-document.getElementById("photoBase64");
+const appSheetLinkCard =
+document.getElementById("appSheetLinkCard");
 
-const photoName =
-document.getElementById("photoName");
+function setupAppSheetLinks(){
 
-const photoType =
-document.getElementById("photoType");
+  const links =
+  [
+    appSheetLinkTop,
+    appSheetLinkCard
+  ];
 
-const photoStatus =
-document.getElementById("photoStatus");
+  links.forEach(function(link){
 
-const previewBox =
-document.getElementById("previewBox");
-
-const previewImage =
-document.getElementById("previewImage");
-
-const problemIdInput =
-document.getElementById("problemId");
-
-let submitted =
-false;
-
-let currentProblemId =
-"";
-
-form.action =
-GAS_URL;
-
-photoInput.addEventListener("change",function(){
-
-  const file =
-  photoInput.files && photoInput.files[0];
-
-  if(!file){
-    clearPhoto();
-    return;
-  }
-
-  prepareImage(file);
-
-});
-
-form.addEventListener("submit",function(e){
-
-  const area =
-  document.getElementById("area").value.trim();
-
-  const category =
-  document.getElementById("category").value.trim();
-
-  const body =
-  document.getElementById("body").value.trim();
-
-  if(!area){
-    e.preventDefault();
-    alert("町名を選んでください。");
-    return;
-  }
-
-  if(!category){
-    e.preventDefault();
-    alert("内容の種類を選んでください。");
-    return;
-  }
-
-  if(!body){
-    e.preventDefault();
-    alert("困っている内容を入力してください。");
-    return;
-  }
-
-  if(photoInput.files.length && !photoBase64.value){
-    e.preventDefault();
-    alert("写真の準備中です。少し待ってから投稿してください。");
-    return;
-  }
-
-  currentProblemId =
-  createClientId();
-
-  problemIdInput.value =
-  currentProblemId;
-
-  submitted =
-  true;
-
-  submitBtn.disabled =
-  true;
-
-  submitBtn.textContent =
-  "投稿中です";
-
-  showResult(
-    "投稿を送信しています。保存を確認しています。",
-    false
-  );
-
-});
-
-sendFrame.addEventListener("load",function(){
-
-  if(!submitted){
-    return;
-  }
-
-  waitForSaved(
-    currentProblemId,
-    0
-  );
-
-});
-
-function showResult(message,isError){
-
-  resultBox.textContent =
-  message;
-
-  resultBox.classList.toggle(
-    "error",
-    !!isError
-  );
-
-  resultBox.style.display =
-  "block";
-
-}
-
-function createClientId(){
-
-  return "problem-" +
-  Date.now() +
-  "-" +
-  Math.floor(Math.random() * 10000);
-
-}
-
-function waitForSaved(id,count){
-
-  if(!id){
-    showSaveError();
-    return;
-  }
-
-  fetchReports()
-  .then(function(records){
-
-    const found =
-    records.some(function(r){
-      return String(r["ID"] || "") === id;
-    });
-
-    if(found){
-
-      submitted =
-      false;
-
-      showResult(
-        "困りごと投稿を受け付けました。ありがとうございます。",
-        false
-      );
-
-      submitBtn.disabled =
-      false;
-
-      submitBtn.textContent =
-      "困りごとを投稿する";
-
-      form.reset();
-      clearPhoto();
-      clearLocation();
-
-      renderReports(records);
-
-      setTimeout(function(){
-        location.hash = "reports";
-      },400);
-
-      return;
-
-    }
-
-    if(count >= 15){
-      showSaveError();
+    if(!link){
       return;
     }
 
-    setTimeout(function(){
-      waitForSaved(id,count + 1);
-    },2000);
+    if(APPSHEET_URL){
 
-  })
-  .catch(function(){
-    if(count >= 15){
-      showSaveError();
-      return;
+      link.href =
+      APPSHEET_URL;
+
+      link.target =
+      "_blank";
+
+      link.rel =
+      "noopener";
+
+      link.textContent =
+      "投稿フォームを開く";
+
+    }else{
+
+      link.href =
+      "#appsheetNotice";
+
+      link.removeAttribute("target");
+
+      link.addEventListener("click",function(e){
+        e.preventDefault();
+        alert("AppSheetの投稿フォームURLを入れると、ここから投稿できます。");
+      });
+
     }
 
-    setTimeout(function(){
-      waitForSaved(id,count + 1);
-    },2000);
   });
-
-}
-
-function showSaveError(){
-
-  submitted =
-  false;
-
-  submitBtn.disabled =
-  false;
-
-  submitBtn.textContent =
-  "困りごとを投稿する";
-
-  showResult(
-    "保存を確認できませんでした。写真が大きすぎるか、通信が止まった可能性があります。スプレッドシートの problem_reports を確認してください。",
-    true
-  );
-
-}
-
-function clearPhoto(){
-
-  photoBase64.value =
-  "";
-
-  photoName.value =
-  "";
-
-  photoType.value =
-  "";
-
-  previewImage.removeAttribute(
-    "src"
-  );
-
-  previewBox.style.display =
-  "none";
-
-  photoStatus.textContent =
-  "写真を選ぶと、投稿用に小さくして保存します。";
-
-}
-
-function prepareImage(file){
-
-  photoStatus.textContent =
-  "写真を軽くしています。少しお待ちください。";
-
-  const reader =
-  new FileReader();
-
-  reader.onload = function(e){
-
-    const dataUrl =
-    e.target.result;
-
-    const img =
-    new Image();
-
-    img.onload = function(){
-
-      const maxSize =
-      600;
-
-      let width =
-      img.width;
-
-      let height =
-      img.height;
-
-      const scale =
-      Math.min(
-        1,
-        maxSize / width,
-        maxSize / height
-      );
-
-      width =
-      Math.round(width * scale);
-
-      height =
-      Math.round(height * scale);
-
-      const canvas =
-      document.createElement("canvas");
-
-      canvas.width =
-      width;
-
-      canvas.height =
-      height;
-
-      const ctx =
-      canvas.getContext("2d");
-
-      ctx.drawImage(
-        img,
-        0,
-        0,
-        width,
-        height
-      );
-
-      const compressed =
-      canvas.toDataURL(
-        "image/jpeg",
-        0.50
-      );
-
-      photoBase64.value =
-      compressed;
-
-      photoName.value =
-      file.name || "photo.jpg";
-
-      photoType.value =
-      "image/jpeg";
-
-      previewImage.src =
-      compressed;
-
-      previewBox.style.display =
-      "block";
-
-      photoStatus.textContent =
-      "写真の準備ができました。軽くして送信します。";
-
-    };
-
-    img.onerror = function(){
-
-      photoStatus.textContent =
-      "この写真は読み込めませんでした。別の写真を選んでください。";
-
-      clearPhoto();
-
-    };
-
-    img.src =
-    dataUrl;
-
-  };
-
-  reader.onerror = function(){
-
-    photoStatus.textContent =
-    "写真を読み込めませんでした。別の写真を選んでください。";
-
-    clearPhoto();
-
-  };
-
-  reader.readAsDataURL(file);
-
-}
-
-function getLocation(){
-
-  const status =
-  document.getElementById("locationStatus");
-
-  if(!navigator.geolocation){
-
-    status.textContent =
-    "この端末では現在地を取得できません。場所の説明を入力してください。";
-
-    return;
-
-  }
-
-  status.textContent =
-  "現在地を取得しています。少しお待ちください。";
-
-  navigator.geolocation.getCurrentPosition(function(pos){
-
-    const lat =
-    pos.coords.latitude.toFixed(7);
-
-    const lng =
-    pos.coords.longitude.toFixed(7);
-
-    const map =
-    "https://www.google.com/maps?q=" +
-    encodeURIComponent(lat + "," + lng);
-
-    const navi =
-    "https://www.google.com/maps/dir/?api=1&destination=" +
-    encodeURIComponent(lat + "," + lng);
-
-    document.getElementById("lat").value =
-    lat;
-
-    document.getElementById("lng").value =
-    lng;
-
-    document.getElementById("mapUrl").value =
-    map;
-
-    document.getElementById("naviUrl").value =
-    navi;
-
-    document.getElementById("mapPreviewLink").href =
-    map;
-
-    document.getElementById("naviPreviewLink").href =
-    navi;
-
-    document.getElementById("locationLinks").style.display =
-    "grid";
-
-    status.textContent =
-    "現在地を取得しました。地図とナビが使えます。";
-
-  },function(){
-
-    status.textContent =
-    "現在地を取得できませんでした。場所の説明を入力してください。";
-
-  },{
-    enableHighAccuracy:true,
-    timeout:10000,
-    maximumAge:0
-  });
-
-}
-
-function clearLocation(){
-
-  document.getElementById("lat").value =
-  "";
-
-  document.getElementById("lng").value =
-  "";
-
-  document.getElementById("mapUrl").value =
-  "";
-
-  document.getElementById("naviUrl").value =
-  "";
-
-  document.getElementById("mapPreviewLink").href =
-  "#";
-
-  document.getElementById("naviPreviewLink").href =
-  "#";
-
-  document.getElementById("locationLinks").style.display =
-  "none";
-
-  document.getElementById("locationStatus").textContent =
-  "現在地を取得すると、地図を見る・現地へ向かうボタンが作られます。";
 
 }
 
@@ -1557,6 +864,23 @@ document.addEventListener("click",function(e){
 
 });
 
+function statusClass(status){
+
+  const s =
+  String(status || "");
+
+  if(s.indexOf("改善") !== -1){
+    return "good";
+  }
+
+  if(s.indexOf("危険") !== -1){
+    return "warn";
+  }
+
+  return "status";
+
+}
+
 function reportCard(r,index){
 
   const id =
@@ -1609,6 +933,10 @@ function reportCard(r,index){
   r["改善報告"] ||
   "";
 
+  const improvementPhoto =
+  r["改善写真URL"] ||
+  "";
+
   const shareUrl =
   reportShareUrl(id);
 
@@ -1641,13 +969,13 @@ function reportCard(r,index){
   + '<span class="badge">' + esc(area) + '</span>'
   + '<span class="badge">' + esc(category) + '</span>'
   + '<span class="badge">' + esc(urgency) + '</span>'
-  + '<span class="badge status">' + esc(status) + '</span>'
+  + '<span class="badge ' + esc(statusClass(status)) + '">' + esc(status) + '</span>'
   + (date ? '<span class="badge">' + esc(date) + '</span>' : '')
   + '</div>'
   + '<h2 class="reportTitle">' + esc(category) + '</h2>'
   + (body ? '<div class="reportText">' + esc(body) + '</div>' : '')
   + (place ? '<div class="reportPlace"><b>場所：</b>' + esc(place) + '</div>' : '')
-  + (improvement ? '<div class="improvementBox">改善報告：<br>' + esc(improvement) + '</div>' : '')
+  + (improvement ? '<div class="improvementBox">改善報告：<br>' + esc(improvement) + (improvementPhoto ? '<div class="improvementPhotoBox"><img src="' + esc(improvementPhoto) + '" alt="改善写真"></div>' : '') + '</div>' : '')
   + '<div class="reportButtons">'
   + (mapUrl ? '<a href="' + esc(mapUrl) + '" target="_blank" rel="noopener">地図を見る</a>' : '<button type="button" disabled>地図なし</button>')
   + (naviUrl ? '<a class="navi" href="' + esc(naviUrl) + '" target="_blank" rel="noopener">現地へ向かう</a>' : '<button type="button" disabled>ナビなし</button>')
@@ -1718,6 +1046,7 @@ function loadReports(){
 
 }
 
+setupAppSheetLinks();
 loadReports();
 </script>
 
