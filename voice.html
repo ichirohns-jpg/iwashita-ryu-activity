@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>地域の困りごとを知らせる｜岩下りゅう 活動報告</title>
+<title>まちの困りごとを行政へつなげます｜岩下りゅう 活動報告</title>
 
-<meta name="description" content="道路の穴、街灯切れ、不法投棄、危険箇所など、地域の困りごとを行政へつなげるページです。">
+<meta name="description" content="道路の穴、街灯切れ、不法投棄、危険箇所など、地域の困りごとを写真・場所・文章で知らせるページです。">
 <meta name="theme-color" content="#6fbd69">
 
 <link rel="icon" type="image/png" href="apple-touch-icon.png">
@@ -133,6 +133,11 @@ img{
   font-weight:900;
 }
 
+.hero h1 span{
+  display:block;
+  color:#4caf63;
+}
+
 .hero p{
   margin:12px 0 0;
   color:#344c39;
@@ -140,13 +145,33 @@ img{
   font-weight:850;
 }
 
-/* 写真つき大見出し */
+.pageLinks{
+  margin-top:14px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+
+.pageLinks a{
+  min-height:58px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:22px;
+  background:#fff;
+  border:2px solid #b7ebc0;
+  color:#1f5f35;
+  font-size:18px;
+  font-weight:900;
+}
+
+/* 写真つき見出し */
 
 .visualHero{
   margin-top:18px;
   position:relative;
   overflow:hidden;
-  min-height:430px;
+  min-height:410px;
   border-radius:34px;
   background:
     linear-gradient(180deg,rgba(18,83,45,.08) 0%,rgba(18,83,45,.28) 45%,rgba(18,83,45,.66) 100%),
@@ -193,15 +218,15 @@ img{
 .visualInner p{
   margin:16px 0 0;
   color:#fff;
-  font-size:clamp(18px,4.8vw,26px);
+  font-size:clamp(18px,4.8vw,25px);
   line-height:1.6;
   font-weight:900;
   text-shadow:0 3px 14px rgba(0,0,0,.28);
 }
 
-/* 説明カード */
+/* 投稿フォーム */
 
-.mainCard{
+.formCard{
   margin-top:18px;
   border-radius:32px;
   background:#fff;
@@ -210,7 +235,7 @@ img{
   padding:22px;
 }
 
-.mainCard h2{
+.formCard h2{
   margin:0;
   color:#1f5f35;
   font-size:clamp(30px,7vw,46px);
@@ -218,89 +243,183 @@ img{
   font-weight:900;
 }
 
-.mainCard p{
-  margin:12px 0 0;
-  color:#3c5943;
-  font-size:18px;
-  line-height:1.8;
-  font-weight:850;
-}
-
-/* 内容 */
-
-.cardGrid{
-  margin-top:18px;
-  display:grid;
-  grid-template-columns:1fr;
-  gap:14px;
-}
-
-.infoCard{
-  border-radius:30px;
-  background:#fff;
-  border:1px solid #b7ebc0;
-  box-shadow:0 12px 30px rgba(71,130,82,.10);
-  padding:20px;
-}
-
-.iconCircle{
-  width:64px;
-  height:64px;
-  border-radius:24px;
-  display:grid;
-  place-items:center;
-  background:linear-gradient(135deg,#e6ffe9 0%,#bdf5bf 100%);
-  font-size:34px;
-  margin-bottom:12px;
-}
-
-.infoCard h2{
-  margin:0;
-  color:#1f5f35;
-  font-size:28px;
-  line-height:1.25;
-  font-weight:900;
-}
-
-.infoCard p{
-  margin:9px 0 0;
+.formNote{
+  margin:10px 0 18px;
   color:#3c5943;
   font-size:17px;
-  line-height:1.75;
+  line-height:1.7;
   font-weight:850;
 }
 
-/* 準備中 */
-
-.prepareCard{
-  margin-top:20px;
-  border-radius:30px;
-  background:
-    radial-gradient(circle at 100% 0%,rgba(255,246,176,.42),transparent 36%),
-    linear-gradient(135deg,#ffffff 0%,#f7fff5 100%);
-  border:1px solid #b7ebc0;
-  box-shadow:0 12px 30px rgba(71,130,82,.10);
-  padding:20px;
-}
-
-.prepareCard h2{
-  margin:0;
+label{
+  display:block;
+  margin-top:18px;
   color:#1f5f35;
-  font-size:30px;
-  line-height:1.25;
+  font-size:20px;
+  line-height:1.35;
   font-weight:900;
 }
 
-.prepareCard p{
-  margin:10px 0 0;
-  color:#3c5943;
-  font-size:18px;
-  line-height:1.75;
+.help{
+  display:block;
+  margin-top:4px;
+  color:#6b7f70;
+  font-size:14px;
+  font-weight:800;
+}
+
+input,
+select,
+textarea{
+  width:100%;
+  margin-top:8px;
+  border:2px solid #b7ebc0;
+  border-radius:22px;
+  background:#fffdf0;
+  color:#213627;
+  font-family:inherit;
+  font-size:20px;
   font-weight:850;
+  outline:none;
+  box-shadow:inset 0 2px 0 rgba(255,255,255,.8);
+}
+
+input,
+select{
+  min-height:64px;
+  padding:0 18px;
+}
+
+textarea{
+  min-height:160px;
+  padding:18px;
+  resize:vertical;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+  border-color:#4caf63;
+  background:#ffffff;
+  box-shadow:0 0 0 4px rgba(76,175,99,.15);
+}
+
+.fileBox{
+  margin-top:8px;
+  border:2px dashed #b7ebc0;
+  border-radius:24px;
+  background:#f7fff5;
+  padding:16px;
+}
+
+.fileBox input{
+  background:#fff;
+}
+
+.previewBox{
+  display:none;
+  margin-top:12px;
+  border-radius:22px;
+  overflow:hidden;
+  border:1px solid #b7ebc0;
+  background:#e6ffe9;
+}
+
+.previewBox img{
+  display:block;
+  width:100%;
+  max-height:320px;
+  object-fit:cover;
+}
+
+.statusBox{
+  margin-top:12px;
+  border-radius:22px;
+  background:#f7fff5;
+  border:1px solid #c8f0ce;
+  padding:14px;
+  color:#3c5943;
+  font-size:15px;
+  line-height:1.7;
+  font-weight:850;
+}
+
+.locationButtons{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:10px;
+  margin-top:10px;
+}
+
+.smallButton{
+  min-height:58px;
+  border-radius:22px;
+  border:2px solid #b7ebc0;
+  background:#fff;
+  color:#1f5f35;
+  font-family:inherit;
+  font-size:18px;
+  font-weight:900;
+}
+
+.smallButton.primary{
+  background:linear-gradient(135deg,#4caf63 0%,#78c96f 100%);
+  border-color:#78c96f;
+  color:#fff;
+}
+
+.locationLinks{
+  display:none;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-top:10px;
+}
+
+.locationLinks a{
+  min-height:54px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:20px;
+  background:#fff;
+  border:2px solid #b7ebc0;
+  color:#1f5f35;
+  font-size:16px;
+  font-weight:900;
+}
+
+.submitBtn{
+  width:100%;
+  margin-top:24px;
+  min-height:78px;
+  border:0;
+  border-radius:28px;
+  background:linear-gradient(135deg,#4caf63 0%,#78c96f 100%);
+  color:#fff;
+  font-family:inherit;
+  font-size:25px;
+  font-weight:900;
+  box-shadow:0 14px 30px rgba(76,175,99,.26);
+}
+
+.submitBtn:disabled{
+  opacity:.55;
+}
+
+.resultBox{
+  margin-top:16px;
+  padding:18px;
+  border-radius:24px;
+  background:#fff7c2;
+  border:2px solid #facc15;
+  color:#4d3a00;
+  font-size:18px;
+  font-weight:900;
+  display:none;
 }
 
 .notice{
-  margin-top:14px;
+  margin-top:16px;
   border-radius:22px;
   background:#fff7c2;
   border:2px solid #facc15;
@@ -311,38 +430,219 @@ img{
   font-weight:900;
 }
 
-/* ボタン */
+/* 投稿一覧 */
 
-.buttonGrid{
-  margin-top:18px;
-  display:grid;
-  grid-template-columns:1fr;
-  gap:10px;
+.reports{
+  margin-top:26px;
 }
 
-.bigButton{
-  min-height:66px;
+.reportsHead{
   display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:24px;
-  background:#fff;
-  border:2px solid #b7ebc0;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:14px;
+}
+
+.reports h2{
+  margin:0;
   color:#1f5f35;
-  font-size:20px;
+  font-size:clamp(34px,8vw,54px);
+  line-height:1.15;
   font-weight:900;
 }
 
-.bigButton.primary{
+.reloadBtn{
+  border:0;
+  border-radius:999px;
+  background:#fff;
+  border:2px solid #b7ebc0;
+  color:#1f5f35;
+  font-family:inherit;
+  font-size:15px;
+  font-weight:900;
+  padding:10px 14px;
+}
+
+.reportList{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:18px;
+}
+
+.reportCard{
+  overflow:hidden;
+  border-radius:32px;
+  background:#fff;
+  border:1px solid #b7ebc0;
+  box-shadow:0 16px 40px rgba(70,130,82,.11);
+}
+
+.reportImage{
+  display:block;
+  width:100%;
+  aspect-ratio:16/9;
+  object-fit:cover;
+  background:#e6ffe9;
+}
+
+.reportBody{
+  padding:20px;
+}
+
+.metaRow{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-bottom:12px;
+}
+
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:6px 11px;
+  border-radius:999px;
+  background:#e6ffe9;
+  border:1px solid #b7ebc0;
+  color:#1f6b3d;
+  font-size:13px;
+  font-weight:900;
+}
+
+.badge.status{
+  background:#fff7c2;
+  border-color:#facc15;
+  color:#5c3b00;
+}
+
+.reportTitle{
+  margin:0;
+  color:#1f5f35;
+  font-size:clamp(27px,6vw,42px);
+  line-height:1.25;
+  font-weight:900;
+}
+
+.reportText{
+  margin:12px 0 0;
+  color:#3c5943;
+  font-size:18px;
+  line-height:1.7;
+  font-weight:850;
+  white-space:pre-wrap;
+}
+
+.reportPlace{
+  margin-top:12px;
+  border-radius:20px;
+  background:#f7fff5;
+  border:1px solid #c8f0ce;
+  padding:13px;
+  color:#3c5943;
+  font-size:16px;
+  line-height:1.65;
+  font-weight:850;
+}
+
+.improvementBox{
+  margin-top:14px;
+  border-radius:22px;
+  background:#fff7c2;
+  border:2px solid #facc15;
+  padding:14px;
+  color:#5c3b00;
+  font-size:16px;
+  line-height:1.7;
+  font-weight:900;
+}
+
+.reportButtons{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+  margin-top:16px;
+}
+
+.reportButtons a,
+.reportButtons button{
+  min-height:54px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:20px;
+  background:#fff;
+  border:2px solid #b7ebc0;
+  color:#1f5f35;
+  font-family:inherit;
+  font-size:16px;
+  font-weight:900;
+}
+
+.reportButtons a.navi{
   background:linear-gradient(135deg,#4caf63 0%,#78c96f 100%);
   border-color:#78c96f;
   color:#fff;
 }
 
-.bigButton.support{
-  background:linear-gradient(135deg,#fff7c2 0%,#facc15 100%);
-  border-color:#facc15;
-  color:#5c3b00;
+.shareBox{
+  margin-top:14px;
+  border-radius:24px;
+  background:#f7fff5;
+  border:1px solid #c8f0ce;
+  padding:14px;
+}
+
+.shareTitle{
+  color:#1f5f35;
+  font-size:16px;
+  font-weight:900;
+  margin-bottom:10px;
+}
+
+.shareButtons{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+}
+
+.shareButtons a,
+.shareButtons button{
+  min-height:50px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:18px;
+  border:2px solid #b7ebc0;
+  background:#fff;
+  color:#1f5f35;
+  font-family:inherit;
+  font-size:15px;
+  font-weight:900;
+}
+
+.empty{
+  border-radius:28px;
+  background:#fff;
+  border:1px solid #b7ebc0;
+  box-shadow:0 12px 30px rgba(71,130,82,.10);
+  padding:22px;
+  color:#4d6b55;
+}
+
+.empty h3{
+  margin:0;
+  color:#1f5f35;
+  font-size:26px;
+  line-height:1.3;
+  font-weight:900;
+}
+
+.empty p{
+  margin:10px 0 0;
+  font-size:18px;
+  line-height:1.7;
+  font-weight:850;
 }
 
 /* 下メニュー */
@@ -375,11 +675,6 @@ img{
   line-height:1.1;
 }
 
-.bottomNav a.active{
-  background:#e2f8e5;
-  color:#14532d;
-}
-
 .footer{
   margin-top:30px;
   text-align:center;
@@ -388,17 +683,21 @@ img{
   font-weight:800;
 }
 
+.hiddenFrame{
+  display:none;
+}
+
 @media (min-width:820px){
-  .cardGrid{
+  .locationButtons{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .reportList{
     grid-template-columns:repeat(2,1fr);
   }
 
-  .buttonGrid{
-    grid-template-columns:repeat(3,1fr);
-  }
-
-  .visualHero{
-    min-height:560px;
+  .reportCard:first-child{
+    grid-column:1 / -1;
   }
 }
 
@@ -417,16 +716,13 @@ img{
 
   .hero,
   .visualHero,
-  .mainCard,
-  .infoCard,
-  .prepareCard{
+  .formCard,
+  .reportCard{
     border-radius:28px;
   }
 
   .hero,
-  .mainCard,
-  .infoCard,
-  .prepareCard{
+  .formCard{
     padding:18px;
   }
 
@@ -436,6 +732,11 @@ img{
 
   .visualInner{
     padding:20px;
+  }
+
+  .reportsHead{
+    align-items:flex-start;
+    flex-direction:column;
   }
 }
 </style>
@@ -464,82 +765,170 @@ img{
 
 <section class="hero">
   <div class="kicker">地域で気づいたこと</div>
-  <h1>地域の困りごとを知らせる</h1>
+  <h1>
+    まちの困りごとを
+    <span>行政へつなげます</span>
+  </h1>
   <p>
-    道路の穴、街灯切れ、不法投棄、危険箇所など、地域で気づいたことを知らせるためのページです。
+    道路の穴、街灯切れ、不法投棄、危険箇所など、地域で気づいたことを写真・場所・文章で知らせるページです。
   </p>
+
+  <div class="pageLinks">
+    <a href="#form">投稿する</a>
+    <a href="#reports">投稿を見る</a>
+  </div>
 </section>
 
 <section class="visualHero">
   <div class="visualInner">
     <div class="visualLabel">写真と文章で知らせる</div>
     <h2>
-      まちの困りごとを
-      <span>行政へつなげます</span>
+      小さな気づきを
+      <span>地域の改善へ</span>
     </h2>
     <p>
-      道路の穴、街灯切れ、不法投棄、危険箇所など、地域の声を見える形にします。
+      投稿された場所は、地図とナビで確認できるようにします。
     </p>
   </div>
 </section>
 
-<section class="mainCard">
-  <h2>小さな気づきを、地域の改善へ</h2>
-  <p>
-    写真だけでなく、場所や状況を文章で伝えられる形にしていきます。地域の小さな困りごとを見える化し、必要に応じて行政や関係機関へつなげる入口です。
-  </p>
-</section>
-
-<section class="cardGrid">
-
-  <article class="infoCard">
-    <div class="iconCircle">🕳️</div>
-    <h2>道路の穴・段差</h2>
-    <p>
-      道路の穴、歩道の段差、危ない場所など、歩く人や自転車が困る場所を知らせます。
-    </p>
-  </article>
-
-  <article class="infoCard">
-    <div class="iconCircle">💡</div>
-    <h2>街灯切れ</h2>
-    <p>
-      夜道が暗い、街灯が切れている、防犯上心配な場所などを知らせます。
-    </p>
-  </article>
-
-  <article class="infoCard">
-    <div class="iconCircle">🗑️</div>
-    <h2>ごみ・不法投棄</h2>
-    <p>
-      ごみの放置、不法投棄、地域の景観を損なう場所などを知らせます。
-    </p>
-  </article>
-
-  <article class="infoCard">
-    <div class="iconCircle">⚠️</div>
-    <h2>危険箇所など</h2>
-    <p>
-      動物の死骸、壊れた設備、危険を感じる場所など、地域で気づいたことを知らせます。
-    </p>
-  </article>
-
-</section>
-
-<section class="prepareCard">
-  <h2>投稿フォームを準備中です</h2>
-  <p>
-    今後、写真・場所・内容を入力して送れる形に整えていきます。
+<section class="formCard" id="form">
+  <h2>困りごとを投稿する</h2>
+  <p class="formNote">
+    写真、町名、場所、内容を入力してください。現在地を取得すると、管理者が現地へ向かいやすくなります。
   </p>
 
-  <div class="notice">
-    緊急の場合や、すぐ対応が必要な場合は、市役所・警察・消防など、関係機関へ直接連絡してください。
+  <form id="problemForm" method="POST" target="sendFrame">
+    <input type="hidden" name="mode" value="saveProblemReport">
+    <input type="hidden" id="lat" name="lat">
+    <input type="hidden" id="lng" name="lng">
+    <input type="hidden" id="mapUrl" name="mapUrl">
+    <input type="hidden" id="naviUrl" name="naviUrl">
+    <input type="hidden" id="photoBase64" name="photoBase64">
+    <input type="hidden" id="photoName" name="photoName">
+    <input type="hidden" id="photoType" name="photoType">
+
+    <label for="name">
+      お名前・ニックネーム
+      <span class="help">匿名でも大丈夫です</span>
+    </label>
+    <input id="name" name="name" type="text" placeholder="例：山田、匿名">
+
+    <label for="area">
+      町名
+      <span class="help">近いものを選んでください</span>
+    </label>
+    <select id="area" name="area" required>
+      <option value="">選んでください</option>
+      <option value="本町">本町</option>
+      <option value="柏町">柏町</option>
+      <option value="幸町">幸町</option>
+      <option value="館">館</option>
+      <option value="上宗岡">上宗岡</option>
+      <option value="中宗岡">中宗岡</option>
+      <option value="下宗岡">下宗岡</option>
+      <option value="その他">その他</option>
+    </select>
+
+    <label for="category">
+      内容の種類
+    </label>
+    <select id="category" name="category" required>
+      <option value="">選んでください</option>
+      <option value="道路の穴・段差">道路の穴・段差</option>
+      <option value="街灯切れ">街灯切れ</option>
+      <option value="ごみ・不法投棄">ごみ・不法投棄</option>
+      <option value="危険箇所">危険箇所</option>
+      <option value="動物の死骸">動物の死骸</option>
+      <option value="公園・施設">公園・施設</option>
+      <option value="その他">その他</option>
+    </select>
+
+    <label for="place">
+      場所の説明
+      <span class="help">例：〇〇公園の入口付近、〇〇交差点の近く</span>
+    </label>
+    <input id="place" name="place" type="text" placeholder="場所をわかる範囲で入力">
+
+    <label for="body">
+      困っている内容
+      <span class="help">状況を文章で入力してください</span>
+    </label>
+    <textarea id="body" name="body" required placeholder="例：歩道に大きな段差があり、高齢者がつまずきそうです。"></textarea>
+
+    <label for="urgency">
+      緊急度
+    </label>
+    <select id="urgency" name="urgency">
+      <option value="通常">通常</option>
+      <option value="早めに確認">早めに確認</option>
+      <option value="危険・注意">危険・注意</option>
+    </select>
+
+    <label for="photoInput">
+      写真
+      <span class="help">スマホの写真を選べます</span>
+    </label>
+    <div class="fileBox">
+      <input id="photoInput" type="file" accept="image/*" capture="environment">
+      <div class="statusBox" id="photoStatus">
+        写真を選ぶと、投稿用に小さくして保存します。
+      </div>
+      <div class="previewBox" id="previewBox">
+        <img id="previewImage" alt="選択した写真">
+      </div>
+    </div>
+
+    <label>
+      現在地・地図
+      <span class="help">管理者が現地へ向かえるようにします</span>
+    </label>
+
+    <div class="locationButtons">
+      <button class="smallButton primary" type="button" onclick="getLocation()">
+        現在地を取得する
+      </button>
+      <button class="smallButton" type="button" onclick="clearLocation()">
+        位置情報を消す
+      </button>
+    </div>
+
+    <div class="statusBox" id="locationStatus">
+      現在地を取得すると、地図を見る・現地へ向かうボタンが作られます。
+    </div>
+
+    <div class="locationLinks" id="locationLinks">
+      <a id="mapPreviewLink" href="#" target="_blank" rel="noopener">地図を見る</a>
+      <a id="naviPreviewLink" href="#" target="_blank" rel="noopener">現地へ向かう</a>
+    </div>
+
+    <div class="notice">
+      緊急の場合や、すぐ対応が必要な場合は、市役所・警察・消防など、関係機関へ直接連絡してください。
+    </div>
+
+    <button class="submitBtn" id="submitBtn" type="submit">
+      困りごとを投稿する
+    </button>
+
+    <div class="resultBox" id="resultBox">
+      困りごと投稿を受け付けました。ありがとうございます。
+    </div>
+  </form>
+
+  <iframe class="hiddenFrame" name="sendFrame" id="sendFrame" title="sendFrame"></iframe>
+</section>
+
+<section class="reports" id="reports">
+  <div class="reportsHead">
+    <h2>届いた困りごと</h2>
+    <button class="reloadBtn" type="button" onclick="loadReports()">更新</button>
   </div>
 
-  <div class="buttonGrid">
-    <a class="bigButton primary" href="activity.html">活動を見る</a>
-    <a class="bigButton support" href="support.html">応援を書く</a>
-    <a class="bigButton" href="index.html">トップへ戻る</a>
+  <div id="reportList" class="reportList">
+    <div class="empty">
+      <h3>投稿を読み込み中です。</h3>
+      <p>少しお待ちください。</p>
+    </div>
   </div>
 </section>
 
@@ -559,6 +948,621 @@ img{
   <a href="support.html"><span>💬</span>応援</a>
   <a href="profile.html"><span>👤</span>人物</a>
 </nav>
+
+<script>
+const GAS_URL =
+"https://script.google.com/macros/s/AKfycby0m-7lIJ9yBgFmXWFI0ykUTtnKqWqtxT_t4x2r9ce-jFoEsLPQGOTePeh50vxA0EGS3Q/exec";
+
+const form =
+document.getElementById("problemForm");
+
+const sendFrame =
+document.getElementById("sendFrame");
+
+const submitBtn =
+document.getElementById("submitBtn");
+
+const resultBox =
+document.getElementById("resultBox");
+
+const reportList =
+document.getElementById("reportList");
+
+const photoInput =
+document.getElementById("photoInput");
+
+const photoBase64 =
+document.getElementById("photoBase64");
+
+const photoName =
+document.getElementById("photoName");
+
+const photoType =
+document.getElementById("photoType");
+
+const photoStatus =
+document.getElementById("photoStatus");
+
+const previewBox =
+document.getElementById("previewBox");
+
+const previewImage =
+document.getElementById("previewImage");
+
+let submitted =
+false;
+
+form.action =
+GAS_URL;
+
+photoInput.addEventListener("change",function(){
+
+  const file =
+  photoInput.files && photoInput.files[0];
+
+  if(!file){
+    clearPhoto();
+    return;
+  }
+
+  prepareImage(file);
+
+});
+
+form.addEventListener("submit",function(e){
+
+  const area =
+  document.getElementById("area").value.trim();
+
+  const category =
+  document.getElementById("category").value.trim();
+
+  const body =
+  document.getElementById("body").value.trim();
+
+  if(!area){
+    e.preventDefault();
+    alert("町名を選んでください。");
+    return;
+  }
+
+  if(!category){
+    e.preventDefault();
+    alert("内容の種類を選んでください。");
+    return;
+  }
+
+  if(!body){
+    e.preventDefault();
+    alert("困っている内容を入力してください。");
+    return;
+  }
+
+  if(photoInput.files.length && !photoBase64.value){
+    e.preventDefault();
+    alert("写真の準備中です。少し待ってから投稿してください。");
+    return;
+  }
+
+  submitted = true;
+  submitBtn.disabled = true;
+  submitBtn.textContent = "投稿中です";
+
+});
+
+sendFrame.addEventListener("load",function(){
+
+  if(!submitted){
+    return;
+  }
+
+  submitted = false;
+
+  resultBox.style.display = "block";
+  submitBtn.disabled = false;
+  submitBtn.textContent = "困りごとを投稿する";
+
+  form.reset();
+  clearPhoto();
+  clearLocation();
+
+  setTimeout(function(){
+    loadReports();
+    location.hash = "reports";
+  },1200);
+
+});
+
+function clearPhoto(){
+
+  photoBase64.value = "";
+  photoName.value = "";
+  photoType.value = "";
+  previewImage.removeAttribute("src");
+  previewBox.style.display = "none";
+  photoStatus.textContent =
+  "写真を選ぶと、投稿用に小さくして保存します。";
+
+}
+
+function prepareImage(file){
+
+  photoStatus.textContent =
+  "写真を準備しています。少しお待ちください。";
+
+  const reader =
+  new FileReader();
+
+  reader.onload = function(e){
+
+    const dataUrl =
+    e.target.result;
+
+    const img =
+    new Image();
+
+    img.onload = function(){
+
+      const maxSize =
+      1200;
+
+      let width =
+      img.width;
+
+      let height =
+      img.height;
+
+      const scale =
+      Math.min(
+        1,
+        maxSize / width,
+        maxSize / height
+      );
+
+      width =
+      Math.round(width * scale);
+
+      height =
+      Math.round(height * scale);
+
+      const canvas =
+      document.createElement("canvas");
+
+      canvas.width =
+      width;
+
+      canvas.height =
+      height;
+
+      const ctx =
+      canvas.getContext("2d");
+
+      ctx.drawImage(
+        img,
+        0,
+        0,
+        width,
+        height
+      );
+
+      if(canvas.toBlob){
+
+        canvas.toBlob(function(blob){
+
+          const r2 =
+          new FileReader();
+
+          r2.onload = function(ev){
+
+            photoBase64.value =
+            ev.target.result;
+
+            photoName.value =
+            file.name || "photo.jpg";
+
+            photoType.value =
+            "image/jpeg";
+
+            previewImage.src =
+            ev.target.result;
+
+            previewBox.style.display =
+            "block";
+
+            photoStatus.textContent =
+            "写真の準備ができました。";
+
+          };
+
+          r2.readAsDataURL(blob);
+
+        },"image/jpeg",0.82);
+
+      }else{
+
+        const compressed =
+        canvas.toDataURL(
+          "image/jpeg",
+          0.82
+        );
+
+        photoBase64.value =
+        compressed;
+
+        photoName.value =
+        file.name || "photo.jpg";
+
+        photoType.value =
+        "image/jpeg";
+
+        previewImage.src =
+        compressed;
+
+        previewBox.style.display =
+        "block";
+
+        photoStatus.textContent =
+        "写真の準備ができました。";
+
+      }
+
+    };
+
+    img.onerror = function(){
+
+      photoBase64.value =
+      dataUrl;
+
+      photoName.value =
+      file.name || "photo.jpg";
+
+      photoType.value =
+      file.type || "image/jpeg";
+
+      previewImage.src =
+      dataUrl;
+
+      previewBox.style.display =
+      "block";
+
+      photoStatus.textContent =
+      "写真の準備ができました。";
+
+    };
+
+    img.src =
+    dataUrl;
+
+  };
+
+  reader.readAsDataURL(file);
+
+}
+
+function getLocation(){
+
+  const status =
+  document.getElementById("locationStatus");
+
+  if(!navigator.geolocation){
+
+    status.textContent =
+    "この端末では現在地を取得できません。場所の説明を入力してください。";
+
+    return;
+
+  }
+
+  status.textContent =
+  "現在地を取得しています。少しお待ちください。";
+
+  navigator.geolocation.getCurrentPosition(function(pos){
+
+    const lat =
+    pos.coords.latitude.toFixed(7);
+
+    const lng =
+    pos.coords.longitude.toFixed(7);
+
+    const map =
+    "https://www.google.com/maps?q=" +
+    encodeURIComponent(lat + "," + lng);
+
+    const navi =
+    "https://www.google.com/maps/dir/?api=1&destination=" +
+    encodeURIComponent(lat + "," + lng);
+
+    document.getElementById("lat").value =
+    lat;
+
+    document.getElementById("lng").value =
+    lng;
+
+    document.getElementById("mapUrl").value =
+    map;
+
+    document.getElementById("naviUrl").value =
+    navi;
+
+    document.getElementById("mapPreviewLink").href =
+    map;
+
+    document.getElementById("naviPreviewLink").href =
+    navi;
+
+    document.getElementById("locationLinks").style.display =
+    "grid";
+
+    status.textContent =
+    "現在地を取得しました。地図とナビが使えます。";
+
+  },function(){
+
+    status.textContent =
+    "現在地を取得できませんでした。場所の説明を入力してください。";
+
+  },{
+    enableHighAccuracy:true,
+    timeout:10000,
+    maximumAge:0
+  });
+
+}
+
+function clearLocation(){
+
+  document.getElementById("lat").value =
+  "";
+
+  document.getElementById("lng").value =
+  "";
+
+  document.getElementById("mapUrl").value =
+  "";
+
+  document.getElementById("naviUrl").value =
+  "";
+
+  document.getElementById("mapPreviewLink").href =
+  "#";
+
+  document.getElementById("naviPreviewLink").href =
+  "#";
+
+  document.getElementById("locationLinks").style.display =
+  "none";
+
+  document.getElementById("locationStatus").textContent =
+  "現在地を取得すると、地図を見る・現地へ向かうボタンが作られます。";
+
+}
+
+function esc(v){
+  return String(v || "")
+  .replace(/&/g,"&amp;")
+  .replace(/</g,"&lt;")
+  .replace(/>/g,"&gt;")
+  .replace(/"/g,"&quot;")
+  .replace(/'/g,"&#39;");
+}
+
+function shortDate(v){
+
+  const s =
+  String(v || "");
+
+  if(!s){
+    return "";
+  }
+
+  return s
+  .replace(/\s\d{2}:\d{2}.*/,"")
+  .replace(/-/g,"/");
+
+}
+
+function reportShareUrl(id){
+
+  const base =
+  location.origin +
+  location.pathname;
+
+  if(id){
+    return base + "#problem-" + encodeURIComponent(id);
+  }
+
+  return base;
+
+}
+
+function copyText(text){
+
+  if(navigator.clipboard){
+    navigator.clipboard.writeText(text)
+    .then(function(){
+      alert("リンクをコピーしました。");
+    })
+    .catch(function(){
+      alert("コピーできませんでした。");
+    });
+    return;
+  }
+
+  alert(text);
+
+}
+
+document.addEventListener("click",function(e){
+
+  const btn =
+  e.target.closest(".copyBtn");
+
+  if(!btn){
+    return;
+  }
+
+  const text =
+  btn.getAttribute("data-text") || "";
+
+  copyText(text);
+
+});
+
+function reportCard(r,index){
+
+  const id =
+  r["ID"] ||
+  "problem-" + String(index + 1);
+
+  const date =
+  shortDate(
+    r["日時"] ||
+    ""
+  );
+
+  const name =
+  r["お名前・ニックネーム"] ||
+  "匿名";
+
+  const area =
+  r["町名"] ||
+  "その他";
+
+  const category =
+  r["カテゴリ"] ||
+  "困りごと";
+
+  const place =
+  r["場所の説明"] ||
+  "";
+
+  const body =
+  r["内容"] ||
+  "";
+
+  const urgency =
+  r["緊急度"] ||
+  "通常";
+
+  const status =
+  r["対応状態"] ||
+  "確認中";
+
+  const photo =
+  r["写真URL"] ||
+  "";
+
+  const mapUrl =
+  r["GoogleマップURL"] ||
+  "";
+
+  const naviUrl =
+  r["ナビURL"] ||
+  "";
+
+  const improvement =
+  r["改善報告"] ||
+  "";
+
+  const shareUrl =
+  reportShareUrl(id);
+
+  const shareText =
+  "まちの困りごと：" +
+  category +
+  "\n" +
+  (place ? place + "\n" : "") +
+  body;
+
+  const lineUrl =
+  "https://social-plugins.line.me/lineit/share?url=" +
+  encodeURIComponent(shareUrl);
+
+  const xUrl =
+  "https://twitter.com/intent/tweet?text=" +
+  encodeURIComponent(shareText) +
+  "&url=" +
+  encodeURIComponent(shareUrl);
+
+  const fbUrl =
+  "https://www.facebook.com/sharer/sharer.php?u=" +
+  encodeURIComponent(shareUrl);
+
+  return ''
+  + '<article class="reportCard" id="problem-' + esc(id) + '">'
+  + (photo ? '<img class="reportImage" src="' + esc(photo) + '" alt="' + esc(category) + '">' : '')
+  + '<div class="reportBody">'
+  + '<div class="metaRow">'
+  + '<span class="badge">' + esc(area) + '</span>'
+  + '<span class="badge">' + esc(category) + '</span>'
+  + '<span class="badge">' + esc(urgency) + '</span>'
+  + '<span class="badge status">' + esc(status) + '</span>'
+  + (date ? '<span class="badge">' + esc(date) + '</span>' : '')
+  + '</div>'
+  + '<h2 class="reportTitle">' + esc(category) + '</h2>'
+  + (body ? '<div class="reportText">' + esc(body) + '</div>' : '')
+  + (place ? '<div class="reportPlace"><b>場所：</b>' + esc(place) + '</div>' : '')
+  + (improvement ? '<div class="improvementBox">改善報告：<br>' + esc(improvement) + '</div>' : '')
+  + '<div class="reportButtons">'
+  + (mapUrl ? '<a href="' + esc(mapUrl) + '" target="_blank" rel="noopener">地図を見る</a>' : '<button type="button" disabled>地図なし</button>')
+  + (naviUrl ? '<a class="navi" href="' + esc(naviUrl) + '" target="_blank" rel="noopener">現地へ向かう</a>' : '<button type="button" disabled>ナビなし</button>')
+  + '</div>'
+  + '<div class="shareBox">'
+  + '<div class="shareTitle">この投稿を共有する</div>'
+  + '<div class="shareButtons">'
+  + '<a href="' + esc(lineUrl) + '" target="_blank" rel="noopener">LINE</a>'
+  + '<a href="' + esc(xUrl) + '" target="_blank" rel="noopener">X</a>'
+  + '<a href="' + esc(fbUrl) + '" target="_blank" rel="noopener">Facebook</a>'
+  + '<button class="copyBtn" type="button" data-text="' + esc(shareText + "\n" + shareUrl) + '">コピー</button>'
+  + '</div>'
+  + '</div>'
+  + '</div>'
+  + '</article>';
+
+}
+
+function loadReports(){
+
+  reportList.innerHTML =
+  '<div class="empty"><h3>投稿を読み込み中です。</h3><p>少しお待ちください。</p></div>';
+
+  const url =
+  GAS_URL +
+  "?mode=getProblemReports&t=" +
+  Date.now();
+
+  fetch(url)
+  .then(function(res){
+    return res.json();
+  })
+  .then(function(data){
+
+    const records =
+    data && data.records
+    ? data.records
+    : [];
+
+    if(!records.length){
+      reportList.innerHTML =
+      '<div class="empty"><h3>現在、公開中の困りごとはありません。</h3><p>投稿があると、このページに表示されます。</p></div>';
+      return;
+    }
+
+    reportList.innerHTML =
+    records.map(reportCard).join("");
+
+  })
+  .catch(function(){
+
+    reportList.innerHTML =
+    '<div class="empty"><h3>投稿を読み込めませんでした。</h3><p>時間をおいて、もう一度開いてください。</p></div>';
+
+  });
+
+}
+
+loadReports();
+</script>
 
 </body>
 </html>
