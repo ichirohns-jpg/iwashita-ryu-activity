@@ -441,6 +441,12 @@ textarea:focus{
   display:none;
 }
 
+.resultBox.error{
+  background:#fee2e2;
+  border-color:#ef4444;
+  color:#7f1d1d;
+}
+
 .notice{
   margin-top:16px;
   border-radius:22px;
@@ -819,6 +825,7 @@ textarea:focus{
 
   <form id="problemForm" method="POST" target="sendFrame">
     <input type="hidden" name="mode" value="saveProblemReport">
+    <input type="hidden" id="problemId" name="id">
     <input type="hidden" id="lat" name="lat">
     <input type="hidden" id="lng" name="lng">
     <input type="hidden" id="mapUrl" name="mapUrl">
@@ -940,7 +947,7 @@ textarea:focus{
     </button>
 
     <div class="resultBox" id="resultBox">
-      困りごと投稿を受け付けました。ありがとうございます。
+      投稿を確認中です。
     </div>
   </form>
 
@@ -1018,8 +1025,14 @@ document.getElementById("previewBox");
 const previewImage =
 document.getElementById("previewImage");
 
+const problemIdInput =
+document.getElementById("problemId");
+
 let submitted =
 false;
+
+let currentProblemId =
+"";
 
 form.action =
 GAS_URL;
@@ -1073,9 +1086,25 @@ form.addEventListener("submit",function(e){
     return;
   }
 
-  submitted = true;
-  submitBtn.disabled = true;
-  submitBtn.textContent = "投稿中です";
+  currentProblemId =
+  createClientId();
+
+  problemIdInput.value =
+  currentProblemId;
+
+  submitted =
+  true;
+
+  submitBtn.disabled =
+  true;
+
+  submitBtn.textContent =
+  "投稿中です";
+
+  showResult(
+    "投稿を送信しています。保存を確認しています。",
+    false
+  );
 
 });
 
@@ -1085,30 +1114,141 @@ sendFrame.addEventListener("load",function(){
     return;
   }
 
-  submitted = false;
-
-  resultBox.style.display = "block";
-  submitBtn.disabled = false;
-  submitBtn.textContent = "困りごとを投稿する";
-
-  form.reset();
-  clearPhoto();
-  clearLocation();
-
-  setTimeout(function(){
-    loadReports();
-    location.hash = "reports";
-  },1200);
+  waitForSaved(
+    currentProblemId,
+    0
+  );
 
 });
 
+function showResult(message,isError){
+
+  resultBox.textContent =
+  message;
+
+  resultBox.classList.toggle(
+    "error",
+    !!isError
+  );
+
+  resultBox.style.display =
+  "block";
+
+}
+
+function createClientId(){
+
+  return "problem-" +
+  Date.now() +
+  "-" +
+  Math.floor(Math.random() * 10000);
+
+}
+
+function waitForSaved(id,count){
+
+  if(!id){
+    showSaveError();
+    return;
+  }
+
+  fetchReports()
+  .then(function(records){
+
+    const found =
+    records.some(function(r){
+      return String(r["ID"] || "") === id;
+    });
+
+    if(found){
+
+      submitted =
+      false;
+
+      showResult(
+        "困りごと投稿を受け付けました。ありがとうございます。",
+        false
+      );
+
+      submitBtn.disabled =
+      false;
+
+      submitBtn.textContent =
+      "困りごとを投稿する";
+
+      form.reset();
+      clearPhoto();
+      clearLocation();
+
+      renderReports(records);
+
+      setTimeout(function(){
+        location.hash = "reports";
+      },400);
+
+      return;
+
+    }
+
+    if(count >= 8){
+      showSaveError();
+      return;
+    }
+
+    setTimeout(function(){
+      waitForSaved(id,count + 1);
+    },1500);
+
+  })
+  .catch(function(){
+    if(count >= 8){
+      showSaveError();
+      return;
+    }
+
+    setTimeout(function(){
+      waitForSaved(id,count + 1);
+    },1500);
+  });
+
+}
+
+function showSaveError(){
+
+  submitted =
+  false;
+
+  submitBtn.disabled =
+  false;
+
+  submitBtn.textContent =
+  "困りごとを投稿する";
+
+  showResult(
+    "保存を確認できませんでした。写真が大きすぎるか、通信が止まった可能性があります。スプレッドシートの problem_reports を確認してください。",
+    true
+  );
+
+}
+
 function clearPhoto(){
 
-  photoBase64.value = "";
-  photoName.value = "";
-  photoType.value = "";
-  previewImage.removeAttribute("src");
-  previewBox.style.display = "none";
+  photoBase64.value =
+  "";
+
+  photoName.value =
+  "";
+
+  photoType.value =
+  "";
+
+  previewImage.removeAttribute(
+    "src"
+  );
+
+  previewBox.style.display =
+  "none";
+
   photoStatus.textContent =
   "写真を選ぶと、投稿用に小さくして保存します。";
 
@@ -1133,7 +1273,7 @@ function prepareImage(file){
     img.onload = function(){
 
       const maxSize =
-      1200;
+      900;
 
       let width =
       img.width;
@@ -1205,14 +1345,14 @@ function prepareImage(file){
 
           r2.readAsDataURL(blob);
 
-        },"image/jpeg",0.82);
+        },"image/jpeg",0.72);
 
       }else{
 
         const compressed =
         canvas.toDataURL(
           "image/jpeg",
-          0.82
+          0.72
         );
 
         photoBase64.value =
@@ -1546,36 +1686,48 @@ function reportCard(r,index){
 
 }
 
-function loadReports(){
-
-  reportList.innerHTML =
-  '<div class="empty"><h3>投稿を読み込み中です。</h3><p>少しお待ちください。</p></div>';
+function fetchReports(){
 
   const url =
   GAS_URL +
   "?mode=getProblemReports&t=" +
   Date.now();
 
-  fetch(url)
+  return fetch(url)
   .then(function(res){
     return res.json();
   })
   .then(function(data){
 
-    const records =
-    data && data.records
+    return data && data.records
     ? data.records
     : [];
 
-    if(!records.length){
-      reportList.innerHTML =
-      '<div class="empty"><h3>現在、公開中の困りごとはありません。</h3><p>投稿があると、このページに表示されます。</p></div>';
-      return;
-    }
+  });
 
+}
+
+function renderReports(records){
+
+  if(!records.length){
     reportList.innerHTML =
-    records.map(reportCard).join("");
+    '<div class="empty"><h3>現在、公開中の困りごとはありません。</h3><p>投稿があると、このページに表示されます。</p></div>';
+    return;
+  }
 
+  reportList.innerHTML =
+  records.map(reportCard).join("");
+
+}
+
+function loadReports(){
+
+  reportList.innerHTML =
+  '<div class="empty"><h3>投稿を読み込み中です。</h3><p>少しお待ちください。</p></div>';
+
+  fetchReports()
+  .then(function(records){
+    renderReports(records);
   })
   .catch(function(){
 
