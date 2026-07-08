@@ -352,7 +352,8 @@ textarea:focus{
   display:block;
   width:100%;
   max-height:320px;
-  object-fit:cover;
+  object-fit:contain;
+  background:#eaffea;
 }
 
 .statusBox{
@@ -505,12 +506,27 @@ textarea:focus{
   box-shadow:0 16px 40px rgba(70,130,82,.11);
 }
 
+.reportImageBox{
+  width:100%;
+  aspect-ratio:4/3;
+  background:
+    radial-gradient(circle at 100% 0%,rgba(255,246,176,.35),transparent 35%),
+    linear-gradient(135deg,#f3fff0 0%,#e6ffe9 100%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  padding:10px;
+  border-bottom:1px solid #d6f3d8;
+}
+
 .reportImage{
   display:block;
   width:100%;
-  aspect-ratio:16/9;
-  object-fit:cover;
-  background:#e6ffe9;
+  height:100%;
+  object-fit:contain;
+  border-radius:18px;
+  background:#fff;
 }
 
 .reportBody{
@@ -763,6 +779,11 @@ textarea:focus{
     align-items:flex-start;
     flex-direction:column;
   }
+
+  .reportImageBox{
+    aspect-ratio:1/1;
+    padding:8px;
+  }
 }
 </style>
 </head>
@@ -987,7 +1008,7 @@ textarea:focus{
 
 <script>
 const GAS_URL =
-"https://script.google.com/macros/s/AKfycbyLAZKBSC1aXZOuHqud0Nlx13feLH58zl9tsHY7O_mD9lv2uSUwfPj7oVNlT9WFX6iH1w/exec";
+"https://script.google.com/macros/s/AKfycbyZnkBqswkTOn46XflzQKrXsGTUgaLxgNdy_0kMQiA5DO90H2WFJttqwEbaIa9xPef4ZA/exec";
 
 const form =
 document.getElementById("problemForm");
@@ -1614,7 +1635,7 @@ function reportCard(r,index){
 
   return ''
   + '<article class="reportCard" id="problem-' + esc(id) + '">'
-  + (photo ? '<img class="reportImage" src="' + esc(photo) + '" alt="' + esc(category) + '">' : '')
+  + (photo ? '<div class="reportImageBox"><img class="reportImage" src="' + esc(photo) + '" alt="' + esc(category) + '"></div>' : '')
   + '<div class="reportBody">'
   + '<div class="metaRow">'
   + '<span class="badge">' + esc(area) + '</span>'
