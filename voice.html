@@ -48,8 +48,6 @@ img{
   padding:12px 0 96px;
 }
 
-/* ヘッダー */
-
 .header{
   position:sticky;
   top:0;
@@ -100,8 +98,6 @@ img{
   font-weight:900;
   box-shadow:0 6px 16px rgba(70,130,82,.07);
 }
-
-/* 上部 */
 
 .hero{
   margin-top:8px;
@@ -165,8 +161,6 @@ img{
   font-weight:900;
 }
 
-/* 写真つき見出し */
-
 .visualHero{
   margin-top:18px;
   position:relative;
@@ -223,8 +217,6 @@ img{
   font-weight:900;
   text-shadow:0 3px 14px rgba(0,0,0,.28);
 }
-
-/* 投稿フォーム */
 
 .formCard{
   margin-top:18px;
@@ -312,8 +304,39 @@ textarea:focus{
   padding:16px;
 }
 
-.fileBox input{
+.realFileInput{
+  position:absolute;
+  width:1px;
+  height:1px;
+  opacity:0;
+  overflow:hidden;
+  pointer-events:none;
+}
+
+.photoSelectButton{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:72px;
+  border-radius:24px;
+  background:linear-gradient(135deg,#4caf63 0%,#78c96f 100%);
+  color:#fff;
+  font-size:24px;
+  font-weight:900;
+  box-shadow:0 14px 30px rgba(76,175,99,.24);
+  margin-top:0;
+}
+
+.photoSubText{
+  margin-top:12px;
+  border-radius:20px;
   background:#fff;
+  border:1px solid #c8f0ce;
+  padding:14px;
+  color:#3c5943;
+  font-size:16px;
+  line-height:1.7;
+  font-weight:850;
 }
 
 .previewBox{
@@ -429,8 +452,6 @@ textarea:focus{
   line-height:1.7;
   font-weight:900;
 }
-
-/* 投稿一覧 */
 
 .reports{
   margin-top:26px;
@@ -644,8 +665,6 @@ textarea:focus{
   line-height:1.7;
   font-weight:850;
 }
-
-/* 下メニュー */
 
 .bottomNav{
   position:fixed;
@@ -867,13 +886,23 @@ textarea:focus{
 
     <label for="photoInput">
       写真
-      <span class="help">スマホの写真を選べます</span>
+      <span class="help">写真を撮る、またはライブラリから選べます</span>
     </label>
     <div class="fileBox">
-      <input id="photoInput" type="file" accept="image/*" capture="environment">
+      <input id="photoInput" class="realFileInput" type="file" accept="image/*">
+
+      <label class="photoSelectButton" for="photoInput">
+        📷 写真を選ぶ・撮影する
+      </label>
+
+      <div class="photoSubText">
+        ボタンを押すと、スマホで「フォトライブラリ」「写真を撮る」「ファイルを選択」から選べます。
+      </div>
+
       <div class="statusBox" id="photoStatus">
         写真を選ぶと、投稿用に小さくして保存します。
       </div>
+
       <div class="previewBox" id="previewBox">
         <img id="previewImage" alt="選択した写真">
       </div>
@@ -1419,10 +1448,6 @@ function reportCard(r,index){
     r["日時"] ||
     ""
   );
-
-  const name =
-  r["お名前・ニックネーム"] ||
-  "匿名";
 
   const area =
   r["町名"] ||
