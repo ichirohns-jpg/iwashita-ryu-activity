@@ -18,16 +18,12 @@
  --kappa-dark:#14532d;
  --kappa-main:#237a3b;
  --kappa-mid:#4caf63;
- --kappa-light:#7bcf7a;
  --shinryoku:#e8f8e8;
- --shinryoku-soft:#f7fff4;
  --river-blue:#e0f2fe;
  --cream:#fff7c2;
  --gold:#facc15;
  --ink:#1f2933;
- --muted:#4b6350;
  --line:#9ed7aa;
- --white:#ffffff;
 }
 
 *{
@@ -40,11 +36,7 @@ html{
 
 body{
  margin:0;
- font-family:
- "Hiragino Sans",
- "Yu Gothic",
- "Meiryo",
- sans-serif;
+ font-family:"Hiragino Sans","Yu Gothic","Meiryo",sans-serif;
  background:
  radial-gradient(circle at 8% 0%,rgba(190,240,185,.70),transparent 28%),
  radial-gradient(circle at 92% 4%,rgba(224,242,254,.78),transparent 30%),
@@ -127,7 +119,6 @@ a{
  box-shadow:0 16px 40px rgba(20,83,45,.12);
  padding:24px;
  overflow:hidden;
- position:relative;
 }
 
 .kicker{
@@ -385,65 +376,6 @@ a{
  font-weight:900;
 }
 
-.adminBox{
- margin-top:22px;
- border-radius:30px;
- background:#fff;
- border:2px solid var(--line);
- box-shadow:0 12px 30px rgba(20,83,45,.10);
- padding:22px;
-}
-
-.adminBox h2{
- margin:0;
- color:var(--kappa-dark);
- font-size:30px;
- line-height:1.25;
- font-weight:900;
-}
-
-.adminBox p{
- margin:8px 0 0;
- color:var(--ink);
- font-size:16px;
- font-weight:850;
-}
-
-.adminLinks{
- margin-top:14px;
- display:grid;
- grid-template-columns:1fr 1fr;
- gap:10px;
-}
-
-.adminLinks a{
- min-height:62px;
- display:flex;
- align-items:center;
- justify-content:center;
- text-align:center;
- border-radius:22px;
- background:#fff;
- border:2px solid var(--line);
- color:var(--kappa-dark);
- font-size:17px;
- line-height:1.35;
- font-weight:900;
- padding:10px;
-}
-
-.adminLinks a:first-child{
- background:var(--cream);
- border-color:var(--gold);
- color:#5c3b00;
-}
-
-.adminLinks a:last-child{
- background:linear-gradient(135deg,#14532d 0%,#237a3b 55%,#4caf63 100%);
- border-color:var(--kappa-main);
- color:#fff;
-}
-
 .footer{
  margin-top:30px;
  text-align:center;
@@ -511,8 +443,7 @@ a{
 
  .mainActions,
  .menuGrid,
- .featureGrid,
- .adminLinks{
+ .featureGrid{
   grid-template-columns:1fr;
  }
 
@@ -524,8 +455,7 @@ a{
   min-height:auto;
  }
 
- .sectionCard,
- .adminBox{
+ .sectionCard{
   border-radius:26px;
   padding:18px;
  }
@@ -678,26 +608,6 @@ a{
  このページは、地域の皆さんに活動をわかりやすく伝えるための活動報告DXです。
 </div>
 
-<section class="adminBox">
-
- <h2>管理画面</h2>
-
- <p>
-  活動報告の登録と、困りごと投稿の管理はこちらから開けます。
- </p>
-
- <div class="adminLinks">
-  <a href="admin.html" target="_blank" rel="noopener">
-   活動報告を登録する
-  </a>
-
-  <a id="patrolAdminLink" href="#" target="_blank" rel="noopener">
-   困りごと投稿を管理する
-  </a>
- </div>
-
-</section>
-
 </main>
 
 <footer class="footer">
@@ -714,23 +624,6 @@ a{
  <a href="videos.html"><span>🎥</span>動画</a>
  <a href="support.html"><span>💬</span>応援</a>
 </nav>
-
-<script>
-
-const GAS_URL =
-"https://script.google.com/macros/s/AKfycbxaTX14m9ftBS_Udl8w-HCHXSulvFcV9VJ9ANGM6FwCx0ejCLXaY0MhdbdexXBHkSmxJg/exec";
-
-const patrolAdminLink =
-document.getElementById("patrolAdminLink");
-
-if(patrolAdminLink){
-
- patrolAdminLink.href =
- GAS_URL + "?page=admin";
-
-}
-
-</script>
 
 </body>
 </html>
