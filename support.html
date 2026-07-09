@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <title>応援メッセージを書く｜岩下りゅう 活動報告</title>
-
 <meta name="description" content="岩下りゅうへの応援メッセージ、活動への感想、期待することをお寄せください。">
 <meta name="theme-color" content="#6fbd69">
 
@@ -13,492 +12,489 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
 <style>
+
 *{
-  box-sizing:border-box;
+ box-sizing:border-box;
 }
 
 html{
-  scroll-behavior:smooth;
+ scroll-behavior:smooth;
 }
 
 body{
-  margin:0;
-  font-family:"Hiragino Sans","Yu Gothic","Meiryo",sans-serif;
-  color:#203326;
-  background:
-    radial-gradient(circle at 10% 0%,rgba(218,255,209,.9),transparent 28%),
-    radial-gradient(circle at 90% 5%,rgba(255,246,176,.55),transparent 25%),
-    linear-gradient(180deg,#f8fff5 0%,#ffffff 48%,#edfbea 100%);
-  line-height:1.75;
-  -webkit-text-size-adjust:100%;
+ margin:0;
+ font-family:"Hiragino Sans","Yu Gothic","Meiryo",sans-serif;
+ color:#203326;
+ background:
+ radial-gradient(circle at 10% 0%,rgba(218,255,209,.9),transparent 28%),
+ radial-gradient(circle at 90% 5%,rgba(255,246,176,.55),transparent 25%),
+ linear-gradient(180deg,#f8fff5 0%,#ffffff 48%,#edfbea 100%);
+ line-height:1.75;
+ -webkit-text-size-adjust:100%;
 }
 
 a{
-  color:inherit;
-  text-decoration:none;
+ color:inherit;
+ text-decoration:none;
 }
 
 .wrap{
-  width:min(980px,94%);
-  margin:auto;
-  padding:12px 0 96px;
+ width:min(980px,94%);
+ margin:auto;
+ padding:12px 0 96px;
 }
 
-/* ヘッダー */
-
 .header{
-  position:sticky;
-  top:0;
-  z-index:80;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  padding:10px 0;
-  background:rgba(248,255,245,.94);
-  backdrop-filter:blur(16px);
+ position:sticky;
+ top:0;
+ z-index:80;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:12px;
+ padding:10px 0;
+ background:rgba(248,255,245,.94);
+ backdrop-filter:blur(16px);
 }
 
 .brand{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  color:#1f5f35;
-  font-weight:900;
+ display:flex;
+ align-items:center;
+ gap:10px;
+ color:#1f5f35;
+ font-weight:900;
 }
 
 .brand img{
-  width:44px;
-  height:44px;
-  border-radius:16px;
-  object-fit:cover;
-  box-shadow:0 8px 22px rgba(70,130,82,.18);
+ width:44px;
+ height:44px;
+ border-radius:16px;
+ object-fit:cover;
+ box-shadow:0 8px 22px rgba(70,130,82,.18);
 }
 
 .brand span{
-  font-size:18px;
-  line-height:1.25;
+ font-size:18px;
+ line-height:1.25;
 }
 
 .headerNav{
-  display:flex;
-  flex-wrap:wrap;
-  gap:7px;
+ display:flex;
+ flex-wrap:wrap;
+ gap:7px;
 }
 
 .headerNav a{
-  padding:9px 13px;
-  border-radius:999px;
-  background:#fff;
-  border:1px solid #b7ebc0;
-  color:#1f6b3d;
-  font-size:13px;
-  font-weight:900;
-  box-shadow:0 6px 16px rgba(70,130,82,.07);
+ padding:9px 13px;
+ border-radius:999px;
+ background:#fff;
+ border:1px solid #b7ebc0;
+ color:#1f6b3d;
+ font-size:13px;
+ font-weight:900;
+ box-shadow:0 6px 16px rgba(70,130,82,.07);
 }
 
-/* ページ上部 */
-
 .hero{
-  margin-top:8px;
-  border-radius:32px;
-  background:
-    radial-gradient(circle at 100% 0%,rgba(255,246,176,.48),transparent 34%),
-    linear-gradient(135deg,#ffffff 0%,#f4fff1 100%);
-  border:1px solid #b7ebc0;
-  box-shadow:0 16px 40px rgba(70,130,82,.11);
-  padding:22px;
+ margin-top:8px;
+ border-radius:32px;
+ background:
+ radial-gradient(circle at 100% 0%,rgba(255,246,176,.48),transparent 34%),
+ linear-gradient(135deg,#ffffff 0%,#f4fff1 100%);
+ border:1px solid #b7ebc0;
+ box-shadow:0 16px 40px rgba(70,130,82,.11);
+ padding:22px;
 }
 
 .kicker{
-  display:inline-flex;
-  padding:8px 13px;
-  border-radius:999px;
-  background:#e6ffe9;
-  border:1px solid #b7ebc0;
-  color:#1f6b3d;
-  font-size:14px;
-  font-weight:900;
+ display:inline-flex;
+ padding:8px 13px;
+ border-radius:999px;
+ background:#e6ffe9;
+ border:1px solid #b7ebc0;
+ color:#1f6b3d;
+ font-size:14px;
+ font-weight:900;
 }
 
 .hero h1{
-  margin:14px 0 0;
-  color:#1f5f35;
-  font-size:clamp(34px,9vw,58px);
-  line-height:1.08;
-  font-weight:900;
+ margin:14px 0 0;
+ color:#1f5f35;
+ font-size:clamp(34px,9vw,58px);
+ line-height:1.08;
+ font-weight:900;
 }
 
 .hero p{
-  margin:12px 0 0;
-  color:#344c39;
-  font-size:18px;
-  font-weight:850;
+ margin:12px 0 0;
+ color:#344c39;
+ font-size:18px;
+ font-weight:850;
 }
 
 .pageLinks{
-  margin-top:14px;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
+ margin-top:14px;
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:10px;
 }
 
 .pageLinks a{
-  min-height:54px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:20px;
-  background:#fff;
-  border:2px solid #b7ebc0;
-  color:#1f5f35;
-  font-size:17px;
-  font-weight:900;
+ min-height:54px;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ border-radius:20px;
+ background:#fff;
+ border:2px solid #b7ebc0;
+ color:#1f5f35;
+ font-size:17px;
+ font-weight:900;
 }
 
-/* 入力フォーム */
-
 .formCard{
-  margin-top:16px;
-  border-radius:32px;
-  background:#fff;
-  border:1px solid #b7ebc0;
-  box-shadow:0 16px 40px rgba(70,130,82,.11);
-  padding:22px;
+ margin-top:16px;
+ border-radius:32px;
+ background:#fff;
+ border:1px solid #b7ebc0;
+ box-shadow:0 16px 40px rgba(70,130,82,.11);
+ padding:22px;
 }
 
 .formCard h2{
-  margin:0;
-  color:#1f5f35;
-  font-size:30px;
-  line-height:1.25;
-  font-weight:900;
+ margin:0;
+ color:#1f5f35;
+ font-size:30px;
+ line-height:1.25;
+ font-weight:900;
 }
 
 .formNote{
-  margin:8px 0 18px;
-  color:#4d6b55;
-  font-size:16px;
-  font-weight:850;
+ margin:8px 0 18px;
+ color:#4d6b55;
+ font-size:16px;
+ font-weight:850;
 }
 
 label{
-  display:block;
-  margin-top:18px;
-  color:#1f5f35;
-  font-size:20px;
-  line-height:1.35;
-  font-weight:900;
+ display:block;
+ margin-top:18px;
+ color:#1f5f35;
+ font-size:20px;
+ line-height:1.35;
+ font-weight:900;
 }
 
 .help{
-  display:block;
-  margin-top:4px;
-  color:#6b7f70;
-  font-size:14px;
-  font-weight:800;
+ display:block;
+ margin-top:4px;
+ color:#6b7f70;
+ font-size:14px;
+ font-weight:800;
 }
 
 input,
 select,
 textarea{
-  width:100%;
-  margin-top:8px;
-  border:2px solid #b7ebc0;
-  border-radius:22px;
-  background:#fffdf0;
-  color:#213627;
-  font-family:inherit;
-  font-size:20px;
-  font-weight:850;
-  outline:none;
-  box-shadow:inset 0 2px 0 rgba(255,255,255,.8);
+ width:100%;
+ margin-top:8px;
+ border:2px solid #b7ebc0;
+ border-radius:22px;
+ background:#fffdf0;
+ color:#213627;
+ font-family:inherit;
+ font-size:20px;
+ font-weight:850;
+ outline:none;
+ box-shadow:inset 0 2px 0 rgba(255,255,255,.8);
 }
 
 input,
 select{
-  min-height:64px;
-  padding:0 18px;
+ min-height:64px;
+ padding:0 18px;
 }
 
 textarea{
-  min-height:170px;
-  padding:18px;
-  resize:vertical;
+ min-height:170px;
+ padding:18px;
+ resize:vertical;
 }
 
 input:focus,
 select:focus,
 textarea:focus{
-  border-color:#4caf63;
-  background:#ffffff;
-  box-shadow:0 0 0 4px rgba(76,175,99,.15);
+ border-color:#4caf63;
+ background:#ffffff;
+ box-shadow:0 0 0 4px rgba(76,175,99,.15);
 }
 
 .radioBox{
-  margin-top:10px;
-  display:grid;
-  gap:10px;
+ margin-top:10px;
+ display:grid;
+ gap:10px;
 }
 
 .radioItem{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  min-height:62px;
-  padding:14px;
-  border-radius:22px;
-  background:#f7fff5;
-  border:2px solid #c8f0ce;
-  color:#213627;
-  font-size:18px;
-  font-weight:900;
+ display:flex;
+ align-items:center;
+ gap:12px;
+ min-height:62px;
+ padding:14px;
+ border-radius:22px;
+ background:#f7fff5;
+ border:2px solid #c8f0ce;
+ color:#213627;
+ font-size:18px;
+ font-weight:900;
 }
 
 .radioItem input{
-  width:24px;
-  height:24px;
-  min-height:auto;
-  margin:0;
-  flex:0 0 auto;
+ width:24px;
+ height:24px;
+ min-height:auto;
+ margin:0;
+ flex:0 0 auto;
 }
 
 .submitBtn{
-  width:100%;
-  margin-top:24px;
-  min-height:76px;
-  border:0;
-  border-radius:26px;
-  background:linear-gradient(135deg,#4caf63 0%,#78c96f 100%);
-  color:#fff;
-  font-family:inherit;
-  font-size:25px;
-  font-weight:900;
-  box-shadow:0 14px 30px rgba(76,175,99,.26);
+ width:100%;
+ margin-top:24px;
+ min-height:76px;
+ border:0;
+ border-radius:26px;
+ background:linear-gradient(135deg,#4caf63 0%,#78c96f 100%);
+ color:#fff;
+ font-family:inherit;
+ font-size:25px;
+ font-weight:900;
+ box-shadow:0 14px 30px rgba(76,175,99,.26);
 }
 
 .submitBtn:disabled{
-  opacity:.55;
+ opacity:.55;
 }
 
 .resultBox{
-  margin-top:16px;
-  padding:18px;
-  border-radius:24px;
-  background:#fff7c2;
-  border:2px solid #facc15;
-  color:#4d3a00;
-  font-size:18px;
-  font-weight:900;
-  display:none;
+ margin-top:16px;
+ padding:18px;
+ border-radius:24px;
+ background:#fff7c2;
+ border:2px solid #facc15;
+ color:#4d3a00;
+ font-size:18px;
+ font-weight:900;
+ display:none;
 }
 
-/* 一覧 */
-
 .messages{
-  margin-top:24px;
+ margin-top:24px;
 }
 
 .messagesHead{
-  display:flex;
-  align-items:flex-end;
-  justify-content:space-between;
-  gap:12px;
-  margin-bottom:12px;
+ display:flex;
+ align-items:flex-end;
+ justify-content:space-between;
+ gap:12px;
+ margin-bottom:12px;
 }
 
 .messages h2{
-  margin:0;
-  color:#1f5f35;
-  font-size:34px;
-  line-height:1.2;
-  font-weight:900;
+ margin:0;
+ color:#1f5f35;
+ font-size:34px;
+ line-height:1.2;
+ font-weight:900;
 }
 
 .reloadBtn{
-  border:0;
-  border-radius:999px;
-  background:#fff;
-  border:2px solid #b7ebc0;
-  color:#1f5f35;
-  font-family:inherit;
-  font-size:15px;
-  font-weight:900;
-  padding:10px 14px;
+ border:0;
+ border-radius:999px;
+ background:#fff;
+ border:2px solid #b7ebc0;
+ color:#1f5f35;
+ font-family:inherit;
+ font-size:15px;
+ font-weight:900;
+ padding:10px 14px;
 }
 
 .messageList{
-  display:grid;
-  gap:14px;
+ display:grid;
+ gap:14px;
 }
 
 .messageItem{
-  border-radius:28px;
-  background:#fff;
-  border:1px solid #b7ebc0;
-  box-shadow:0 12px 30px rgba(71,130,82,.10);
-  padding:18px;
+ border-radius:28px;
+ background:#fff;
+ border:1px solid #b7ebc0;
+ box-shadow:0 12px 30px rgba(71,130,82,.10);
+ padding:18px;
 }
 
 .messageName{
-  color:#1f5f35;
-  font-size:24px;
-  line-height:1.3;
-  font-weight:900;
+ color:#1f5f35;
+ font-size:24px;
+ line-height:1.3;
+ font-weight:900;
 }
 
 .messageMeta{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  margin-top:8px;
+ display:flex;
+ flex-wrap:wrap;
+ gap:8px;
+ margin-top:8px;
 }
 
 .badge{
-  display:inline-flex;
-  padding:6px 11px;
-  border-radius:999px;
-  background:#e6ffe9;
-  border:1px solid #b7ebc0;
-  color:#1f6b3d;
-  font-size:13px;
-  font-weight:900;
+ display:inline-flex;
+ padding:6px 11px;
+ border-radius:999px;
+ background:#e6ffe9;
+ border:1px solid #b7ebc0;
+ color:#1f6b3d;
+ font-size:13px;
+ font-weight:900;
 }
 
 .messageText{
-  margin-top:12px;
-  padding:15px;
-  border-radius:20px;
-  background:#fffdf0;
-  border:1px solid #eadf9d;
-  color:#2f3f33;
-  font-size:18px;
-  font-weight:850;
-  white-space:pre-wrap;
+ margin-top:12px;
+ padding:15px;
+ border-radius:20px;
+ background:#fffdf0;
+ border:1px solid #eadf9d;
+ color:#2f3f33;
+ font-size:18px;
+ font-weight:850;
+ white-space:pre-wrap;
 }
 
 .empty{
-  border-radius:24px;
-  background:#fff;
-  border:1px solid #b7ebc0;
-  padding:18px;
-  color:#4d6b55;
-  font-size:17px;
-  font-weight:850;
+ border-radius:24px;
+ background:#fff;
+ border:1px solid #b7ebc0;
+ padding:18px;
+ color:#4d6b55;
+ font-size:17px;
+ font-weight:850;
 }
 
 .backCard{
-  margin-top:18px;
-  display:grid;
-  grid-template-columns:1fr;
-  gap:10px;
+ margin-top:18px;
+ display:grid;
+ grid-template-columns:1fr;
+ gap:10px;
 }
 
 .backCard a{
-  min-height:64px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:24px;
-  background:#fff;
-  border:2px solid #b7ebc0;
-  color:#1f5f35;
-  font-size:20px;
-  font-weight:900;
+ min-height:64px;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ border-radius:24px;
+ background:#fff;
+ border:2px solid #b7ebc0;
+ color:#1f5f35;
+ font-size:20px;
+ font-weight:900;
 }
 
-/* 下メニュー */
-
 .bottomNav{
-  position:fixed;
-  left:0;
-  right:0;
-  bottom:0;
-  z-index:100;
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  background:rgba(255,255,255,.98);
-  border-top:1px solid #b7ebc0;
-  box-shadow:0 -12px 30px rgba(71,130,82,.12);
-  backdrop-filter:blur(14px);
+ position:fixed;
+ left:0;
+ right:0;
+ bottom:0;
+ z-index:100;
+ display:grid;
+ grid-template-columns:repeat(5,1fr);
+ background:rgba(255,255,255,.98);
+ border-top:1px solid #b7ebc0;
+ box-shadow:0 -12px 30px rgba(71,130,82,.12);
+ backdrop-filter:blur(14px);
 }
 
 .bottomNav a{
-  text-align:center;
-  color:#1f6b3d;
-  padding:8px 4px 7px;
-  font-size:12px;
-  font-weight:900;
+ text-align:center;
+ color:#1f6b3d;
+ padding:8px 4px 7px;
+ font-size:12px;
+ font-weight:900;
 }
 
 .bottomNav a span{
-  display:block;
-  font-size:22px;
-  line-height:1.1;
+ display:block;
+ font-size:22px;
+ line-height:1.1;
 }
 
 .bottomNav a.active{
-  background:#e2f8e5;
-  color:#14532d;
+ background:#e2f8e5;
+ color:#14532d;
 }
 
 .footer{
-  margin-top:30px;
-  text-align:center;
-  color:#4d6b55;
-  font-size:13px;
-  font-weight:800;
+ margin-top:30px;
+ text-align:center;
+ color:#4d6b55;
+ font-size:13px;
+ font-weight:800;
 }
 
 .hiddenFrame{
-  display:none;
+ display:none;
 }
 
 @media (min-width:820px){
-  .radioBox{
-    grid-template-columns:1fr 1fr;
-  }
 
-  .backCard{
-    grid-template-columns:1fr 1fr;
-  }
+ .radioBox{
+  grid-template-columns:1fr 1fr;
+ }
+
+ .backCard{
+  grid-template-columns:1fr 1fr;
+ }
+
 }
 
 @media (max-width:560px){
-  .wrap{
-    width:94%;
-  }
 
-  .headerNav{
-    display:none;
-  }
+ .wrap{
+  width:94%;
+ }
 
-  .brand span{
-    font-size:16px;
-  }
+ .headerNav{
+  display:none;
+ }
 
-  .hero,
-  .formCard{
-    border-radius:28px;
-    padding:18px;
-  }
+ .brand span{
+  font-size:16px;
+ }
 
-  input,
-  select,
-  textarea{
-    font-size:19px;
-  }
+ .hero,
+ .formCard{
+  border-radius:28px;
+  padding:18px;
+ }
 
-  .pageLinks{
-    grid-template-columns:1fr;
-  }
+ input,
+ select,
+ textarea{
+  font-size:19px;
+ }
 
-  .messagesHead{
-    align-items:flex-start;
-    flex-direction:column;
-  }
+ .pageLinks{
+  grid-template-columns:1fr;
+ }
+
+ .messagesHead{
+  align-items:flex-start;
+  flex-direction:column;
+ }
+
 }
+
 </style>
+
 </head>
 
 <body>
@@ -506,136 +502,157 @@ textarea:focus{
 <div class="wrap">
 
 <header class="header">
-  <a class="brand" href="index.html">
-    <img src="apple-touch-icon.png" alt="岩下りゅう">
-    <span>岩下りゅう 活動報告</span>
-  </a>
 
-  <nav class="headerNav">
-    <a href="index.html">トップ</a>
-    <a href="activity.html">活動</a>
-    <a href="videos.html">動画</a>
-    <a href="support.html">応援</a>
-    <a href="profile.html">人物</a>
-  </nav>
+ <a class="brand" href="index.html">
+  <img src="apple-touch-icon.png" alt="岩下りゅう">
+  <span>岩下りゅう 活動報告</span>
+ </a>
+
+ <nav class="headerNav">
+  <a href="index.html">トップ</a>
+  <a href="activity.html">活動</a>
+  <a href="videos.html">動画</a>
+  <a href="support.html">応援</a>
+  <a href="profile.html">人物</a>
+ </nav>
+
 </header>
 
 <main>
 
 <section class="hero">
-  <div class="kicker">サイトに訪れた方へ</div>
-  <h1>応援メッセージを書く</h1>
-  <p>
-    応援、活動への感想、期待することなどをお寄せください。<br>
-    お名前はニックネームでも大丈夫です。
-  </p>
 
-  <div class="pageLinks">
-    <a href="#form">メッセージを書く</a>
-    <a href="#messages">メッセージを見る</a>
-  </div>
+ <div class="kicker">サイトに訪れた方へ</div>
+
+ <h1>応援メッセージを書く</h1>
+
+ <p>
+  応援、活動への感想、期待することなどをお寄せください。<br>
+  お名前はニックネームでも大丈夫です。
+ </p>
+
+ <div class="pageLinks">
+  <a href="#form">メッセージを書く</a>
+  <a href="#messages">メッセージを見る</a>
+ </div>
+
 </section>
 
 <section class="formCard" id="form">
-  <h2>入力する</h2>
-  <p class="formNote">
-    「公開してよい」を選ぶと、送信後にページへ表示されます。
-  </p>
 
-  <form id="supportForm" method="GET" target="sendFrame">
-    <input type="hidden" name="mode" value="saveSupportMessage">
+ <h2>入力する</h2>
 
-    <label for="name">
-      お名前・ニックネーム
-      <span class="help">匿名でも大丈夫です</span>
-    </label>
-    <input id="name" name="name" type="text" placeholder="例：山田、ヒロ、匿名">
+ <p class="formNote">
+  「公開してよい」を選ぶと、送信後にページへ表示されます。
+ </p>
 
-    <label for="area">
-      お住まい
-      <span class="help">近いものを選んでください</span>
-    </label>
-    <select id="area" name="area" required>
-      <option value="">選んでください</option>
-      <option value="本町">本町</option>
-      <option value="柏町">柏町</option>
-      <option value="幸町">幸町</option>
-      <option value="館">館</option>
-      <option value="上宗岡">上宗岡</option>
-      <option value="中宗岡">中宗岡</option>
-      <option value="下宗岡">下宗岡</option>
-      <option value="その他">その他</option>
-    </select>
+ <form id="supportForm" method="GET" target="sendFrame">
 
-    <label for="message">
-      応援メッセージ
-      <span class="help">応援、感想、期待することなど</span>
-    </label>
-    <textarea id="message" name="message" required placeholder="例：地域活動を応援しています。これからも頑張ってください。"></textarea>
+  <input type="hidden" name="mode" value="saveSupportMessage">
 
-    <label>
-      公開について
-      <span class="help">ページに掲載してよいか選んでください</span>
-    </label>
-    <div class="radioBox">
-      <label class="radioItem">
-        <input type="radio" name="publicChoice" value="公開してよい" checked>
-        公開してよい
-      </label>
-      <label class="radioItem">
-        <input type="radio" name="publicChoice" value="公開しない">
-        公開しない
-      </label>
-    </div>
+  <label for="name">
+   お名前・ニックネーム
+   <span class="help">匿名でも大丈夫です</span>
+  </label>
 
-    <button class="submitBtn" id="submitBtn" type="submit">
-      応援メッセージを送る
-    </button>
+  <input id="name" name="name" type="text" placeholder="例：山田、ヒロ、匿名">
 
-    <div class="resultBox" id="resultBox">
-      応援メッセージを受け付けました。ありがとうございます。
-    </div>
-  </form>
+  <label for="area">
+   お住まい
+   <span class="help">近いものを選んでください</span>
+  </label>
 
-  <iframe class="hiddenFrame" name="sendFrame" title="sendFrame"></iframe>
+  <select id="area" name="area" required>
+   <option value="">選んでください</option>
+   <option value="本町">本町</option>
+   <option value="柏町">柏町</option>
+   <option value="幸町">幸町</option>
+   <option value="館">館</option>
+   <option value="上宗岡">上宗岡</option>
+   <option value="中宗岡">中宗岡</option>
+   <option value="下宗岡">下宗岡</option>
+   <option value="その他">その他</option>
+  </select>
+
+  <label for="message">
+   応援メッセージ
+   <span class="help">応援、感想、期待することなど</span>
+  </label>
+
+  <textarea id="message" name="message" required placeholder="例：地域活動を応援しています。これからも頑張ってください。"></textarea>
+
+  <label>
+   公開について
+   <span class="help">ページに掲載してよいか選んでください</span>
+  </label>
+
+  <div class="radioBox">
+
+   <label class="radioItem">
+    <input type="radio" name="publicChoice" value="公開してよい" checked>
+    公開してよい
+   </label>
+
+   <label class="radioItem">
+    <input type="radio" name="publicChoice" value="公開しない">
+    公開しない
+   </label>
+
+  </div>
+
+  <button class="submitBtn" id="submitBtn" type="submit">
+   応援メッセージを送る
+  </button>
+
+  <div class="resultBox" id="resultBox">
+   応援メッセージを受け付けました。ありがとうございます。
+  </div>
+
+ </form>
+
+ <iframe class="hiddenFrame" name="sendFrame" title="sendFrame"></iframe>
+
 </section>
 
 <section class="messages" id="messages">
-  <div class="messagesHead">
-    <h2>届いたメッセージ</h2>
-    <button class="reloadBtn" type="button" onclick="loadMessages()">更新</button>
-  </div>
 
-  <div id="messageList" class="messageList">
-    <div class="empty">公開中の応援メッセージを読み込み中です。</div>
-  </div>
+ <div class="messagesHead">
+  <h2>届いたメッセージ</h2>
+  <button class="reloadBtn" type="button" onclick="loadMessages()">更新</button>
+ </div>
 
-  <div class="backCard">
-    <a href="#form">メッセージを書く</a>
-    <a href="index.html">トップへ戻る</a>
-  </div>
+ <div id="messageList" class="messageList">
+  <div class="empty">公開中の応援メッセージを読み込み中です。</div>
+ </div>
+
+ <div class="backCard">
+  <a href="#form">メッセージを書く</a>
+  <a href="index.html">トップへ戻る</a>
+ </div>
+
 </section>
 
 </main>
 
 <footer class="footer">
-  岩下りゅう 活動報告<br>
-  地域での活動を、写真と動画でわかりやすく。
+ 岩下りゅう 活動報告<br>
+ 地域での活動を、写真と動画でわかりやすく。
 </footer>
 
 </div>
 
 <nav class="bottomNav">
-  <a href="index.html"><span>🏠</span>トップ</a>
-  <a href="activity.html"><span>📸</span>活動</a>
-  <a href="videos.html"><span>🎥</span>動画</a>
-  <a href="support.html" class="active"><span>💬</span>応援</a>
-  <a href="profile.html"><span>👤</span>人物</a>
+ <a href="index.html"><span></span>トップ</a>
+ <a href="activity.html"><span></span>活動</a>
+ <a href="videos.html"><span></span>動画</a>
+ <a href="support.html" class="active"><span></span>応援</a>
+ <a href="profile.html"><span></span>人物</a>
 </nav>
 
 <script>
+
 const GAS_URL =
-"https://script.google.com/macros/s/AKfycbyv9uOF69WBCc5DKlCr0ZUbQqbWUu30qqA4fCl5EznNA3RfBxlKsDIvAMK4SldJvW4k9g/exec";
+"https://script.google.com/macros/s/AKfycbwnHzGW_dHBNISyJzW_zFGX2rhMwX_g2SzENuW58SZNrKVKv6gMkHeU2P83BQbHrcqneA/exec";
 
 const form =
 document.getElementById("supportForm");
@@ -654,147 +671,174 @@ GAS_URL;
 
 form.addEventListener("submit",function(e){
 
-  const message =
-  document.getElementById("message").value.trim();
+ const message =
+ document.getElementById("message").value.trim();
 
-  const area =
-  document.getElementById("area").value.trim();
+ const area =
+ document.getElementById("area").value.trim();
 
-  if(!area){
-    e.preventDefault();
-    alert("お住まいを選んでください。");
-    return;
-  }
+ if(!area){
 
-  if(!message){
-    e.preventDefault();
-    alert("応援メッセージを入力してください。");
-    return;
-  }
+  e.preventDefault();
 
-  submitBtn.disabled = true;
-  submitBtn.textContent = "送信中です";
+  alert("お住まいを選んでください。");
+
+  return;
+
+ }
+
+ if(!message){
+
+  e.preventDefault();
+
+  alert("応援メッセージを入力してください。");
+
+  return;
+
+ }
+
+ submitBtn.disabled = true;
+
+ submitBtn.textContent = "送信中です";
+
+ setTimeout(function(){
+
+  resultBox.style.display = "block";
+
+  submitBtn.disabled = false;
+
+  submitBtn.textContent = "応援メッセージを送る";
+
+  form.reset();
+
+  document
+  .getElementById("area")
+  .value = "";
+
+  const radios =
+  document.querySelectorAll("input[name='publicChoice']");
+
+  radios.forEach(function(r){
+
+   r.checked = r.value === "公開してよい";
+
+  });
 
   setTimeout(function(){
 
-    resultBox.style.display = "block";
-    submitBtn.disabled = false;
-    submitBtn.textContent = "応援メッセージを送る";
+   loadMessages();
 
-    form.reset();
+   location.hash = "messages";
 
-    document
-    .getElementById("area")
-    .value = "";
+  },700);
 
-    const radios =
-    document.querySelectorAll("input[name='publicChoice']");
-
-    radios.forEach(function(r){
-      r.checked = r.value === "公開してよい";
-    });
-
-    setTimeout(function(){
-      loadMessages();
-      location.hash = "messages";
-    },700);
-
-  },1200);
+ },1200);
 
 });
 
 function esc(v){
-  return String(v || "")
-  .replace(/&/g,"&amp;")
-  .replace(/</g,"&lt;")
-  .replace(/>/g,"&gt;")
-  .replace(/"/g,"&quot;")
-  .replace(/'/g,"&#39;");
+
+ return String(v || "")
+ .replace(/&/g,"&amp;")
+ .replace(/</g,"&lt;")
+ .replace(/>/g,"&gt;")
+ .replace(/"/g,"&quot;")
+ .replace(/'/g,"&#39;");
+
 }
 
 function shortDate(v){
 
-  const s =
-  String(v || "");
+ const s =
+ String(v || "");
 
-  if(!s){
-    return "";
-  }
+ if(!s){
 
-  return s
-  .replace(/:\d{2}$/,"")
-  .replace(/\s\d{2}:\d{2}.*/,"");
+  return "";
+
+ }
+
+ return s
+ .replace(/:\d{2}$/,"")
+ .replace(/\s\d{2}:\d{2}.*/,"");
+
 }
 
 function loadMessages(){
 
-  const url =
-  GAS_URL +
-  "?mode=getSupportMessages&t=" +
-  Date.now();
+ const url =
+ GAS_URL +
+ "?mode=getSupportMessages&t=" +
+ Date.now();
 
-  fetch(url)
-  .then(function(res){
-    return res.json();
-  })
-  .then(function(data){
+ fetch(url)
+ .then(function(res){
 
-    const records =
-    data && data.records
-    ? data.records
-    : [];
+  return res.json();
 
-    if(!records.length){
-      messageList.innerHTML =
-      '<div class="empty">現在、公開中の応援メッセージはありません。</div>';
-      return;
-    }
+ })
+ .then(function(data){
 
-    messageList.innerHTML =
-    records.map(function(r){
+  const records =
+  data && data.records
+  ? data.records
+  : [];
 
-      const name =
-      r["お名前・ニックネーム"] ||
-      r["お名前"] ||
-      "匿名";
+  if(!records.length){
 
-      const area =
-      r["お住まい"] ||
-      "その他";
+   messageList.innerHTML =
+   '<div class="empty">現在、公開中の応援メッセージはありません。</div>';
 
-      const date =
-      shortDate(
-        r["日時"] ||
-        ""
-      );
+   return;
 
-      const message =
-      r["メッセージ"] ||
-      "";
+  }
 
-      return ''
-      + '<article class="messageItem">'
-      + '<div class="messageName">' + esc(name) + '</div>'
-      + '<div class="messageMeta">'
-      + '<span class="badge">' + esc(area) + '</span>'
-      + (date ? '<span class="badge">' + esc(date) + '</span>' : '')
-      + '</div>'
-      + '<div class="messageText">' + esc(message) + '</div>'
-      + '</article>';
+  messageList.innerHTML =
+  records.map(function(r){
 
-    }).join("");
+   const name =
+   r["お名前・ニックネーム"] ||
+   r["お名前"] ||
+   "匿名";
 
-  })
-  .catch(function(){
+   const area =
+   r["お住まい"] ||
+   "その他";
 
-    messageList.innerHTML =
-    '<div class="empty">応援メッセージを読み込めませんでした。</div>';
+   const date =
+   shortDate(
+    r["日時"] ||
+    ""
+   );
 
-  });
+   const message =
+   r["メッセージ"] ||
+   "";
+
+   return ''
+   + '<article class="messageItem">'
+   + '<div class="messageName">' + esc(name) + '</div>'
+   + '<div class="messageMeta">'
+   + '<span class="badge">' + esc(area) + '</span>'
+   + (date ? '<span class="badge">' + esc(date) + '</span>' : '')
+   + '</div>'
+   + '<div class="messageText">' + esc(message) + '</div>'
+   + '</article>';
+
+  }).join("");
+
+ })
+ .catch(function(){
+
+  messageList.innerHTML =
+  '<div class="empty">応援メッセージを読み込めませんでした。</div>';
+
+ });
 
 }
 
 loadMessages();
+
 </script>
 
 </body>
