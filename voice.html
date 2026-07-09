@@ -6,7 +6,7 @@
 
 <title>まちの困りごと｜岩下りゅう 活動報告</title>
 
-<meta name="description" content="道路の穴、街灯切れ、不法投棄、危険箇所など、地域の困りごとを写真・場所・文章で投稿できます。">
+<meta name="description" content="地域の困りごとを写真付きで投稿し、投稿一覧と管理者対応につなげるページです。">
 <meta name="theme-color" content="#6fbd69">
 
 <link rel="icon" type="image/png" href="apple-touch-icon.png">
@@ -28,12 +28,12 @@ body{
     "Yu Gothic",
     "Meiryo",
     sans-serif;
-  color:#203326;
   background:
     radial-gradient(circle at 10% 0%,rgba(218,255,209,.95),transparent 30%),
     radial-gradient(circle at 90% 5%,rgba(255,246,176,.55),transparent 26%),
-    linear-gradient(180deg,#f8fff5 0%,#ffffff 50%,#edfbea 100%);
-  line-height:1.75;
+    linear-gradient(180deg,#f8fff5 0%,#ffffff 52%,#edfbea 100%);
+  color:#203326;
+  line-height:1.7;
   -webkit-text-size-adjust:100%;
 }
 
@@ -146,58 +146,57 @@ button{
   font-weight:850;
 }
 
-.flow{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:14px;
+.menuBox{
   margin-top:18px;
+  display:grid;
+  gap:16px;
 }
 
-.flowCard{
-  border-radius:30px;
+.menuCard{
+  border-radius:32px;
   background:#fff;
   border:2px solid #b7ebc0;
   box-shadow:0 14px 34px rgba(70,130,82,.10);
   padding:18px;
 }
 
-.flowHead{
+.menuHead{
   display:flex;
   align-items:center;
   gap:12px;
 }
 
-.num{
-  width:52px;
-  height:52px;
-  border-radius:18px;
+.menuNum{
+  width:56px;
+  height:56px;
+  border-radius:20px;
   background:linear-gradient(135deg,#4caf63 0%,#78c96f 100%);
   color:#fff;
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:28px;
+  font-size:30px;
   font-weight:900;
   flex:none;
 }
 
-.flowCard h2{
+.menuTitle{
   margin:0;
   color:#1f5f35;
-  font-size:clamp(26px,7vw,42px);
-  line-height:1.2;
+  font-size:clamp(28px,7vw,44px);
+  line-height:1.18;
   font-weight:900;
 }
 
-.flowCard p{
+.menuText{
   margin:12px 0 0;
   color:#3c5943;
-  font-size:17px;
+  font-size:18px;
   line-height:1.7;
   font-weight:850;
 }
 
-.bigButton{
+.mainButton{
   margin-top:16px;
   min-height:86px;
   display:flex;
@@ -215,7 +214,7 @@ button{
   padding:14px;
 }
 
-.bigButton small{
+.mainButton small{
   display:block;
   margin-top:4px;
   font-size:13px;
@@ -224,9 +223,9 @@ button{
   opacity:.95;
 }
 
-.whiteButton{
+.subButton{
   margin-top:14px;
-  min-height:64px;
+  min-height:66px;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -235,7 +234,7 @@ button{
   background:#fff;
   color:#1f5f35;
   border:2px solid #b7ebc0;
-  font-size:18px;
+  font-size:19px;
   font-weight:900;
   padding:12px;
 }
@@ -271,12 +270,13 @@ button{
 }
 
 .section{
-  margin-top:28px;
+  margin-top:30px;
 }
 
-.sectionTitle{
+.sectionHead{
   display:flex;
-  align-items:center;
+  align-items:flex-end;
+  justify-content:space-between;
   gap:12px;
   margin-bottom:14px;
 }
@@ -290,18 +290,10 @@ button{
 }
 
 .sectionSub{
-  margin:-6px 0 14px;
+  margin:8px 0 0;
   color:#4d6b55;
   font-size:17px;
   font-weight:850;
-}
-
-.sectionHead{
-  display:flex;
-  align-items:flex-end;
-  justify-content:space-between;
-  gap:12px;
-  margin-bottom:14px;
 }
 
 .reloadBtn{
@@ -362,7 +354,6 @@ button{
 .badge{
   display:inline-flex;
   align-items:center;
-  gap:6px;
   padding:6px 11px;
   border-radius:999px;
   background:#e6ffe9;
@@ -569,45 +560,6 @@ button{
   font-weight:850;
 }
 
-.adminBox{
-  margin-top:28px;
-  border-radius:34px;
-  background:#fff;
-  border:2px solid #b7ebc0;
-  box-shadow:0 16px 40px rgba(70,130,82,.11);
-  padding:22px;
-}
-
-.adminBox h2{
-  margin:0;
-  color:#1f5f35;
-  font-size:clamp(30px,8vw,48px);
-  line-height:1.2;
-  font-weight:900;
-}
-
-.adminBox p{
-  margin:10px 0 0;
-  color:#3c5943;
-  font-size:17px;
-  line-height:1.7;
-  font-weight:850;
-}
-
-.adminBox a{
-  margin-top:16px;
-  min-height:70px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:26px;
-  background:#fff;
-  border:2px solid #b7ebc0;
-  color:#1f5f35;
-  font-size:20px;
-  font-weight:900;
-}
-
 .footer{
   margin-top:30px;
   text-align:center;
@@ -645,12 +597,8 @@ button{
 }
 
 @media (min-width:820px){
-  .flow{
-    grid-template-columns:1fr 1fr 1fr;
-  }
-
-  .flowCard:first-child{
-    grid-column:1 / -1;
+  .menuBox{
+    grid-template-columns:1.2fr .9fr .9fr;
   }
 
   .reportList{
@@ -676,15 +624,13 @@ button{
   }
 
   .hero,
-  .flowCard,
-  .reportCard,
-  .adminBox{
+  .menuCard,
+  .reportCard{
     border-radius:28px;
   }
 
   .hero,
-  .flowCard,
-  .adminBox{
+  .menuCard{
     padding:18px;
   }
 
@@ -737,18 +683,20 @@ button{
   </p>
 </section>
 
-<section class="flow" id="top">
+<section class="menuBox">
 
-  <div class="flowCard">
-    <div class="flowHead">
-      <div class="num">1</div>
-      <h2>まず投稿する</h2>
+  <div class="menuCard">
+    <div class="menuHead">
+      <div class="menuNum">1</div>
+      <h2 class="menuTitle">投稿する</h2>
     </div>
-    <p>
-      写真、町名、場所、困っている内容を入力します。スマホのカメラロールや撮影写真が使えます。
+
+    <p class="menuText">
+      写真、町名、場所、困っている内容を入力します。
+      スマホのカメラロールや撮影写真が使えます。
     </p>
 
-    <a class="bigButton" id="postButton" href="#" target="_blank" rel="noopener">
+    <a class="mainButton" id="postButton" href="#" target="_blank" rel="noopener">
       📷 写真付きで投稿する
       <small>投稿フォームを開きます</small>
     </a>
@@ -762,30 +710,33 @@ button{
     </div>
   </div>
 
-  <div class="flowCard">
-    <div class="flowHead">
-      <div class="num">2</div>
-      <h2>投稿を見る</h2>
+  <div class="menuCard">
+    <div class="menuHead">
+      <div class="menuNum">2</div>
+      <h2 class="menuTitle">見る</h2>
     </div>
-    <p>
-      投稿された困りごとは下に一覧で表示されます。写真、内容、場所、地図を確認できます。
+
+    <p class="menuText">
+      投稿された困りごとを一覧で確認します。
+      写真、内容、場所、地図、ナビが見られます。
     </p>
 
-    <a class="whiteButton" href="#reports">
+    <a class="subButton" href="#reports">
       投稿一覧を見る
     </a>
   </div>
 
-  <div class="flowCard">
-    <div class="flowHead">
-      <div class="num">3</div>
-      <h2>管理する</h2>
+  <div class="menuCard">
+    <div class="menuHead">
+      <div class="menuNum">3</div>
+      <h2 class="menuTitle">管理する</h2>
     </div>
-    <p>
-      管理者は、対応状態の変更、改善報告、改善後の写真登録ができます。
+
+    <p class="menuText">
+      管理者は対応状態、改善報告、改善後の写真を登録できます。
     </p>
 
-    <a class="whiteButton" id="adminTopButton" href="#" target="_blank" rel="noopener">
+    <a class="subButton" id="adminTopButton" href="#" target="_blank" rel="noopener">
       管理者画面を開く
     </a>
   </div>
@@ -798,12 +749,10 @@ button{
 
 <section class="section" id="reports">
   <div class="sectionHead">
-    <div>
-      <div class="sectionTitle">
-        <h2>投稿された困りごと</h2>
-      </div>
+    <div class="sectionTitle">
+      <h2>投稿一覧</h2>
       <div class="sectionSub">
-        写真・内容・場所・対応状態を確認できます。
+        投稿された困りごとを確認できます。
       </div>
     </div>
 
@@ -818,17 +767,6 @@ button{
       <p>少しお待ちください。</p>
     </div>
   </div>
-</section>
-
-<section class="adminBox" id="admin">
-  <h2>管理者用</h2>
-  <p>
-    対応状態、改善報告、改善写真の登録は管理者画面で行います。
-  </p>
-
-  <a id="adminButton" href="#" target="_blank" rel="noopener">
-    管理者対応画面を開く
-  </a>
 </section>
 
 </main>
@@ -863,9 +801,6 @@ document.getElementById("reportList");
 
 document.getElementById("postButton").href =
 FORM_URL;
-
-document.getElementById("adminButton").href =
-ADMIN_URL;
 
 document.getElementById("adminTopButton").href =
 ADMIN_URL;
