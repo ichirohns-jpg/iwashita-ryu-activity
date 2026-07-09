@@ -290,7 +290,7 @@ textarea:focus{
 .topMenu{
  margin-top:18px;
  display:grid;
- grid-template-columns:1fr 1fr 120px;
+ grid-template-columns:1fr 1fr 1fr 120px;
  gap:10px;
 }
 
@@ -570,7 +570,7 @@ textarea:focus{
  <h1>活動報告DX 管理画面</h1>
 
  <p>
-  合言葉を入れると、活動報告の登録と、困りごと投稿の管理ができます。
+  合言葉を入れると、活動報告・動画の登録と、困りごと投稿の管理ができます。
  </p>
 
 </section>
@@ -604,6 +604,10 @@ textarea:focus{
 
   <button class="tabBtn active" type="button" data-panel="activityPanel">
    活動報告を登録
+  </button>
+
+  <button class="tabBtn" type="button" data-panel="videoPanel">
+   動画を登録
   </button>
 
   <button class="tabBtn" type="button" data-panel="reportsPanel">
@@ -738,6 +742,126 @@ textarea:focus{
 
   <div id="preview" class="previewBox">
    SNS投稿文プレビュー
+  </div>
+
+ </section>
+
+ <section class="panel" id="videoPanel">
+
+  <h2>動画を登録</h2>
+
+  <p>
+   YouTube URLを入れて保存すると、公開状態が「公開」のものだけ動画ページに表示されます。
+  </p>
+
+  <div class="formGrid">
+
+   <div class="row2">
+
+    <div>
+     <label for="videoDate">日付</label>
+     <input id="videoDate" type="date">
+    </div>
+
+    <div>
+     <label for="videoTheme">テーマ</label>
+     <select id="videoTheme">
+      <option value="">選んでください</option>
+      <option value="地域活動">地域活動</option>
+      <option value="田子山富士">田子山富士</option>
+      <option value="商店会">商店会</option>
+      <option value="カッパのまち">カッパのまち</option>
+      <option value="イベント">イベント</option>
+      <option value="防災">防災</option>
+      <option value="福祉">福祉</option>
+      <option value="子育て">子育て</option>
+      <option value="まちづくり">まちづくり</option>
+      <option value="その他">その他</option>
+     </select>
+    </div>
+
+   </div>
+
+   <div>
+    <label for="videoTitle">動画タイトル</label>
+    <input id="videoTitle" type="text" placeholder="例：地域活動の様子を動画で報告します">
+   </div>
+
+   <div>
+    <label for="videoSummary">概要</label>
+    <textarea id="videoSummary" placeholder="動画の内容、伝えたいことを書きます。"></textarea>
+   </div>
+
+   <div>
+    <label for="youtubeUrl">
+     YouTube URL
+     <span class="help">通常のYouTube URL、ショート動画URL、共有URLでも大丈夫です</span>
+    </label>
+    <input id="youtubeUrl" type="text" placeholder="https://www.youtube.com/watch?v=...">
+   </div>
+
+   <div>
+    <label for="embedUrl">
+     埋め込みURL
+     <span class="help">空欄でも大丈夫です。通常はYouTube URLだけで表示できます。</span>
+    </label>
+    <input id="embedUrl" type="text" placeholder="空欄でOK">
+   </div>
+
+   <div>
+    <label for="thumbnailUrl">
+     サムネイルURL
+     <span class="help">空欄でも大丈夫です。YouTubeの画像を自動表示します。</span>
+    </label>
+    <input id="thumbnailUrl" type="text" placeholder="空欄でOK">
+   </div>
+
+   <div class="row2">
+
+    <div>
+     <label for="videoPublicStatus">公開状態</label>
+     <select id="videoPublicStatus">
+      <option value="下書き">下書き</option>
+      <option value="確認中">確認中</option>
+      <option value="公開">公開</option>
+      <option value="非公開">非公開</option>
+     </select>
+    </div>
+
+    <div>
+     <label for="videoOrder">表示順</label>
+     <input id="videoOrder" type="number" placeholder="空欄で通常表示">
+    </div>
+
+   </div>
+
+   <div>
+    <label for="videoNote">備考</label>
+    <textarea id="videoNote" placeholder="管理用メモ。公開ページには表示しません。"></textarea>
+   </div>
+
+  </div>
+
+  <div class="actionGrid">
+
+   <button class="btn btnYellow" type="button" onclick="makeEmbedFromYoutube()">
+    埋め込みURLを作る
+   </button>
+
+   <button class="btn btnGreen" type="button" onclick="saveVideo()">
+    動画を保存する
+   </button>
+
+   <button class="btn" type="button" onclick="clearVideoForm()">
+    クリア
+   </button>
+
+  </div>
+
+  <div id="videoStatus" class="status"></div>
+
+  <div id="videoPreview" class="previewBox">
+   YouTube URLを入れて「埋め込みURLを作る」を押すと、補助URLを作れます。空欄でも保存できます。
   </div>
 
  </section>
@@ -1338,6 +1462,195 @@ function clearActivityForm(){
 
 }
 
+function getYouTubeId(url){
+
+ const text =
+ String(url || "").trim();
+
+ if(!text){
+  return "";
+ }
+
+ let match =
+ text.match(/youtu\.be\/([^?&/]+)/);
+
+ if(match && match[1]){
+  return match[1];
+ }
+
+ match =
+ text.match(/[?&]v=([^?&]+)/);
+
+ if(match && match[1]){
+  return match[1];
+ }
+
+ match =
+ text.match(/\/embed\/([^?&/]+)/);
+
+ if(match && match[1]){
+  return match[1];
+ }
+
+ match =
+ text.match(/\/shorts\/([^?&/]+)/);
+
+ if(match && match[1]){
+  return match[1];
+ }
+
+ return "";
+
+}
+
+function makeEmbedFromYoutube(){
+
+ const url =
+ val("youtubeUrl");
+
+ if(!url){
+
+  alert("YouTube URLを入れてください。");
+
+  return;
+
+ }
+
+ const id =
+ getYouTubeId(url);
+
+ if(!id){
+
+  alert("YouTube IDを読み取れませんでした。URLを確認してください。");
+
+  return;
+
+ }
+
+ const embedUrl =
+ "https://www.youtube.com/embed/" + id;
+
+ const thumbnailUrl =
+ "https://img.youtube.com/vi/" + id + "/hqdefault.jpg";
+
+ setVal("embedUrl",embedUrl);
+
+ setVal("thumbnailUrl",thumbnailUrl);
+
+ document.getElementById("videoPreview").textContent =
+ "埋め込みURL\n" +
+ embedUrl +
+ "\n\nサムネイルURL\n" +
+ thumbnailUrl;
+
+}
+
+async function saveVideo(){
+
+ if(!adminPassword){
+
+  alert("先に合言葉を入力してください。");
+
+  return;
+
+ }
+
+ const title =
+ val("videoTitle");
+
+ const youtubeUrl =
+ val("youtubeUrl");
+
+ if(!title){
+
+  alert("動画タイトルを入れてください。");
+
+  return;
+
+ }
+
+ if(!youtubeUrl){
+
+  alert("YouTube URLを入れてください。");
+
+  return;
+
+ }
+
+ showStatus("videoStatus","保存しています。",false);
+
+ try{
+
+  const data =
+  await jsonp({
+   mode:"saveVideo",
+   adminPassword:adminPassword,
+   date:dateForText(val("videoDate")),
+   theme:val("videoTheme"),
+   title:title,
+   summary:val("videoSummary"),
+   youtubeUrl:youtubeUrl,
+   embedUrl:val("embedUrl"),
+   thumbnailUrl:val("thumbnailUrl"),
+   publicStatus:val("videoPublicStatus"),
+   order:val("videoOrder"),
+   note:val("videoNote")
+  });
+
+  if(data && data.ok){
+
+   showStatus(
+    "videoStatus",
+    "動画を保存しました。ID：" + data.id,
+    false
+   );
+
+   return;
+
+  }
+
+  showStatus(
+   "videoStatus",
+   "保存できませんでした。" + (data && data.error ? "\n" + data.error : ""),
+   true
+  );
+
+ }catch(e){
+
+  showStatus("videoStatus","通信に失敗しました。",true);
+
+ }
+
+}
+
+function clearVideoForm(){
+
+ [
+  "videoTheme",
+  "videoTitle",
+  "videoSummary",
+  "youtubeUrl",
+  "embedUrl",
+  "thumbnailUrl",
+  "videoOrder",
+  "videoNote"
+ ].forEach(function(id){
+
+  setVal(id,"");
+
+ });
+
+ setVal("videoDate",todayForInput());
+
+ setVal("videoPublicStatus","下書き");
+
+ document.getElementById("videoPreview").textContent =
+ "YouTube URLを入れて「埋め込みURLを作る」を押すと、補助URLを作れます。空欄でも保存できます。";
+
+ hideStatus("videoStatus");
+
+}
+
 async function loadReports(){
 
  if(!adminPassword){
@@ -1649,6 +1962,8 @@ async function updateOneReport(id,index){
 }
 
 setVal("date",todayForInput());
+
+setVal("videoDate",todayForInput());
 
 checkStoredLogin();
 
