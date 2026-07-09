@@ -7,12 +7,28 @@
 <title>活動登録・管理｜岩下りゅう</title>
 
 <meta name="description" content="岩下りゅう活動報告DXの活動登録・管理画面です。">
-<meta name="theme-color" content="#6fbd69">
+<meta name="theme-color" content="#237a3b">
 
 <link rel="icon" type="image/png" href="apple-touch-icon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
 <style>
+
+:root{
+ --kappa-dark:#14532d;
+ --kappa-main:#237a3b;
+ --kappa-mid:#4caf63;
+ --kappa-light:#7bcf7a;
+ --shinryoku:#e8f8e8;
+ --shinryoku-soft:#f7fff4;
+ --river-blue:#e0f2fe;
+ --cream:#fff7c2;
+ --gold:#facc15;
+ --ink:#1f2933;
+ --muted:#4b6350;
+ --line:#9ed7aa;
+ --white:#ffffff;
+}
 
 *{
  box-sizing:border-box;
@@ -30,8 +46,10 @@ body{
  "Meiryo",
  sans-serif;
  background:
- linear-gradient(180deg,#f8fff5 0%,#ffffff 54%,#edfbea 100%);
- color:#203326;
+ radial-gradient(circle at 8% 0%,rgba(190,240,185,.70),transparent 28%),
+ radial-gradient(circle at 92% 4%,rgba(224,242,254,.78),transparent 30%),
+ linear-gradient(180deg,#f7fff4 0%,#ffffff 50%,#eef9ee 100%);
+ color:var(--ink);
  line-height:1.7;
  -webkit-text-size-adjust:100%;
 }
@@ -61,7 +79,7 @@ button{
  justify-content:space-between;
  gap:12px;
  padding:10px 0;
- background:rgba(248,255,245,.96);
+ background:rgba(247,255,244,.96);
  backdrop-filter:blur(14px);
 }
 
@@ -69,7 +87,7 @@ button{
  display:flex;
  align-items:center;
  gap:10px;
- color:#1f5f35;
+ color:var(--kappa-dark);
  font-weight:900;
 }
 
@@ -78,7 +96,7 @@ button{
  height:44px;
  border-radius:14px;
  object-fit:cover;
- box-shadow:0 6px 18px rgba(70,130,82,.18);
+ box-shadow:0 6px 18px rgba(20,83,45,.18);
 }
 
 .brand span{
@@ -96,21 +114,22 @@ button{
  padding:9px 13px;
  border-radius:999px;
  background:#fff;
- border:1px solid #b7ebc0;
- color:#1f6b3d;
+ border:1px solid var(--line);
+ color:var(--kappa-dark);
  font-size:13px;
  font-weight:900;
- box-shadow:0 6px 16px rgba(70,130,82,.07);
+ box-shadow:0 6px 16px rgba(20,83,45,.07);
 }
 
 .hero{
  margin-top:8px;
  border-radius:28px;
  background:
- radial-gradient(circle at 100% 0%,rgba(255,246,176,.45),transparent 35%),
- linear-gradient(135deg,#ffffff 0%,#f4fff1 100%);
- border:2px solid #b7ebc0;
- box-shadow:0 12px 30px rgba(70,130,82,.10);
+ radial-gradient(circle at 100% 0%,rgba(255,247,194,.70),transparent 34%),
+ radial-gradient(circle at 0% 100%,rgba(224,242,254,.60),transparent 34%),
+ linear-gradient(135deg,#ffffff 0%,#f3fff1 100%);
+ border:2px solid var(--line);
+ box-shadow:0 12px 30px rgba(20,83,45,.10);
  padding:22px;
 }
 
@@ -118,16 +137,16 @@ button{
  display:inline-flex;
  padding:7px 12px;
  border-radius:999px;
- background:#e6ffe9;
- border:1px solid #b7ebc0;
- color:#1f6b3d;
+ background:var(--shinryoku);
+ border:1px solid var(--line);
+ color:var(--kappa-dark);
  font-size:14px;
  font-weight:900;
 }
 
 .hero h1{
  margin:12px 0 0;
- color:#1f5f35;
+ color:var(--kappa-dark);
  font-size:clamp(34px,8vw,56px);
  line-height:1.12;
  font-weight:900;
@@ -135,7 +154,7 @@ button{
 
 .hero p{
  margin:10px 0 0;
- color:#344c39;
+ color:var(--ink);
  font-size:18px;
  line-height:1.75;
  font-weight:850;
@@ -156,11 +175,23 @@ button{
  text-align:center;
  border-radius:22px;
  background:#fff;
- border:2px solid #b7ebc0;
- color:#1f5f35;
+ border:2px solid var(--line);
+ color:var(--kappa-dark);
  font-size:16px;
  font-weight:900;
  padding:10px;
+}
+
+.heroLinks a:first-child{
+ background:linear-gradient(135deg,#14532d 0%,#237a3b 55%,#4caf63 100%);
+ border-color:var(--kappa-main);
+ color:#fff;
+}
+
+.heroLinks a:nth-child(2){
+ background:var(--cream);
+ border-color:var(--gold);
+ color:#5c3b00;
 }
 
 .section{
@@ -170,14 +201,14 @@ button{
 .card{
  border-radius:28px;
  background:#fff;
- border:2px solid #b7ebc0;
- box-shadow:0 12px 30px rgba(70,130,82,.10);
+ border:2px solid var(--line);
+ box-shadow:0 12px 30px rgba(20,83,45,.10);
  padding:22px;
 }
 
 .sectionTitle{
  margin:0 0 12px;
- color:#1f5f35;
+ color:var(--kappa-dark);
  font-size:clamp(28px,7vw,42px);
  line-height:1.2;
  font-weight:900;
@@ -185,7 +216,7 @@ button{
 
 .lead{
  margin:0 0 18px;
- color:#4d6b55;
+ color:var(--ink);
  font-size:17px;
  font-weight:850;
 }
@@ -207,14 +238,14 @@ button{
 }
 
 label{
- color:#1f5f35;
+ color:var(--kappa-dark);
  font-size:18px;
  font-weight:900;
 }
 
 .smallHelp{
  display:block;
- color:#607d6b;
+ color:var(--muted);
  font-size:13px;
  font-weight:800;
  margin-top:2px;
@@ -224,10 +255,10 @@ input,
 select,
 textarea{
  width:100%;
- border:2px solid #b7ebc0;
+ border:2px solid var(--line);
  border-radius:20px;
  background:#fffdf0;
- color:#203326;
+ color:var(--ink);
  font-family:inherit;
  font-size:18px;
  font-weight:850;
@@ -249,18 +280,18 @@ textarea{
 input:focus,
 select:focus,
 textarea:focus{
- border-color:#4caf63;
+ border-color:var(--kappa-main);
  background:#ffffff;
- box-shadow:0 0 0 4px rgba(76,175,99,.15);
+ box-shadow:0 0 0 4px rgba(35,122,59,.15);
 }
 
 .urlBox{
  margin-top:10px;
  padding:14px;
  border-radius:20px;
- background:#f7fff5;
- border:1px solid #c8f0ce;
- color:#3c5943;
+ background:#f8fff6;
+ border:1px solid #c7eecb;
+ color:var(--ink);
  font-size:15px;
  font-weight:850;
 }
@@ -281,9 +312,9 @@ a.btn{
  justify-content:center;
  text-align:center;
  border-radius:20px;
- border:2px solid #b7ebc0;
+ border:2px solid var(--line);
  background:#fff;
- color:#1f5f35;
+ color:var(--kappa-dark);
  font-size:17px;
  font-weight:900;
  padding:10px 12px;
@@ -292,8 +323,8 @@ a.btn{
 .btnGreen{
  min-height:58px;
  border-radius:20px;
- border:2px solid #78c96f;
- background:linear-gradient(135deg,#4caf63 0%,#78c96f 100%);
+ border:2px solid var(--kappa-main);
+ background:linear-gradient(135deg,#14532d 0%,#237a3b 55%,#4caf63 100%);
  color:#fff;
  font-size:17px;
  font-weight:900;
@@ -303,8 +334,8 @@ a.btn{
 .btnLight{
  min-height:58px;
  border-radius:20px;
- border:2px solid #facc15;
- background:#fff7c2;
+ border:2px solid var(--gold);
+ background:var(--cream);
  color:#5c3b00;
  font-size:17px;
  font-weight:900;
@@ -356,7 +387,7 @@ a.btn{
 .footer{
  margin-top:28px;
  text-align:center;
- color:#4d6b55;
+ color:var(--ink);
  font-size:13px;
  font-weight:800;
 }
@@ -684,7 +715,7 @@ function dateForText(inputDate){
 
  }
 
- return inputDate.replaceAll("-","/");
+ return inputDate.replace(/-/g,"/");
 
 }
 
