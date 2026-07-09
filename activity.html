@@ -612,7 +612,7 @@ button{
 <script>
 
 const GAS_URL =
-"https://script.google.com/macros/s/AKfycbwnHzGW_dHBNISyJzW_zFGX2rhMwX_g2SzENuW58SZNrKVKv6gMkHeU2P83BQbHrcqneA/exec";
+"https://script.google.com/macros/s/AKfycbz5rUOhjOZKBgQ3Uuu_o8KWX_EaVdchutidFSu4z0rR2raGfSHYuyw7SfWxJyvt35DFhA/exec";
 
 const activityList =
 document.getElementById("activityList");
@@ -928,19 +928,47 @@ function loadActivities(){
  '<p>少しお待ちください。</p>' +
  '</div>';
 
- const url =
+ const callbackName =
+ "activitiesCallback_" +
+ Date.now() +
+ "_" +
+ Math.floor(Math.random() * 100000);
+
+ window[callbackName] =
+ function(data){
+
+  renderActivities(data);
+
+  try{
+   delete window[callbackName];
+  }catch(e){
+   window[callbackName] = undefined;
+  }
+
+  const old =
+  document.getElementById(callbackName);
+
+  if(old){
+   old.remove();
+  }
+
+ };
+
+ const script =
+ document.createElement("script");
+
+ script.id =
+ callbackName;
+
+ script.src =
  GAS_URL +
- "?mode=getActivities&t=" +
+ "?mode=getActivities&callback=" +
+ encodeURIComponent(callbackName) +
+ "&t=" +
  Date.now();
 
- fetch(url)
- .then(function(res){
-  return res.json();
- })
- .then(function(data){
-  renderActivities(data);
- })
- .catch(function(){
+ script.onerror =
+ function(){
 
   activityList.innerHTML =
   '<div class="empty">' +
@@ -948,7 +976,15 @@ function loadActivities(){
   '<p>GAS URL、デプロイ、アクセス権限を確認してください。</p>' +
   '</div>';
 
- });
+  try{
+   delete window[callbackName];
+  }catch(e){
+   window[callbackName] = undefined;
+  }
+
+ };
+
+ document.body.appendChild(script);
 
 }
 
