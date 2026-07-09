@@ -30,9 +30,7 @@ body{
  "Meiryo",
  sans-serif;
  background:
- radial-gradient(circle at 10% 0%,rgba(218,255,209,.95),transparent 30%),
- radial-gradient(circle at 90% 5%,rgba(255,246,176,.55),transparent 26%),
- linear-gradient(180deg,#f8fff5 0%,#ffffff 52%,#edfbea 100%);
+ linear-gradient(180deg,#f8fff5 0%,#ffffff 54%,#edfbea 100%);
  color:#203326;
  line-height:1.7;
  -webkit-text-size-adjust:100%;
@@ -45,6 +43,7 @@ a{
 
 button{
  font-family:inherit;
+ cursor:pointer;
 }
 
 .wrap{
@@ -56,14 +55,14 @@ button{
 .header{
  position:sticky;
  top:0;
- z-index:90;
+ z-index:80;
  display:flex;
  align-items:center;
  justify-content:space-between;
  gap:12px;
  padding:10px 0;
  background:rgba(248,255,245,.96);
- backdrop-filter:blur(16px);
+ backdrop-filter:blur(14px);
 }
 
 .brand{
@@ -77,9 +76,9 @@ button{
 .brand img{
  width:44px;
  height:44px;
- border-radius:16px;
+ border-radius:14px;
  object-fit:cover;
- box-shadow:0 8px 22px rgba(70,130,82,.18);
+ box-shadow:0 6px 18px rgba(70,130,82,.18);
 }
 
 .brand span{
@@ -106,18 +105,18 @@ button{
 
 .hero{
  margin-top:8px;
- border-radius:34px;
+ border-radius:28px;
  background:
- radial-gradient(circle at 100% 0%,rgba(255,246,176,.58),transparent 34%),
+ radial-gradient(circle at 100% 0%,rgba(255,246,176,.45),transparent 35%),
  linear-gradient(135deg,#ffffff 0%,#f4fff1 100%);
  border:2px solid #b7ebc0;
- box-shadow:0 16px 40px rgba(70,130,82,.12);
- padding:24px;
+ box-shadow:0 12px 30px rgba(70,130,82,.10);
+ padding:22px;
 }
 
 .kicker{
  display:inline-flex;
- padding:8px 13px;
+ padding:7px 12px;
  border-radius:999px;
  background:#e6ffe9;
  border:1px solid #b7ebc0;
@@ -127,23 +126,51 @@ button{
 }
 
 .hero h1{
- margin:14px 0 0;
+ margin:12px 0 0;
  color:#1f5f35;
- font-size:clamp(44px,11vw,74px);
- line-height:1.08;
+ font-size:clamp(34px,8vw,56px);
+ line-height:1.12;
  font-weight:900;
 }
 
 .hero p{
- margin:12px 0 0;
+ margin:10px 0 0;
  color:#344c39;
  font-size:18px;
  line-height:1.75;
  font-weight:850;
 }
 
+.heroButtons{
+ margin-top:16px;
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:10px;
+}
+
+.heroButtons a{
+ min-height:58px;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ text-align:center;
+ border-radius:22px;
+ background:#fff;
+ border:2px solid #b7ebc0;
+ color:#1f5f35;
+ font-size:18px;
+ font-weight:900;
+ padding:10px;
+}
+
+.heroButtons a.primary{
+ background:linear-gradient(135deg,#4caf63 0%,#78c96f 100%);
+ border-color:#78c96f;
+ color:#fff;
+}
+
 .listSection{
- margin-top:30px;
+ margin-top:28px;
 }
 
 .listHead{
@@ -157,9 +184,16 @@ button{
 .listHead h2{
  margin:0;
  color:#1f5f35;
- font-size:clamp(34px,8vw,54px);
- line-height:1.15;
+ font-size:clamp(30px,7vw,46px);
+ line-height:1.18;
  font-weight:900;
+}
+
+.listHead p{
+ margin:5px 0 0;
+ color:#4d6b55;
+ font-size:16px;
+ font-weight:850;
 }
 
 .reloadBtn{
@@ -170,7 +204,6 @@ button{
  font-size:15px;
  font-weight:900;
  padding:10px 14px;
- cursor:pointer;
 }
 
 .activityList{
@@ -181,23 +214,38 @@ button{
 
 .activityCard{
  overflow:hidden;
- border-radius:32px;
+ border-radius:28px;
  background:#fff;
  border:2px solid #b7ebc0;
- box-shadow:0 16px 40px rgba(70,130,82,.11);
+ box-shadow:0 12px 30px rgba(70,130,82,.10);
 }
 
-.activityImage{
- display:block;
+.activityImageBox{
  width:100%;
  aspect-ratio:4/3;
- object-fit:cover;
  background:#e6ffe9;
  border-bottom:1px solid #d6f3d8;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ overflow:hidden;
+}
+
+.activityImageBox img{
+ width:100%;
+ height:100%;
+ object-fit:cover;
+ display:block;
+}
+
+.noImage{
+ color:#4d6b55;
+ font-size:18px;
+ font-weight:900;
 }
 
 .activityBody{
- padding:20px;
+ padding:18px;
 }
 
 .metaRow{
@@ -222,8 +270,8 @@ button{
 .activityTitle{
  margin:0;
  color:#1f5f35;
- font-size:clamp(30px,7vw,48px);
- line-height:1.2;
+ font-size:clamp(26px,6vw,40px);
+ line-height:1.25;
  font-weight:900;
 }
 
@@ -231,7 +279,7 @@ button{
  margin-top:12px;
  color:#2f4c36;
  font-size:18px;
- line-height:1.7;
+ line-height:1.75;
  font-weight:850;
  white-space:pre-wrap;
  word-break:break-word;
@@ -249,14 +297,14 @@ button{
  width:100%;
  aspect-ratio:1/1;
  object-fit:cover;
- border-radius:18px;
+ border-radius:16px;
  border:1px solid #c8f0ce;
  background:#f7fff5;
 }
 
 .shareBox{
- margin-top:18px;
- border-radius:24px;
+ margin-top:16px;
+ border-radius:22px;
  background:#f7fff5;
  border:1px solid #c8f0ce;
  padding:14px;
@@ -277,50 +325,25 @@ button{
 
 .shareButtons a,
 .shareButtons button{
- min-height:50px;
+ min-height:48px;
  display:flex;
  align-items:center;
  justify-content:center;
- border-radius:18px;
+ border-radius:17px;
  border:2px solid #b7ebc0;
  background:#fff;
  color:#1f5f35;
  font-size:15px;
  font-weight:900;
- cursor:pointer;
-}
-
-.empty{
- border-radius:28px;
- background:#fff;
- border:2px solid #b7ebc0;
- box-shadow:0 12px 30px rgba(71,130,82,.10);
- padding:22px;
- color:#4d6b55;
-}
-
-.empty h3{
- margin:0;
- color:#1f5f35;
- font-size:26px;
- line-height:1.3;
- font-weight:900;
-}
-
-.empty p{
- margin:10px 0 0;
- font-size:18px;
- line-height:1.7;
- font-weight:850;
 }
 
 .nextAction{
  margin-top:22px;
- border-radius:30px;
+ border-radius:28px;
  background:#fff;
- border:1px solid #b7ebc0;
+ border:2px solid #b7ebc0;
  box-shadow:0 12px 30px rgba(71,130,82,.10);
- padding:22px;
+ padding:20px;
 }
 
 .nextAction h2{
@@ -340,28 +363,60 @@ button{
 
 .nextButtons{
  display:grid;
- grid-template-columns:1fr;
+ grid-template-columns:1fr 1fr;
  gap:10px;
  margin-top:14px;
 }
 
 .nextButtons a{
- min-height:62px;
+ min-height:60px;
  display:flex;
  align-items:center;
  justify-content:center;
- border-radius:24px;
+ border-radius:22px;
  background:#fff;
  border:2px solid #b7ebc0;
  color:#1f5f35;
- font-size:20px;
+ font-size:18px;
  font-weight:900;
 }
 
 .nextButtons a.support{
- background:linear-gradient(135deg,#fff7c2 0%,#facc15 100%);
+ background:#fff7c2;
  border-color:#facc15;
  color:#5c3b00;
+}
+
+.empty{
+ border-radius:26px;
+ background:#fff;
+ border:2px solid #b7ebc0;
+ box-shadow:0 10px 26px rgba(71,130,82,.10);
+ padding:22px;
+ color:#4d6b55;
+}
+
+.empty h3{
+ margin:0;
+ color:#1f5f35;
+ font-size:25px;
+ line-height:1.3;
+ font-weight:900;
+}
+
+.empty p{
+ margin:10px 0 0;
+ font-size:17px;
+ line-height:1.7;
+ font-weight:850;
+}
+
+.footer{
+ margin-top:30px;
+ text-align:center;
+ color:#4d6b55;
+ font-size:13px;
+ font-weight:800;
 }
 
 .bottomNav{
@@ -397,14 +452,6 @@ button{
  color:#14532d;
 }
 
-.footer{
- margin-top:30px;
- text-align:center;
- color:#4d6b55;
- font-size:13px;
- font-weight:800;
-}
-
 @media (min-width:820px){
 
  .activityList{
@@ -415,17 +462,13 @@ button{
   grid-column:1 / -1;
  }
 
- .activityCard:first-child .activityImage{
+ .activityCard:first-child .activityImageBox{
   aspect-ratio:21/9;
- }
-
- .nextButtons{
-  grid-template-columns:1fr 1fr;
  }
 
 }
 
-@media (max-width:560px){
+@media (max-width:700px){
 
  .wrap{
   width:94%;
@@ -440,8 +483,12 @@ button{
  }
 
  .hero{
-  border-radius:28px;
+  border-radius:26px;
   padding:18px;
+ }
+
+ .heroButtons{
+  grid-template-columns:1fr;
  }
 
  .listHead{
@@ -450,17 +497,20 @@ button{
  }
 
  .activityBody{
-  padding:18px;
+  padding:17px;
  }
 
  .shareButtons{
   grid-template-columns:1fr 1fr;
  }
 
+ .nextButtons{
+  grid-template-columns:1fr;
+ }
+
 }
 
 </style>
-
 </head>
 
 <body>
@@ -496,13 +546,21 @@ button{
   地域活動、商店会、文化・歴史、まちづくりの活動を、写真と文章でわかりやすく掲載します。
  </p>
 
+ <div class="heroButtons">
+  <a class="primary" href="#activityList">最新の活動を見る</a>
+  <a href="support.html">応援メッセージを書く</a>
+ </div>
+
 </section>
 
 <section class="listSection">
 
  <div class="listHead">
 
-  <h2>最新の活動</h2>
+  <div>
+   <h2>最新の活動</h2>
+   <p>公開中の活動報告を表示します。</p>
+  </div>
 
   <button class="reloadBtn" type="button" onclick="loadActivities()">更新</button>
 
@@ -570,9 +628,68 @@ function esc(v){
 
 }
 
-function cleanUrl(v){
+function pick(obj,keys,defaultValue){
 
- return String(v || "").trim();
+ for(let i = 0; i < keys.length; i++){
+
+  const key =
+  keys[i];
+
+  if(
+   obj &&
+   obj[key] !== undefined &&
+   obj[key] !== null &&
+   String(obj[key]).trim() !== ""
+  ){
+
+   return String(obj[key]).trim();
+
+  }
+
+ }
+
+ return defaultValue || "";
+
+}
+
+function normalizeActivities(data){
+
+ if(Array.isArray(data)){
+  return data;
+ }
+
+ if(data && Array.isArray(data.records)){
+  return data.records;
+ }
+
+ if(data && Array.isArray(data.activities)){
+  return data.activities;
+ }
+
+ if(data && Array.isArray(data.data)){
+  return data.data;
+ }
+
+ if(data && Array.isArray(data.items)){
+  return data.items;
+ }
+
+ return [];
+
+}
+
+function shortDate(v){
+
+ const s =
+ String(v || "");
+
+ if(!s){
+  return "";
+ }
+
+ return s
+ .replace(/\s\d{2}:\d{2}.*/,"")
+ .replace(/-/g,"/");
 
 }
 
@@ -585,13 +702,18 @@ function getImages(r){
   "画像URL2",
   "画像URL3",
   "画像URL4",
-  "画像URL5"
+  "画像URL5",
+  "imageUrl1",
+  "imageUrl2",
+  "imageUrl3",
+  "imageUrl4",
+  "imageUrl5"
  ].forEach(function(key){
 
   const url =
-  cleanUrl(r[key]);
+  pick(r,[key],"");
 
-  if(url){
+  if(url && imgs.indexOf(url) === -1){
    imgs.push(url);
   }
 
@@ -615,14 +737,13 @@ function activityShareUrl(id){
 
 }
 
-function makeShareText(title, summary){
+function makeShareText(title,summary){
 
- const text =
- (title || "岩下りゅう 活動報告") +
- "\n" +
- (summary || "");
-
- return text.trim();
+ return (
+  String(title || "岩下りゅう 活動報告") +
+  "\n" +
+  String(summary || "")
+ ).trim();
 
 }
 
@@ -652,36 +773,56 @@ function copyActivity(title,url){
 function activityCard(r,index){
 
  const id =
- r["ID"] ||
- "";
+ pick(r,[
+  "ID",
+  "id",
+  "activityId"
+ ],String(index + 1));
 
  const date =
- r["日付"] ||
- r["日時"] ||
- "";
+ shortDate(
+  pick(r,[
+   "日付",
+   "日時",
+   "date",
+   "createdAt"
+  ],"")
+ );
 
  const theme =
- r["テーマ"] ||
- "";
+ pick(r,[
+  "テーマ",
+  "theme",
+  "分類",
+  "category"
+ ],"");
 
  const title =
- r["タイトル"] ||
- "活動報告";
+ pick(r,[
+  "タイトル",
+  "title"
+ ],"活動報告");
 
  const summary =
- r["概要"] ||
- "";
+ pick(r,[
+  "概要",
+  "summary",
+  "本文",
+  "body",
+  "description"
+ ],"");
 
  const snsText =
- r["SNS投稿文"] ||
- "";
+ pick(r,[
+  "SNS投稿文",
+  "snsText"
+ ],"");
 
  const images =
  getImages(r);
 
  const mainImage =
- images[0] ||
- "images/activity/hero-main.jpg";
+ images[0] || "";
 
  const shareUrl =
  activityShareUrl(id);
@@ -710,14 +851,19 @@ function activityCard(r,index){
  images
  .slice(1)
  .map(function(url){
-  return '<img src="' + esc(url) + '" alt="">';
+  return '<img src="' + esc(url) + '" alt="' + esc(title) + '">';
  })
  .join("");
 
  return ''
- + '<article class="activityCard" id="activity-' + esc(id || String(index + 1)) + '">'
+ + '<article class="activityCard" id="activity-' + esc(id) + '">'
 
- + '<img class="activityImage" src="' + esc(mainImage) + '" alt="' + esc(title) + '">'
+ + '<div class="activityImageBox">'
+ + (mainImage
+    ? '<img src="' + esc(mainImage) + '" alt="' + esc(title) + '">'
+    : '<div class="noImage">写真なし</div>'
+   )
+ + '</div>'
 
  + '<div class="activityBody">'
 
@@ -748,10 +894,39 @@ function activityCard(r,index){
 
 }
 
+function renderActivities(data){
+
+ const records =
+ normalizeActivities(data);
+
+ if(!records.length){
+
+  activityList.innerHTML =
+  '<div class="empty">' +
+  '<h3>現在、公開中の活動報告は準備中です。</h3>' +
+  '<p>公開された活動報告は、このページに順番に表示されます。</p>' +
+  '</div>';
+
+  return;
+
+ }
+
+ activityList.innerHTML =
+ records
+ .map(function(r,index){
+  return activityCard(r,index);
+ })
+ .join("");
+
+}
+
 function loadActivities(){
 
  activityList.innerHTML =
- '<div class="empty"><h3>活動報告を読み込み中です。</h3><p>少しお待ちください。</p></div>';
+ '<div class="empty">' +
+ '<h3>活動報告を読み込み中です。</h3>' +
+ '<p>少しお待ちください。</p>' +
+ '</div>';
 
  const url =
  GAS_URL +
@@ -763,29 +938,15 @@ function loadActivities(){
   return res.json();
  })
  .then(function(data){
-
-  const records =
-  data && data.records
-  ? data.records
-  : [];
-
-  if(!records.length){
-
-   activityList.innerHTML =
-   '<div class="empty"><h3>現在、公開中の活動報告は準備中です。</h3><p>公開された活動報告は、このページに順番に表示されます。</p></div>';
-
-   return;
-
-  }
-
-  activityList.innerHTML =
-  records.map(activityCard).join("");
-
+  renderActivities(data);
  })
  .catch(function(){
 
   activityList.innerHTML =
-  '<div class="empty"><h3>活動報告を読み込めませんでした。</h3><p>時間をおいて、もう一度開いてください。</p></div>';
+  '<div class="empty">' +
+  '<h3>活動報告を読み込めませんでした。</h3>' +
+  '<p>GAS URL、デプロイ、アクセス権限を確認してください。</p>' +
+  '</div>';
 
  });
 
