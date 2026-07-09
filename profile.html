@@ -6,371 +6,532 @@
 
 <title>岩下りゅうとは｜岩下りゅう 活動報告</title>
 
-<meta name="description" content="岩下りゅうのプロフィール、地域活動への想い、志木との関わりをわかりやすく紹介します。">
-<meta name="theme-color" content="#6fbd69">
+<meta name="description" content="岩下りゅうのプロフィール、活動への思い、地域活動の考え方を紹介します。">
+<meta name="theme-color" content="#237a3b">
 
 <link rel="icon" type="image/png" href="apple-touch-icon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
 <style>
+
+:root{
+ --kappa-dark:#14532d;
+ --kappa-main:#237a3b;
+ --kappa-mid:#4caf63;
+ --kappa-light:#7bcf7a;
+ --shinryoku:#e8f8e8;
+ --shinryoku-soft:#f7fff4;
+ --river-blue:#e0f2fe;
+ --cream:#fff7c2;
+ --gold:#facc15;
+ --ink:#1f2933;
+ --muted:#4b6350;
+ --line:#9ed7aa;
+ --white:#ffffff;
+}
+
 *{
-  box-sizing:border-box;
+ box-sizing:border-box;
 }
 
 html{
-  scroll-behavior:smooth;
+ scroll-behavior:smooth;
 }
 
 body{
-  margin:0;
-  font-family:"Hiragino Sans","Yu Gothic","Meiryo",sans-serif;
-  color:#203326;
-  background:
-    radial-gradient(circle at 10% 0%,rgba(218,255,209,.9),transparent 28%),
-    radial-gradient(circle at 90% 5%,rgba(255,246,176,.55),transparent 25%),
-    linear-gradient(180deg,#f8fff5 0%,#ffffff 48%,#edfbea 100%);
-  line-height:1.75;
-  -webkit-text-size-adjust:100%;
+ margin:0;
+ font-family:
+ "Hiragino Sans",
+ "Yu Gothic",
+ "Meiryo",
+ sans-serif;
+ background:
+ radial-gradient(circle at 8% 0%,rgba(190,240,185,.70),transparent 28%),
+ radial-gradient(circle at 92% 4%,rgba(224,242,254,.78),transparent 30%),
+ linear-gradient(180deg,#f7fff4 0%,#ffffff 50%,#eef9ee 100%);
+ color:var(--ink);
+ line-height:1.7;
+ -webkit-text-size-adjust:100%;
 }
 
 a{
-  color:inherit;
-  text-decoration:none;
-}
-
-img{
-  max-width:100%;
+ color:inherit;
+ text-decoration:none;
 }
 
 .wrap{
-  width:min(980px,94%);
-  margin:auto;
-  padding:12px 0 96px;
+ width:min(980px,94%);
+ margin:auto;
+ padding:12px 0 96px;
 }
 
-/* ヘッダー */
-
 .header{
-  position:sticky;
-  top:0;
-  z-index:80;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  padding:10px 0;
-  background:rgba(248,255,245,.94);
-  backdrop-filter:blur(16px);
+ position:sticky;
+ top:0;
+ z-index:80;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ gap:12px;
+ padding:10px 0;
+ background:rgba(247,255,244,.96);
+ backdrop-filter:blur(14px);
 }
 
 .brand{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  color:#1f5f35;
-  font-weight:900;
+ display:flex;
+ align-items:center;
+ gap:10px;
+ color:var(--kappa-dark);
+ font-weight:900;
 }
 
 .brand img{
-  width:44px;
-  height:44px;
-  border-radius:16px;
-  object-fit:cover;
-  box-shadow:0 8px 22px rgba(70,130,82,.18);
+ width:44px;
+ height:44px;
+ border-radius:14px;
+ object-fit:cover;
+ box-shadow:0 6px 18px rgba(20,83,45,.18);
 }
 
 .brand span{
-  font-size:18px;
-  line-height:1.25;
+ font-size:18px;
+ line-height:1.25;
 }
 
 .headerNav{
-  display:flex;
-  flex-wrap:wrap;
-  gap:7px;
+ display:flex;
+ flex-wrap:wrap;
+ gap:7px;
 }
 
 .headerNav a{
-  padding:9px 13px;
-  border-radius:999px;
-  background:#fff;
-  border:1px solid #b7ebc0;
-  color:#1f6b3d;
-  font-size:13px;
-  font-weight:900;
-  box-shadow:0 6px 16px rgba(70,130,82,.07);
+ padding:9px 13px;
+ border-radius:999px;
+ background:#fff;
+ border:1px solid var(--line);
+ color:var(--kappa-dark);
+ font-size:13px;
+ font-weight:900;
+ box-shadow:0 6px 16px rgba(20,83,45,.07);
 }
 
-/* 上部 */
-
 .hero{
-  margin-top:8px;
-  border-radius:32px;
-  background:
-    radial-gradient(circle at 100% 0%,rgba(255,246,176,.48),transparent 34%),
-    linear-gradient(135deg,#ffffff 0%,#f4fff1 100%);
-  border:1px solid #b7ebc0;
-  box-shadow:0 16px 40px rgba(70,130,82,.11);
-  padding:22px;
+ margin-top:8px;
+ border-radius:34px;
+ background:
+ radial-gradient(circle at 100% 0%,rgba(255,247,194,.76),transparent 34%),
+ radial-gradient(circle at 0% 100%,rgba(224,242,254,.65),transparent 34%),
+ linear-gradient(135deg,#ffffff 0%,#f3fff1 100%);
+ border:2px solid var(--line);
+ box-shadow:0 16px 40px rgba(20,83,45,.12);
+ padding:24px;
 }
 
 .kicker{
-  display:inline-flex;
-  padding:8px 13px;
-  border-radius:999px;
-  background:#e6ffe9;
-  border:1px solid #b7ebc0;
-  color:#1f6b3d;
-  font-size:14px;
-  font-weight:900;
+ display:inline-flex;
+ padding:8px 13px;
+ border-radius:999px;
+ background:var(--shinryoku);
+ border:1px solid var(--line);
+ color:var(--kappa-dark);
+ font-size:14px;
+ font-weight:900;
 }
 
 .hero h1{
-  margin:14px 0 0;
-  color:#1f5f35;
-  font-size:clamp(38px,10vw,64px);
-  line-height:1.08;
-  font-weight:900;
+ margin:14px 0 0;
+ color:var(--kappa-dark);
+ font-size:clamp(40px,10vw,70px);
+ line-height:1.05;
+ font-weight:900;
+ letter-spacing:-.03em;
+}
+
+.hero h1 span{
+ display:block;
+ color:var(--kappa-main);
 }
 
 .hero p{
-  margin:12px 0 0;
-  color:#344c39;
-  font-size:18px;
-  font-weight:850;
+ margin:14px 0 0;
+ color:var(--ink);
+ font-size:19px;
+ line-height:1.75;
+ font-weight:850;
 }
 
-/* プロフィール */
-
-.profileCard{
-  margin-top:18px;
-  border-radius:32px;
-  background:#fff;
-  border:1px solid #b7ebc0;
-  box-shadow:0 16px 40px rgba(70,130,82,.11);
-  padding:22px;
+.profileBox{
+ margin-top:18px;
+ display:grid;
+ grid-template-columns:280px 1fr;
+ gap:18px;
+ align-items:stretch;
 }
 
-.profileTop{
-  display:flex;
-  align-items:center;
-  gap:16px;
+.profileImage{
+ min-height:320px;
+ border-radius:30px;
+ background:
+ radial-gradient(circle at 50% 0%,rgba(255,247,194,.72),transparent 42%),
+ linear-gradient(135deg,#14532d 0%,#237a3b 58%,#4caf63 100%);
+ border:2px solid var(--kappa-main);
+ color:#fff;
+ display:flex;
+ flex-direction:column;
+ align-items:center;
+ justify-content:center;
+ text-align:center;
+ padding:20px;
+ box-shadow:0 14px 30px rgba(20,83,45,.22);
 }
 
-.profilePhoto{
-  width:96px;
-  height:96px;
-  border-radius:30px;
-  object-fit:cover;
-  flex:0 0 auto;
-  box-shadow:0 12px 28px rgba(70,130,82,.18);
-  background:#e6ffe9;
+.profileMark{
+ width:118px;
+ height:118px;
+ border-radius:999px;
+ background:#fff;
+ color:var(--kappa-dark);
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ font-size:58px;
+ font-weight:900;
+ box-shadow:0 10px 24px rgba(0,0,0,.15);
 }
 
-.profileTop h2{
-  margin:0;
-  color:#1f5f35;
-  font-size:clamp(30px,7vw,46px);
-  line-height:1.2;
-  font-weight:900;
+.profileName{
+ margin-top:16px;
+ font-size:30px;
+ line-height:1.25;
+ font-weight:900;
 }
 
-.profileLead{
-  margin:16px 0 0;
-  color:#3c5943;
-  font-size:19px;
-  line-height:1.8;
-  font-weight:850;
+.profileSub{
+ margin-top:8px;
+ font-size:16px;
+ line-height:1.6;
+ font-weight:850;
 }
 
-/* 内容カード */
-
-.cardGrid{
-  margin-top:18px;
-  display:grid;
-  grid-template-columns:1fr;
-  gap:14px;
+.profileText{
+ border-radius:30px;
+ background:#fff;
+ border:2px solid var(--line);
+ padding:22px;
+ box-shadow:0 12px 30px rgba(20,83,45,.10);
 }
 
-.infoCard{
-  border-radius:30px;
-  background:#fff;
-  border:1px solid #b7ebc0;
-  box-shadow:0 12px 30px rgba(71,130,82,.10);
-  padding:20px;
+.profileText h2{
+ margin:0;
+ color:var(--kappa-dark);
+ font-size:32px;
+ line-height:1.25;
+ font-weight:900;
 }
 
-.infoLabel{
-  display:inline-flex;
-  padding:7px 12px;
-  border-radius:999px;
-  background:#e6ffe9;
-  border:1px solid #b7ebc0;
-  color:#1f6b3d;
-  font-size:14px;
-  font-weight:900;
+.profileText p{
+ margin:12px 0 0;
+ color:var(--ink);
+ font-size:18px;
+ line-height:1.8;
+ font-weight:850;
 }
 
-.infoCard h2{
-  margin:14px 0 0;
-  color:#1f5f35;
-  font-size:clamp(28px,6vw,42px);
-  line-height:1.25;
-  font-weight:900;
+.actionGrid{
+ margin-top:18px;
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:12px;
 }
 
-.infoCard p{
-  margin:10px 0 0;
-  color:#3c5943;
-  font-size:18px;
-  line-height:1.8;
-  font-weight:850;
+.actionGrid a{
+ min-height:68px;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ text-align:center;
+ border-radius:24px;
+ background:#fff;
+ border:2px solid var(--line);
+ color:var(--kappa-dark);
+ font-size:19px;
+ line-height:1.35;
+ font-weight:900;
+ padding:12px;
 }
 
-/* ボタン */
-
-.actionCard{
-  margin-top:20px;
-  border-radius:30px;
-  background:
-    radial-gradient(circle at 100% 0%,rgba(255,246,176,.42),transparent 36%),
-    linear-gradient(135deg,#ffffff 0%,#f7fff5 100%);
-  border:1px solid #b7ebc0;
-  box-shadow:0 12px 30px rgba(71,130,82,.10);
-  padding:20px;
+.actionGrid a.primary{
+ background:linear-gradient(135deg,#14532d 0%,#237a3b 55%,#4caf63 100%);
+ border-color:var(--kappa-main);
+ color:#fff;
+ box-shadow:0 14px 30px rgba(20,83,45,.24);
 }
 
-.actionCard h2{
-  margin:0;
-  color:#1f5f35;
-  font-size:28px;
-  line-height:1.25;
-  font-weight:900;
+.section{
+ margin-top:24px;
 }
 
-.actionCard p{
-  margin:8px 0 0;
-  color:#4d6b55;
-  font-size:16px;
-  font-weight:850;
+.sectionCard{
+ border-radius:30px;
+ background:#fff;
+ border:2px solid var(--line);
+ box-shadow:0 12px 30px rgba(20,83,45,.10);
+ padding:22px;
 }
 
-.buttonGrid{
-  margin-top:14px;
-  display:grid;
-  grid-template-columns:1fr;
-  gap:10px;
+.sectionCard h2{
+ margin:0;
+ color:var(--kappa-dark);
+ font-size:clamp(30px,7vw,48px);
+ line-height:1.18;
+ font-weight:900;
 }
 
-.bigButton{
-  min-height:66px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:24px;
-  background:#fff;
-  border:2px solid #b7ebc0;
-  color:#1f5f35;
-  font-size:20px;
-  font-weight:900;
+.sectionCard p{
+ margin:10px 0 0;
+ color:var(--ink);
+ font-size:18px;
+ line-height:1.75;
+ font-weight:850;
 }
 
-.bigButton.primary{
-  background:linear-gradient(135deg,#4caf63 0%,#78c96f 100%);
-  border-color:#78c96f;
-  color:#fff;
+.thoughtGrid{
+ margin-top:16px;
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:12px;
 }
 
-.bigButton.support{
-  background:linear-gradient(135deg,#fff7c2 0%,#facc15 100%);
-  border-color:#facc15;
-  color:#5c3b00;
+.thought{
+ border-radius:24px;
+ background:#f8fff6;
+ border:1px solid #c7eecb;
+ padding:16px;
 }
 
-/* 下メニュー */
-
-.bottomNav{
-  position:fixed;
-  left:0;
-  right:0;
-  bottom:0;
-  z-index:100;
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  background:rgba(255,255,255,.98);
-  border-top:1px solid #b7ebc0;
-  box-shadow:0 -12px 30px rgba(71,130,82,.12);
-  backdrop-filter:blur(14px);
+.thought:nth-child(2){
+ background:#f0f9ff;
+ border-color:#bae6fd;
 }
 
-.bottomNav a{
-  text-align:center;
-  color:#1f6b3d;
-  padding:8px 4px 7px;
-  font-size:12px;
-  font-weight:900;
+.thought:nth-child(3){
+ background:#fffdf0;
+ border-color:#eadf9d;
 }
 
-.bottomNav a span{
-  display:block;
-  font-size:22px;
-  line-height:1.1;
+.thoughtIcon{
+ width:54px;
+ height:54px;
+ border-radius:19px;
+ background:#fff;
+ border:2px solid var(--line);
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ font-size:28px;
+ box-shadow:0 8px 18px rgba(20,83,45,.08);
 }
 
-.bottomNav a.active{
-  background:#e2f8e5;
-  color:#14532d;
+.thought h3{
+ margin:12px 0 0;
+ color:var(--kappa-dark);
+ font-size:23px;
+ line-height:1.3;
+ font-weight:900;
+}
+
+.thought p{
+ margin:8px 0 0;
+ color:var(--ink);
+ font-size:16px;
+ line-height:1.65;
+ font-weight:850;
+}
+
+.timeline{
+ margin-top:16px;
+ display:grid;
+ gap:12px;
+}
+
+.timelineItem{
+ border-radius:24px;
+ background:#f8fff6;
+ border:1px solid #c7eecb;
+ padding:16px;
+ display:grid;
+ grid-template-columns:64px 1fr;
+ gap:14px;
+ align-items:start;
+}
+
+.timelineNo{
+ width:58px;
+ height:58px;
+ border-radius:999px;
+ background:linear-gradient(135deg,#14532d 0%,#237a3b 55%,#4caf63 100%);
+ color:#fff;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ font-size:22px;
+ font-weight:900;
+}
+
+.timelineText h3{
+ margin:0;
+ color:var(--kappa-dark);
+ font-size:22px;
+ line-height:1.3;
+ font-weight:900;
+}
+
+.timelineText p{
+ margin:6px 0 0;
+ color:var(--ink);
+ font-size:16px;
+ line-height:1.7;
+ font-weight:850;
+}
+
+.messageBox{
+ margin-top:22px;
+ border-radius:30px;
+ background:
+ radial-gradient(circle at 100% 0%,rgba(255,247,194,.74),transparent 34%),
+ radial-gradient(circle at 0% 100%,rgba(224,242,254,.60),transparent 34%),
+ linear-gradient(135deg,#ffffff 0%,#f3fff1 100%);
+ border:2px solid var(--line);
+ box-shadow:0 12px 30px rgba(20,83,45,.10);
+ padding:22px;
+}
+
+.messageBox h2{
+ margin:0;
+ color:var(--kappa-dark);
+ font-size:clamp(30px,7vw,48px);
+ line-height:1.18;
+ font-weight:900;
+}
+
+.messageBox p{
+ margin:12px 0 0;
+ color:var(--ink);
+ font-size:19px;
+ line-height:1.85;
+ font-weight:850;
+}
+
+.notice{
+ margin-top:18px;
+ border-radius:26px;
+ background:var(--cream);
+ border:2px solid var(--gold);
+ color:#5c3b00;
+ padding:18px;
+ font-size:17px;
+ line-height:1.7;
+ font-weight:900;
 }
 
 .footer{
-  margin-top:30px;
-  text-align:center;
-  color:#4d6b55;
-  font-size:13px;
-  font-weight:800;
+ margin-top:30px;
+ text-align:center;
+ color:var(--ink);
+ font-size:13px;
+ font-weight:800;
 }
 
-@media (min-width:820px){
-  .cardGrid{
-    grid-template-columns:repeat(2,1fr);
-  }
-
-  .buttonGrid{
-    grid-template-columns:repeat(3,1fr);
-  }
+.bottomNav{
+ position:fixed;
+ left:0;
+ right:0;
+ bottom:0;
+ z-index:100;
+ display:grid;
+ grid-template-columns:repeat(5,1fr);
+ background:rgba(255,255,255,.98);
+ border-top:1px solid var(--line);
+ box-shadow:0 -12px 30px rgba(20,83,45,.12);
+ backdrop-filter:blur(14px);
 }
 
-@media (max-width:560px){
-  .wrap{
-    width:94%;
-  }
-
-  .headerNav{
-    display:none;
-  }
-
-  .brand span{
-    font-size:16px;
-  }
-
-  .hero,
-  .profileCard,
-  .infoCard,
-  .actionCard{
-    border-radius:28px;
-    padding:18px;
-  }
-
-  .profileTop{
-    align-items:flex-start;
-  }
-
-  .profilePhoto{
-    width:82px;
-    height:82px;
-    border-radius:26px;
-  }
+.bottomNav a{
+ text-align:center;
+ color:var(--kappa-dark);
+ padding:8px 4px 7px;
+ font-size:12px;
+ font-weight:900;
 }
+
+.bottomNav a span{
+ display:block;
+ font-size:22px;
+ line-height:1.1;
+}
+
+.bottomNav a.active{
+ background:#e2f8e5;
+ color:#14532d;
+}
+
+@media (max-width:800px){
+
+ .profileBox{
+  grid-template-columns:1fr;
+ }
+
+ .profileImage{
+  min-height:260px;
+ }
+
+}
+
+@media (max-width:700px){
+
+ .wrap{
+  width:94%;
+ }
+
+ .headerNav{
+  display:none;
+ }
+
+ .brand span{
+  font-size:16px;
+ }
+
+ .hero,
+ .sectionCard,
+ .messageBox{
+  border-radius:28px;
+  padding:18px;
+ }
+
+ .profileText{
+  border-radius:28px;
+  padding:18px;
+ }
+
+ .actionGrid,
+ .thoughtGrid{
+  grid-template-columns:1fr;
+ }
+
+ .timelineItem{
+  grid-template-columns:52px 1fr;
+  gap:12px;
+ }
+
+ .timelineNo{
+  width:50px;
+  height:50px;
+  font-size:19px;
+ }
+
+}
+
 </style>
 </head>
 
@@ -379,108 +540,197 @@ img{
 <div class="wrap">
 
 <header class="header">
-  <a class="brand" href="index.html">
-    <img src="apple-touch-icon.png" alt="岩下りゅう">
-    <span>岩下りゅう 活動報告</span>
-  </a>
 
-  <nav class="headerNav">
-    <a href="index.html">トップ</a>
-    <a href="activity.html">活動</a>
-    <a href="videos.html">動画</a>
-    <a href="support.html">応援</a>
-    <a href="profile.html">人物</a>
-  </nav>
+ <a class="brand" href="index.html">
+  <img src="apple-touch-icon.png" alt="岩下りゅう">
+  <span>岩下りゅう 活動報告</span>
+ </a>
+
+ <nav class="headerNav">
+  <a href="index.html">トップ</a>
+  <a href="activity.html">活動</a>
+  <a href="voice.html">困りごと</a>
+  <a href="videos.html">動画</a>
+  <a href="support.html">応援</a>
+ </nav>
+
 </header>
 
 <main>
 
 <section class="hero">
-  <div class="kicker">人物紹介</div>
-  <h1>岩下りゅうとは</h1>
-  <p>
-    志木のまちでの活動、地域との関わり、活動への想いを紹介します。
-  </p>
-</section>
 
-<section class="profileCard">
-  <div class="profileTop">
-    <img class="profilePhoto" src="apple-touch-icon.png" alt="岩下りゅう">
-    <div>
-      <h2>地域に根ざして活動</h2>
-    </div>
+ <div class="kicker">プロフィール</div>
+
+ <h1>
+  岩下りゅう
+  <span>とは</span>
+ </h1>
+
+ <p>
+  地域の声を聞き、活動を見える形で伝え、カッパのまちの魅力を未来へつなげていくためのページです。
+ </p>
+
+ <div class="profileBox">
+
+  <div class="profileImage">
+   <div class="profileMark">河</div>
+   <div class="profileName">岩下りゅう</div>
+   <div class="profileSub">
+    カッパのまちの<br>
+    活動報告DX
+   </div>
   </div>
 
-  <p class="profileLead">
-    志木市で育ち、商店会活動、地域イベント、田子山富士、カッパのまちづくりなど、地域に根ざした活動を続けています。<br>
-    地域の声を聞き、現場を見て、できることを一つずつ形にしていきます。
-  </p>
-</section>
+  <div class="profileText">
 
-<section class="cardGrid">
+   <h2>地域の声を、見える形に。</h2>
 
-  <article class="infoCard">
-    <div class="infoLabel">地域との関わり</div>
-    <h2>志木のまちとともに</h2>
-    <p>
-      商店会、地域イベント、田子山富士、カッパのまちづくりなど、志木の魅力を広げる活動に関わっています。
-    </p>
-  </article>
+   <p>
+    岩下りゅうの活動報告DXでは、日々の活動、まちの困りごと、動画、応援メッセージをまとめて発信します。
+   </p>
 
-  <article class="infoCard">
-    <div class="infoLabel">活動への想い</div>
-    <h2>想いをカタチに</h2>
-    <p>
-      市民の声、地域の課題、まちの魅力を受け止め、写真・動画・活動記録としてわかりやすく届けていきます。
-    </p>
-  </article>
+   <p>
+    ただ情報を並べるだけではなく、写真や投稿を通じて、地域で何が起きているのか、どんな活動が行われているのかを、誰にでも分かりやすく伝えていきます。
+   </p>
 
-  <article class="infoCard">
-    <div class="infoLabel">発信</div>
-    <h2>写真と動画で伝える</h2>
-    <p>
-      活動を文章だけでなく、写真や動画でも伝えることで、高齢者にも見やすい活動報告を目指します。
-    </p>
-  </article>
+   <div class="actionGrid">
+    <a class="primary" href="activity.html">活動報告を見る</a>
+    <a href="support.html">応援メッセージを書く</a>
+   </div>
 
-  <article class="infoCard">
-    <div class="infoLabel">大切にすること</div>
-    <h2>現場を見て、声を聞く</h2>
-    <p>
-      地域で起きていることを、遠くからではなく現場で確認し、暮らしに近い目線で考えていきます。
-    </p>
-  </article>
-
-</section>
-
-<section class="actionCard">
-  <h2>次に見るページ</h2>
-  <p>
-    活動報告や応援メッセージもご覧いただけます。
-  </p>
-
-  <div class="buttonGrid">
-    <a class="bigButton primary" href="activity.html">活動を見る</a>
-    <a class="bigButton support" href="support.html">応援を書く</a>
-    <a class="bigButton" href="index.html">トップへ戻る</a>
   </div>
+
+ </div>
+
 </section>
+
+<section class="section sectionCard">
+
+ <h2>大切にしていること</h2>
+
+ <p>
+  地域の活動は、難しい言葉よりも、写真・声・行動で伝わることが大切です。
+ </p>
+
+ <div class="thoughtGrid">
+
+  <div class="thought">
+   <div class="thoughtIcon">👀</div>
+   <h3>見える化</h3>
+   <p>
+    活動の様子を写真と文章で伝え、地域の人が安心して見られる形にします。
+   </p>
+  </div>
+
+  <div class="thought">
+   <div class="thoughtIcon">💬</div>
+   <h3>声を拾う</h3>
+   <p>
+    困りごとや応援の声を受け止め、次の活動につなげていきます。
+   </p>
+  </div>
+
+  <div class="thought">
+   <div class="thoughtIcon">🌱</div>
+   <h3>未来へつなぐ</h3>
+   <p>
+    カッパのまちの魅力と地域のつながりを、次の世代へ残していきます。
+   </p>
+  </div>
+
+ </div>
+
+</section>
+
+<section class="section sectionCard">
+
+ <h2>このページで伝えること</h2>
+
+ <div class="timeline">
+
+  <div class="timelineItem">
+   <div class="timelineNo">1</div>
+   <div class="timelineText">
+    <h3>活動の記録</h3>
+    <p>
+     地域での活動、訪問、イベント、まちづくりの取り組みを写真つきで掲載します。
+    </p>
+   </div>
+  </div>
+
+  <div class="timelineItem">
+   <div class="timelineNo">2</div>
+   <div class="timelineText">
+    <h3>まちの困りごと</h3>
+    <p>
+     道路、街灯、不法投棄、危険箇所など、地域で気づいたことを写真で共有します。
+    </p>
+   </div>
+  </div>
+
+  <div class="timelineItem">
+   <div class="timelineNo">3</div>
+   <div class="timelineText">
+    <h3>動画で発信</h3>
+    <p>
+     文章だけでは伝わりにくい活動や思いを、動画でわかりやすく届けます。
+    </p>
+   </div>
+  </div>
+
+  <div class="timelineItem">
+   <div class="timelineNo">4</div>
+   <div class="timelineText">
+    <h3>応援の声</h3>
+    <p>
+     地域の皆さんから届いた応援メッセージを大切に受け止めます。
+    </p>
+   </div>
+  </div>
+
+ </div>
+
+</section>
+
+<section class="messageBox">
+
+ <h2>カッパのまちから、地域活動をもっと身近に。</h2>
+
+ <p>
+  活動報告DXは、地域の新聞屋さんのように、日々の活動や地域の声をわかりやすく届けるための仕組みです。
+ </p>
+
+ <p>
+  スマホで見やすく、写真で伝わり、管理画面から更新できる。そんな形で、地域活動をもっと身近にしていきます。
+ </p>
+
+ <div class="actionGrid">
+  <a class="primary" href="voice.html">まちの困りごとを見る</a>
+  <a href="videos.html">動画を見る</a>
+ </div>
+
+</section>
+
+<div class="notice">
+ このページは、岩下りゅうの活動や地域への思いを、分かりやすく伝えるためのプロフィールページです。
+</div>
 
 </main>
 
 <footer class="footer">
-  岩下りゅう 活動報告<br>
-  地域での活動を、写真と動画でわかりやすく。
+ 岩下りゅう 活動報告DX<br>
+ カッパのまちから、地域活動を見える化。
 </footer>
 
 </div>
 
 <nav class="bottomNav">
-  <a href="index.html"><span>🏠</span>トップ</a>
-  <a href="activity.html"><span>📸</span>活動</a>
-  <a href="videos.html"><span>🎥</span>動画</a>
-  <a href="support.html"><span>💬</span>応援</a>
-  <a href="profile.html" class="active"><span>👤</span>人物</a>
+ <a href="index.html"><span>🏠</span>トップ</a>
+ <a href="activity.html"><span>📸</span>活動</a>
+ <a href="voice.html"><span>📍</span>困りごと</a>
+ <a href="videos.html"><span>🎥</span>動画</a>
+ <a href="profile.html" class="active"><span>👤</span>人物</a>
 </nav>
 
 </body>
