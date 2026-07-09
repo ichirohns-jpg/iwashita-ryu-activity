@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>活動登録・管理｜岩下りゅう</title>
+<title>管理画面｜岩下りゅう 活動報告DX</title>
 
-<meta name="description" content="岩下りゅう活動報告DXの活動登録・管理画面です。">
-<meta name="theme-color" content="#237a3b">
+<meta name="description" content="岩下りゅう活動報告DXの管理画面です。">
+<meta name="theme-color" content="#14532d">
 
 <link rel="icon" type="image/png" href="apple-touch-icon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -18,9 +18,7 @@
  --kappa-dark:#14532d;
  --kappa-main:#237a3b;
  --kappa-mid:#4caf63;
- --kappa-light:#7bcf7a;
  --shinryoku:#e8f8e8;
- --shinryoku-soft:#f7fff4;
  --river-blue:#e0f2fe;
  --cream:#fff7c2;
  --gold:#facc15;
@@ -34,17 +32,9 @@
  box-sizing:border-box;
 }
 
-html{
- scroll-behavior:smooth;
-}
-
 body{
  margin:0;
- font-family:
- "Hiragino Sans",
- "Yu Gothic",
- "Meiryo",
- sans-serif;
+ font-family:"Hiragino Sans","Yu Gothic","Meiryo",sans-serif;
  background:
  radial-gradient(circle at 8% 0%,rgba(190,240,185,.70),transparent 28%),
  radial-gradient(circle at 92% 4%,rgba(224,242,254,.78),transparent 30%),
@@ -59,28 +49,34 @@ a{
  text-decoration:none;
 }
 
-button{
+button,
+input,
+select,
+textarea{
  font-family:inherit;
+}
+
+button{
  cursor:pointer;
 }
 
 .wrap{
  width:min(980px,94%);
  margin:auto;
- padding:12px 0 70px;
+ padding:14px 0 50px;
 }
 
 .header{
- position:sticky;
- top:0;
- z-index:80;
  display:flex;
  align-items:center;
  justify-content:space-between;
  gap:12px;
- padding:10px 0;
+ position:sticky;
+ top:0;
+ z-index:50;
  background:rgba(247,255,244,.96);
  backdrop-filter:blur(14px);
+ padding:10px 0;
 }
 
 .brand{
@@ -104,13 +100,7 @@ button{
  line-height:1.25;
 }
 
-.headerNav{
- display:flex;
- flex-wrap:wrap;
- gap:7px;
-}
-
-.headerNav a{
+.header a.homeLink{
  padding:9px 13px;
  border-radius:999px;
  background:#fff;
@@ -118,19 +108,25 @@ button{
  color:var(--kappa-dark);
  font-size:13px;
  font-weight:900;
- box-shadow:0 6px 16px rgba(20,83,45,.07);
 }
 
-.hero{
- margin-top:8px;
+.hero,
+.loginCard,
+.panel,
+.reportCard{
  border-radius:28px;
- background:
- radial-gradient(circle at 100% 0%,rgba(255,247,194,.70),transparent 34%),
- radial-gradient(circle at 0% 100%,rgba(224,242,254,.60),transparent 34%),
- linear-gradient(135deg,#ffffff 0%,#f3fff1 100%);
+ background:#fff;
  border:2px solid var(--line);
  box-shadow:0 12px 30px rgba(20,83,45,.10);
  padding:22px;
+}
+
+.hero{
+ margin-top:10px;
+ background:
+ radial-gradient(circle at 100% 0%,rgba(255,247,194,.76),transparent 34%),
+ radial-gradient(circle at 0% 100%,rgba(224,242,254,.65),transparent 34%),
+ linear-gradient(135deg,#ffffff 0%,#f3fff1 100%);
 }
 
 .kicker{
@@ -144,122 +140,61 @@ button{
  font-weight:900;
 }
 
-.hero h1{
+h1{
  margin:12px 0 0;
  color:var(--kappa-dark);
  font-size:clamp(34px,8vw,56px);
- line-height:1.12;
+ line-height:1.1;
  font-weight:900;
 }
 
-.hero p{
- margin:10px 0 0;
+.hero p,
+.loginCard p,
+.panel p{
+ margin:8px 0 0;
  color:var(--ink);
- font-size:18px;
- line-height:1.75;
+ font-size:17px;
  font-weight:850;
 }
 
-.heroLinks{
- margin-top:16px;
- display:grid;
- grid-template-columns:repeat(3,1fr);
- gap:10px;
+.loginCard{
+ margin-top:18px;
 }
 
-.heroLinks a{
- min-height:56px;
- display:flex;
- align-items:center;
- justify-content:center;
- text-align:center;
- border-radius:22px;
- background:#fff;
- border:2px solid var(--line);
- color:var(--kappa-dark);
- font-size:16px;
- font-weight:900;
- padding:10px;
-}
-
-.heroLinks a:first-child{
- background:linear-gradient(135deg,#14532d 0%,#237a3b 55%,#4caf63 100%);
- border-color:var(--kappa-main);
- color:#fff;
-}
-
-.heroLinks a:nth-child(2){
- background:var(--cream);
- border-color:var(--gold);
- color:#5c3b00;
-}
-
-.section{
- margin-top:22px;
-}
-
-.card{
- border-radius:28px;
- background:#fff;
- border:2px solid var(--line);
- box-shadow:0 12px 30px rgba(20,83,45,.10);
- padding:22px;
-}
-
-.sectionTitle{
- margin:0 0 12px;
+.loginCard h2,
+.panel h2{
+ margin:0;
  color:var(--kappa-dark);
  font-size:clamp(28px,7vw,42px);
  line-height:1.2;
  font-weight:900;
 }
 
-.lead{
- margin:0 0 18px;
- color:var(--ink);
- font-size:17px;
- font-weight:850;
-}
-
-.formGrid{
- display:grid;
- grid-template-columns:1fr;
- gap:16px;
-}
-
-.formRow{
- display:grid;
- gap:8px;
-}
-
-.formRow.two{
- grid-template-columns:1fr 1fr;
- gap:14px;
-}
-
 label{
+ display:block;
+ margin-top:16px;
  color:var(--kappa-dark);
  font-size:18px;
  font-weight:900;
 }
 
-.smallHelp{
+.help{
  display:block;
  color:var(--muted);
  font-size:13px;
  font-weight:800;
- margin-top:2px;
+ margin-top:3px;
 }
 
 input,
 select,
 textarea{
  width:100%;
+ margin-top:8px;
  border:2px solid var(--line);
- border-radius:20px;
+ border-radius:18px;
  background:#fffdf0;
  color:var(--ink);
- font-family:inherit;
  font-size:18px;
  font-weight:850;
  outline:none;
@@ -267,12 +202,12 @@ textarea{
 
 input,
 select{
- min-height:58px;
+ min-height:56px;
  padding:0 14px;
 }
 
 textarea{
- min-height:150px;
+ min-height:130px;
  padding:14px;
  resize:vertical;
 }
@@ -281,82 +216,55 @@ input:focus,
 select:focus,
 textarea:focus{
  border-color:var(--kappa-main);
- background:#ffffff;
+ background:#fff;
  box-shadow:0 0 0 4px rgba(35,122,59,.15);
 }
 
-.urlBox{
- margin-top:10px;
- padding:14px;
- border-radius:20px;
- background:#f8fff6;
- border:1px solid #c7eecb;
- color:var(--ink);
- font-size:15px;
- font-weight:850;
-}
-
-.btnGrid{
- display:grid;
- grid-template-columns:repeat(3,1fr);
- gap:10px;
- margin-top:20px;
-}
-
-.btn,
-button.btn,
-a.btn{
- min-height:58px;
- display:flex;
- align-items:center;
- justify-content:center;
- text-align:center;
+.btn{
+ min-height:56px;
  border-radius:20px;
  border:2px solid var(--line);
  background:#fff;
  color:var(--kappa-dark);
  font-size:17px;
  font-weight:900;
- padding:10px 12px;
+ padding:10px 14px;
 }
 
 .btnGreen{
- min-height:58px;
- border-radius:20px;
- border:2px solid var(--kappa-main);
+ border-color:var(--kappa-main);
  background:linear-gradient(135deg,#14532d 0%,#237a3b 55%,#4caf63 100%);
  color:#fff;
- font-size:17px;
- font-weight:900;
- padding:10px 12px;
 }
 
-.btnLight{
- min-height:58px;
- border-radius:20px;
- border:2px solid var(--gold);
+.btnYellow{
+ border-color:var(--gold);
  background:var(--cream);
  color:#5c3b00;
- font-size:17px;
- font-weight:900;
- padding:10px 12px;
 }
 
-.btnDark{
- background:#203326;
- border-color:#203326;
- color:#fff;
+.btnDanger{
+ border-color:#fca5a5;
+ background:#fee2e2;
+ color:#7f1d1d;
+}
+
+.loginButton{
+ width:100%;
+ margin-top:18px;
+ min-height:68px;
+ font-size:22px;
 }
 
 .status{
  display:none;
- margin-top:16px;
- border-radius:22px;
- padding:16px;
+ margin-top:14px;
+ border-radius:20px;
+ padding:14px;
  background:#ecfdf5;
  border:2px solid #86efac;
  color:#166534;
- font-size:17px;
+ font-size:16px;
  font-weight:900;
  white-space:pre-wrap;
 }
@@ -371,17 +279,222 @@ a.btn{
  color:#9f1239;
 }
 
-.preview{
- min-height:180px;
+.adminApp{
+ display:none;
+}
+
+.adminApp.show{
+ display:block;
+}
+
+.topMenu{
+ margin-top:18px;
+ display:grid;
+ grid-template-columns:1fr 1fr 120px;
+ gap:10px;
+}
+
+.tabBtn{
+ min-height:62px;
  border-radius:22px;
+ border:2px solid var(--line);
+ background:#fff;
+ color:var(--kappa-dark);
+ font-size:18px;
+ font-weight:900;
+}
+
+.tabBtn.active{
+ background:linear-gradient(135deg,#14532d 0%,#237a3b 55%,#4caf63 100%);
+ color:#fff;
+ border-color:var(--kappa-main);
+}
+
+.panel{
+ display:none;
+ margin-top:18px;
+}
+
+.panel.active{
+ display:block;
+}
+
+.formGrid{
+ display:grid;
+ gap:14px;
+ margin-top:14px;
+}
+
+.row2{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:12px;
+}
+
+.actionGrid{
+ display:grid;
+ grid-template-columns:1fr 1fr 1fr;
+ gap:10px;
+ margin-top:18px;
+}
+
+.previewBox{
+ margin-top:16px;
+ border-radius:20px;
  background:#fffdf0;
- border:2px dashed #e2d36f;
+ border:2px dashed #eadf9d;
+ padding:16px;
  color:#3b3415;
+ font-size:16px;
+ font-weight:850;
+ white-space:pre-wrap;
+}
+
+.reportTools{
+ margin-top:14px;
+ display:grid;
+ grid-template-columns:1fr 1fr 1fr;
+ gap:10px;
+}
+
+.reportList{
+ margin-top:16px;
+ display:grid;
+ gap:16px;
+}
+
+.reportCard{
+ padding:0;
+ overflow:hidden;
+}
+
+.reportHead{
  padding:18px;
- font-size:17px;
+ background:
+ radial-gradient(circle at 100% 0%,rgba(224,242,254,.65),transparent 34%),
+ linear-gradient(135deg,#ffffff 0%,#f3fff1 100%);
+ border-bottom:1px solid #d6f3d8;
+}
+
+.reportHead h3{
+ margin:0;
+ color:var(--kappa-dark);
+ font-size:28px;
+ line-height:1.25;
+ font-weight:900;
+}
+
+.reportId{
+ margin-top:4px;
+ color:var(--muted);
+ font-size:13px;
+ font-weight:900;
+}
+
+.badges{
+ display:flex;
+ flex-wrap:wrap;
+ gap:8px;
+ margin-top:10px;
+}
+
+.badge{
+ display:inline-flex;
+ padding:6px 10px;
+ border-radius:999px;
+ background:var(--shinryoku);
+ border:1px solid var(--line);
+ color:var(--kappa-dark);
+ font-size:13px;
+ font-weight:900;
+}
+
+.badge.yellow{
+ background:var(--cream);
+ border-color:var(--gold);
+ color:#5c3b00;
+}
+
+.reportBody{
+ padding:18px;
+}
+
+.infoGrid{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:10px;
+}
+
+.infoBox{
+ border-radius:18px;
+ background:#f8fff6;
+ border:1px solid #c7eecb;
+ padding:12px;
+}
+
+.infoBox.full{
+ grid-column:1 / -1;
+}
+
+.infoLabel{
+ color:var(--kappa-dark);
+ font-size:13px;
+ font-weight:900;
+}
+
+.infoText{
+ margin-top:4px;
+ color:var(--ink);
+ font-size:16px;
+ line-height:1.6;
  font-weight:850;
  white-space:pre-wrap;
  word-break:break-word;
+}
+
+.reportPhoto{
+ margin-top:12px;
+ width:100%;
+ max-height:320px;
+ object-fit:contain;
+ border-radius:18px;
+ background:#fff;
+ border:1px solid #c7eecb;
+}
+
+.mapButtons{
+ margin-top:12px;
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:10px;
+}
+
+.mapButtons a,
+.mapButtons button{
+ min-height:52px;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ border-radius:18px;
+ border:2px solid var(--line);
+ background:#fff;
+ color:var(--kappa-dark);
+ font-size:16px;
+ font-weight:900;
+}
+
+.editBox{
+ margin-top:14px;
+ border-radius:22px;
+ background:#fffdf0;
+ border:2px solid #eadf9d;
+ padding:14px;
+}
+
+.reportSave{
+ width:100%;
+ margin-top:14px;
+ min-height:62px;
 }
 
 .footer{
@@ -392,36 +505,44 @@ a.btn{
  font-weight:800;
 }
 
-@media (max-width:700px){
+@media(max-width:700px){
 
  .wrap{
   width:94%;
  }
 
- .headerNav{
-  display:none;
- }
-
- .brand span{
-  font-size:16px;
- }
-
  .hero,
- .card{
-  border-radius:26px;
+ .loginCard,
+ .panel{
+  border-radius:24px;
   padding:18px;
  }
 
- .heroLinks,
- .formRow.two,
- .btnGrid{
+ .topMenu,
+ .row2,
+ .actionGrid,
+ .reportTools,
+ .infoGrid,
+ .mapButtons{
   grid-template-columns:1fr;
+ }
+
+ .topMenu{
+  position:sticky;
+  top:64px;
+  z-index:40;
+  background:rgba(247,255,244,.96);
+  padding:8px 0;
  }
 
  input,
  select,
  textarea{
   font-size:17px;
+ }
+
+ .reportHead h3{
+  font-size:25px;
  }
 
 }
@@ -437,212 +558,234 @@ a.btn{
 
  <a class="brand" href="index.html">
   <img src="apple-touch-icon.png" alt="岩下りゅう">
-  <span>岩下りゅう 活動報告</span>
+  <span>岩下りゅう 管理画面</span>
  </a>
 
- <nav class="headerNav">
-  <a href="index.html">トップ</a>
-  <a href="activity.html">活動</a>
-  <a href="videos.html">動画</a>
-  <a href="support.html">応援</a>
-  <a href="profile.html">人物</a>
- </nav>
+ <a class="homeLink" href="index.html">公開ページへ</a>
 
 </header>
 
-<main>
-
 <section class="hero">
 
- <div class="kicker">本人・スタッフ用</div>
+ <div class="kicker">管理者用</div>
 
- <h1>活動報告を登録する</h1>
+ <h1>活動報告DX 管理画面</h1>
 
  <p>
-  日付、テーマ、タイトル、概要、写真URLを入れると、活動報告ページに表示できます。
+  合言葉を入れると、活動報告の登録と、困りごと投稿の管理ができます。
  </p>
 
- <div class="heroLinks">
-  <a href="activity.html" target="_blank" rel="noopener">活動ページを見る</a>
-  <a href="index.html" target="_blank" rel="noopener">トップを見る</a>
-  <a href="profile.html" target="_blank" rel="noopener">プロフィールを見る</a>
- </div>
-
 </section>
 
-<section class="section card">
+<section class="loginCard" id="loginCard">
 
- <h2 class="sectionTitle">活動内容</h2>
+ <h2>合言葉を入力</h2>
 
- <p class="lead">
-  公開状態を「公開」にすると、活動ページに表示されます。
+ <p>
+  管理者だけが入れる画面です。
  </p>
 
- <div class="formGrid">
+ <label for="loginPassword">
+  合言葉
+  <span class="help">教えた人だけが使います</span>
+ </label>
 
-  <div class="formRow two">
+ <input id="loginPassword" type="password" inputmode="numeric" placeholder="合言葉を入力">
 
-   <div>
-    <label for="date">日付</label>
-    <input id="date" type="date">
-   </div>
+ <button class="btn btnGreen loginButton" type="button" onclick="login()">
+  管理画面に入る
+ </button>
 
-   <div>
-    <label for="theme">テーマ</label>
-    <select id="theme">
-     <option value="">選んでください</option>
-     <option value="地域活動">地域活動</option>
-     <option value="田子山富士">田子山富士</option>
-     <option value="商店会">商店会</option>
-     <option value="カッパのまち">カッパのまち</option>
-     <option value="イベント">イベント</option>
-     <option value="防災">防災</option>
-     <option value="福祉">福祉</option>
-     <option value="子育て">子育て</option>
-     <option value="まちづくり">まちづくり</option>
-     <option value="その他">その他</option>
-    </select>
-   </div>
-
-  </div>
-
-  <div class="formRow">
-   <label for="title">タイトル</label>
-   <input id="title" type="text" placeholder="例：〇〇地域の見守り活動に参加しました">
-  </div>
-
-  <div class="formRow">
-   <label for="summary">
-    概要
-    <span class="smallHelp">市民が読む文章です。短くても大丈夫です。</span>
-   </label>
-   <textarea id="summary" placeholder="活動内容、感じたこと、地域の皆さんへ伝えたいことを書きます。"></textarea>
-  </div>
-
- </div>
+ <div id="loginStatus" class="status"></div>
 
 </section>
 
-<section class="section card">
+<div class="adminApp" id="adminApp">
 
- <h2 class="sectionTitle">写真URL 最大5枚</h2>
+ <div class="topMenu">
 
- <div class="formGrid">
-
-  <div class="formRow">
-   <label for="imageUrl1">画像URL1</label>
-   <input id="imageUrl1" type="text" placeholder="images/activity/activity-001-1.jpg">
-  </div>
-
-  <div class="formRow">
-   <label for="imageUrl2">画像URL2</label>
-   <input id="imageUrl2" type="text" placeholder="images/activity/activity-001-2.jpg">
-  </div>
-
-  <div class="formRow">
-   <label for="imageUrl3">画像URL3</label>
-   <input id="imageUrl3" type="text" placeholder="images/activity/activity-001-3.jpg">
-  </div>
-
-  <div class="formRow">
-   <label for="imageUrl4">画像URL4</label>
-   <input id="imageUrl4" type="text" placeholder="images/activity/activity-001-4.jpg">
-  </div>
-
-  <div class="formRow">
-   <label for="imageUrl5">画像URL5</label>
-   <input id="imageUrl5" type="text" placeholder="images/activity/activity-001-5.jpg">
-  </div>
-
- </div>
-
- <div class="urlBox">
-  写真の入れ方<br>
-  写真は GitHub の images/activity に入れて、そのパスをここに貼ります。<br>
-  例：images/activity/activity-001-1.jpg
- </div>
-
-</section>
-
-<section class="section card">
-
- <h2 class="sectionTitle">SNS・公開設定</h2>
-
- <div class="formGrid">
-
-  <div class="formRow">
-   <label for="snsText">
-    SNS投稿文
-    <span class="smallHelp">活動カードのLINE・X・Facebook共有で使う文章です。</span>
-   </label>
-   <textarea id="snsText" placeholder="SNSに投稿する文章を入れます。空欄の場合は自動作成できます。"></textarea>
-  </div>
-
-  <div class="formRow two">
-
-   <div>
-    <label for="publicStatus">公開状態</label>
-    <select id="publicStatus">
-     <option value="下書き">下書き</option>
-     <option value="確認中">確認中</option>
-     <option value="公開">公開</option>
-     <option value="非公開">非公開</option>
-    </select>
-   </div>
-
-   <div>
-    <label for="order">表示順</label>
-    <input id="order" type="number" placeholder="空欄で通常表示">
-   </div>
-
-  </div>
-
-  <div class="formRow">
-   <label for="note">備考</label>
-   <textarea id="note" placeholder="管理用メモ。公開ページには表示しません。"></textarea>
-  </div>
-
- </div>
-
- <div class="btnGrid">
-
-  <button class="btnLight" type="button" onclick="makeSnsText()">
-   SNS文を作る
+  <button class="tabBtn active" type="button" data-panel="activityPanel">
+   活動報告を登録
   </button>
 
-  <button class="btnGreen" type="button" onclick="saveActivity()">
-   活動を保存する
+  <button class="tabBtn" type="button" data-panel="reportsPanel">
+   困りごとを管理
   </button>
 
-  <button class="btnLight" type="button" onclick="clearForm()">
-   クリア
+  <button class="btn btnDanger" type="button" onclick="logout()">
+   ログアウト
   </button>
-
-  <a class="btn btnDark" href="activity.html" target="_blank" rel="noopener">
-   活動ページを見る
-  </a>
 
  </div>
 
- <div id="status" class="status"></div>
+ <section class="panel active" id="activityPanel">
 
-</section>
+  <h2>活動報告を登録</h2>
 
-<section class="section card">
+  <p>
+   入力して保存すると、公開状態が「公開」のものだけ活動ページに表示されます。
+  </p>
 
- <h2 class="sectionTitle">SNS投稿文プレビュー</h2>
+  <div class="formGrid">
 
- <div id="preview" class="preview">
-  まだ作成されていません。
- </div>
+   <div class="row2">
 
-</section>
+    <div>
+     <label for="date">日付</label>
+     <input id="date" type="date">
+    </div>
 
-</main>
+    <div>
+     <label for="theme">テーマ</label>
+     <select id="theme">
+      <option value="">選んでください</option>
+      <option value="地域活動">地域活動</option>
+      <option value="田子山富士">田子山富士</option>
+      <option value="商店会">商店会</option>
+      <option value="カッパのまち">カッパのまち</option>
+      <option value="イベント">イベント</option>
+      <option value="防災">防災</option>
+      <option value="福祉">福祉</option>
+      <option value="子育て">子育て</option>
+      <option value="まちづくり">まちづくり</option>
+      <option value="その他">その他</option>
+     </select>
+    </div>
+
+   </div>
+
+   <div>
+    <label for="title">タイトル</label>
+    <input id="title" type="text" placeholder="例：地域の見守り活動に参加しました">
+   </div>
+
+   <div>
+    <label for="summary">概要</label>
+    <textarea id="summary" placeholder="活動内容、感じたこと、地域の皆さんへ伝えたいことを書きます。"></textarea>
+   </div>
+
+   <div>
+    <label for="imageUrl1">画像URL1</label>
+    <input id="imageUrl1" type="text" placeholder="images/activity/activity-001-1.jpg">
+   </div>
+
+   <div>
+    <label for="imageUrl2">画像URL2</label>
+    <input id="imageUrl2" type="text" placeholder="images/activity/activity-001-2.jpg">
+   </div>
+
+   <div>
+    <label for="imageUrl3">画像URL3</label>
+    <input id="imageUrl3" type="text" placeholder="images/activity/activity-001-3.jpg">
+   </div>
+
+   <div>
+    <label for="imageUrl4">画像URL4</label>
+    <input id="imageUrl4" type="text" placeholder="images/activity/activity-001-4.jpg">
+   </div>
+
+   <div>
+    <label for="imageUrl5">画像URL5</label>
+    <input id="imageUrl5" type="text" placeholder="images/activity/activity-001-5.jpg">
+   </div>
+
+   <div>
+    <label for="snsText">SNS投稿文</label>
+    <textarea id="snsText" placeholder="空欄の場合は、下のボタンで作れます。"></textarea>
+   </div>
+
+   <div class="row2">
+
+    <div>
+     <label for="publicStatus">公開状態</label>
+     <select id="publicStatus">
+      <option value="下書き">下書き</option>
+      <option value="確認中">確認中</option>
+      <option value="公開">公開</option>
+      <option value="非公開">非公開</option>
+     </select>
+    </div>
+
+    <div>
+     <label for="order">表示順</label>
+     <input id="order" type="number" placeholder="空欄で通常表示">
+    </div>
+
+   </div>
+
+   <div>
+    <label for="note">備考</label>
+    <textarea id="note" placeholder="管理用メモ。公開ページには表示しません。"></textarea>
+   </div>
+
+  </div>
+
+  <div class="actionGrid">
+
+   <button class="btn btnYellow" type="button" onclick="makeSnsText()">
+    SNS文を作る
+   </button>
+
+   <button class="btn btnGreen" type="button" onclick="saveActivity()">
+    活動を保存する
+   </button>
+
+   <button class="btn" type="button" onclick="clearActivityForm()">
+    クリア
+   </button>
+
+  </div>
+
+  <div id="activityStatus" class="status"></div>
+
+  <div id="preview" class="previewBox">
+   SNS投稿文プレビュー
+  </div>
+
+ </section>
+
+ <section class="panel" id="reportsPanel">
+
+  <h2>困りごと投稿を管理</h2>
+
+  <p>
+   投稿内容を確認し、対応状態・公開状態・改善報告を更新します。
+  </p>
+
+  <div class="reportTools">
+
+   <button class="btn btnGreen" type="button" onclick="loadReports()">
+    最新の投稿を読み込む
+   </button>
+
+   <select id="filterStatus" onchange="renderReports()">
+    <option value="">すべての対応状態</option>
+    <option value="受付">受付</option>
+    <option value="確認中">確認中</option>
+    <option value="対応中">対応中</option>
+    <option value="対応済">対応済</option>
+    <option value="改善済">改善済</option>
+    <option value="保留">保留</option>
+   </select>
+
+   <select id="filterPublic" onchange="renderReports()">
+    <option value="">すべての公開状態</option>
+    <option value="公開">公開</option>
+    <option value="非公開">非公開</option>
+   </select>
+
+  </div>
+
+  <div id="reportsStatus" class="status"></div>
+
+  <div id="reportList" class="reportList"></div>
+
+ </section>
+
+</div>
 
 <footer class="footer">
- 活動登録・管理<br>
- 保存後、公開状態が「公開」のものだけ活動ページに表示されます。
+ 岩下りゅう 活動報告DX 管理画面
 </footer>
 
 </div>
@@ -650,29 +793,26 @@ a.btn{
 <script>
 
 const GAS_URL =
-"https://script.google.com/macros/s/AKfycbxaTX14m9ftBS_Udl8w-HCHXSulvFcV9VJ9ANGM6FwCx0ejCLXaY0MhdbdexXBHkSmxJg/exec";
+"https://script.google.com/macros/s/AKfycbwToprHC5nP50ATEhNi5DyXM-zFjPN0hVw0B3Y8trAiuMdb7zM4KSbkU3ZSTlgDly1lJw/exec";
 
-const SITE_URL =
-"https://ichirohns-jpg.github.io/iwashita-ryu-activity/activity.html";
+let adminPassword =
+sessionStorage.getItem("iwashita_admin_password") || "";
 
-function clean(value){
+let allReports =
+[];
 
- if(value === null || value === undefined){
+const loginCard =
+document.getElementById("loginCard");
 
-  return "";
-
- }
-
- return String(value).trim();
-
-}
+const adminApp =
+document.getElementById("adminApp");
 
 function val(id){
 
  const el =
  document.getElementById(id);
 
- return el ? clean(el.value) : "";
+ return el ? String(el.value || "").trim() : "";
 
 }
 
@@ -683,11 +823,303 @@ function setVal(id,value){
 
  if(el){
 
-  el.value = value;
+  el.value = value || "";
 
  }
 
 }
+
+function esc(v){
+
+ return String(v || "")
+ .replace(/&/g,"&amp;")
+ .replace(/</g,"&lt;")
+ .replace(/>/g,"&gt;")
+ .replace(/"/g,"&quot;")
+ .replace(/'/g,"&#39;");
+
+}
+
+function pick(obj,keys,defaultValue){
+
+ obj =
+ obj || {};
+
+ for(let i = 0; i < keys.length; i++){
+
+  const key =
+  keys[i];
+
+  if(
+   obj[key] !== undefined &&
+   obj[key] !== null &&
+   String(obj[key]).trim() !== ""
+  ){
+
+   return String(obj[key]).trim();
+
+  }
+
+ }
+
+ return defaultValue || "";
+
+}
+
+function showStatus(id,message,isError){
+
+ const el =
+ document.getElementById(id);
+
+ if(!el){
+
+  return;
+
+ }
+
+ el.textContent =
+ message;
+
+ el.classList.add("show");
+
+ if(isError){
+
+  el.classList.add("error");
+
+ }else{
+
+  el.classList.remove("error");
+
+ }
+
+}
+
+function hideStatus(id){
+
+ const el =
+ document.getElementById(id);
+
+ if(!el){
+
+  return;
+
+ }
+
+ el.classList.remove("show");
+ el.classList.remove("error");
+ el.textContent = "";
+
+}
+
+function jsonp(paramsObj){
+
+ return new Promise(function(resolve,reject){
+
+  const callbackName =
+  "cb_" +
+  Date.now() +
+  "_" +
+  Math.random().toString(36).slice(2,8);
+
+  const params =
+  new URLSearchParams();
+
+  Object.keys(paramsObj).forEach(function(key){
+
+   params.set(key,paramsObj[key]);
+
+  });
+
+  params.set("callback",callbackName);
+  params.set("v",String(Date.now()));
+
+  const script =
+  document.createElement("script");
+
+  window[callbackName] =
+  function(data){
+
+   resolve(data);
+
+   cleanup();
+
+  };
+
+  function cleanup(){
+
+   try{
+
+    delete window[callbackName];
+
+   }catch(e){
+
+    window[callbackName] = undefined;
+
+   }
+
+   if(script.parentNode){
+
+    script.parentNode.removeChild(script);
+
+   }
+
+  }
+
+  script.onerror =
+  function(){
+
+   cleanup();
+
+   reject(new Error("通信に失敗しました"));
+
+  };
+
+  script.src =
+  GAS_URL + "?" + params.toString();
+
+  document.body.appendChild(script);
+
+ });
+
+}
+
+async function login(){
+
+ const password =
+ val("loginPassword");
+
+ if(!password){
+
+  showStatus("loginStatus","合言葉を入力してください。",true);
+
+  return;
+
+ }
+
+ showStatus("loginStatus","確認しています。",false);
+
+ try{
+
+  const data =
+  await jsonp({
+   mode:"checkAdmin",
+   adminPassword:password
+  });
+
+  if(data && data.ok){
+
+   adminPassword =
+   password;
+
+   sessionStorage.setItem(
+    "iwashita_admin_password",
+    adminPassword
+   );
+
+   showAdminApp();
+
+   return;
+
+  }
+
+  showStatus("loginStatus","合言葉が違います。",true);
+
+ }catch(e){
+
+  showStatus("loginStatus","確認できませんでした。GAS URLを確認してください。",true);
+
+ }
+
+}
+
+async function checkStoredLogin(){
+
+ if(!adminPassword){
+
+  return;
+
+ }
+
+ try{
+
+  const data =
+  await jsonp({
+   mode:"checkAdmin",
+   adminPassword:adminPassword
+  });
+
+  if(data && data.ok){
+
+   showAdminApp();
+
+  }else{
+
+   logout();
+
+  }
+
+ }catch(e){
+
+  logout();
+
+ }
+
+}
+
+function showAdminApp(){
+
+ loginCard.style.display =
+ "none";
+
+ adminApp.classList.add("show");
+
+ hideStatus("loginStatus");
+
+ setVal("loginPassword","");
+
+}
+
+function logout(){
+
+ adminPassword = "";
+
+ sessionStorage.removeItem("iwashita_admin_password");
+
+ adminApp.classList.remove("show");
+
+ loginCard.style.display =
+ "block";
+
+}
+
+document.querySelectorAll(".tabBtn").forEach(function(btn){
+
+ btn.addEventListener("click",function(){
+
+  const panelId =
+  btn.getAttribute("data-panel");
+
+  document.querySelectorAll(".tabBtn").forEach(function(b){
+   b.classList.remove("active");
+  });
+
+  document.querySelectorAll(".panel").forEach(function(p){
+   p.classList.remove("active");
+  });
+
+  btn.classList.add("active");
+
+  document.getElementById(panelId).classList.add("active");
+
+  if(panelId === "reportsPanel" && allReports.length === 0){
+
+   loadReports();
+
+  }
+
+ });
+
+});
 
 function todayForInput(){
 
@@ -744,50 +1176,35 @@ function makeSnsText(){
  const lines = [];
 
  lines.push("岩下りゅう 活動報告");
-
  lines.push("");
 
  if(date){
-
   lines.push(date);
-
  }
 
  if(theme){
-
   lines.push("テーマ：" + theme);
-
  }
 
  lines.push("");
-
  lines.push(title);
-
  lines.push("");
 
  if(summary){
-
   lines.push(summary);
-
   lines.push("");
-
  }
 
  lines.push("#岩下りゅう");
-
  lines.push("#志木市");
-
  lines.push("#地域活動");
 
  if(theme){
-
   lines.push("#" + theme.replace(/\s+/g,""));
-
  }
 
  lines.push("");
-
- lines.push(SITE_URL);
+ lines.push("https://ichirohns-jpg.github.io/iwashita-ryu-activity/activity.html");
 
  const text =
  lines.join("\n");
@@ -801,100 +1218,15 @@ function makeSnsText(){
 
 }
 
-function showStatus(message,isError){
+async function saveActivity(){
 
- const el =
- document.getElementById("status");
+ if(!adminPassword){
 
- el.textContent =
- message;
+  alert("先に合言葉を入力してください。");
 
- el.classList.add("show");
-
- if(isError){
-
-  el.classList.add("error");
-
- }else{
-
-  el.classList.remove("error");
+  return;
 
  }
-
-}
-
-function jsonpRequest(paramsObj){
-
- return new Promise(function(resolve,reject){
-
-  const callbackName =
-  "saveActivityCallback_" +
-  Date.now() +
-  "_" +
-  Math.random().toString(36).slice(2,8);
-
-  const params =
-  new URLSearchParams();
-
-  Object.keys(paramsObj).forEach(function(key){
-
-   params.set(key,paramsObj[key]);
-
-  });
-
-  params.set("callback",callbackName);
-
-  params.set("v",String(Date.now()));
-
-  const script =
-  document.createElement("script");
-
-  window[callbackName] = function(data){
-
-   resolve(data);
-
-   cleanup();
-
-  };
-
-  function cleanup(){
-
-   try{
-
-    delete window[callbackName];
-
-   }catch(e){
-
-    window[callbackName] = undefined;
-
-   }
-
-   if(script.parentNode){
-
-    script.parentNode.removeChild(script);
-
-   }
-
-  }
-
-  script.onerror = function(){
-
-   cleanup();
-
-   reject(new Error("通信に失敗しました"));
-
-  };
-
-  script.src =
-  GAS_URL + "?" + params.toString();
-
-  document.body.appendChild(script);
-
- });
-
-}
-
-function buildParams(){
 
  const title =
  val("title");
@@ -906,7 +1238,7 @@ function buildParams(){
 
   alert("タイトルを入れてください。");
 
-  return null;
+  return;
 
  }
 
@@ -914,7 +1246,7 @@ function buildParams(){
 
   alert("概要を入れてください。");
 
-  return null;
+  return;
 
  }
 
@@ -928,47 +1260,34 @@ function buildParams(){
 
  }
 
- return {
-  mode:"saveActivity",
-  date:dateForText(val("date")),
-  theme:val("theme"),
-  title:title,
-  summary:summary,
-  imageUrl1:val("imageUrl1"),
-  imageUrl2:val("imageUrl2"),
-  imageUrl3:val("imageUrl3"),
-  imageUrl4:val("imageUrl4"),
-  imageUrl5:val("imageUrl5"),
-  snsText:snsText,
-  publicStatus:val("publicStatus"),
-  order:val("order"),
-  note:val("note")
- };
-
-}
-
-async function saveActivity(){
-
- const params =
- buildParams();
-
- if(!params){
-
-  return;
-
- }
-
- showStatus("保存しています。",false);
+ showStatus("activityStatus","保存しています。",false);
 
  try{
 
   const data =
-  await jsonpRequest(params);
+  await jsonp({
+   mode:"saveActivity",
+   adminPassword:adminPassword,
+   date:dateForText(val("date")),
+   theme:val("theme"),
+   title:title,
+   summary:summary,
+   imageUrl1:val("imageUrl1"),
+   imageUrl2:val("imageUrl2"),
+   imageUrl3:val("imageUrl3"),
+   imageUrl4:val("imageUrl4"),
+   imageUrl5:val("imageUrl5"),
+   snsText:snsText,
+   publicStatus:val("publicStatus"),
+   order:val("order"),
+   note:val("note")
+  });
 
   if(data && data.ok){
 
    showStatus(
-    "保存しました。公開状態が「公開」なら活動ページに表示されます。ID：" + data.id,
+    "activityStatus",
+    "保存しました。ID：" + data.id,
     false
    );
 
@@ -977,22 +1296,20 @@ async function saveActivity(){
   }
 
   showStatus(
-   "保存に失敗しました。" + (data && data.error ? " " + data.error : ""),
+   "activityStatus",
+   "保存できませんでした。" + (data && data.error ? "\n" + data.error : ""),
    true
   );
 
  }catch(e){
 
-  showStatus(
-   "保存できませんでした。GAS URL、デプロイ、公開設定を確認してください。",
-   true
-  );
+  showStatus("activityStatus","通信に失敗しました。",true);
 
  }
 
 }
 
-function clearForm(){
+function clearActivityForm(){
 
  [
   "theme",
@@ -1017,20 +1334,325 @@ function clearForm(){
  setVal("publicStatus","下書き");
 
  document.getElementById("preview").textContent =
- "まだ作成されていません。";
+ "SNS投稿文プレビュー";
+
+ hideStatus("activityStatus");
+
+}
+
+async function loadReports(){
+
+ if(!adminPassword){
+
+  alert("先に合言葉を入力してください。");
+
+  return;
+
+ }
+
+ showStatus("reportsStatus","投稿を読み込んでいます。",false);
+
+ document.getElementById("reportList").innerHTML = "";
+
+ try{
+
+  const data =
+  await jsonp({
+   mode:"getAdminReports",
+   adminPassword:adminPassword
+  });
+
+  if(data && data.ok){
+
+   allReports =
+   normalizeRecords(data);
+
+   showStatus(
+    "reportsStatus",
+    allReports.length + "件の投稿を読み込みました。",
+    false
+   );
+
+   renderReports();
+
+   return;
+
+  }
+
+  showStatus(
+   "reportsStatus",
+   "読み込めませんでした。" + (data && data.error ? "\n" + data.error : ""),
+   true
+  );
+
+ }catch(e){
+
+  showStatus("reportsStatus","通信に失敗しました。",true);
+
+ }
+
+}
+
+function normalizeRecords(data){
+
+ if(Array.isArray(data)){
+  return data;
+ }
+
+ if(data && Array.isArray(data.records)){
+  return data.records;
+ }
+
+ if(data && Array.isArray(data.reports)){
+  return data.reports;
+ }
+
+ if(data && Array.isArray(data.data)){
+  return data.data;
+ }
+
+ return [];
+
+}
+
+function renderReports(){
+
+ const statusFilter =
+ val("filterStatus");
+
+ const publicFilter =
+ val("filterPublic");
+
+ let records =
+ allReports.slice();
+
+ if(statusFilter){
+
+  records =
+  records.filter(function(r){
+
+   return pick(r,["対応状態","status"],"") === statusFilter;
+
+  });
+
+ }
+
+ if(publicFilter){
+
+  records =
+  records.filter(function(r){
+
+   return pick(r,["公開状態","publicStatus"],"") === publicFilter;
+
+  });
+
+ }
+
+ const list =
+ document.getElementById("reportList");
+
+ if(records.length === 0){
+
+  list.innerHTML =
+  '<div class="reportCard"><div class="reportBody"><strong>表示する投稿はありません。</strong></div></div>';
+
+  return;
+
+ }
+
+ list.innerHTML =
+ records
+ .map(function(r,index){
+
+  return reportHtml(r,index);
+
+ })
+ .join("");
+
+}
+
+function optionHtml(current,options){
+
+ return options.map(function(o){
+
+  return '<option value="' + esc(o) + '"' +
+  (String(current) === String(o) ? " selected" : "") +
+  '>' + esc(o) + '</option>';
+
+ }).join("");
+
+}
+
+function reportHtml(r,index){
+
+ const id =
+ pick(r,["ID","id"],"");
+
+ const date =
+ pick(r,["日時","date"],"");
+
+ const name =
+ pick(r,["お名前・ニックネーム","name"],"匿名");
+
+ const town =
+ pick(r,["町名","town","area"],"その他");
+
+ const category =
+ pick(r,["カテゴリ","category"],"その他");
+
+ const place =
+ pick(r,["場所の説明","place","location"],"");
+
+ const content =
+ pick(r,["内容","content","body","message"],"");
+
+ const urgency =
+ pick(r,["緊急度","urgency"],"通常");
 
  const status =
- document.getElementById("status");
+ pick(r,["対応状態","status"],"受付");
 
- status.classList.remove("show");
+ const publicStatus =
+ pick(r,["公開状態","publicStatus"],"公開");
 
- status.classList.remove("error");
+ const order =
+ pick(r,["表示順","order"],"");
 
- status.textContent = "";
+ const photoUrl =
+ pick(r,["写真URL","photoUrl","imageUrl"],"");
+
+ const mapUrl =
+ pick(r,["GoogleマップURL","mapUrl"],"");
+
+ const naviUrl =
+ pick(r,["ナビURL","naviUrl","navUrl"],"");
+
+ const improvement =
+ pick(r,["改善報告","improvement"],"");
+
+ const improvementPhotoUrl =
+ pick(r,["改善写真URL","improvementPhotoUrl"],"");
+
+ const note =
+ pick(r,["備考","note"],"");
+
+ return ''
+ + '<article class="reportCard">'
+ + '<div class="reportHead">'
+ + '<h3>' + esc(category) + '</h3>'
+ + '<div class="reportId">ID：' + esc(id) + '</div>'
+ + '<div class="badges">'
+ + '<span class="badge yellow">' + esc(status) + '</span>'
+ + '<span class="badge">' + esc(publicStatus) + '</span>'
+ + '<span class="badge">' + esc(town) + '</span>'
+ + '<span class="badge">' + esc(urgency) + '</span>'
+ + (date ? '<span class="badge">' + esc(date) + '</span>' : '')
+ + '</div>'
+ + '</div>'
+
+ + '<div class="reportBody">'
+
+ + '<div class="infoGrid">'
+ + '<div class="infoBox"><div class="infoLabel">名前</div><div class="infoText">' + esc(name) + '</div></div>'
+ + '<div class="infoBox"><div class="infoLabel">町名</div><div class="infoText">' + esc(town) + '</div></div>'
+ + '<div class="infoBox full"><div class="infoLabel">場所</div><div class="infoText">' + esc(place || "未入力") + '</div></div>'
+ + '<div class="infoBox full"><div class="infoLabel">内容</div><div class="infoText">' + esc(content || "未入力") + '</div></div>'
+ + '</div>'
+
+ + (photoUrl ? '<img class="reportPhoto" src="' + esc(photoUrl) + '" alt="投稿写真">' : '')
+
+ + '<div class="mapButtons">'
+ + (mapUrl ? '<a href="' + esc(mapUrl) + '" target="_blank" rel="noopener">地図を見る</a>' : '<button type="button" disabled>地図なし</button>')
+ + (naviUrl ? '<a href="' + esc(naviUrl) + '" target="_blank" rel="noopener">ナビを開く</a>' : '<button type="button" disabled>ナビなし</button>')
+ + '</div>'
+
+ + '<div class="editBox">'
+
+ + '<div class="row2">'
+ + '<div><label>対応状態</label><select id="status-' + index + '">' +
+ optionHtml(status,["受付","確認中","対応中","対応済","改善済","保留"]) +
+ '</select></div>'
+
+ + '<div><label>公開状態</label><select id="public-' + index + '">' +
+ optionHtml(publicStatus,["公開","非公開"]) +
+ '</select></div>'
+ + '</div>'
+
+ + '<label>表示順</label>'
+ + '<input id="order-' + index + '" type="number" value="' + esc(order) + '" placeholder="空欄で通常表示">'
+
+ + '<label>改善報告</label>'
+ + '<textarea id="improvement-' + index + '" placeholder="例：確認しました。対応済みです。">' + esc(improvement) + '</textarea>'
+
+ + '<label>改善写真URL</label>'
+ + '<input id="improvementPhoto-' + index + '" type="text" value="' + esc(improvementPhotoUrl) + '" placeholder="改善後の写真URL">'
+
+ + '<label>備考</label>'
+ + '<textarea id="note-' + index + '" placeholder="管理用メモ">' + esc(note) + '</textarea>'
+
+ + '<button class="btn btnGreen reportSave" type="button" onclick="updateOneReport(' + JSON.stringify(id) + ',' + index + ')">この投稿を更新する</button>'
+
+ + '</div>'
+
+ + '</div>'
+ + '</article>';
+
+}
+
+async function updateOneReport(id,index){
+
+ if(!adminPassword){
+
+  alert("先に合言葉を入力してください。");
+
+  return;
+
+ }
+
+ showStatus("reportsStatus","更新しています。",false);
+
+ try{
+
+  const data =
+  await jsonp({
+   mode:"updateReport",
+   adminPassword:adminPassword,
+   id:id,
+   status:val("status-" + index),
+   publicStatus:val("public-" + index),
+   order:val("order-" + index),
+   improvement:val("improvement-" + index),
+   improvementPhotoUrl:val("improvementPhoto-" + index),
+   note:val("note-" + index)
+  });
+
+  if(data && data.ok){
+
+   showStatus("reportsStatus","更新しました。",false);
+
+   await loadReports();
+
+   return;
+
+  }
+
+  showStatus(
+   "reportsStatus",
+   "更新できませんでした。" + (data && data.error ? "\n" + data.error : ""),
+   true
+  );
+
+ }catch(e){
+
+  showStatus("reportsStatus","通信に失敗しました。",true);
+
+ }
 
 }
 
 setVal("date",todayForInput());
+
+checkStoredLogin();
 
 </script>
 
