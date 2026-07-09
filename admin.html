@@ -30,9 +30,7 @@ body{
  "Meiryo",
  sans-serif;
  background:
- radial-gradient(circle at 10% 0%,rgba(218,255,209,.95),transparent 30%),
- radial-gradient(circle at 90% 5%,rgba(255,246,176,.55),transparent 26%),
- linear-gradient(180deg,#f8fff5 0%,#ffffff 52%,#edfbea 100%);
+ linear-gradient(180deg,#f8fff5 0%,#ffffff 54%,#edfbea 100%);
  color:#203326;
  line-height:1.7;
  -webkit-text-size-adjust:100%;
@@ -57,14 +55,14 @@ button{
 .header{
  position:sticky;
  top:0;
- z-index:90;
+ z-index:80;
  display:flex;
  align-items:center;
  justify-content:space-between;
  gap:12px;
  padding:10px 0;
  background:rgba(248,255,245,.96);
- backdrop-filter:blur(16px);
+ backdrop-filter:blur(14px);
 }
 
 .brand{
@@ -78,9 +76,9 @@ button{
 .brand img{
  width:44px;
  height:44px;
- border-radius:16px;
+ border-radius:14px;
  object-fit:cover;
- box-shadow:0 8px 22px rgba(70,130,82,.18);
+ box-shadow:0 6px 18px rgba(70,130,82,.18);
 }
 
 .brand span{
@@ -107,18 +105,18 @@ button{
 
 .hero{
  margin-top:8px;
- border-radius:34px;
+ border-radius:28px;
  background:
- radial-gradient(circle at 100% 0%,rgba(255,246,176,.58),transparent 34%),
+ radial-gradient(circle at 100% 0%,rgba(255,246,176,.45),transparent 35%),
  linear-gradient(135deg,#ffffff 0%,#f4fff1 100%);
  border:2px solid #b7ebc0;
- box-shadow:0 16px 40px rgba(70,130,82,.12);
- padding:24px;
+ box-shadow:0 12px 30px rgba(70,130,82,.10);
+ padding:22px;
 }
 
 .kicker{
  display:inline-flex;
- padding:8px 13px;
+ padding:7px 12px;
  border-radius:999px;
  background:#e6ffe9;
  border:1px solid #b7ebc0;
@@ -128,15 +126,15 @@ button{
 }
 
 .hero h1{
- margin:14px 0 0;
+ margin:12px 0 0;
  color:#1f5f35;
- font-size:clamp(34px,9vw,60px);
- line-height:1.08;
+ font-size:clamp(34px,8vw,56px);
+ line-height:1.12;
  font-weight:900;
 }
 
 .hero p{
- margin:12px 0 0;
+ margin:10px 0 0;
  color:#344c39;
  font-size:18px;
  line-height:1.75;
@@ -151,18 +149,18 @@ button{
 }
 
 .heroLinks a{
- min-height:54px;
+ min-height:56px;
  display:flex;
  align-items:center;
  justify-content:center;
- border-radius:20px;
+ text-align:center;
+ border-radius:22px;
  background:#fff;
  border:2px solid #b7ebc0;
  color:#1f5f35;
  font-size:16px;
  font-weight:900;
- text-align:center;
- padding:8px;
+ padding:10px;
 }
 
 .section{
@@ -170,14 +168,14 @@ button{
 }
 
 .card{
- border-radius:32px;
+ border-radius:28px;
  background:#fff;
  border:2px solid #b7ebc0;
- box-shadow:0 16px 40px rgba(70,130,82,.11);
+ box-shadow:0 12px 30px rgba(70,130,82,.10);
  padding:22px;
 }
 
-.adminSectionTitle{
+.sectionTitle{
  margin:0 0 12px;
  color:#1f5f35;
  font-size:clamp(28px,7vw,42px);
@@ -185,7 +183,7 @@ button{
  font-weight:900;
 }
 
-.adminLead{
+.lead{
  margin:0 0 18px;
  color:#4d6b55;
  font-size:17px;
@@ -275,7 +273,8 @@ textarea:focus{
 }
 
 .btn,
-button.btn{
+button.btn,
+a.btn{
  min-height:58px;
  display:flex;
  align-items:center;
@@ -318,7 +317,7 @@ button.btn{
  color:#fff;
 }
 
-.adminStatus{
+.status{
  display:none;
  margin-top:16px;
  border-radius:22px;
@@ -331,17 +330,17 @@ button.btn{
  white-space:pre-wrap;
 }
 
-.adminStatus.show{
+.status.show{
  display:block;
 }
 
-.adminStatus.error{
+.status.error{
  background:#fff1f2;
  border-color:#fda4af;
  color:#9f1239;
 }
 
-.adminPreview{
+.preview{
  min-height:180px;
  border-radius:22px;
  background:#fffdf0;
@@ -378,18 +377,12 @@ button.btn{
 
  .hero,
  .card{
-  border-radius:28px;
+  border-radius:26px;
   padding:18px;
  }
 
- .heroLinks{
-  grid-template-columns:1fr;
- }
-
- .formRow.two{
-  grid-template-columns:1fr;
- }
-
+ .heroLinks,
+ .formRow.two,
  .btnGrid{
   grid-template-columns:1fr;
  }
@@ -403,7 +396,6 @@ button.btn{
 }
 
 </style>
-
 </head>
 
 <body>
@@ -420,7 +412,9 @@ button.btn{
  <nav class="headerNav">
   <a href="index.html">トップ</a>
   <a href="activity.html">活動</a>
-  <a href="profile.html">プロフィール</a>
+  <a href="videos.html">動画</a>
+  <a href="support.html">応援</a>
+  <a href="profile.html">人物</a>
  </nav>
 
 </header>
@@ -447,9 +441,9 @@ button.btn{
 
 <section class="section card">
 
- <h2 class="adminSectionTitle">活動内容</h2>
+ <h2 class="sectionTitle">活動内容</h2>
 
- <p class="adminLead">
+ <p class="lead">
   公開状態を「公開」にすると、活動ページに表示されます。
  </p>
 
@@ -500,7 +494,7 @@ button.btn{
 
 <section class="section card">
 
- <h2 class="adminSectionTitle">写真URL 最大5枚</h2>
+ <h2 class="sectionTitle">写真URL 最大5枚</h2>
 
  <div class="formGrid">
 
@@ -541,7 +535,7 @@ button.btn{
 
 <section class="section card">
 
- <h2 class="adminSectionTitle">SNS・公開設定</h2>
+ <h2 class="sectionTitle">SNS・公開設定</h2>
 
  <div class="formGrid">
 
@@ -599,15 +593,15 @@ button.btn{
 
  </div>
 
- <div id="status" class="adminStatus"></div>
+ <div id="status" class="status"></div>
 
 </section>
 
 <section class="section card">
 
- <h2 class="adminSectionTitle">SNS投稿文プレビュー</h2>
+ <h2 class="sectionTitle">SNS投稿文プレビュー</h2>
 
- <div id="preview" class="adminPreview">
+ <div id="preview" class="preview">
   まだ作成されていません。
  </div>
 
