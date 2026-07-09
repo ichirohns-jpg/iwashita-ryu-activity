@@ -198,4 +198,941 @@ button{
 }
 
 .bigButton{
-  margin
+  margin-top:16px;
+  min-height:86px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  border-radius:30px;
+  background:linear-gradient(135deg,#4caf63 0%,#78c96f 100%);
+  color:#fff;
+  border:2px solid #78c96f;
+  box-shadow:0 16px 34px rgba(76,175,99,.25);
+  font-size:24px;
+  line-height:1.35;
+  font-weight:900;
+  padding:14px;
+}
+
+.bigButton small{
+  display:block;
+  margin-top:4px;
+  font-size:13px;
+  line-height:1.35;
+  font-weight:850;
+  opacity:.95;
+}
+
+.whiteButton{
+  margin-top:14px;
+  min-height:64px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  border-radius:24px;
+  background:#fff;
+  color:#1f5f35;
+  border:2px solid #b7ebc0;
+  font-size:18px;
+  font-weight:900;
+  padding:12px;
+}
+
+.chips{
+  margin-top:14px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.chip{
+  display:inline-flex;
+  padding:7px 11px;
+  border-radius:999px;
+  background:#f7fff5;
+  border:1px solid #c8f0ce;
+  color:#1f6b3d;
+  font-size:14px;
+  font-weight:900;
+}
+
+.notice{
+  margin-top:16px;
+  border-radius:24px;
+  background:#fff7c2;
+  border:2px solid #facc15;
+  color:#5c3b00;
+  padding:16px;
+  font-size:16px;
+  line-height:1.7;
+  font-weight:900;
+}
+
+.section{
+  margin-top:28px;
+}
+
+.sectionTitle{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:14px;
+}
+
+.sectionTitle h2{
+  margin:0;
+  color:#1f5f35;
+  font-size:clamp(34px,8vw,54px);
+  line-height:1.15;
+  font-weight:900;
+}
+
+.sectionSub{
+  margin:-6px 0 14px;
+  color:#4d6b55;
+  font-size:17px;
+  font-weight:850;
+}
+
+.sectionHead{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:14px;
+}
+
+.reloadBtn{
+  border-radius:999px;
+  background:#fff;
+  border:2px solid #b7ebc0;
+  color:#1f5f35;
+  font-size:15px;
+  font-weight:900;
+  padding:10px 14px;
+}
+
+.reportList{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:18px;
+}
+
+.reportCard{
+  overflow:hidden;
+  border-radius:32px;
+  background:#fff;
+  border:2px solid #b7ebc0;
+  box-shadow:0 16px 40px rgba(70,130,82,.11);
+}
+
+.reportTop{
+  padding:16px 18px;
+  background:#f7fff5;
+  border-bottom:1px solid #d6f3d8;
+}
+
+.reportNo{
+  display:inline-flex;
+  padding:6px 12px;
+  border-radius:999px;
+  background:#4caf63;
+  color:#fff;
+  font-size:14px;
+  font-weight:900;
+}
+
+.reportTitle{
+  margin:10px 0 0;
+  color:#1f5f35;
+  font-size:clamp(28px,7vw,44px);
+  line-height:1.2;
+  font-weight:900;
+}
+
+.metaRow{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:12px;
+}
+
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:6px 11px;
+  border-radius:999px;
+  background:#e6ffe9;
+  border:1px solid #b7ebc0;
+  color:#1f6b3d;
+  font-size:13px;
+  font-weight:900;
+}
+
+.badge.status{
+  background:#fff7c2;
+  border-color:#facc15;
+  color:#5c3b00;
+}
+
+.badge.good{
+  background:#dcfce7;
+  border-color:#86efac;
+  color:#166534;
+}
+
+.badge.warn{
+  background:#fee2e2;
+  border-color:#fca5a5;
+  color:#7f1d1d;
+}
+
+.reportImageBox{
+  width:100%;
+  aspect-ratio:4/3;
+  background:
+    radial-gradient(circle at 100% 0%,rgba(255,246,176,.35),transparent 35%),
+    linear-gradient(135deg,#f3fff0 0%,#e6ffe9 100%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  padding:10px;
+  border-bottom:1px solid #d6f3d8;
+}
+
+.reportImage{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  border-radius:18px;
+  background:#fff;
+}
+
+.reportBody{
+  padding:18px;
+}
+
+.labelBlock{
+  margin-top:12px;
+  border-radius:20px;
+  background:#f7fff5;
+  border:1px solid #c8f0ce;
+  padding:13px;
+}
+
+.labelBlock:first-child{
+  margin-top:0;
+}
+
+.labelTitle{
+  color:#1f6b3d;
+  font-size:14px;
+  font-weight:900;
+}
+
+.labelText{
+  margin-top:4px;
+  color:#2f4c36;
+  font-size:18px;
+  line-height:1.65;
+  font-weight:850;
+  white-space:pre-wrap;
+  word-break:break-word;
+}
+
+.improvementBox{
+  margin-top:14px;
+  border-radius:22px;
+  background:#ecfdf5;
+  border:2px solid #86efac;
+  padding:14px;
+  color:#166534;
+}
+
+.improvementTitle{
+  font-size:16px;
+  font-weight:900;
+}
+
+.improvementText{
+  margin-top:6px;
+  font-size:17px;
+  line-height:1.7;
+  font-weight:850;
+  white-space:pre-wrap;
+}
+
+.improvementPhotoBox{
+  margin-top:12px;
+  border-radius:18px;
+  background:#fff;
+  border:1px solid #bbf7d0;
+  padding:8px;
+}
+
+.improvementPhotoBox img{
+  display:block;
+  width:100%;
+  max-height:300px;
+  object-fit:contain;
+  border-radius:14px;
+}
+
+.reportButtons{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+  margin-top:16px;
+}
+
+.reportButtons a,
+.reportButtons button{
+  min-height:56px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:20px;
+  background:#fff;
+  border:2px solid #b7ebc0;
+  color:#1f5f35;
+  font-size:16px;
+  font-weight:900;
+}
+
+.reportButtons a.navi{
+  background:linear-gradient(135deg,#4caf63 0%,#78c96f 100%);
+  border-color:#78c96f;
+  color:#fff;
+}
+
+.shareBox{
+  margin-top:14px;
+  border-radius:24px;
+  background:#f7fff5;
+  border:1px solid #c8f0ce;
+  padding:14px;
+}
+
+.shareTitle{
+  color:#1f5f35;
+  font-size:16px;
+  font-weight:900;
+  margin-bottom:10px;
+}
+
+.shareButtons{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+}
+
+.shareButtons a,
+.shareButtons button{
+  min-height:50px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:18px;
+  border:2px solid #b7ebc0;
+  background:#fff;
+  color:#1f5f35;
+  font-size:15px;
+  font-weight:900;
+}
+
+.empty{
+  border-radius:28px;
+  background:#fff;
+  border:2px solid #b7ebc0;
+  box-shadow:0 12px 30px rgba(71,130,82,.10);
+  padding:22px;
+  color:#4d6b55;
+}
+
+.empty h3{
+  margin:0;
+  color:#1f5f35;
+  font-size:26px;
+  line-height:1.3;
+  font-weight:900;
+}
+
+.empty p{
+  margin:10px 0 0;
+  font-size:18px;
+  line-height:1.7;
+  font-weight:850;
+}
+
+.adminBox{
+  margin-top:28px;
+  border-radius:34px;
+  background:#fff;
+  border:2px solid #b7ebc0;
+  box-shadow:0 16px 40px rgba(70,130,82,.11);
+  padding:22px;
+}
+
+.adminBox h2{
+  margin:0;
+  color:#1f5f35;
+  font-size:clamp(30px,8vw,48px);
+  line-height:1.2;
+  font-weight:900;
+}
+
+.adminBox p{
+  margin:10px 0 0;
+  color:#3c5943;
+  font-size:17px;
+  line-height:1.7;
+  font-weight:850;
+}
+
+.adminBox a{
+  margin-top:16px;
+  min-height:70px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:26px;
+  background:#fff;
+  border:2px solid #b7ebc0;
+  color:#1f5f35;
+  font-size:20px;
+  font-weight:900;
+}
+
+.footer{
+  margin-top:30px;
+  text-align:center;
+  color:#4d6b55;
+  font-size:13px;
+  font-weight:800;
+}
+
+.bottomNav{
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:100;
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  background:rgba(255,255,255,.98);
+  border-top:1px solid #b7ebc0;
+  box-shadow:0 -12px 30px rgba(71,130,82,.12);
+  backdrop-filter:blur(14px);
+}
+
+.bottomNav a{
+  text-align:center;
+  color:#1f6b3d;
+  padding:8px 4px 7px;
+  font-size:12px;
+  font-weight:900;
+}
+
+.bottomNav a span{
+  display:block;
+  font-size:22px;
+  line-height:1.1;
+}
+
+@media (min-width:820px){
+  .flow{
+    grid-template-columns:1fr 1fr 1fr;
+  }
+
+  .flowCard:first-child{
+    grid-column:1 / -1;
+  }
+
+  .reportList{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .reportCard:first-child{
+    grid-column:1 / -1;
+  }
+}
+
+@media (max-width:560px){
+  .wrap{
+    width:94%;
+  }
+
+  .headerNav{
+    display:none;
+  }
+
+  .brand span{
+    font-size:16px;
+  }
+
+  .hero,
+  .flowCard,
+  .reportCard,
+  .adminBox{
+    border-radius:28px;
+  }
+
+  .hero,
+  .flowCard,
+  .adminBox{
+    padding:18px;
+  }
+
+  .sectionHead{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+
+  .reportImageBox{
+    aspect-ratio:1/1;
+    padding:8px;
+  }
+
+  .shareButtons{
+    grid-template-columns:1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrap">
+
+<header class="header">
+  <a class="brand" href="index.html">
+    <img src="apple-touch-icon.png" alt="岩下りゅう">
+    <span>岩下りゅう 活動報告</span>
+  </a>
+
+  <nav class="headerNav">
+    <a href="index.html">トップ</a>
+    <a href="activity.html">活動</a>
+    <a href="videos.html">動画</a>
+    <a href="support.html">応援</a>
+    <a href="profile.html">人物</a>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero">
+  <div class="kicker">地域で気づいたこと</div>
+  <h1>
+    まちの困りごとを
+    <span>写真で知らせる</span>
+  </h1>
+  <p>
+    道路の穴、街灯切れ、不法投棄、危険箇所などを、写真・場所・文章で投稿できます。
+  </p>
+</section>
+
+<section class="flow" id="top">
+
+  <div class="flowCard">
+    <div class="flowHead">
+      <div class="num">1</div>
+      <h2>まず投稿する</h2>
+    </div>
+    <p>
+      写真、町名、場所、困っている内容を入力します。スマホのカメラロールや撮影写真が使えます。
+    </p>
+
+    <a class="bigButton" id="postButton" href="#" target="_blank" rel="noopener">
+      📷 写真付きで投稿する
+      <small>投稿フォームを開きます</small>
+    </a>
+
+    <div class="chips">
+      <span class="chip">道路の穴</span>
+      <span class="chip">街灯切れ</span>
+      <span class="chip">ごみ</span>
+      <span class="chip">危険箇所</span>
+      <span class="chip">公園・施設</span>
+    </div>
+  </div>
+
+  <div class="flowCard">
+    <div class="flowHead">
+      <div class="num">2</div>
+      <h2>投稿を見る</h2>
+    </div>
+    <p>
+      投稿された困りごとは下に一覧で表示されます。写真、内容、場所、地図を確認できます。
+    </p>
+
+    <a class="whiteButton" href="#reports">
+      投稿一覧を見る
+    </a>
+  </div>
+
+  <div class="flowCard">
+    <div class="flowHead">
+      <div class="num">3</div>
+      <h2>管理する</h2>
+    </div>
+    <p>
+      管理者は、対応状態の変更、改善報告、改善後の写真登録ができます。
+    </p>
+
+    <a class="whiteButton" id="adminTopButton" href="#" target="_blank" rel="noopener">
+      管理者画面を開く
+    </a>
+  </div>
+
+</section>
+
+<div class="notice">
+  緊急の場合や、すぐ対応が必要な場合は、市役所・警察・消防など、関係機関へ直接連絡してください。
+</div>
+
+<section class="section" id="reports">
+  <div class="sectionHead">
+    <div>
+      <div class="sectionTitle">
+        <h2>投稿された困りごと</h2>
+      </div>
+      <div class="sectionSub">
+        写真・内容・場所・対応状態を確認できます。
+      </div>
+    </div>
+
+    <button class="reloadBtn" type="button" onclick="loadReports()">
+      更新
+    </button>
+  </div>
+
+  <div id="reportList" class="reportList">
+    <div class="empty">
+      <h3>投稿を読み込み中です。</h3>
+      <p>少しお待ちください。</p>
+    </div>
+  </div>
+</section>
+
+<section class="adminBox" id="admin">
+  <h2>管理者用</h2>
+  <p>
+    対応状態、改善報告、改善写真の登録は管理者画面で行います。
+  </p>
+
+  <a id="adminButton" href="#" target="_blank" rel="noopener">
+    管理者対応画面を開く
+  </a>
+</section>
+
+</main>
+
+<footer class="footer">
+  岩下りゅう 活動報告<br>
+  地域での活動を、写真と動画でわかりやすく。
+</footer>
+
+</div>
+
+<nav class="bottomNav">
+  <a href="index.html"><span>🏠</span>トップ</a>
+  <a href="activity.html"><span>📸</span>活動</a>
+  <a href="videos.html"><span>🎥</span>動画</a>
+  <a href="support.html"><span>💬</span>応援</a>
+  <a href="profile.html"><span>👤</span>人物</a>
+</nav>
+
+<script>
+const GAS_URL =
+"https://script.google.com/macros/s/AKfycbxmJP-uOok9cyUJK8rfPgVwf4QROxYYSktD2zYhuxtsCaD_Uz3QhoHm_dHRf_78w9D__w/exec";
+
+const FORM_URL =
+GAS_URL + "?page=form";
+
+const ADMIN_URL =
+GAS_URL + "?page=admin";
+
+const reportList =
+document.getElementById("reportList");
+
+document.getElementById("postButton").href =
+FORM_URL;
+
+document.getElementById("adminButton").href =
+ADMIN_URL;
+
+document.getElementById("adminTopButton").href =
+ADMIN_URL;
+
+function esc(v){
+  return String(v || "")
+  .replace(/&/g,"&amp;")
+  .replace(/</g,"&lt;")
+  .replace(/>/g,"&gt;")
+  .replace(/"/g,"&quot;")
+  .replace(/'/g,"&#39;");
+}
+
+function shortDate(v){
+
+  const s =
+  String(v || "");
+
+  if(!s){
+    return "";
+  }
+
+  return s
+  .replace(/\s\d{2}:\d{2}.*/,"")
+  .replace(/-/g,"/");
+
+}
+
+function statusClass(status){
+
+  const s =
+  String(status || "");
+
+  if(s.indexOf("改善") !== -1){
+    return "good";
+  }
+
+  if(s.indexOf("危険") !== -1){
+    return "warn";
+  }
+
+  return "status";
+
+}
+
+function reportShareUrl(id){
+
+  const base =
+  location.origin +
+  location.pathname;
+
+  if(id){
+    return base + "#problem-" + encodeURIComponent(id);
+  }
+
+  return base;
+
+}
+
+function copyText(text){
+
+  if(navigator.clipboard){
+    navigator.clipboard.writeText(text)
+    .then(function(){
+      alert("コピーしました。");
+    })
+    .catch(function(){
+      alert("コピーできませんでした。");
+    });
+    return;
+  }
+
+  alert(text);
+
+}
+
+document.addEventListener("click",function(e){
+
+  const btn =
+  e.target.closest(".copyBtn");
+
+  if(!btn){
+    return;
+  }
+
+  const text =
+  btn.getAttribute("data-text") || "";
+
+  copyText(text);
+
+});
+
+function reportCard(r,index){
+
+  const id =
+  r["ID"] ||
+  "problem-" + String(index + 1);
+
+  const date =
+  shortDate(
+    r["日時"] ||
+    ""
+  );
+
+  const area =
+  r["町名"] ||
+  "その他";
+
+  const category =
+  r["カテゴリ"] ||
+  "困りごと";
+
+  const place =
+  r["場所の説明"] ||
+  "";
+
+  const body =
+  r["内容"] ||
+  "";
+
+  const urgency =
+  r["緊急度"] ||
+  "通常";
+
+  const status =
+  r["対応状態"] ||
+  "確認中";
+
+  const photo =
+  r["写真URL"] ||
+  "";
+
+  const mapUrl =
+  r["GoogleマップURL"] ||
+  "";
+
+  const naviUrl =
+  r["ナビURL"] ||
+  "";
+
+  const improvement =
+  r["改善報告"] ||
+  "";
+
+  const improvementPhoto =
+  r["改善写真URL"] ||
+  "";
+
+  const shareUrl =
+  reportShareUrl(id);
+
+  const shareText =
+  "まちの困りごと：" +
+  category +
+  "\n" +
+  (place ? place + "\n" : "") +
+  body;
+
+  const lineUrl =
+  "https://social-plugins.line.me/lineit/share?url=" +
+  encodeURIComponent(shareUrl);
+
+  const xUrl =
+  "https://twitter.com/intent/tweet?text=" +
+  encodeURIComponent(shareText) +
+  "&url=" +
+  encodeURIComponent(shareUrl);
+
+  const fbUrl =
+  "https://www.facebook.com/sharer/sharer.php?u=" +
+  encodeURIComponent(shareUrl);
+
+  return ''
+  + '<article class="reportCard" id="problem-' + esc(id) + '">'
+  + '<div class="reportTop">'
+  + '<span class="reportNo">投稿 ' + esc(index + 1) + '</span>'
+  + '<h3 class="reportTitle">' + esc(category) + '</h3>'
+  + '<div class="metaRow">'
+  + '<span class="badge">' + esc(area) + '</span>'
+  + '<span class="badge">' + esc(urgency) + '</span>'
+  + '<span class="badge ' + esc(statusClass(status)) + '">' + esc(status) + '</span>'
+  + (date ? '<span class="badge">' + esc(date) + '</span>' : '')
+  + '</div>'
+  + '</div>'
+
+  + (photo ? '<div class="reportImageBox"><img class="reportImage" src="' + esc(photo) + '" alt="' + esc(category) + '"></div>' : '')
+
+  + '<div class="reportBody">'
+  + (body ? '<div class="labelBlock"><div class="labelTitle">困っている内容</div><div class="labelText">' + esc(body) + '</div></div>' : '')
+  + (place ? '<div class="labelBlock"><div class="labelTitle">場所の説明</div><div class="labelText">' + esc(place) + '</div></div>' : '')
+
+  + (improvement ? '<div class="improvementBox"><div class="improvementTitle">改善報告</div><div class="improvementText">' + esc(improvement) + '</div>' + (improvementPhoto ? '<div class="improvementPhotoBox"><img src="' + esc(improvementPhoto) + '" alt="改善写真"></div>' : '') + '</div>' : '')
+
+  + '<div class="reportButtons">'
+  + (mapUrl ? '<a href="' + esc(mapUrl) + '" target="_blank" rel="noopener">地図を見る</a>' : '<button type="button" disabled>地図なし</button>')
+  + (naviUrl ? '<a class="navi" href="' + esc(naviUrl) + '" target="_blank" rel="noopener">現地へ向かう</a>' : '<button type="button" disabled>ナビなし</button>')
+  + '</div>'
+
+  + '<div class="shareBox">'
+  + '<div class="shareTitle">この投稿を共有する</div>'
+  + '<div class="shareButtons">'
+  + '<a href="' + esc(lineUrl) + '" target="_blank" rel="noopener">LINE</a>'
+  + '<a href="' + esc(xUrl) + '" target="_blank" rel="noopener">X</a>'
+  + '<a href="' + esc(fbUrl) + '" target="_blank" rel="noopener">Facebook</a>'
+  + '<button class="copyBtn" type="button" data-text="' + esc(shareText + "\n" + shareUrl) + '">コピー</button>'
+  + '</div>'
+  + '</div>'
+
+  + '</div>'
+  + '</article>';
+
+}
+
+function fetchReports(){
+
+  const url =
+  GAS_URL +
+  "?mode=getProblemReports&t=" +
+  Date.now();
+
+  return fetch(url)
+  .then(function(res){
+    return res.json();
+  })
+  .then(function(data){
+
+    return data && data.records
+    ? data.records
+    : [];
+
+  });
+
+}
+
+function renderReports(records){
+
+  if(!records.length){
+    reportList.innerHTML =
+    '<div class="empty"><h3>現在、公開中の困りごとはありません。</h3><p>投稿があると、このページに表示されます。</p></div>';
+    return;
+  }
+
+  reportList.innerHTML =
+  records.map(reportCard).join("");
+
+}
+
+function loadReports(){
+
+  reportList.innerHTML =
+  '<div class="empty"><h3>投稿を読み込み中です。</h3><p>少しお待ちください。</p></div>';
+
+  fetchReports()
+  .then(function(records){
+    renderReports(records);
+  })
+  .catch(function(){
+
+    reportList.innerHTML =
+    '<div class="empty"><h3>投稿を読み込めませんでした。</h3><p>時間をおいて、もう一度開いてください。</p></div>';
+
+  });
+
+}
+
+loadReports();
+</script>
+
+</body>
+</html>
