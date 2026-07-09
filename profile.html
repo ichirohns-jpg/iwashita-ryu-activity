@@ -186,32 +186,18 @@ a{
  box-shadow:0 14px 30px rgba(20,83,45,.22);
 }
 
-.profileMark{
- width:118px;
- height:118px;
- border-radius:999px;
+.profileImage.photo{
+ padding:0;
+ overflow:hidden;
  background:#fff;
- color:var(--kappa-dark);
- display:flex;
- align-items:center;
- justify-content:center;
- font-size:58px;
- font-weight:900;
- box-shadow:0 10px 24px rgba(0,0,0,.15);
 }
 
-.profileName{
- margin-top:16px;
- font-size:30px;
- line-height:1.25;
- font-weight:900;
-}
-
-.profileSub{
- margin-top:8px;
- font-size:16px;
- line-height:1.6;
- font-weight:850;
+.profileImage.photo img{
+ width:100%;
+ height:100%;
+ object-fit:cover;
+ object-position:center center;
+ display:block;
 }
 
 .profileText{
@@ -483,7 +469,7 @@ a{
  }
 
  .profileImage{
-  min-height:260px;
+  min-height:320px;
  }
 
 }
@@ -512,6 +498,10 @@ a{
  .profileText{
   border-radius:28px;
   padding:18px;
+ }
+
+ .profileImage{
+  border-radius:28px;
  }
 
  .actionGrid,
@@ -573,13 +563,8 @@ a{
 
  <div class="profileBox">
 
-  <div class="profileImage">
-   <div class="profileMark">河</div>
-   <div class="profileName">岩下りゅう</div>
-   <div class="profileSub">
-    カッパのまちの<br>
-    活動報告DX
-   </div>
+  <div class="profileImage photo">
+   <img src="images/profile/iwashita-ryu-profile-20260709.png" alt="岩下りゅう プロフィール写真">
   </div>
 
   <div class="profileText">
