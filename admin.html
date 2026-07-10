@@ -113,7 +113,8 @@ button{
 .hero,
 .loginCard,
 .panel,
-.reportCard{
+.reportCard,
+.guideCard{
  border-radius:28px;
  background:#fff;
  border:2px solid var(--line);
@@ -150,7 +151,8 @@ h1{
 
 .hero p,
 .loginCard p,
-.panel p{
+.panel p,
+.guideCard p{
  margin:8px 0 0;
  color:var(--ink);
  font-size:17px;
@@ -162,7 +164,8 @@ h1{
 }
 
 .loginCard h2,
-.panel h2{
+.panel h2,
+.guideCard h2{
  margin:0;
  color:var(--kappa-dark);
  font-size:clamp(28px,7vw,42px);
@@ -308,6 +311,66 @@ textarea:focus{
  background:linear-gradient(135deg,#14532d 0%,#237a3b 55%,#4caf63 100%);
  color:#fff;
  border-color:var(--kappa-main);
+}
+
+.guideCard{
+ margin-top:18px;
+ background:
+ radial-gradient(circle at 100% 0%,rgba(255,247,194,.72),transparent 34%),
+ radial-gradient(circle at 0% 100%,rgba(224,242,254,.55),transparent 34%),
+ linear-gradient(135deg,#ffffff 0%,#f3fff1 100%);
+}
+
+.guideGrid{
+ margin-top:14px;
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:12px;
+}
+
+.guideItem{
+ border-radius:22px;
+ background:#fff;
+ border:1px solid #c7eecb;
+ padding:14px;
+}
+
+.guideItem:nth-child(2){
+ background:#f0f9ff;
+ border-color:#bae6fd;
+}
+
+.guideItem:nth-child(3){
+ background:#fffdf0;
+ border-color:#eadf9d;
+}
+
+.guideItem h3{
+ margin:0;
+ color:var(--kappa-dark);
+ font-size:20px;
+ line-height:1.3;
+ font-weight:900;
+}
+
+.guideItem p{
+ margin:7px 0 0;
+ color:var(--ink);
+ font-size:15px;
+ line-height:1.65;
+ font-weight:850;
+}
+
+.guideNotice{
+ margin-top:14px;
+ border-radius:20px;
+ background:var(--cream);
+ border:2px solid var(--gold);
+ color:#5c3b00;
+ padding:14px;
+ font-size:16px;
+ line-height:1.65;
+ font-weight:900;
 }
 
 .panel{
@@ -513,7 +576,8 @@ textarea:focus{
 
  .hero,
  .loginCard,
- .panel{
+ .panel,
+ .guideCard{
   border-radius:24px;
   padding:18px;
  }
@@ -523,7 +587,8 @@ textarea:focus{
  .actionGrid,
  .reportTools,
  .infoGrid,
- .mapButtons{
+ .mapButtons,
+ .guideGrid{
   grid-template-columns:1fr;
  }
 
@@ -619,6 +684,45 @@ textarea:focus{
   </button>
 
  </div>
+
+ <section class="guideCard">
+
+  <h2>初めて使う方へ</h2>
+
+  <p>
+   まず上のボタンから作業を選んでください。分からない時は、無理に公開せず「下書き」または「非公開」で保存してください。
+  </p>
+
+  <div class="guideGrid">
+
+   <div class="guideItem">
+    <h3>活動報告を登録</h3>
+    <p>
+     地域活動やイベントの報告を入れます。日付、タイトル、概要、画像URLを入れて、公開状態を選びます。
+    </p>
+   </div>
+
+   <div class="guideItem">
+    <h3>動画を登録</h3>
+    <p>
+     YouTubeのURLを入れて動画を登録します。公開状態を「公開」にすると動画ページに表示されます。
+    </p>
+   </div>
+
+   <div class="guideItem">
+    <h3>困りごとを管理</h3>
+    <p>
+     市民から届いた投稿を確認します。対応状態、公開状態、改善報告を更新できます。
+    </p>
+   </div>
+
+  </div>
+
+  <div class="guideNotice">
+   スプレッドシートは直接触らず、この管理画面から作業してください。保存前に迷ったら、いったん下書き・非公開で止めて確認してください。
+  </div>
+
+ </section>
 
  <section class="panel active" id="activityPanel">
 
