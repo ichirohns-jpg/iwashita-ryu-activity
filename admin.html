@@ -1448,7 +1448,7 @@ function readImageFile(file){
    image.onload =
    function(){
 
-    const maxSide = 1600;
+    const maxSide = 1000;
     const scale =
     Math.min(1,maxSide / Math.max(image.naturalWidth,image.naturalHeight));
 
@@ -1466,32 +1466,20 @@ function readImageFile(file){
 
     ctx.drawImage(image,0,0,canvas.width,canvas.height);
 
-    canvas.toBlob(function(blob){
+    let quality = 0.68;
+    let dataUrl = canvas.toDataURL("image/jpeg",quality);
 
-     if(!blob){
-      resolve({dataUrl:source,mimeType:file.type || "image/jpeg"});
-      return;
-     }
+    while(dataUrl.length > 45000 && quality > 0.32){
 
-     const compressedReader =
-     new FileReader();
+     quality -= 0.08;
+     dataUrl = canvas.toDataURL("image/jpeg",quality);
 
-     compressedReader.onload =
-     function(){
-      resolve({
-       dataUrl:String(compressedReader.result || ""),
-       mimeType:"image/jpeg"
-      });
-     };
+    }
 
-     compressedReader.onerror =
-     function(){
-      reject(new Error("写真を圧縮できませんでした"));
-     };
-
-     compressedReader.readAsDataURL(blob);
-
-    },"image/jpeg",0.82);
+    resolve({
+     dataUrl:dataUrl,
+     mimeType:"image/jpeg"
+    });
 
    };
 
@@ -1521,8 +1509,7 @@ async function prepareActivityImages(){
   selectedImages[i] || null;
 
   if(!file){
-   result["imageData" + i] = "";
-   result["imageMimeType" + i] = "";
+   result["imageUrl" + i] = "";
    continue;
   }
 
@@ -1531,8 +1518,7 @@ async function prepareActivityImages(){
   const image =
   await readImageFile(file);
 
-  result["imageData" + i] = image ? image.dataUrl : "";
-  result["imageMimeType" + i] = image ? image.mimeType : "";
+  result["imageUrl" + i] = image ? image.dataUrl : "";
 
  }
 
@@ -1840,7 +1826,7 @@ async function saveActivity(){
 
   const hasImage =
   [1,2,3,4,5].some(function(i){
-   return Boolean(payload["imageData" + i]);
+   return Boolean(payload["imageUrl" + i]);
   });
 
   const data =
