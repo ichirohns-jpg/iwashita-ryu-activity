@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>管理画面｜岩下りゅう 活動報告DX</title>
+<title>管理画面｜岩下りゅう 市民の声DX</title>
 
-<meta name="description" content="岩下りゅう活動報告DXの管理画面です。">
+<meta name="description" content="岩下りゅう市民の声DXの管理画面です。">
 <meta name="theme-color" content="#14532d">
 
 <link rel="icon" type="image/png" href="apple-touch-icon.png">
@@ -632,10 +632,10 @@ textarea:focus{
 
  <div class="kicker">管理者用</div>
 
- <h1>活動報告DX 管理画面</h1>
+ <h1>市民の声DX 管理画面</h1>
 
  <p>
-  合言葉を入れると、活動報告・動画の登録と、困りごと投稿の管理ができます。
+  合言葉を入れると、活動報告・動画の登録と、市民の声の管理ができます。
  </p>
 
 </section>
@@ -710,9 +710,9 @@ textarea:focus{
    </div>
 
    <div class="guideItem">
-    <h3>困りごとを管理</h3>
+    <h3>市民の声を管理</h3>
     <p>
-     市民から届いた投稿を確認します。対応状態、公開状態、改善報告を更新できます。
+     市民から届いた声を確認します。行政への提出状況、公開状態、回答・改善報告を更新できます。
     </p>
    </div>
 
@@ -972,10 +972,10 @@ textarea:focus{
 
  <section class="panel" id="reportsPanel">
 
-  <h2>困りごと投稿を管理</h2>
+  <h2>市民の声を管理</h2>
 
   <p>
-   投稿内容を確認し、対応状態・公開状態・改善報告を更新します。
+   投稿内容を確認し、行政への提出状況・公開状態・回答・改善報告を更新します。
   </p>
 
   <div class="reportTools">
@@ -989,8 +989,13 @@ textarea:focus{
     <option value="受付">受付</option>
     <option value="確認中">確認中</option>
     <option value="対応中">対応中</option>
+    <option value="行政へ提出準備">行政へ提出準備</option>
+    <option value="行政へ提出済">行政へ提出済</option>
+    <option value="回答待ち">回答待ち</option>
+    <option value="回答あり">回答あり</option>
     <option value="対応済">対応済</option>
     <option value="改善済">改善済</option>
+    <option value="解決">解決</option>
     <option value="保留">保留</option>
    </select>
 
@@ -1011,7 +1016,7 @@ textarea:focus{
 </div>
 
 <footer class="footer">
- 岩下りゅう 活動報告DX 管理画面
+ 岩下りゅう 市民の声DX 管理画面
 </footer>
 
 </div>
@@ -1985,7 +1990,7 @@ function reportHtml(r,index){
 
  + '<div class="row2">'
  + '<div><label>対応状態</label><select id="status-' + index + '">' +
- optionHtml(status,["受付","確認中","対応中","対応済","改善済","保留"]) +
+ optionHtml(status,["受付","確認中","対応中","行政へ提出準備","行政へ提出済","回答待ち","回答あり","対応済","改善済","解決","保留"]) +
  '</select></div>'
 
  + '<div><label>公開状態</label><select id="public-' + index + '">' +
@@ -1996,14 +2001,14 @@ function reportHtml(r,index){
  + '<label>表示順</label>'
  + '<input id="order-' + index + '" type="number" value="' + esc(order) + '" placeholder="空欄で通常表示">'
 
- + '<label>改善報告</label>'
- + '<textarea id="improvement-' + index + '" placeholder="例：確認しました。対応済みです。">' + esc(improvement) + '</textarea>'
+ + '<label>回答・改善報告</label>'
+ + '<textarea id="improvement-' + index + '" placeholder="例：担当課へ相談しました。回答待ちです。">' + esc(improvement) + '</textarea>'
 
  + '<label>改善写真URL</label>'
  + '<input id="improvementPhoto-' + index + '" type="text" value="' + esc(improvementPhotoUrl) + '" placeholder="改善後の写真URL">'
 
  + '<label>備考</label>'
- + '<textarea id="note-' + index + '" placeholder="管理用メモ">' + esc(note) + '</textarea>'
+ + '<textarea id="note-' + index + '" placeholder="役所への提出日、担当課、確認内容など">' + esc(note) + '</textarea>'
 
  + '<button class="btn btnGreen reportSave" type="button" onclick="updateOneReport(' + JSON.stringify(id) + ',' + index + ')">この投稿を更新する</button>'
 
