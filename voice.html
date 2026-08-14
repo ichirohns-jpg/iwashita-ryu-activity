@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
-<title>まちの困りごと｜岩下りゅう 活動報告</title>
+<title>市民の声・困りごと相談｜岩下りゅう 市民の声DX</title>
 
-<meta name="description" content="道路の穴、街灯切れ、不法投棄、危険箇所など、地域で気づいた困りごとを写真付きで投稿できます。">
+<meta name="description" content="生活、行政、交通、福祉、地域活動などの困りごとや要望を、スマホから相談できます。">
 <meta name="theme-color" content="#237a3b">
 
 <link rel="icon" type="image/png" href="apple-touch-icon.png">
@@ -613,7 +613,7 @@ button{
 
  <a class="brand" href="index.html">
   <img src="apple-touch-icon.png" alt="岩下りゅう">
-  <span>岩下りゅう 活動報告</span>
+  <span>岩下りゅう 市民の声</span>
  </a>
 
  <nav class="headerNav">
@@ -630,23 +630,23 @@ button{
 
 <section class="hero">
 
- <div class="kicker">地域で気づいたこと</div>
+ <div class="kicker">困りごと・要望・気づいたこと</div>
 
  <h1>
-  まちの困りごとを
-  <span>写真で知らせる</span>
+  困りごとを
+  <span>相談する</span>
  </h1>
 
  <p>
-  道路の穴、街灯切れ、不法投棄、危険箇所などを、写真・場所・文章で投稿できます。
+  道路や街灯のことだけでなく、生活、行政、交通、福祉、地域活動などの困りごとや要望を、場所・文章・写真で相談できます。
  </p>
 
  <div class="mainActions">
   <a class="primary" id="formButton" href="#" target="_blank" rel="noopener">
-   写真付きで投稿する
+   市民の声を送る
   </a>
   <a class="secondary" href="#reports">
-   投稿一覧を見る
+   届いた声を見る
   </a>
  </div>
 
@@ -655,23 +655,23 @@ button{
 <section class="infoGrid">
 
  <div class="infoCard">
-  <h2>スマホで投稿</h2>
+  <h2>スマホで相談</h2>
   <p>
-   気づいた困りごとを、写真と文章で送れます。
+   困りごとや要望を、スマホから文章で送れます。
   </p>
  </div>
 
  <div class="infoCard">
   <h2>写真で伝える</h2>
   <p>
-   文字だけでは伝わりにくい状況も、写真で分かりやすくなります。
+   写真がある場合は、状況をより分かりやすく伝えられます。
   </p>
  </div>
 
  <div class="infoCard">
-  <h2>現地へ向かえる</h2>
+  <h2>行政へつなぐ</h2>
   <p>
-   位置情報があれば、地図やナビで場所を確認できます。
+   内容を確認し、必要に応じて担当窓口への相談や要望につなげます。
   </p>
  </div>
 
@@ -684,7 +684,7 @@ button{
 <section class="reports" id="reports">
 
  <div class="reportsHead">
-  <h2>届いた困りごと</h2>
+  <h2>届いた市民の声</h2>
   <button class="reloadBtn" type="button" onclick="loadReports()">更新</button>
  </div>
 
@@ -700,8 +700,8 @@ button{
 </main>
 
 <footer class="footer">
- 岩下りゅう 活動報告<br>
- 地域での活動を、写真と動画でわかりやすく。
+ 岩下りゅう 市民の声DX<br>
+ 地域の声を聞き、必要な窓口へつなげます。
 </footer>
 
 </div>
@@ -983,7 +983,7 @@ function reportCard(r,index){
  reportShareUrl(id);
 
  const shareText =
- "まちの困りごと：" +
+ "市民の声：" +
  category +
  "\n" +
  (place ? place + "\n" : "") +
@@ -1077,7 +1077,7 @@ function renderReports(result){
   reportList.innerHTML =
   '<div class="empty">' +
   '<h3>まだ投稿はありません。</h3>' +
-  '<p>投稿されると、ここに一覧で表示されます。</p>' +
+  '<p>市民の声が投稿されると、ここに一覧で表示されます。</p>' +
   '</div>';
 
   return;
