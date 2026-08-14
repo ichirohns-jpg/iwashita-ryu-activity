@@ -600,6 +600,12 @@ textarea:focus{
  min-height:62px;
 }
 
+.reportDelete{
+ width:100%;
+ margin-top:10px;
+ min-height:58px;
+}
+
 .footer{
  margin-top:28px;
  text-align:center;
@@ -2416,6 +2422,7 @@ function reportHtml(r,index){
  + '<textarea id="note-' + index + '" placeholder="役所への提出日、担当課、確認内容など">' + esc(note) + '</textarea>'
 
  + '<button class="btn btnGreen reportSave" type="button" onclick="updateOneReport(' + JSON.stringify(id) + ',' + index + ')">この投稿を更新する</button>'
++ '<button class="btn btnDanger reportDelete" type="button" onclick="deleteOneReport(' + JSON.stringify(id) + ')">この投稿を削除する</button>'
 
  + '</div>'
 
@@ -2475,6 +2482,60 @@ async function updateOneReport(id,index){
 
 }
 
+async function deleteOneReport(id){
+
+ if(!adminPassword){
+
+  alert("先に合言葉を入力してください。");
+
+  return;
+
+ }
+
+ const confirmed =
+ confirm(
+  "この投稿を削除します。\\n削除後は元に戻せません。\\n\\nID：" + id
+ );
+
+ if(!confirmed){
+  return;
+ }
+
+ showStatus("reportsStatus","削除しています。",false);
+
+ try{
+
+  const data =
+  await jsonp({
+   mode:"deleteReport",
+   adminPassword:adminPassword,
+   id:id
+  });
+
+  if(data && data.ok){
+
+   showStatus("reportsStatus","削除しました。",false);
+
+   await loadReports();
+
+   return;
+
+  }
+
+  showStatus(
+   "reportsStatus",
+   "削除できませんでした。" + (data && data.error ? "\\n" + data.error : ""),
+   true
+  );
+
+ }catch(e){
+
+  showStatus("reportsStatus","通信に失敗しました。",true);
+
+ }
+
+}
+
 setVal("date",todayForInput());
 
 setVal("videoDate",todayForInput());
@@ -2485,3 +2546,4 @@ checkStoredLogin();
 
 </body>
 </html>
+
