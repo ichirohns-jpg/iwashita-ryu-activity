@@ -413,6 +413,46 @@ textarea:focus{
  white-space:pre-wrap;
 }
 
+.imagePicker{
+ margin-top:4px;
+ padding:14px;
+ border:2px solid var(--line);
+ border-radius:20px;
+ background:rgba(255,255,255,.72);
+}
+
+.imagePicker input[type="file"]{
+ min-height:56px;
+ padding:10px;
+ background:#fff;
+}
+
+.imageName{
+ margin-top:8px;
+ color:var(--muted);
+ font-size:14px;
+ font-weight:800;
+ overflow-wrap:anywhere;
+}
+
+.imagePreview{
+ display:block;
+ width:min(100%,320px);
+ max-height:220px;
+ object-fit:contain;
+ margin-top:10px;
+ border-radius:16px;
+ border:2px solid var(--line);
+ background:#fff;
+}
+
+.imageHelp{
+ margin-top:0;
+ color:var(--muted);
+ font-size:15px;
+ font-weight:800;
+}
+
 .reportTools{
  margin-top:14px;
  display:grid;
@@ -697,9 +737,9 @@ textarea:focus{
 
    <div class="guideItem">
     <h3>活動報告を登録</h3>
-    <p>
-     地域活動やイベントの報告を入れます。日付、タイトル、概要、画像URLを入れて、公開状態を選びます。
-    </p>
+   <p>
+    地域活動やイベントの報告を入れます。写真はiPhoneの写真ライブラリから選べます。
+   </p>
    </div>
 
    <div class="guideItem">
@@ -771,28 +811,42 @@ textarea:focus{
    </div>
 
    <div>
-    <label for="imageUrl1">画像URL1</label>
-    <input id="imageUrl1" type="text" placeholder="images/activity/activity-001-1.jpg">
-   </div>
+    <p class="imageHelp">写真は最大5枚です。ボタンを押すと「写真」から選べます。</p>
 
-   <div>
-    <label for="imageUrl2">画像URL2</label>
-    <input id="imageUrl2" type="text" placeholder="images/activity/activity-001-2.jpg">
-   </div>
+    <div class="imagePicker">
+     <label for="imageFile1">写真1</label>
+     <input id="imageFile1" type="file" accept="image/*" onchange="previewSelectedImage(1)">
+     <div id="imageName1" class="imageName">未選択</div>
+     <img id="imagePreview1" class="imagePreview" alt="写真1のプレビュー" hidden>
+    </div>
 
-   <div>
-    <label for="imageUrl3">画像URL3</label>
-    <input id="imageUrl3" type="text" placeholder="images/activity/activity-001-3.jpg">
-   </div>
+    <div class="imagePicker">
+     <label for="imageFile2">写真2</label>
+     <input id="imageFile2" type="file" accept="image/*" onchange="previewSelectedImage(2)">
+     <div id="imageName2" class="imageName">未選択</div>
+     <img id="imagePreview2" class="imagePreview" alt="写真2のプレビュー" hidden>
+    </div>
 
-   <div>
-    <label for="imageUrl4">画像URL4</label>
-    <input id="imageUrl4" type="text" placeholder="images/activity/activity-001-4.jpg">
-   </div>
+    <div class="imagePicker">
+     <label for="imageFile3">写真3</label>
+     <input id="imageFile3" type="file" accept="image/*" onchange="previewSelectedImage(3)">
+     <div id="imageName3" class="imageName">未選択</div>
+     <img id="imagePreview3" class="imagePreview" alt="写真3のプレビュー" hidden>
+    </div>
 
-   <div>
-    <label for="imageUrl5">画像URL5</label>
-    <input id="imageUrl5" type="text" placeholder="images/activity/activity-001-5.jpg">
+    <div class="imagePicker">
+     <label for="imageFile4">写真4</label>
+     <input id="imageFile4" type="file" accept="image/*" onchange="previewSelectedImage(4)">
+     <div id="imageName4" class="imageName">未選択</div>
+     <img id="imagePreview4" class="imagePreview" alt="写真4のプレビュー" hidden>
+    </div>
+
+    <div class="imagePicker">
+     <label for="imageFile5">写真5</label>
+     <input id="imageFile5" type="file" accept="image/*" onchange="previewSelectedImage(5)">
+     <div id="imageName5" class="imageName">未選択</div>
+     <img id="imagePreview5" class="imagePreview" alt="写真5のプレビュー" hidden>
+    </div>
    </div>
 
    <div>
@@ -1032,6 +1086,9 @@ sessionStorage.getItem("iwashita_admin_password") || "";
 let allReports =
 [];
 
+const selectedImages =
+{};
+
 const loginCard =
 document.getElementById("loginCard");
 
@@ -1211,6 +1268,275 @@ function jsonp(paramsObj){
   document.body.appendChild(script);
 
  });
+
+}
+
+function postForm(paramsObj){
+
+ return new Promise(function(resolve,reject){
+
+  const token =
+  Date.now() + "_" + Math.random().toString(36).slice(2,8);
+
+  const iframeName =
+  "iwashita_upload_" + token;
+
+  const iframe =
+  document.createElement("iframe");
+
+  iframe.name = iframeName;
+  iframe.style.display = "none";
+
+  const form =
+  document.createElement("form");
+
+  form.method = "POST";
+  form.action = GAS_URL;
+  form.target = iframeName;
+  form.style.display = "none";
+
+  Object.keys(paramsObj).forEach(function(key){
+
+   const input =
+   document.createElement("input");
+
+   input.type = "hidden";
+   input.name = key;
+   input.value = paramsObj[key] == null ? "" : String(paramsObj[key]);
+
+   form.appendChild(input);
+
+  });
+
+  let submitted = false;
+  let finished = false;
+
+  const timer =
+  setTimeout(function(){
+
+   if(finished){
+    return;
+   }
+
+   finished = true;
+   cleanup();
+   reject(new Error("保存処理がタイムアウトしました"));
+
+  },45000);
+
+  function cleanup(){
+
+   clearTimeout(timer);
+
+   if(form.parentNode){
+    form.parentNode.removeChild(form);
+   }
+
+   if(iframe.parentNode){
+    iframe.parentNode.removeChild(iframe);
+   }
+
+  }
+
+  iframe.onload =
+  function(){
+
+   if(!submitted || finished){
+    return;
+   }
+
+   finished = true;
+   cleanup();
+   resolve({ok:true});
+
+  };
+
+  document.body.appendChild(iframe);
+  document.body.appendChild(form);
+
+  setTimeout(function(){
+
+   submitted = true;
+   form.submit();
+
+  },100);
+
+ });
+
+}
+
+function previewSelectedImage(index){
+
+ const input =
+ document.getElementById("imageFile" + index);
+
+ const name =
+ document.getElementById("imageName" + index);
+
+ const preview =
+ document.getElementById("imagePreview" + index);
+
+ const file =
+ input && input.files && input.files[0]
+ ? input.files[0]
+ : null;
+
+ selectedImages[index] = file;
+
+ if(!file){
+
+  if(name){
+   name.textContent = "未選択";
+  }
+
+  if(preview){
+   preview.hidden = true;
+   preview.removeAttribute("src");
+  }
+
+  return;
+
+ }
+
+ if(name){
+  name.textContent = file.name + "（" + Math.round(file.size / 1024) + "KB）";
+ }
+
+ if(preview){
+
+  const objectUrl =
+  URL.createObjectURL(file);
+
+  preview.src = objectUrl;
+  preview.hidden = false;
+
+  preview.onload =
+  function(){
+   URL.revokeObjectURL(objectUrl);
+  };
+
+ }
+
+}
+
+function readImageFile(file){
+
+ return new Promise(function(resolve,reject){
+
+  if(!file){
+   resolve(null);
+   return;
+  }
+
+  const reader =
+  new FileReader();
+
+  reader.onerror =
+  function(){
+   reject(new Error("写真を読み込めませんでした"));
+  };
+
+  reader.onload =
+  function(){
+
+   const source =
+   String(reader.result || "");
+
+   const image =
+   new Image();
+
+   image.onload =
+   function(){
+
+    const maxSide = 1600;
+    const scale =
+    Math.min(1,maxSide / Math.max(image.naturalWidth,image.naturalHeight));
+
+    const canvas =
+    document.createElement("canvas");
+
+    canvas.width =
+    Math.max(1,Math.round(image.naturalWidth * scale));
+
+    canvas.height =
+    Math.max(1,Math.round(image.naturalHeight * scale));
+
+    const ctx =
+    canvas.getContext("2d");
+
+    ctx.drawImage(image,0,0,canvas.width,canvas.height);
+
+    canvas.toBlob(function(blob){
+
+     if(!blob){
+      resolve({dataUrl:source,mimeType:file.type || "image/jpeg"});
+      return;
+     }
+
+     const compressedReader =
+     new FileReader();
+
+     compressedReader.onload =
+     function(){
+      resolve({
+       dataUrl:String(compressedReader.result || ""),
+       mimeType:"image/jpeg"
+      });
+     };
+
+     compressedReader.onerror =
+     function(){
+      reject(new Error("写真を圧縮できませんでした"));
+     };
+
+     compressedReader.readAsDataURL(blob);
+
+    },"image/jpeg",0.82);
+
+   };
+
+   image.onerror =
+   function(){
+    resolve({dataUrl:source,mimeType:file.type || "image/jpeg"});
+   };
+
+   image.src = source;
+
+  };
+
+  reader.readAsDataURL(file);
+
+ });
+
+}
+
+async function prepareActivityImages(){
+
+ const result =
+ {};
+
+ for(let i = 1; i <= 5; i++){
+
+  const file =
+  selectedImages[i] || null;
+
+  if(!file){
+   result["imageData" + i] = "";
+   result["imageMimeType" + i] = "";
+   continue;
+  }
+
+  showStatus("activityStatus","写真" + i + "を準備しています。",false);
+
+  const image =
+  await readImageFile(file);
+
+  result["imageData" + i] = image ? image.dataUrl : "";
+  result["imageMimeType" + i] = image ? image.mimeType : "";
+
+ }
+
+ return result;
 
 }
 
@@ -1495,30 +1821,40 @@ async function saveActivity(){
 
  try{
 
-  const data =
-  await jsonp({
+  const images =
+  await prepareActivityImages();
+
+  const payload =
+  Object.assign({
    mode:"saveActivity",
    adminPassword:adminPassword,
    date:dateForText(val("date")),
    theme:val("theme"),
    title:title,
    summary:summary,
-   imageUrl1:val("imageUrl1"),
-   imageUrl2:val("imageUrl2"),
-   imageUrl3:val("imageUrl3"),
-   imageUrl4:val("imageUrl4"),
-   imageUrl5:val("imageUrl5"),
    snsText:snsText,
    publicStatus:val("publicStatus"),
    order:val("order"),
    note:val("note")
+  },images);
+
+  const hasImage =
+  [1,2,3,4,5].some(function(i){
+   return Boolean(payload["imageData" + i]);
   });
+
+  const data =
+  hasImage
+  ? await postForm(payload)
+  : await jsonp(payload);
 
   if(data && data.ok){
 
    showStatus(
     "activityStatus",
-    "保存しました。ID：" + data.id,
+    hasImage
+    ? "写真を含む保存処理を送信しました。公開まで少し待ってください。"
+    : "保存しました。ID：" + data.id,
     false
    );
 
@@ -1546,17 +1882,40 @@ function clearActivityForm(){
   "theme",
   "title",
   "summary",
-  "imageUrl1",
-  "imageUrl2",
-  "imageUrl3",
-  "imageUrl4",
-  "imageUrl5",
   "snsText",
   "order",
   "note"
  ].forEach(function(id){
 
   setVal(id,"");
+
+ });
+
+ [1,2,3,4,5].forEach(function(i){
+
+  selectedImages[i] = null;
+
+  const input =
+  document.getElementById("imageFile" + i);
+
+  const name =
+  document.getElementById("imageName" + i);
+
+  const preview =
+  document.getElementById("imagePreview" + i);
+
+  if(input){
+   input.value = "";
+  }
+
+  if(name){
+   name.textContent = "未選択";
+  }
+
+  if(preview){
+   preview.hidden = true;
+   preview.removeAttribute("src");
+  }
 
  });
 
