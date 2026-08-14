@@ -1,0 +1,737 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>まちの困りごと投稿｜岩下りゅう</title>
+<meta name="description" content="志木市のまちの困りごとを、写真と場所を添えて知らせる投稿ページです。">
+<meta name="theme-color" content="#1f6b3d">
+<style>
+:root{
+ --green:#1f6b3d;
+ --green2:#4caf63;
+ --pale:#effbef;
+ --line:#b7e6bd;
+ --yellow:#fff6bf;
+ --yellowLine:#e5c929;
+ --ink:#26352a;
+ --muted:#5d6d61;
+ --white:#fff;
+}
+
+*{box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+ margin:0;
+ background:linear-gradient(180deg,#eaffea 0%,#fff 48%,#effbef 100%);
+ color:var(--ink);
+ font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic","Meiryo",sans-serif;
+ font-size:18px;
+ line-height:1.7;
+ -webkit-text-size-adjust:100%;
+}
+
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+
+.wrap{
+ width:min(760px,94%);
+ margin:auto;
+ padding:16px 0 48px;
+}
+
+.brand{
+ display:flex;
+ align-items:center;
+ gap:10px;
+ color:var(--green);
+ font-size:20px;
+ line-height:1.3;
+ font-weight:900;
+ margin-bottom:16px;
+}
+
+.logo{
+ width:54px;
+ height:54px;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ border-radius:17px;
+ background:linear-gradient(135deg,#45b85c,#79d477);
+ color:#fff;
+ font-size:30px;
+ font-weight:900;
+ box-shadow:0 8px 18px rgba(31,107,61,.18);
+}
+
+.hero,.card{
+ background:#fff;
+ border:2px solid var(--line);
+ border-radius:28px;
+ box-shadow:0 12px 28px rgba(31,107,61,.10);
+}
+
+.hero{
+ padding:24px;
+ background:
+ radial-gradient(circle at 100% 0%,rgba(255,246,191,.70),transparent 38%),
+ linear-gradient(135deg,#fff 0%,#f5fff1 100%);
+}
+
+.kicker{
+ display:inline-flex;
+ padding:7px 12px;
+ border:1px solid var(--line);
+ border-radius:999px;
+ background:#e8ffe9;
+ color:var(--green);
+ font-size:15px;
+ font-weight:900;
+}
+
+h1{
+ margin:16px 0 0;
+ color:var(--green);
+ font-size:clamp(38px,10vw,64px);
+ line-height:1.08;
+ font-weight:900;
+ letter-spacing:-.04em;
+}
+
+h1 span{display:block;color:var(--green2)}
+
+.hero p{
+ margin:16px 0 0;
+ font-size:19px;
+ line-height:1.65;
+ font-weight:800;
+}
+
+.notice{
+ margin:16px 0;
+ padding:14px 16px;
+ border:2px solid var(--yellowLine);
+ border-radius:20px;
+ background:var(--yellow);
+ color:#554700;
+ font-size:16px;
+ font-weight:900;
+ line-height:1.65;
+}
+
+.progress{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:8px;
+ margin:16px 0;
+}
+
+.progressItem{
+ padding:10px 6px;
+ border:2px solid var(--line);
+ border-radius:16px;
+ background:#fff;
+ color:var(--green);
+ text-align:center;
+ font-size:15px;
+ line-height:1.3;
+ font-weight:900;
+}
+
+.progressItem.active{
+ background:var(--green);
+ border-color:var(--green);
+ color:#fff;
+}
+
+.card{
+ display:none;
+ margin-top:16px;
+ padding:22px;
+}
+
+.card.active{display:block}
+
+.title{
+ display:flex;
+ align-items:center;
+ gap:10px;
+ margin:0 0 16px;
+ color:var(--green);
+ font-size:31px;
+ line-height:1.25;
+ font-weight:900;
+}
+
+.titleIcon{
+ width:48px;
+ height:48px;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ border:1px solid var(--line);
+ border-radius:15px;
+ background:#e9ffeb;
+ font-size:27px;
+}
+
+label{
+ display:block;
+ margin-top:17px;
+ color:var(--green);
+ font-size:20px;
+ line-height:1.45;
+ font-weight:900;
+}
+
+.help{
+ display:block;
+ margin-top:3px;
+ color:var(--muted);
+ font-size:16px;
+ font-weight:700;
+}
+
+.required{
+ margin-left:5px;
+ color:#b42318;
+ font-size:14px;
+}
+
+input,select,textarea{
+ width:100%;
+ margin-top:8px;
+ border:2px solid var(--line);
+ border-radius:17px;
+ background:#fffef1;
+ color:var(--ink);
+ font-size:20px;
+ font-weight:750;
+ outline:none;
+}
+
+input,select{
+ min-height:60px;
+ padding:10px 14px;
+}
+
+textarea{
+ min-height:180px;
+ padding:13px 14px;
+ resize:vertical;
+}
+
+input:focus,select:focus,textarea:focus{
+ border-color:var(--green);
+ background:#fff;
+ box-shadow:0 0 0 4px rgba(76,175,99,.18);
+}
+
+.photoBox,.locationBox,.reviewBox{
+ margin-top:16px;
+ padding:16px;
+ border:2px dashed var(--line);
+ border-radius:20px;
+ background:#f8fff6;
+}
+
+input[type=file]{
+ min-height:66px;
+ padding:12px;
+ background:#fff;
+}
+
+.photoPreview{
+ display:none;
+ margin-top:14px;
+ text-align:center;
+}
+
+.photoPreview img{
+ width:min(100%,400px);
+ max-height:280px;
+ object-fit:contain;
+ border:2px solid var(--line);
+ border-radius:17px;
+ background:#fff;
+}
+
+.locationText{
+ margin-bottom:12px;
+ color:var(--muted);
+ font-weight:800;
+}
+
+.btn{
+ width:100%;
+ min-height:66px;
+ margin-top:18px;
+ padding:12px 16px;
+ border:2px solid var(--line);
+ border-radius:20px;
+ background:#fff;
+ color:var(--green);
+ font-size:21px;
+ font-weight:900;
+}
+
+.btnMain{
+ border-color:var(--green);
+ background:linear-gradient(135deg,#185b34,#237a3b 55%,#4caf63);
+ color:#fff;
+}
+
+.btnYellow{
+ border-color:var(--yellowLine);
+ background:var(--yellow);
+ color:#554700;
+}
+
+.buttonRow{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:12px;
+ margin-top:4px;
+}
+
+.buttonRow .btn{margin-top:18px}
+
+.error{
+ display:none;
+ margin-top:16px;
+ padding:14px;
+ border:2px solid #f4a4a4;
+ border-radius:18px;
+ background:#fff0f0;
+ color:#9e2020;
+ font-size:17px;
+ font-weight:900;
+ white-space:pre-wrap;
+}
+
+.reviewRow{
+ padding:10px 0;
+ border-bottom:1px solid #d8edd9;
+}
+
+.reviewRow:last-child{border-bottom:0}
+.reviewLabel{color:var(--green);font-weight:900}
+.reviewValue{margin-top:2px;white-space:pre-wrap;word-break:break-word}
+
+.success{
+ display:none;
+ margin-top:16px;
+ padding:22px;
+ border:2px solid #80c98a;
+ border-radius:28px;
+ background:#f0fff1;
+ color:var(--green);
+ text-align:center;
+}
+
+.success h2{margin:0;font-size:32px}
+.successPhoto{display:none;margin-top:14px}
+.successPhoto img{width:min(100%,400px);border-radius:16px}
+
+.linkGrid{display:grid;gap:10px;margin-top:16px}
+.linkGrid a{display:flex;align-items:center;justify-content:center;min-height:58px;border:2px solid var(--line);border-radius:18px;background:#fff;color:var(--green);font-weight:900}
+.linkGrid a.green{background:var(--green);border-color:var(--green);color:#fff}
+
+.footer{
+ margin-top:26px;
+ color:var(--muted);
+ text-align:center;
+ font-size:14px;
+ font-weight:700;
+}
+
+@media(max-width:560px){
+ .wrap{width:94%;padding-top:12px}
+ .hero,.card{border-radius:23px;padding:18px}
+ .buttonRow{grid-template-columns:1fr}
+ .buttonRow .btn{margin-top:12px}
+}
+</style>
+</head>
+<body>
+<main class="wrap">
+
+<header class="brand">
+ <div class="logo">河</div>
+ <div>岩下りゅう 活動報告<br>まちの困りごと投稿</div>
+</header>
+
+<section class="hero">
+ <div class="kicker">写真・場所・内容を送れます</div>
+ <h1>まちの困りごとを<span>写真で知らせる</span></h1>
+ <p>道路の穴、街灯切れ、ごみ、危険箇所などを、スマホから簡単に投稿できます。</p>
+</section>
+
+<div class="progress" aria-label="投稿手順">
+ <div id="progress1" class="progressItem active">1. 内容を入力</div>
+ <div id="progress2" class="progressItem">2. 写真を選ぶ</div>
+ <div id="progress3" class="progressItem">3. 送信する</div>
+</div>
+
+<div class="notice">緊急の場合や、すぐ対応が必要な場合は、市役所・警察・消防など、関係機関へ直接連絡してください。</div>
+
+<section id="step1" class="card active">
+ <h2 class="title"><span class="titleIcon">📝</span>困りごとの内容</h2>
+
+ <label for="name">お名前・ニックネーム<span class="help">匿名でも大丈夫です。空欄でも送れます。</span></label>
+ <input id="name" type="text" placeholder="例：匿名、山田、近所の者">
+
+ <label for="town">町名<span class="required">必須</span></label>
+ <select id="town">
+  <option value="">選んでください</option>
+  <option value="本町">本町</option>
+  <option value="柏町">柏町</option>
+  <option value="幸町">幸町</option>
+  <option value="館">館</option>
+  <option value="上宗岡">上宗岡</option>
+  <option value="中宗岡">中宗岡</option>
+  <option value="下宗岡">下宗岡</option>
+  <option value="その他">その他</option>
+ </select>
+
+ <label for="category">カテゴリ<span class="required">必須</span></label>
+ <select id="category">
+  <option value="">選んでください</option>
+  <option value="道路の穴・段差">道路の穴・段差</option>
+  <option value="街灯切れ">街灯切れ</option>
+  <option value="ごみ・散乱">ごみ・散乱</option>
+  <option value="不法投棄">不法投棄</option>
+  <option value="危険箇所">危険箇所</option>
+  <option value="公園・公共施設">公園・公共施設</option>
+  <option value="動物の死骸">動物の死骸</option>
+  <option value="その他">その他</option>
+ </select>
+
+ <label for="place">場所の説明<span class="required">必須</span></label>
+ <input id="place" type="text" placeholder="例：ドラッグストアのそば、○○公園入口付近">
+
+ <label for="body">困っている内容<span class="required">必須</span></label>
+ <textarea id="body" placeholder="例：道路に穴があります。早めに確認してください。"></textarea>
+
+ <label for="urgency">緊急度</label>
+ <select id="urgency">
+  <option value="通常" selected>通常</option>
+  <option value="早めに確認">早めに確認</option>
+  <option value="至急確認">至急確認</option>
+ </select>
+
+ <button class="btn btnMain" type="button" onclick="nextToPhoto()">次へ：写真を選ぶ</button>
+</section>
+
+<section id="step2" class="card">
+ <h2 class="title"><span class="titleIcon">📷</span>写真と場所</h2>
+
+ <div class="photoBox">
+  <label for="photo">写真を選ぶ<span class="help">iPhoneの写真ライブラリから選べます。写真なしでも送れます。</span></label>
+  <input id="photo" type="file" accept="image/*">
+  <div id="photoPreview" class="photoPreview"><img id="previewImg" alt="写真プレビュー"></div>
+ </div>
+
+ <div class="locationBox">
+  <label>現在地<span class="help">場所の説明だけでも送れます。位置情報は任意です。</span></label>
+  <div id="locationText" class="locationText">現在地はまだ取得していません。</div>
+  <button class="btn btnYellow" type="button" onclick="getLocation()">現在地を取得する</button>
+ </div>
+
+ <div class="buttonRow">
+  <button class="btn" type="button" onclick="showStep(1)">戻る</button>
+  <button class="btn btnMain" type="button" onclick="nextToReview()">次へ：確認する</button>
+ </div>
+</section>
+
+<section id="step3" class="card">
+ <h2 class="title"><span class="titleIcon">✅</span>内容を確認</h2>
+ <div id="reviewBox" class="reviewBox"></div>
+ <div id="errorBox" class="error"></div>
+ <div class="buttonRow">
+  <button class="btn" type="button" onclick="showStep(2)">戻る</button>
+  <button id="submitBtn" class="btn btnMain" type="button" onclick="submitReport()">この内容で送信する</button>
+ </div>
+</section>
+
+<section id="successBox" class="success">
+ <h2>投稿できました</h2>
+ <div id="successText"></div>
+ <div id="successPhoto" class="successPhoto"><img id="successImg" alt="投稿写真"></div>
+ <div class="linkGrid">
+  <a id="mapLink" href="#" target="_blank" rel="noopener">地図を見る</a>
+  <a id="navLink" class="green" href="#" target="_blank" rel="noopener">現地へ向かう</a>
+ </div>
+ <button class="btn btnYellow" type="button" onclick="reloadForm()">続けて投稿する</button>
+</section>
+
+<footer class="footer">岩下りゅう 活動報告<br>地域での活動を、写真と動画でわかりやすく。</footer>
+</main>
+
+<script>
+const GAS_URL="https://script.google.com/macros/s/AKfycbw09g-SkmsCmsEJiG0VJrhypLbCZVBIw7TOiD5FYwNo2PhGYQz1nYsDfVbWzzff1ZUWXw/exec";
+let currentLat="";
+let currentLng="";
+let photoData="";
+let photoName="";
+
+function value(id){
+ const el=document.getElementById(id);
+ return el ? String(el.value || "").trim() : "";
+}
+
+function showStep(step){
+ [1,2,3].forEach(function(n){
+  const card=document.getElementById("step"+n);
+  const progress=document.getElementById("progress"+n);
+  if(card) card.classList.toggle("active",n===step);
+  if(progress) progress.classList.toggle("active",n===step);
+ });
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function validate(){
+ if(!value("town")) return "町名を選んでください。";
+ if(!value("category")) return "カテゴリを選んでください。";
+ if(!value("place")) return "場所の説明を入力してください。";
+ if(!value("body")) return "困っている内容を入力してください。";
+ return "";
+}
+
+function nextToPhoto(){
+ const message=validate();
+ if(message){window.alert(message);return;}
+ hideError();
+ showStep(2);
+}
+
+function nextToReview(){
+ const message=validate();
+ if(message){window.alert(message);showStep(1);return;}
+ hideError();
+ updateReview();
+ showStep(3);
+}
+
+function updateReview(){
+ const rows=[
+  ["名前",value("name") || "匿名"],
+  ["町名",value("town")],
+  ["カテゴリ",value("category")],
+  ["場所",value("place")],
+  ["内容",value("body")],
+  ["緊急度",value("urgency") || "通常"],
+  ["写真",photoData ? "選択済み" : "なし"],
+  ["現在地",currentLat && currentLng ? "取得済み" : "なし"]
+ ];
+ document.getElementById("reviewBox").innerHTML=rows.map(function(row){
+  return '<div class="reviewRow"><div class="reviewLabel">'+escapeHtml(row[0])+'</div><div class="reviewValue">'+escapeHtml(row[1])+'</div></div>';
+ }).join("");
+}
+
+function getLocation(){
+ const text=document.getElementById("locationText");
+ if(!navigator.geolocation){text.textContent="この端末では現在地を取得できません。";return;}
+ text.textContent="現在地を取得しています。";
+ navigator.geolocation.getCurrentPosition(function(pos){
+  currentLat=String(pos.coords.latitude);
+  currentLng=String(pos.coords.longitude);
+  text.textContent="現在地を取得しました。";
+ },function(){
+  text.textContent="現在地を取得できませんでした。場所の説明だけで送れます。";
+ },{enableHighAccuracy:true,timeout:10000,maximumAge:0});
+}
+
+document.getElementById("photo").addEventListener("change",async function(){
+ const file=this.files && this.files[0] ? this.files[0] : null;
+ if(!file){
+  photoData="";photoName="";
+  document.getElementById("photoPreview").style.display="none";
+  return;
+ }
+ photoName=file.name || "photo.jpg";
+ try{
+  photoData=await compressImage(file,1200,0.72);
+  document.getElementById("previewImg").src=photoData;
+  document.getElementById("photoPreview").style.display="block";
+ }catch(e){showError("写真を読み込めませんでした。別の写真で試してください。");}
+});
+
+function jsonp(paramsObj){
+ return new Promise(function(resolve,reject){
+  const callbackName="cb_"+Date.now()+"_"+Math.random().toString(36).slice(2,8);
+  const params=new URLSearchParams();
+  Object.keys(paramsObj).forEach(function(key){params.set(key,paramsObj[key] == null ? "" : String(paramsObj[key]));});
+  params.set("callback",callbackName);
+  params.set("v",String(Date.now()));
+  const script=document.createElement("script");
+  let done=false;
+  function cleanup(){
+   if(done)return;
+   done=true;
+   try{delete window[callbackName];}catch(e){window[callbackName]=undefined;}
+   if(script.parentNode)script.parentNode.removeChild(script);
+  }
+  window[callbackName]=function(data){cleanup();resolve(data);};
+  script.onerror=function(){cleanup();reject(new Error("通信に失敗しました"));};
+  script.src=GAS_URL+"?"+params.toString();
+  document.body.appendChild(script);
+ });
+}
+
+function postForm(paramsObj){
+ return new Promise(function(resolve,reject){
+  const token=Date.now()+"_"+Math.random().toString(36).slice(2,8);
+  const iframeName="iwashita_post_"+token;
+  const iframe=document.createElement("iframe");
+  iframe.name=iframeName;
+  iframe.style.display="none";
+  const form=document.createElement("form");
+  form.method="POST";
+  form.action=GAS_URL;
+  form.target=iframeName;
+  form.style.display="none";
+  Object.keys(paramsObj).forEach(function(key){
+   const input=document.createElement("input");
+   input.type="hidden";
+   input.name=key;
+   input.value=paramsObj[key] == null ? "" : String(paramsObj[key]);
+   form.appendChild(input);
+  });
+  let submitted=false;
+  let finished=false;
+  const timer=setTimeout(function(){
+   if(finished)return;
+   finished=true;cleanup();reject(new Error("保存処理がタイムアウトしました"));
+  },45000);
+  function cleanup(){
+   clearTimeout(timer);
+   if(form.parentNode)form.parentNode.removeChild(form);
+   if(iframe.parentNode)iframe.parentNode.removeChild(iframe);
+  }
+  iframe.onload=function(){
+   if(!submitted || finished)return;
+   finished=true;cleanup();resolve({ok:true});
+  };
+  document.body.appendChild(iframe);
+  document.body.appendChild(form);
+  setTimeout(function(){submitted=true;form.submit();},100);
+ });
+}
+
+async function submitReport(){
+ hideError();
+ const message=validate();
+ if(message){showError(message);showStep(1);return;}
+ const btn=document.getElementById("submitBtn");
+ btn.disabled=true;
+ btn.textContent="送信しています";
+ const data={
+  mode:"createReport",
+  name:value("name"),
+  town:value("town"),
+  category:value("category"),
+  place:value("place"),
+  body:value("body"),
+  urgency:value("urgency") || "通常",
+  lat:currentLat,
+  lng:currentLng,
+  photoData:photoData,
+  photoName:photoName
+ };
+ try{
+  const result=photoData ? await postForm(data) : await jsonp(data);
+  btn.disabled=false;
+  btn.textContent="この内容で送信する";
+  if(!result || !result.ok){
+   showError(result && (result.message || result.error) ? (result.message || result.error) : "投稿できませんでした。");
+   return;
+  }
+  showSuccess(result);
+ }catch(error){
+  btn.disabled=false;
+  btn.textContent="この内容で送信する";
+  showError("投稿できませんでした。\n"+String(error.message || error));
+ }
+}
+
+function showSuccess(result){
+ document.getElementById("successText").textContent="投稿を受け付けました。"+(result.id ? " 投稿ID："+result.id : "");
+ if(result.photoUrl){
+  document.getElementById("successImg").src=result.photoUrl;
+  document.getElementById("successPhoto").style.display="block";
+ }
+ if(result.mapUrl){
+  document.getElementById("mapLink").href=result.mapUrl;
+  document.getElementById("mapLink").style.display="flex";
+ }else{
+  document.getElementById("mapLink").style.display="none";
+ }
+ if(result.navUrl){
+  document.getElementById("navLink").href=result.navUrl;
+  document.getElementById("navLink").style.display="flex";
+ }else{
+  document.getElementById("navLink").style.display="none";
+ }
+ document.getElementById("successBox").style.display="block";
+ document.querySelectorAll(".card").forEach(function(card){card.classList.remove("active");});
+ document.querySelectorAll(".progressItem").forEach(function(item){item.classList.remove("active");});
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function showError(message){
+ const box=document.getElementById("errorBox");
+ box.textContent=message;
+ box.style.display="block";
+ window.scrollTo({top:document.getElementById("step3").offsetTop-20,behavior:"smooth"});
+}
+
+function hideError(){
+ const box=document.getElementById("errorBox");
+ box.textContent="";
+ box.style.display="none";
+}
+
+function reloadForm(){location.reload();}
+
+function escapeHtml(value){
+ return String(value || "")
+  .replace(/&/g,"&amp;")
+  .replace(/</g,"&lt;")
+  .replace(/>/g,"&gt;")
+  .replace(/"/g,"&quot;")
+  .replace(/'/g,"&#39;");
+}
+
+function compressImage(file,maxSize,quality){
+ return new Promise(function(resolve,reject){
+  const reader=new FileReader();
+  reader.onerror=reject;
+  reader.onload=function(event){
+   const image=new Image();
+   image.onerror=reject;
+   image.onload=function(){
+    let width=image.naturalWidth;
+    let height=image.naturalHeight;
+    const scale=Math.min(1,maxSize/Math.max(width,height));
+    width=Math.max(1,Math.round(width*scale));
+    height=Math.max(1,Math.round(height*scale));
+    const canvas=document.createElement("canvas");
+    canvas.width=width;canvas.height=height;
+    canvas.getContext("2d").drawImage(image,0,0,width,height);
+    let q=quality;
+    let dataUrl=canvas.toDataURL("image/jpeg",q);
+    while(dataUrl.length>45000 && q>0.32){q-=0.08;dataUrl=canvas.toDataURL("image/jpeg",q);}
+    resolve(dataUrl);
+   };
+   image.src=event.target.result;
+  };
+  reader.readAsDataURL(file);
+ });
+}
+</script>
+</body>
+</html>
