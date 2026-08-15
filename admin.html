@@ -2319,6 +2319,12 @@ function reportHtml(r,index){
  const id =
  pick(r,["ID","id"],"");
 
+ const rowNumber =
+ pick(r,["__rowNumber","rowNumber","行番号"],"");
+
+ const displayId =
+ id || (rowNumber ? "行" + rowNumber : "IDなし");
+
  const date =
  pick(r,["日時","date"],"");
 
@@ -2371,7 +2377,7 @@ function reportHtml(r,index){
  + '<article class="reportCard">'
  + '<div class="reportHead">'
  + '<h3>' + esc(category) + '</h3>'
- + '<div class="reportId">ID：' + esc(id) + '</div>'
+ + '<div class="reportId">ID：' + esc(displayId) + '</div>'
  + '<div class="badges">'
  + '<span class="badge yellow">' + esc(status) + '</span>'
  + '<span class="badge">' + esc(publicStatus) + '</span>'
@@ -2421,8 +2427,8 @@ function reportHtml(r,index){
  + '<label>備考</label>'
  + '<textarea id="note-' + index + '" placeholder="役所への提出日、担当課、確認内容など">' + esc(note) + '</textarea>'
 
- + '<button class="btn btnGreen reportSave" type="button" onclick="updateOneReport(' + JSON.stringify(id) + ',' + index + ')">この投稿を更新する</button>'
-+ '<button class="btn btnDanger reportDelete" type="button" onclick="deleteOneReport(' + JSON.stringify(id) + ')">この投稿を削除する</button>'
+ + '<button class="btn btnGreen reportSave" type="button" onclick="updateOneReport(' + JSON.stringify(id) + ',' + index + ',' + JSON.stringify(rowNumber) + ')">この投稿を更新する</button>'
++ '<button class="btn btnDanger reportDelete" type="button" onclick="deleteOneReport(' + JSON.stringify(id) + ',' + JSON.stringify(rowNumber) + ')">この投稿を削除する</button>'
 
  + '</div>'
 
@@ -2431,7 +2437,7 @@ function reportHtml(r,index){
 
 }
 
-async function updateOneReport(id,index){
+async function updateOneReport(id,index,rowNumber){
 
  if(!adminPassword){
 
@@ -2450,6 +2456,7 @@ async function updateOneReport(id,index){
    mode:"updateReport",
    adminPassword:adminPassword,
    id:id,
+   rowNumber:rowNumber,
    status:val("status-" + index),
    publicStatus:val("public-" + index),
    order:val("order-" + index),
@@ -2482,7 +2489,7 @@ async function updateOneReport(id,index){
 
 }
 
-async function deleteOneReport(id){
+async function deleteOneReport(id,rowNumber){
 
  if(!adminPassword){
 
@@ -2494,7 +2501,7 @@ async function deleteOneReport(id){
 
  const confirmed =
  confirm(
-  "この投稿を削除します。\\n削除後は元に戻せません。\\n\\nID：" + id
+  "この投稿を削除します。\\n削除後は元に戻せません。\\n\\nID：" + (id || ("行" + rowNumber))
  );
 
  if(!confirmed){
@@ -2509,7 +2516,8 @@ async function deleteOneReport(id){
   await jsonp({
    mode:"deleteReport",
    adminPassword:adminPassword,
-   id:id
+   id:id,
+   rowNumber:rowNumber
   });
 
   if(data && data.ok){
