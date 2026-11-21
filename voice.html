@@ -603,6 +603,7 @@ button{
 }
 
 </style>
+<link rel="stylesheet" href="connections.css">
 </head>
 
 <body>
@@ -681,10 +682,11 @@ button{
  緊急の場合や、すぐ対応が必要な場合は、市役所・警察・消防など、関係機関へ直接連絡してください。
 </div>
 
+<section class="dxSection"><h2>届けた声の、その後も確認</h2><p>各投稿の対応状態と「回答・対応の経過」で、確認や相談の状況をご覧いただけます。対応中・回答待ちなど、まだ解決していない内容も状態を区別して表示します。</p><div class="dxButtons"><a href="post.html">市民の声を届ける</a><a href="activity.html?view=schedule">活動予定・対話会</a><a href="index.html">トップへ戻る</a></div></section>
 <section class="reports" id="reports">
 
  <div class="reportsHead">
-  <h2>届いた市民の声</h2>
+  <h2>市民の声と対応状況</h2>
   <button class="reloadBtn" type="button" onclick="loadReports()">更新</button>
  </div>
 
@@ -1035,7 +1037,7 @@ function reportCard(r,index){
    )
 
  + (improvement
-    ? '<div class="improvementBox"><div class="improvementTitle">改善報告</div><div class="improvementText">' + esc(improvement) + '</div>' +
+    ? '<div class="improvementBox"><div class="improvementTitle">回答・対応の経過</div><div class="improvementText">' + esc(improvement) + '</div>' +
       (improvementPhoto ? '<img class="improvementPhoto" src="' + esc(improvementPhoto) + '" alt="改善写真">' : '') +
       '</div>'
     : ''

@@ -8,6 +8,13 @@
 
 <meta name="description" content="岩下りゅうの市民の声DX。地域の困りごとを聞き、整理し、必要に応じて行政へ届けます。">
 <meta name="theme-color" content="#237a3b">
+<meta property="og:type" content="website">
+<meta property="og:title" content="岩下りゅう 市民の声DX">
+<meta property="og:description" content="地域での活動、動画、市民の声と対応状況をひとつの窓口に。">
+<meta property="og:url" content="https://ichirohns-jpg.github.io/iwashita-ryu-activity/">
+<meta property="og:image" content="https://ichirohns-jpg.github.io/iwashita-ryu-activity/apple-touch-icon.png">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://ichirohns-jpg.github.io/iwashita-ryu-activity/">
 
 <link rel="icon" type="image/png" href="apple-touch-icon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -463,6 +470,7 @@ a{
 }
 
 </style>
+<link rel="stylesheet" href="connections.css">
 </head>
 
 <body>
@@ -520,6 +528,18 @@ a{
   </a>
  </div>
 
+</section>
+
+
+<section class="dxSection" aria-labelledby="connectTitle">
+ <h2 id="connectTitle">会って話す。スマホでつながる。</h2>
+ <p>街頭や対話の場で知った方も、SNSで知った方も。活動や考えを確かめ、地域の声を届けられる窓口です。</p>
+ <div class="dxLinks">
+  <a class="dxLink" href="activity.html?view=schedule"><strong>活動予定・対話会</strong><span>会って話せる日時・場所など、公開された案内を見る。</span></a>
+  <a class="dxLink" href="activity.html?view=ideas"><strong>考え・提案を知る</strong><span>地域の課題についての考えや、具体的な提案を見る。</span></a>
+  <a class="dxLink" href="voice.html#reports"><strong>市民の声と対応状況</strong><span>届いた声と、相談・確認・回答などの経過を見る。</span></a>
+ </div>
+ <div class="dxButtons"><a href="profile.html">岩下りゅうとは</a><a href="videos.html?view=answers">質問への回答動画</a></div>
 </section>
 
 <section class="menuGrid">
@@ -606,6 +626,21 @@ a{
 
 </section>
 
+
+<section class="dxSection" id="share" aria-labelledby="shareTitle">
+ <h2 id="shareTitle">この窓口を知らせる</h2>
+ <p>活動や考えを伝えるときに、このページのリンクをご利用いただけます。QRコードからも、同じトップページを開けます。</p>
+ <div class="dxButtons">
+  <button id="shareSite" type="button" hidden>共有先を選ぶ</button>
+  <button id="copySite" type="button">リンクをコピー</button>
+  <a href="https://social-plugins.line.me/lineit/share?url=https%3A%2F%2Fichirohns-jpg.github.io%2Fiwashita-ryu-activity%2F" target="_blank" rel="noopener">LINEで共有</a>
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fichirohns-jpg.github.io%2Fiwashita-ryu-activity%2F" target="_blank" rel="noopener">Facebookで共有</a>
+ </div>
+ <p id="shareResult" role="status" aria-live="polite"></p>
+ <a href="https://ichirohns-jpg.github.io/iwashita-ryu-activity/" aria-label="QRコードの行き先：市民の声DXトップ"><img class="dxQr" src="images/site-qr.png" width="200" height="200" alt="岩下りゅう 市民の声DXトップページのQRコード"></a>
+ <div class="dxButtons"><a href="images/site-qr.png" download="iwashita-ryu-qr.png">QR画像を保存</a><a href="#connectTitle">案内に戻る</a></div>
+</section>
+
 <div class="notice">
  現在、試験公開中です。<br>
  投稿内容を確認しながら、地域の声を届ける仕組みとして少しずつ育てていきます。
@@ -628,6 +663,7 @@ a{
  <a href="support.html"><span>💬</span>応援</a>
 </nav>
 
+<script src="connections.js"></script>
 </body>
 </html>
 

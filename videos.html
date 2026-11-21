@@ -581,6 +581,7 @@ button{
 }
 
 </style>
+<link rel="stylesheet" href="connections.css">
 </head>
 
 <body>
@@ -623,6 +624,7 @@ button{
 
 </section>
 
+<section class="dxSection" aria-label="表示する内容"><div class="dxButtons"><a href="videos.html" data-view="all">すべての動画</a><a href="videos.html?view=answers" data-view="answers">質問への回答</a><a href="activity.html?view=schedule">活動予定・対話会</a></div><p id="viewDescription" class="dxMuted">公開された内容を表示します。</p></section>
 <section class="listSection">
 
  <div class="listHead">
@@ -650,6 +652,7 @@ button{
 <section class="nextAction">
 
  <h2>動画を見たあとは</h2>
+ <div class="dxButtons"><a href="post.html">市民の声を届ける</a><a href="voice.html#reports">対応状況を見る</a><a href="index.html">トップへ戻る</a></div>
 
  <p>
   写真つきの活動報告や、応援メッセージもご覧いただけます。
@@ -1076,7 +1079,7 @@ function videoCard(r,index){
  + '<a href="' + esc(lineUrl) + '" target="_blank" rel="noopener">LINE</a>'
  + '<a href="' + esc(xUrl) + '" target="_blank" rel="noopener">X</a>'
  + '<a href="' + esc(fbUrl) + '" target="_blank" rel="noopener">Facebook</a>'
- + '<button type="button" onclick="copyVideo(' + JSON.stringify(title) + ',' + JSON.stringify(shareUrl) + ')">コピー</button>'
+ + '<button type="button" class="recordCopy" data-title="' + esc(title) + '" data-url="' + esc(shareUrl) + '">コピー</button>'
  + '</div>'
  + '</div>'
 
@@ -1086,16 +1089,38 @@ function videoCard(r,index){
 
 }
 
+document.addEventListener("click",function(e){
+ const button=e.target.closest(".recordCopy");
+ if(button)copyVideo(button.dataset.title,button.dataset.url);
+});
+
+const requestedView = new URLSearchParams(location.search).get("view") || "all";
+const viewThemes = {schedule:["活動予定","対話会"],ideas:["考え・提案"],answers:["質問への回答"]};
+const currentView = Object.prototype.hasOwnProperty.call(viewThemes, requestedView) ? requestedView : "all";
+const viewTitles = {all:"公開中の動画",schedule:"活動予定・対話会",ideas:"考え・提案",answers:"質問への回答"};
+document.querySelectorAll("[data-view]").forEach(function(a){if(a.dataset.view===currentView)a.setAttribute("aria-current","page");});
+if(currentView!=="all"){
+ document.querySelector(".hero h1").textContent=viewTitles[currentView];
+ document.querySelector(".hero p").textContent=currentView==="schedule" ? "公開された活動予定や対話会の案内です。開催日・場所・参加方法は各案内をご確認ください。" : "テーマに沿って公開された内容をご覧いただけます。";
+ document.querySelector(".listSection h2").textContent=viewTitles[currentView];
+ document.querySelector(".heroButtons a").textContent=viewTitles[currentView]+"を見る";
+ document.title=viewTitles[currentView]+"｜岩下りゅう 市民の声DX";
+}
+document.getElementById("viewDescription").textContent=currentView==="schedule" ? "予定の変更・終了のお知らせも、各案内をご確認ください。" : "現在の表示："+viewTitles[currentView];
+
 function renderVideos(data){
 
+ const allRecords = normalizeVideos(data);
  const records =
- normalizeVideos(data);
+ allRecords.filter(function(r){
+  return currentView === "all" || viewThemes[currentView].indexOf(pick(r,["テーマ","theme","分類","category"],"")) !== -1;
+ });
 
  if(!records.length){
 
   videoList.innerHTML =
   '<div class="empty">' +
-  '<h3>現在、公開中の動画は準備中です。</h3>' +
+  '<h3>' + esc(viewTitles[currentView]) + 'は現在準備中です。</h3>' +
   '<p>公開された動画は、このページに順番に表示されます。</p>' +
   '</div>';
 
@@ -1106,9 +1131,13 @@ function renderVideos(data){
  videoList.innerHTML =
  records
  .map(function(r,index){
-  return videoCard(r,index);
+  return videoCard(r,allRecords.indexOf(r));
  })
  .join("");
+ let anchor=location.hash.slice(1);
+ try{anchor=decodeURIComponent(anchor);}catch(e){}
+ const target=document.getElementById(anchor);
+ if(target)target.scrollIntoView();
 
 }
 
