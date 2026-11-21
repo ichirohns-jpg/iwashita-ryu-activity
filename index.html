@@ -473,7 +473,7 @@ a{
 <link rel="stylesheet" href="connections.css">
 </head>
 
-<body>
+<body class="homePage">
 
 <div class="wrap">
 
@@ -496,140 +496,43 @@ a{
 
 <main>
 
-<section class="hero">
-
- <div class="kicker">聞く力、伝える力、つなげる力</div>
-
- <h1>
-  岩下りゅう
-  <span>市民の声DX</span>
- </h1>
-
- <p>
-  市政の主役は市民です。<br>
-  地域の困りごとや声を聞き、必要に応じて行政へ届け、対応状況を見える形で伝えます。
- </p>
-
- <div class="heroVisual">
-  <div class="heroVisualTitle">
-   困りごとを、ひとりで抱えないで。
-  </div>
-  <div class="heroVisualText">
-   スマホから届いた地域の声を整理し、活動・行政への相談・解決報告へつなげます。
-  </div>
+<section class="hero homeHero" aria-labelledby="homeTitle">
+ <div class="homeIntro">
+  <div class="kicker">地域の声を、活動につなぐ</div>
+  <h1 id="homeTitle">岩下りゅう</h1>
+  <p class="homeSubtitle">活動と市民の声</p>
+  <p class="homeLead">日々の活動を見る。<br>地域の困りごとを届ける。</p>
+  <a class="profileLink" href="profile.html">プロフィールを見る</a>
  </div>
-
- <div class="mainActions">
-  <a class="primary" href="voice.html">
-   市民の困りごとを相談する
-  </a>
-  <a class="secondary" href="activity.html">
-   活動報告を見る
-  </a>
- </div>
-
+ <a class="homePortrait" href="profile.html" aria-label="岩下りゅうのプロフィールを見る"><img src="images/profile/iwashita-ryu-profile-20260709.png" width="1024" height="1280" alt="岩下りゅうのプロフィール画像" fetchpriority="high"></a>
+ <div class="mainActions"><a class="primary" href="activity.html">活動を見る</a><a class="secondary" href="voice.html">声を届ける</a></div>
 </section>
 
 
-<section class="dxSection" aria-labelledby="connectTitle">
- <h2 id="connectTitle">会って話す。スマホでつながる。</h2>
- <p>街頭や対話の場で知った方も、SNSで知った方も。活動や考えを確かめ、地域の声を届けられる窓口です。</p>
- <div class="dxLinks">
-  <a class="dxLink" href="activity.html?view=schedule"><strong>活動予定・対話会</strong><span>会って話せる日時・場所など、公開された案内を見る。</span></a>
-  <a class="dxLink" href="activity.html?view=ideas"><strong>考え・提案を知る</strong><span>地域の課題についての考えや、具体的な提案を見る。</span></a>
-  <a class="dxLink" href="voice.html#reports"><strong>市民の声と対応状況</strong><span>届いた声と、相談・確認・回答などの経過を見る。</span></a>
- </div>
- <div class="dxButtons"><a href="profile.html">岩下りゅうとは</a><a href="videos.html?view=answers">質問への回答動画</a></div>
+
+
+<section class="menuGrid pictureMenus" aria-label="したいことを選ぶ">
+ <a class="menuCard pictureCard" href="activity.html"><figure><img src="images/activity/hero-main.jpg" width="1280" height="720" alt="地域での対話を表したイメージ" loading="lazy"><figcaption>イメージ</figcaption></figure><div class="pictureLabel"><h2>活動報告</h2><p>写真と文章で活動を見る</p></div></a>
+ <a class="menuCard pictureCard" href="videos.html"><figure><img src="images/activity/hero-video.jpg" width="1280" height="720" alt="動画で見る活動の案内画像" loading="lazy"><figcaption>イメージ</figcaption></figure><div class="pictureLabel"><h2>動画を見る</h2><p>活動やメッセージを視聴</p></div></a>
+ <a class="menuCard pictureCard" href="voice.html"><figure><img src="images/activity/voice-report.jpg" width="1280" height="720" alt="地域の困りごとを写真で伝えるイメージ" loading="lazy"><figcaption>イメージ</figcaption></figure><div class="pictureLabel"><h2>市民の声</h2><p>相談と対応状況を見る</p></div></a>
+ <a class="menuCard pictureCard" href="support.html"><figure><img src="images/activity/profile-main.jpg" width="1280" height="720" alt="地域の人との交流を表したイメージ" loading="lazy"><figcaption>イメージ</figcaption></figure><div class="pictureLabel"><h2>応援・感想</h2><p>メッセージを届ける</p></div></a>
+</section>
+<section class="dxSection latestPhotos" aria-labelledby="latestPhotosTitle">
+ <div class="photoSectionHead"><h2 id="latestPhotosTitle">写真で見る活動</h2><a href="activity.html">すべて見る</a></div>
+ <div id="homeActivityList" class="activityPreviewGrid" aria-live="polite"><p class="dxMuted">活動写真を読み込んでいます。<a href="activity.html">活動報告を開く</a></p></div>
+</section>
+<section class="dxSection compactRoutes" aria-labelledby="connectTitle">
+ <h2 id="connectTitle">会って話す・もっと知る</h2>
+ <div class="dxButtons"><a href="activity.html?view=schedule">活動予定・対話会</a><a href="activity.html?view=ideas">考え・提案</a><a href="videos.html?view=answers">質問への回答動画</a><a href="voice.html#reports">市民の声と対応状況</a></div>
 </section>
 
-<section class="menuGrid">
 
- <a class="menuCard primary" href="activity.html">
-  <div>
-   <div class="menuIcon">📸</div>
-   <h2>活動報告</h2>
-   <p>
-    地域活動、商店会、まちづくりの活動を写真と文章で見られます。
-   </p>
-  </div>
-  <div class="menuButton">活動を見る</div>
- </a>
 
- <a class="menuCard" href="voice.html">
-  <div>
-   <div class="menuIcon">📍</div>
-   <h2>市民の困りごと</h2>
-   <p>
-    生活、行政、交通、福祉、地域活動などの困りごとを相談できます。
-   </p>
-  </div>
-  <div class="menuButton">相談・投稿する</div>
- </a>
-
- <a class="menuCard" href="support.html">
-  <div>
-   <div class="menuIcon">💬</div>
-   <h2>応援メッセージ</h2>
-   <p>
-    応援、感想、期待することをニックネームで送れます。
-   </p>
-  </div>
-  <div class="menuButton">応援を書く</div>
- </a>
-
- <a class="menuCard" href="videos.html">
-  <div>
-   <div class="menuIcon">🎥</div>
-   <h2>動画</h2>
-   <p>
-    地域活動やメッセージを動画でわかりやすく見られます。
-   </p>
-  </div>
-  <div class="menuButton">動画を見る</div>
- </a>
-
-</section>
-
-<section class="section sectionCard">
-
- <h2>困りごとを聞き、行政へ届けるために</h2>
-
- <p>
-  このページでは、岩下りゅうの活動報告、動画、応援メッセージ、市民の困りごと投稿をひとつにまとめています。
-  届いた声を整理し、必要に応じて担当窓口へ届け、対応状況を伝えるための市民の声DXです。
- </p>
-
- <div class="featureGrid">
-
-  <div class="feature">
-   <h3>聞く</h3>
-   <p>
-    市民の困りごとや応援の声を、スマホから届けることができます。
-   </p>
-  </div>
-
-  <div class="feature">
-   <h3>伝える</h3>
-   <p>
-    届いた声と地域での活動を、写真・文章・動画でわかりやすく伝えます。
-   </p>
-  </div>
-
-  <div class="feature">
-   <h3>つなげる</h3>
-   <p>
-    市民の声を整理し、必要な相談先や行政への要望につなげます。
-   </p>
-  </div>
-
- </div>
-
-</section>
 
 
 <section class="dxSection" id="share" aria-labelledby="shareTitle">
  <h2 id="shareTitle">この窓口を知らせる</h2>
- <p>活動や考えを伝えるときに、このページのリンクをご利用いただけます。QRコードからも、同じトップページを開けます。</p>
+ <p>LINEやQRコードで、この窓口を知らせられます。</p>
  <div class="dxButtons">
   <button id="shareSite" type="button" hidden>共有先を選ぶ</button>
   <button id="copySite" type="button">リンクをコピー</button>
@@ -664,6 +567,7 @@ a{
 </nav>
 
 <script src="connections.js"></script>
+<script src="home-activities.js"></script>
 </body>
 </html>
 

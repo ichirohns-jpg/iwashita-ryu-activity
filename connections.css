@@ -14,3 +14,26 @@
 @media(max-width:700px){.dxLinks{grid-template-columns:1fr}.dxSection{padding:18px}.dxButtons a,.dxButtons button{flex:1 1 180px}.bottomNav a{font-size:14px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 @media print{.header,.bottomNav,.dxButtons,script{display:none!important}.dxSection{break-inside:avoid}.wrap{padding-bottom:0}}
+
+/* 写真を入口にしたホーム */
+.homeHero{display:grid;grid-template-columns:minmax(0,1fr) minmax(120px,240px);gap:20px;align-items:center}
+.homeHero .homeIntro h1{font-size:clamp(32px,6vw,64px);line-height:1.3;letter-spacing:0;margin:12px 0 0}
+.homeHero .homeSubtitle{font-size:clamp(20px,3vw,28px);color:#237a3b;margin:4px 0;font-weight:900}
+.homeHero .homeLead{font-size:18px;margin:12px 0;line-height:1.8}
+.homePortrait{display:block;border-radius:22px;overflow:hidden;background:#e8f8e8}
+.homePortrait img{display:block;width:100%;height:auto}
+.profileLink{display:inline-block;color:#14532d;font-size:17px;font-weight:800;text-decoration:underline;text-underline-offset:4px;padding:8px 0}
+.homeHero .mainActions{grid-column:1/-1;margin:0;grid-template-columns:1fr 1fr;width:100%}
+.homePage .pictureMenus{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.homePage .pictureCard{padding:0;min-height:0;display:block;overflow:hidden;background:#fff;border-color:#9ed7aa}
+.pictureCard figure{position:relative;margin:0;line-height:0;background:#e8f8e8}
+.pictureCard img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:contain}
+.pictureCard figcaption{position:absolute;right:8px;bottom:6px;padding:3px 6px;background:rgba(255,255,255,.95);color:#374151;font-size:12px;line-height:1.4;border-radius:4px}
+.pictureLabel{padding:16px 18px}.pictureLabel h2{margin:0!important;font-size:27px!important;line-height:1.4!important}.pictureLabel p{margin:5px 0 0!important;font-size:16px!important}
+.photoSectionHead{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.photoSectionHead>a{font-size:17px;text-decoration:underline;padding:10px;color:#14532d;font-weight:800}
+.activityPreviewGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:14px}.activityPreview{display:block;border:1px solid #9ed7aa;border-radius:18px;overflow:hidden;background:#fff;min-width:0}
+.activityPreview figure{margin:0;background:#f0f7ef}.activityPreview img{width:100%;aspect-ratio:4/3;object-fit:contain;display:block;height:auto}.activityPreviewBody{padding:14px}.activityPreviewBody h3{font-size:18px;line-height:1.6;margin:5px 0;overflow-wrap:anywhere;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}.activityPreviewBody p{font-size:16px;line-height:1.7;margin:6px 0}.activityPreviewBody time{font-size:14px;color:#4b5563}.activityPreviewOpen{font-size:16px;font-weight:800;color:#14532d;text-decoration:underline}.previewNoPhoto{display:flex;align-items:center;justify-content:center;aspect-ratio:4/3;font-size:20px;color:#14532d;background:#e8f8e8}
+.pageVisual{margin:18px 0 0;background:#f3fff1;border-radius:20px;overflow:hidden}.pageVisual img{display:block;width:100%;height:auto;max-height:360px;object-fit:contain}.pageVisual figcaption{font-size:14px;line-height:1.5;color:#4b5563;text-align:right;padding:5px 10px}.portraitVisual{max-width:260px;margin:18px auto 0}.portraitVisual img{max-height:none}
+.homePage .dxSection h2{font-size:26px}.homePage .dxQr{width:144px;height:144px}
+@media(max-width:700px){.homeHero{grid-template-columns:minmax(0,1fr) 112px;gap:12px}.homeHero .kicker{font-size:13px;padding:6px 8px}.homeHero .homeLead{font-size:16px;margin:8px 0}.homeHero .homeSubtitle{font-size:20px}.homeHero .mainActions a{font-size:18px;min-height:60px;border-radius:18px}.homePortrait{border-radius:16px}.homePage .pictureMenus{gap:12px}.pictureLabel{padding:12px}.pictureLabel h2{font-size:21px!important}.pictureLabel p{font-size:16px!important}.pictureCard{border-radius:20px!important}.activityPreviewGrid{grid-template-columns:1fr}.activityPreview{display:grid;grid-template-columns:110px minmax(0,1fr);align-items:start}.activityPreview figure{height:100%}.activityPreview img{aspect-ratio:auto;height:auto;max-height:180px;margin:auto}.activityPreviewBody{padding:12px}.pageVisual img{max-height:260px}.homePage .dxSection h2{font-size:24px}}
+@media(max-width:360px){.homeHero{grid-template-columns:minmax(0,1fr) 96px}.homeHero .homeIntro h1{font-size:29px}.homeHero .kicker{font-size:12px}.pictureLabel h2{font-size:19px!important}}
